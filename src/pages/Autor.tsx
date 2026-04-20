@@ -42,7 +42,7 @@ const Autor = () => {
     name: author.name,
     jobTitle: author.role,
     url: `https://adscale.app/autor/${slug}`,
-    image: `https://adscale.app/src/assets/pedro-lucas-fundador.jpg`,
+    image: "https://adscale.app/autores/pedro-lucas.jpg",
     worksFor: { "@type": "Organization", name: "AD Scale", url: "https://adscale.app" },
     knowsAbout: author.expertise,
     address: { "@type": "PostalAddress", addressRegion: "MG", addressCountry: "BR" },

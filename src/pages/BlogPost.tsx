@@ -200,6 +200,7 @@ const BlogPost = () => {
       "@type": "Person",
       name: "Pedro Lucas",
       url: "https://adscale.app/autor/pedro-lucas",
+      image: "https://adscale.app/autores/pedro-lucas.jpg",
     },
     publisher: {
       "@type": "Organization",
