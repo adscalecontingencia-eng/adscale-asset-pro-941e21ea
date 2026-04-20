@@ -9,12 +9,13 @@ interface SEOProps {
   publishedAt?: string;
   image?: string;
   jsonLd?: object;
+  noIndex?: boolean;
 }
 
 const SITE_URL = "https://adscale.app";
 const DEFAULT_OG = "/og/og-default.jpg";
 
-const SEO = ({ title, description, keywords, canonical, ogType = "website", publishedAt, image, jsonLd }: SEOProps) => {
+const SEO = ({ title, description, keywords, canonical, ogType = "website", publishedAt, image, jsonLd, noIndex }: SEOProps) => {
   const url = canonical ? `${SITE_URL}${canonical}` : SITE_URL;
   const ogImage = `${SITE_URL}${image || DEFAULT_OG}`;
   return (
