@@ -215,7 +215,7 @@ const Blog = () => {
                     aria-selected={active}
                     variant={active ? "default" : "outline"}
                     size="sm"
-                    onClick={() => setFilter(f.value)}
+                    onClick={() => updateParams({ funnel: f.value })}
                     className="rounded-full"
                   >
                     <span className="hidden sm:inline">{f.label}</span>
