@@ -111,6 +111,19 @@ const Blog = () => {
     },
   ];
 
+  // Dynamic SEO: only the unfiltered page 1 is the canonical/indexable version.
+  // Filtered or paginated views point canonical back to /blog and are noindex,follow.
+  const isCanonicalView = filter === "Todos" && currentPage === 1;
+  const filterLabel = filter === "Todos" ? "" : ` — ${filter}`;
+  const pageLabel = currentPage > 1 ? ` (página ${currentPage})` : "";
+  const seoTitle = isCanonicalView
+    ? "Blog Meta Ads: contingência, BM verificada e Trust Score | AD Scale"
+    : `Blog AD Scale${filterLabel}${pageLabel} | Meta Ads e Facebook Ads`;
+  const seoDescription = isCanonicalView
+    ? "Aprenda sobre contingência no Meta Ads, bloqueio de conta, BM verificada, Trust Score, perfis aged, Pixel, CAPI e estrutura de escala."
+    : `Artigos de ${filter === "Todos" ? "Meta Ads" : filter.toLowerCase()} sobre contingência, BM verificada, Trust Score e Facebook Ads.${pageLabel}`;
+  const canonicalPath = "/blog";
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
@@ -146,10 +159,11 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden w-full max-w-[100vw]">
       <SEO
-        title="Blog Meta Ads: contingência, BM verificada e Trust Score | AD Scale"
-        description="Aprenda sobre contingência no Meta Ads, bloqueio de conta, BM verificada, Trust Score, perfis aged, Pixel, CAPI e estrutura de escala."
+        title={seoTitle}
+        description={seoDescription}
         keywords={[
           "blog meta ads",
+          "blog facebook ads",
           "contingência meta ads",
           "bloqueio conta meta ads",
           "BM verificada",
@@ -158,7 +172,8 @@ const Blog = () => {
           "pixel vs capi",
           "warm up meta ads",
         ]}
-        canonical="/blog"
+        canonical={canonicalPath}
+        noIndex={!isCanonicalView}
         jsonLd={jsonLd}
       />
       <Navbar />
