@@ -15,7 +15,7 @@ interface SEOProps {
 
 const SEO = ({ title, description, keywords, canonical, ogType = "website", publishedAt, image, jsonLd, noIndex }: SEOProps) => {
   const url = canonical ? `${SITE_URL}${canonical}` : SITE_URL;
-  const ogImage = `${SITE_URL}${image || DEFAULT_OG}`;
+  const ogImage = image ? `${SITE_URL}${image}` : SITE_DEFAULT_OG;
   return (
     <Helmet>
       <title>{title}</title>
