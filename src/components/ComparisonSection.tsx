@@ -15,7 +15,7 @@ const ComparisonSection = () => {
     {
       label: "Histórico de gasto",
       common: "Sem histórico",
-      adscale: "Spending track D030 cap estendido",
+      adscale: "Spending track D0–30 cap estendido",
     },
     {
       label: "Fingerprints e configurações",
@@ -25,12 +25,12 @@ const ComparisonSection = () => {
     {
       label: "Suporte pós-venda",
       common: "Inexistente ou demorado",
-      adscale: "Briefing t	6cnico 1 a 1 incluso",
+      adscale: "Briefing técnico 1 a 1 incluso",
     },
     {
       label: "Troca em caso de bloqueio",
       common: "Sem cobertura",
-      adscale: "Avalia1cão caso a caso",
+      adscale: "Avaliação caso a caso",
     },
   ];
 
@@ -51,7 +51,7 @@ const ComparisonSection = () => {
           {/* Header */}
           <div className="grid grid-cols-[1fr,1fr,1fr] border-b border-border/50 bg-muted/30">
             <div className="p-6 text-left font-semibold text-muted-foreground text-sm uppercase tracking-wider">
-              Caracter6st31ca
+              Característica
             </div>
             <div className="p-6 text-center font-semibold text-muted-foreground text-sm uppercase tracking-wider border-x border-border/50">
               Ativo Comum
@@ -83,7 +83,7 @@ const ComparisonSection = () => {
         </div>
 
         <p className="text-center text-muted-foreground text-sm mt-6">
-          Todos os ativos s	6o curados individualmente para opera1cões de alto volume.
+          Todos os ativos são curados individualmente para operações de alto volume.
         </p>
       </div>
     </section>
