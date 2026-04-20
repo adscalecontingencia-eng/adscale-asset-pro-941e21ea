@@ -1235,7 +1235,7 @@ Em e-commerce típico:
 ## Erros comuns
 
 - **Verificar domínio em BM errada** — só uma BM pode verificar cada domínio. Decida com cuidado.
-- **Subdomínios** — `loja.seudominio.com` precisa de verificação separada da raiz
+- **Subdomínios** — loja.seudominio.com precisa de verificação separada da raiz
 - **Apex vs www** — verifique a forma que aparece no anúncio
 - **Múltiplos domínios** — cada loja precisa do próprio processo
 
