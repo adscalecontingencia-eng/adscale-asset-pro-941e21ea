@@ -1,5 +1,5 @@
-import { useMemo, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useMemo } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
@@ -19,18 +19,29 @@ import { blogPosts, type BlogPost } from "@/data/blogPosts";
 
 type FunnelFilter = "Todos" | "Topo de funil" | "Meio de funil" | "Fundo de funil";
 
-const FILTERS: { label: string; value: FunnelFilter; short: string }[] = [
-  { label: "Todos", value: "Todos", short: "Todos" },
-  { label: "Topo de funil (ToF)", value: "Topo de funil", short: "ToF" },
-  { label: "Meio de funil (MoF)", value: "Meio de funil", short: "MoF" },
-  { label: "Fundo de funil (BoF)", value: "Fundo de funil", short: "BoF" },
+const FILTERS: { label: string; value: FunnelFilter; short: string; slug: string }[] = [
+  { label: "Todos", value: "Todos", short: "Todos", slug: "todos" },
+  { label: "Topo de funil (ToF)", value: "Topo de funil", short: "ToF", slug: "tof" },
+  { label: "Meio de funil (MoF)", value: "Meio de funil", short: "MoF", slug: "mof" },
+  { label: "Fundo de funil (BoF)", value: "Fundo de funil", short: "BoF", slug: "bof" },
 ];
+
+const SLUG_TO_FILTER: Record<string, FunnelFilter> = FILTERS.reduce(
+  (acc, f) => ({ ...acc, [f.slug]: f.value }),
+  {} as Record<string, FunnelFilter>,
+);
 
 const POSTS_PER_PAGE = 6;
 
 const Blog = () => {
-  const [filter, setFilter] = useState<FunnelFilter>("Todos");
-  const [page, setPage] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const funnelParam = (searchParams.get("funil") || "todos").toLowerCase();
+  const filter: FunnelFilter = SLUG_TO_FILTER[funnelParam] ?? "Todos";
+  const filterSlug = FILTERS.find((f) => f.value === filter)?.slug ?? "todos";
+
+  const pageParam = parseInt(searchParams.get("page") || "1", 10);
+  const requestedPage = Number.isFinite(pageParam) && pageParam > 0 ? pageParam : 1;
 
   const sortedPosts = useMemo(
     () =>
@@ -46,16 +57,33 @@ const Blog = () => {
   );
 
   const totalPages = Math.max(1, Math.ceil(filteredPosts.length / POSTS_PER_PAGE));
-  const currentPage = Math.min(page, totalPages);
+  const currentPage = Math.min(Math.max(1, requestedPage), totalPages);
   const paginatedPosts = filteredPosts.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
     currentPage * POSTS_PER_PAGE,
   );
 
-  // Reset to page 1 whenever the filter changes
-  useEffect(() => {
-    setPage(1);
-  }, [filter]);
+  const updateParams = (next: { funnel?: FunnelFilter; page?: number }) => {
+    const newParams = new URLSearchParams(searchParams);
+    if (next.funnel !== undefined) {
+      const slug = FILTERS.find((f) => f.value === next.funnel)?.slug ?? "todos";
+      if (slug === "todos") newParams.delete("funil");
+      else newParams.set("funil", slug);
+      newParams.delete("page");
+    }
+    if (next.page !== undefined) {
+      if (next.page <= 1) newParams.delete("page");
+      else newParams.set("page", String(next.page));
+    }
+    setSearchParams(newParams, { replace: false });
+  };
+
+  const goToPage = (p: number) => {
+    updateParams({ page: p });
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   const counts = useMemo(() => {
     const base = { Todos: sortedPosts.length, "Topo de funil": 0, "Meio de funil": 0, "Fundo de funil": 0 };
