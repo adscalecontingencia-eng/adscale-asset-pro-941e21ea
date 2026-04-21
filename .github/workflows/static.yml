@@ -1,4 +1,4 @@
-name: Deploy Vite SPA to GitHub Pages
+name: Deploy static content to Pages
 
 on:
   push:
