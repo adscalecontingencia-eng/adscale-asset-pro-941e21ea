@@ -47,8 +47,8 @@ const ComparisonSection = () => {
           </h2>
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-border/50 bg-card/60 backdrop-blur-sm">
-          {/* Header */}
+        {/* Desktop / Tablet: Table */}
+        <div className="hidden md:block overflow-hidden rounded-2xl border border-border/50 bg-card/60 backdrop-blur-sm">
           <div className="grid grid-cols-[1fr,1fr,1fr] border-b border-border/50 bg-muted/30">
             <div className="p-6 text-left font-semibold text-muted-foreground text-sm uppercase tracking-wider">
               Característica
@@ -61,7 +61,6 @@ const ComparisonSection = () => {
             </div>
           </div>
 
-          {/* Rows */}
           {comparisonPoints.map((point, index) => (
             <div
               key={index}
@@ -77,6 +76,54 @@ const ComparisonSection = () => {
               <div className="p-6 text-center flex items-center justify-center gap-2 bg-primary/5">
                 <Check className="w-4 h-4 text-primary shrink-0" />
                 <span className="text-sm font-medium text-foreground">{point.adscale}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile: Stacked comparison cards */}
+        <div className="md:hidden space-y-4">
+          {comparisonPoints.map((point, index) => (
+            <div
+              key={index}
+              className="rounded-2xl border border-border/50 bg-card/60 backdrop-blur-sm overflow-hidden"
+            >
+              <div className="px-5 py-3 bg-muted/30 border-b border-border/50">
+                <h3 className="font-display font-semibold text-foreground text-base">
+                  {point.label}
+                </h3>
+              </div>
+
+              <div className="divide-y divide-border/50">
+                {/* Ativo comum */}
+                <div className="p-5 flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center shrink-0">
+                    <X className="w-4 h-4 text-destructive" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-1">
+                      Ativo Comum
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-snug">
+                      {point.common}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Ativo Adscale */}
+                <div className="p-5 flex items-start gap-3 bg-primary/5">
+                  <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
+                    <Check className="w-4 h-4 text-primary" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs uppercase tracking-wider text-primary font-semibold mb-1">
+                      Ativo Adscale
+                    </p>
+                    <p className="text-sm font-medium text-foreground leading-snug">
+                      {point.adscale}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
