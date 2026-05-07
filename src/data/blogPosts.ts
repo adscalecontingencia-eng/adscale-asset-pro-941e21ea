@@ -1572,6 +1572,117 @@ Para evitar o ciclo do bloqueio recorrente, [conheça a estrutura de contingênc
 Veja também: [como recuperar conta de anúncio bloqueada](/blog/recuperar-conta-anuncio-bloqueada-facebook-ads).
 `,
   },
+  {
+    slug: "disparo-via-api-whatsapp-cloud-bm-verificada-guia-completo",
+    title: "Disparo via API no WhatsApp Cloud: guia completo de BM, tiers e qualidade do número",
+    description:
+      "Como funciona o disparo via API oficial do WhatsApp Cloud, quais BMs verificadas são compatíveis, tiers de mensageria (250, 1k, 10k, 100k) e como evitar queda de qualidade do número.",
+    keywords: [
+      "disparo via api whatsapp",
+      "whatsapp cloud api",
+      "bm verificada para disparo",
+      "bm 250 disparos",
+      "bm 1000 disparos",
+      "bm 10000 disparos",
+      "tier whatsapp api",
+      "qualidade do número whatsapp",
+      "whatsapp business platform",
+      "template whatsapp aprovado",
+      "comprar bm para disparo via api",
+      "fornecedor bm whatsapp cloud api",
+    ],
+    category: "Meio de funil",
+    readingTime: "10 min",
+    publishedAt: "2026-05-07",
+    ogImage: "/og/og-default.jpg",
+    content: `
+Operações sérias de mensageria não rodam mais em chip pessoal nem em automações não oficiais. O caminho profissional, recomendado pelo próprio Meta na [documentação do WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/cloud-api), é o **disparo via API** usando a **WhatsApp Cloud API** vinculada a uma BM verificada.
+
+Este guia explica tudo o que um gestor precisa saber para operar disparo via API com previsibilidade: o que é a Cloud API, qual o papel da BM verificada, como funcionam os tiers de mensageria (250, 1k, 10k, 100k+), como o Meta avalia a qualidade do número e por que comprar uma **BM 250 Disparos**, **BM 1.000 Disparos** ou **BM 10.000 Disparos** pronta acelera o time-to-market em semanas.
+
+## O que é o disparo via API no WhatsApp Cloud
+
+A **WhatsApp Cloud API** é a infraestrutura oficial do Meta para envio e recebimento de mensagens em escala. Diferente da API On-Premises (descontinuada para novos clientes), ela é hospedada pelo próprio Meta — você só conecta sua aplicação, broker ou CRM ao endpoint oficial.
+
+Cada número conectado à Cloud API recebe um **WABA** (WhatsApp Business Account) dentro de uma **Business Manager**. É essa BM que precisa estar verificada para liberar limites maiores e funcionalidades como o selo verde de Official Business Account.
+
+## Por que a BM precisa ser verificada
+
+Segundo o [Meta Business Help Center](https://www.facebook.com/business/help), só BMs com verificação de negócio aprovada têm acesso a:
+
+- Tier de mensageria acima de 250 conversas/24h sem precisar elevar manualmente.
+- Solicitação do selo verde (Official Business Account).
+- Templates de marketing em volumes elevados.
+- Múltiplos números na mesma WABA.
+- Integração com provedores oficiais (BSPs) e CRMs.
+
+Tentar disparar via API com uma BM não verificada significa ficar travado em **250 conversas/24h por empresa**, sem caminho rápido para escalar. Por isso, no mercado profissional, a **BM verificada é pré-requisito**, não opcional.
+
+## Tiers de mensageria explicados
+
+A documentação oficial de [Messaging Limits](https://developers.facebook.com/docs/whatsapp/messaging-limits) define os tiers em torno do número de **conversas iniciadas pela empresa em uma janela de 24 horas**:
+
+| Tier | Conversas iniciadas / 24h | Quando se aplica |
+|---|---|---|
+| Tier 250 | 250 | Inicial, sem verificação completa |
+| Tier 1K | 1.000 | Pós-verificação + qualidade High |
+| Tier 10K | 10.000 | Histórico positivo de envio + qualidade estável |
+| Tier 100K | 100.000 | Operações enterprise |
+| Unlimited | Ilimitado | Casos enterprise aprovados pelo Meta |
+
+O Meta promove o número de tier automaticamente quando: a BM está verificada, a **Quality Rating** do número está em **High** e a empresa atinge 50% do limite atual em pelo menos dois dias dentro de uma janela de 7 dias.
+
+## Por que comprar uma BM já no tier desejado
+
+Subir do Tier 250 para o Tier 10K do zero leva, no melhor cenário, **semanas** — e exige enviar volume real com qualidade alta sem queimar o número. Operações que já têm demanda urgente preferem partir de uma estrutura pronta:
+
+- **BM 250 Disparos** — para quem está validando fluxo, template e taxa de entrega antes de investir em volume.
+- **BM 1.000 Disparos** — padrão para quem já roda remarketing, recuperação de carrinho e nutrição diária.
+- **BM 10.000 Disparos** — para operações enterprise, lançamentos e times comerciais com SDR/BDR rodando em escala.
+
+## Qualidade do número (Quality Rating)
+
+O Meta classifica cada número em três níveis:
+
+- **Green (High)** — feedback positivo, taxa de bloqueio baixa, templates com boa entrega.
+- **Yellow (Medium)** — alerta, throttling pode acontecer.
+- **Red (Low)** — risco de degradação ou suspensão do número.
+
+A qualidade é influenciada principalmente por:
+
+1. **Taxa de bloqueio** — quanto menos pessoas bloqueiam o número, melhor.
+2. **Reportes negativos** — denúncias por spam pesam muito.
+3. **Aderência ao template** — usar templates aprovados, sem desvio do conteúdo.
+4. **Opt-in real** — disparar só para contatos que aceitaram receber mensagens.
+
+## Templates de mensagem: o que muda no disparo via API
+
+Toda **conversa iniciada pela empresa** (a chamada Marketing/Utility/Authentication) precisa começar por um **template aprovado**. Templates de marketing são os mais sensíveis e os que mais derrubam qualidade de número quando mal escritos.
+
+Boas práticas direto da [documentação de Marketing Messages](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates):
+
+- Personalize com nome do contato.
+- Ofereça caminho claro de opt-out.
+- Não use linguagem de "pressão" ou urgência exagerada.
+- Espace os disparos: nada de mandar 3 mensagens em 1 minuto pro mesmo contato.
+
+## Checklist antes de iniciar disparo via API
+
+1. BM verificada ativa.
+2. WABA criada e número conectado à Cloud API.
+3. Display Name aprovado.
+4. Template de marketing aprovado em pelo menos 3 variações.
+5. Webhook configurado para receber status de entrega e respostas.
+6. Lista de contatos com opt-in documentado.
+7. Plano de warm-up: começar com 30–50% do tier e crescer gradualmente.
+
+## Próximos passos
+
+Se você já tem a operação desenhada e precisa de uma **BM verificada compatível com disparo via API** — seja **BM 250 Disparos**, **BM 1.000 Disparos** ou **BM 10.000 Disparos** — fale com o time da AD Scale para receber a estrutura pronta com handover técnico completo.
+
+Veja também: [O que é Business Manager Verificada no Meta](/blog/o-que-e-business-manager-verificada-meta) e [como o Trust Score do Meta afeta sua operação](/blog/trust-score-meta-ads-como-funciona).
+`,
+  },
 ];
 
 
