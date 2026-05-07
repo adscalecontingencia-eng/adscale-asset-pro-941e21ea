@@ -1681,7 +1681,7 @@ Boas práticas direto da [documentação de Marketing Messages](https://develope
 Se você já tem a operação desenhada e precisa de uma **BM verificada compatível com disparo via API** — seja **BM 250 Disparos**, **BM 1.000 Disparos** ou **BM 10.000 Disparos** — fale com o time da AD Scale para receber a estrutura pronta com handover técnico completo.
 
 Veja também: [O que é Business Manager Verificada no Meta](/blog/o-que-e-business-manager-verificada-meta) e [como o Trust Score do Meta afeta sua operação](/blog/trust-score-meta-ads-como-funciona).
-\`,
+`,
   },
 ];
 
