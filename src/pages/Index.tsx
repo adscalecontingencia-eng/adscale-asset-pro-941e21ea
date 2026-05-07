@@ -5,6 +5,7 @@ import TrustBar from "@/components/TrustBar";
 import PainPointsSection from "@/components/PainPointsSection";
 import ComparisonSection from "@/components/ComparisonSection";
 import AssetsSection from "@/components/AssetsSection";
+import WhatsAppApiSection from "@/components/WhatsAppApiSection";
 import QualitySection from "@/components/QualitySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ProcessSection from "@/components/ProcessSection";
@@ -92,6 +93,26 @@ const Index = () => {
           "gestor de tráfego facebook",
           "escalar meta ads",
           "escalar facebook ads",
+          // Topo de funil — disparo via API
+          "disparo em massa whatsapp",
+          "o que é whatsapp cloud api",
+          "como funciona disparo via api whatsapp",
+          "whatsapp business platform",
+          "tier whatsapp api",
+          // Meio de funil
+          "bm verificada para disparo",
+          "bm verificada whatsapp api",
+          "bm para disparo em massa",
+          "como aumentar tier whatsapp api",
+          "qualidade do número whatsapp business",
+          "template whatsapp aprovado",
+          // Fundo de funil
+          "comprar bm 250 disparos",
+          "comprar bm 1000 disparos",
+          "comprar bm 10000 disparos",
+          "bm tier 10k whatsapp",
+          "bm verificada para disparo via api",
+          "fornecedor bm whatsapp cloud api",
         ]}
         canonical="/"
         jsonLd={jsonLd}
@@ -102,6 +123,7 @@ const Index = () => {
       <PainPointsSection />
       <ComparisonSection />
       <AssetsSection />
+      <WhatsAppApiSection />
       <QualitySection />
       <TestimonialsSection />
       <ProcessSection />
