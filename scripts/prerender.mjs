@@ -89,29 +89,29 @@ function injectMeta(template, { title, description, canonical, ogImage, keywords
   let html = template;
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${safeTitle}</title>`);
   html = html.replace(
-    /<meta name="description"[^/]*\/>/,
+    /<meta name="description"[^>]*\/>/,
     `<meta name="description" content="${safeDesc}" />`,
   );
   if (kw) {
     html = html.replace(
-      /<meta name="keywords"[^/]*\/>/,
+      /<meta name="keywords"[^>]*\/>/,
       `<meta name="keywords" content="${kw}" />`,
     );
   }
   html = html.replace(
-    /<link rel="canonical"[^/]*\/>/,
+    /<link rel="canonical"[^>]*\/>/,
     `<link rel="canonical" href="${canonical}" />`,
   );
-  html = html.replace(/<meta property="og:type"[^/]*\/>/, `<meta property="og:type" content="${ogType}" />`);
-  html = html.replace(/<meta property="og:url"[^/]*\/>/, `<meta property="og:url" content="${canonical}" />`);
-  html = html.replace(/<meta property="og:title"[^/]*\/>/, `<meta property="og:title" content="${safeTitle}" />`);
+  html = html.replace(/<meta property="og:type"[^>]*\/>/, `<meta property="og:type" content="${ogType}" />`);
+  html = html.replace(/<meta property="og:url"[^>]*\/>/, `<meta property="og:url" content="${canonical}" />`);
+  html = html.replace(/<meta property="og:title"[^>]*\/>/, `<meta property="og:title" content="${safeTitle}" />`);
   html = html.replace(
-    /<meta property="og:description"[^/]*\/>/,
+    /<meta property="og:description"[^>]*\/>/,
     `<meta property="og:description" content="${safeDesc}" />`,
   );
-  html = html.replace(/<meta name="twitter:title"[^/]*\/>/, `<meta name="twitter:title" content="${safeTitle}" />`);
+  html = html.replace(/<meta name="twitter:title"[^>]*\/>/, `<meta name="twitter:title" content="${safeTitle}" />`);
   html = html.replace(
-    /<meta name="twitter:description"[^/]*\/>/,
+    /<meta name="twitter:description"[^>]*\/>/,
     `<meta name="twitter:description" content="${safeDesc}" />`,
   );
 
