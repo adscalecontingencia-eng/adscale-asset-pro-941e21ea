@@ -1,10 +1,14 @@
 # robots.txt — AD Scale
 # Política: indexação total de páginas públicas, bloqueio apenas de rotas técnicas.
+# Host canônico: https://adscalecontingencia.com (apex, sem www)
 
 User-agent: Googlebot
 Allow: /
 Disallow: /api/
 Disallow: /*?*utm_
+
+User-agent: Googlebot-Image
+Allow: /
 
 User-agent: Bingbot
 Allow: /
@@ -28,8 +32,9 @@ Allow: /
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /*?*utm_
 
-# Crawl-delay leve para bots agressivos
+# Crawl-delay leve para bots agressivos de SEO
 User-agent: AhrefsBot
 Crawl-delay: 5
 
@@ -39,7 +44,5 @@ Crawl-delay: 5
 # Host canônico
 Host: https://adscalecontingencia.com
 
-# Sitemaps
+# Sitemap (índice agrega páginas + posts)
 Sitemap: https://adscalecontingencia.com/sitemap-index.xml
-Sitemap: https://adscalecontingencia.com/sitemap-paginas.xml
-Sitemap: https://adscalecontingencia.com/sitemap-posts.xml
