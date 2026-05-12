@@ -80,7 +80,7 @@ const staticPages = [
 ];
 
 // ---------- HTML transform ----------
-function injectMeta(template, { title, description, canonical, ogImage, keywords, ogType = "website", publishedAt }) {
+function injectMeta(template, { title, description, canonical, ogImage, keywords, ogType = "website", publishedAt, jsonLd }) {
   const ogImageUrl = ogImage?.startsWith("http") ? ogImage : `${SITE_URL}${ogImage || "/og/og-default.jpg"}`;
   const safeTitle = title.replace(/"/g, "&quot;");
   const safeDesc = description.replace(/"/g, "&quot;");
@@ -115,11 +115,12 @@ function injectMeta(template, { title, description, canonical, ogImage, keywords
     `<meta name="twitter:description" content="${safeDesc}" />`,
   );
 
-  // Add og:image + article:published_time before </head>
+  // Add og:image + article:published_time + per-page JSON-LD before </head>
   const extra = [
     `<meta property="og:image" content="${ogImageUrl}" />`,
     `<meta name="twitter:image" content="${ogImageUrl}" />`,
     publishedAt ? `<meta property="article:published_time" content="${publishedAt}" />` : "",
+    jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : "",
   ]
     .filter(Boolean)
     .join("\n    ");
@@ -136,6 +137,66 @@ function injectMeta(template, { title, description, canonical, ogImage, keywords
   return html;
 }
 
+// ---------- JSON-LD builders ----------
+const ORG_REF = { "@id": `${SITE_URL}/#organization` };
+
+function breadcrumbLd(items) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, idx) => ({
+      "@type": "ListItem",
+      position: idx + 1,
+      name: item.name,
+      item: `${SITE_URL}${item.path}`,
+    })),
+  };
+}
+
+function webPageLd({ canonical, title, description }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${canonical}#webpage`,
+    url: canonical,
+    name: title,
+    description,
+    inLanguage: "pt-BR",
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    publisher: ORG_REF,
+  };
+}
+
+function articleLd(post, canonical, ogImageUrl) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${canonical}#article`,
+    headline: post.title,
+    description: post.description,
+    datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
+    inLanguage: "pt-BR",
+    keywords: (post.keywords || []).join(", "),
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+    image: { "@type": "ImageObject", url: ogImageUrl, width: 1200, height: 630 },
+    author: {
+      "@type": "Person",
+      name: "Pedro Lucas",
+      url: `${SITE_URL}/autor/pedro-lucas`,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "AD Scale",
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/og/logo-adscale.png`,
+      },
+    },
+  };
+}
+
+
 function writeRoute(routePath, html) {
   const cleanPath = routePath.replace(/^\//, "");
   const outDir = resolve(DIST, cleanPath);
@@ -147,25 +208,47 @@ function writeRoute(routePath, html) {
 let count = 0;
 
 for (const page of staticPages) {
+  const canonical = `${SITE_URL}${page.path}`;
+  const breadcrumbs = breadcrumbLd([
+    { name: "Início", path: "/" },
+    { name: page.title.split("|")[0].trim(), path: page.path },
+  ]);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [webPageLd({ canonical, title: page.title, description: page.description }), breadcrumbs],
+  };
   const html = injectMeta(TEMPLATE, {
     title: page.title,
     description: page.description,
-    canonical: `${SITE_URL}${page.path}`,
+    canonical,
     keywords: page.keywords,
+    jsonLd,
   });
   writeRoute(page.path, html);
   count++;
 }
 
 for (const post of posts) {
+  const canonical = `${SITE_URL}/blog/${post.slug}`;
+  const ogImageUrl = post.ogImage?.startsWith("http") ? post.ogImage : `${SITE_URL}${post.ogImage || "/og/og-default.jpg"}`;
+  const breadcrumbs = breadcrumbLd([
+    { name: "Início", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: post.title, path: `/blog/${post.slug}` },
+  ]);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [articleLd(post, canonical, ogImageUrl), breadcrumbs],
+  };
   const html = injectMeta(TEMPLATE, {
     title: `${post.title} | AD Scale`,
     description: post.description,
-    canonical: `${SITE_URL}/blog/${post.slug}`,
+    canonical,
     ogImage: post.ogImage,
     keywords: post.keywords,
     ogType: "article",
     publishedAt: post.publishedAt,
+    jsonLd,
   });
   writeRoute(`/blog/${post.slug}`, html);
   count++;
