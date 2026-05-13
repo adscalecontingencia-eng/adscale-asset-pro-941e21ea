@@ -106,7 +106,7 @@ const Sobre = () => {
                 por causa de bloqueios injustos no Meta Ads, sem ter para onde correr.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                A AD Scale nasceu como infraestrutura de contingência — Business Managers Verificadas, perfis aged,
+                A AD Scale nasceu como infraestrutura de contingência — Business Managers Verificadas, perfis com idade real do ativo,
                 páginas com histórico real e consultoria técnica para sustentar operações que rodam volume todos os
                 dias no Facebook Ads.
               </p>
