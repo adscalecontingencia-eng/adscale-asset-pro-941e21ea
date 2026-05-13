@@ -91,20 +91,6 @@ const businessManager: ProductLandingData = {
   hero: {
     eyebrow: "BUSINESS MANAGER PARA QUEM ESCALA NO META",
     badgeText: "BM nova, antiga, verificada e ilimitada",
-    headline: (
-      <>
-        A <span className="text-gradient">Business Manager</span> certa pra escalar Meta Ads sem trava de leilão.
-      </>
-    ),
-    headlineMobile: (
-      <>
-        <span className="text-gradient">Business Manager</span> pra escalar Meta Ads sem trava.
-      </>
-    ),
-    subheadline:
-      "BMs novas, aged, verificadas e ilimitadas — todas validadas no fingerprint do Meta antes de chegar em você. Curadoria 1 a 1 para operações que rodam volume de verdade.",
-    subheadlineMobile:
-      "BMs novas, aged, verificadas e ilimitadas, validadas no Meta. Para operações de volume.",
     trustItems: trustDefault,
   },
   assets: {
