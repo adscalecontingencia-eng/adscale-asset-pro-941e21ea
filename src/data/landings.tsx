@@ -230,7 +230,7 @@ const bmIlimitada: ProductLandingData = {
         "Idade real",
         "Vinculação 1 a 1",
       ]),
-      mk(Building2, "IDADE REAL", "BM Idade Real do Ativo base", "BM com anos de histórico de gastos limpos serve como camada-mãe da estrutura ilimitada.", [
+      mk(Building2, "IDADE REAL", "BM com Idade Real base", "BM com anos de histórico de gastos limpos serve como camada-mãe da estrutura ilimitada.", [
         "Histórico de gastos comprovado",
         "Sem strike",
         "Estável em auditoria",
@@ -299,7 +299,7 @@ const bmIlimitada: ProductLandingData = {
 const perfisFacebook: ProductLandingData = {
   slug: "perfis-facebook",
   seo: {
-    title: "Perfis Facebook Farmados e Idade Real do Ativo | AD Scale",
+    title: "Perfis Facebook Farmados e com Idade Real | AD Scale",
     description:
       "Compre perfis Facebook farmados e com idade real do ativo com timeline real, idade comprovada e Trust Score alto. Base estável para BM, multi-conta e Meta Ads.",
     keywords: [
@@ -378,7 +378,7 @@ const perfisFacebook: ProductLandingData = {
       {
         question: "Qual a diferença entre perfil com idade real do ativo, farmado e verificado?",
         answer:
-          "Idade Real do Ativo: anos de uso real e timeline orgânica. Farmado: foi cuidado por humano (não bot) com navegação e atividade reais. Verificado: tem selo oficial do Meta. Um perfil pode ser todos os três ao mesmo tempo.",
+          "Idade Real: anos de uso real e timeline orgânica. Farmado: foi cuidado por humano (não bot) com navegação e atividade reais. Verificado: tem selo oficial do Meta. Um perfil pode ser todos os três ao mesmo tempo.",
       },
       {
         question: "Vocês entregam perfil 'BM ready' ou só o perfil cru?",
@@ -495,7 +495,7 @@ const perfilAged: ProductLandingData = {
   faq: {
     heading: (
       <>
-        Tudo sobre <span className="text-gradient">Perfis Idade Real do Ativo</span>
+        Tudo sobre <span className="text-gradient">Perfis com Idade Real</span>
       </>
     ),
     items: [
@@ -543,7 +543,7 @@ const perfilAged: ProductLandingData = {
 const paginasFacebook: ProductLandingData = {
   slug: "paginas-facebook",
   seo: {
-    title: "Comprar Fan Page Facebook | Páginas Antigas Idade Real do Ativo",
+    title: "Comprar Fan Page Facebook | Páginas Antigas com Idade Real",
     description:
       "Fan Pages antigas e verificadas para Meta Ads: páginas com idade, engajamento real, seguidores orgânicos e nicho coerente para a sua oferta.",
     keywords: [
@@ -719,7 +719,7 @@ const dominiosVerificados: ProductLandingData = {
         "Atribuição estável",
         "Pré-requisito CAPI",
       ]),
-      mk(Activity, "IDADE REAL", "Domínio Idade Real do Ativo + DNS", "Domínios com 1+ ano de registro, DNS configurado e histórico limpo.", [
+      mk(Activity, "IDADE REAL", "Domínio com Idade Real + DNS", "Domínios com 1+ ano de registro, DNS configurado e histórico limpo.", [
         "Idade no WHOIS",
         "DNS produção",
         "Sem blacklist",
