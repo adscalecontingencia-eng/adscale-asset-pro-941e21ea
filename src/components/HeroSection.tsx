@@ -5,8 +5,10 @@ import { WHATSAPP_URL } from "@/lib/whatsapp";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden w-full">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(125_100%_45%/0.06),transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(125_100%_45%/0.03),transparent_60%)]" />
+      <div className="absolute inset-0 grid-texture opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(125_100%_45%/0.08),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(125_100%_45%/0.04),transparent_60%)]" />
+      <div className="absolute bottom-0 left-0 right-0 neon-divider" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 pt-28 pb-16">
         {/* Desktop */}
