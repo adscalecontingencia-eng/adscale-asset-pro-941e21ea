@@ -116,7 +116,7 @@ const businessManager: ProductLandingData = {
       mk(Layers, "UNLIMITED", "BM Ilimitada", "BM sem limite de gasto pré-definido — para escalar acima de 250/1k/10k USD/dia sem ficar travado em cap.", [
         "Sem trava de cap diário",
         "Ideal para operações 6+ dígitos/mês",
-        "Combinada com perfil idade real do ativo",
+        "Combinada com perfil com idade real do ativo",
       ]),
       mk(Globe, "FRESH", "BM Nova validada", "BMs recém-criadas, validadas no fingerprint, prontas para warm-up estruturado em operações que precisam de ativos descartáveis.", [
         "Fingerprint limpo",
@@ -273,7 +273,7 @@ const bmIlimitada: ProductLandingData = {
       {
         question: "Quanto custa uma BM ilimitada?",
         answer:
-          "Depende da combinação (perfil verificado + BM idade real do ativo + BIN), do nicho e do tier de gasto desejado. Cotação 1 a 1 no WhatsApp.",
+          "Depende da combinação (perfil verificado + BM com idade real do ativo + BIN), do nicho e do tier de gasto desejado. Cotação 1 a 1 no WhatsApp.",
       },
     ],
   },
@@ -301,7 +301,7 @@ const perfisFacebook: ProductLandingData = {
   seo: {
     title: "Perfis Facebook Farmados e Idade Real do Ativo | AD Scale",
     description:
-      "Compre perfis Facebook farmados e idade real do ativo com timeline real, idade comprovada e Trust Score alto. Base estável para BM, multi-conta e Meta Ads.",
+      "Compre perfis Facebook farmados e com idade real do ativo com timeline real, idade comprovada e Trust Score alto. Base estável para BM, multi-conta e Meta Ads.",
     keywords: [
       "perfil facebook farmado",
       "comprar perfil facebook",
@@ -315,7 +315,7 @@ const perfisFacebook: ProductLandingData = {
   },
   hero: {
     eyebrow: "PERFIS QUE SEGURAM A SUA BM EM PÉ",
-    badgeText: "Perfis farmados, idade real do ativo e verificados",
+    badgeText: "Perfis farmados, com idade real do ativo e verificados",
     headline: (
       <>
         Perfis Facebook <span className="text-gradient">farmados de verdade</span> — não conta nova com nome bonito.
@@ -345,7 +345,7 @@ const perfisFacebook: ProductLandingData = {
     intro:
       "Cada perfil é validado em fingerprint, atividade orgânica e histórico de login antes de chegar em você. Sem perfil de catálogo.",
     items: [
-      mk(UserCircle2, "IDADE REAL", "Perfil Idade Real do Ativo (2+ anos)", "Perfis com 2 a 5+ anos de atividade real, login orgânico, amigos e timeline coerente.", [
+      mk(UserCircle2, "IDADE REAL", "Perfil com Idade Real do Ativo (2+ anos)", "Perfis com 2 a 5+ anos de atividade real, login orgânico, amigos e timeline coerente.", [
         "Timeline real e ativa",
         "Amigos e fotos orgânicos",
         "Histórico de login limpo",
@@ -376,7 +376,7 @@ const perfisFacebook: ProductLandingData = {
     ),
     items: [
       {
-        question: "Qual a diferença entre perfil idade real do ativo, farmado e verificado?",
+        question: "Qual a diferença entre perfil com idade real do ativo, farmado e verificado?",
         answer:
           "Idade Real do Ativo: anos de uso real e timeline orgânica. Farmado: foi cuidado por humano (não bot) com navegação e atividade reais. Verificado: tem selo oficial do Meta. Um perfil pode ser todos os três ao mesmo tempo.",
       },
@@ -398,7 +398,7 @@ const perfisFacebook: ProductLandingData = {
       {
         question: "Existe perfil PJ?",
         answer:
-          "Não no Facebook — perfil é sempre pessoal. Quem é PJ é a Página, a BM e a verificação documental. Para verticais sensíveis, combinamos perfil idade real do ativo + verificação documental da BM.",
+          "Não no Facebook — perfil é sempre pessoal. Quem é PJ é a Página, a BM e a verificação documental. Para verticais sensíveis, combinamos perfil com idade real do ativo + verificação documental da BM.",
       },
     ],
   },
@@ -408,7 +408,7 @@ const perfisFacebook: ProductLandingData = {
         Sua BM só dura <span className="text-gradient italic">o que o perfil aguenta.</span>
       </>
     ),
-    description: "Perfis idade real do ativo, farmados e verificados — entregues com walkthrough técnico e suporte de 72h.",
+    description: "Perfis com idade real do ativo, farmados e verificados — entregues com walkthrough técnico e suporte de 72h.",
     ctaLabel: "QUERO MEU PERFIL",
   },
   featuredGuideSlugs: [
@@ -419,7 +419,7 @@ const perfisFacebook: ProductLandingData = {
 };
 
 // ============================================================
-// 4. Perfil Idade Real do Ativo
+// 4. Perfil com Idade Real do Ativo
 // ============================================================
 const perfilAged: ProductLandingData = {
   slug: "perfil-aged",
@@ -460,7 +460,7 @@ const perfilAged: ProductLandingData = {
     ],
   },
   assets: {
-    badge: "🛡️ FAIXAS DE PERFIL AGED",
+    badge: "🛡️ FAIXAS DE PERFIL COM IDADE REAL",
     heading: (
       <>
         Idade importa. <span className="text-gradient">Mas o que segura é o histórico.</span>
@@ -469,28 +469,28 @@ const perfilAged: ProductLandingData = {
     intro:
       "Trabalhamos perfis em três faixas de idade — cada uma resolve um problema diferente da operação.",
     items: [
-      mk(UserCircle2, "2-3 ANOS", "Perfil Idade Real do Ativo Médio", "Perfis com 2 a 3 anos, atividade orgânica e timeline coerente. Excelente custo-benefício para BM nova.", [
+      mk(UserCircle2, "2-3 ANOS", "Perfil com Idade Real do Ativo Médio", "Perfis com 2 a 3 anos, atividade orgânica e timeline coerente. Excelente custo-benefício para BM nova.", [
         "Timeline coerente",
         "Histórico limpo",
         "Bom para warm-up de BM nova",
       ]),
-      mk(UserCircle2, "4-7 ANOS", "Perfil Idade Real do Ativo Sênior", "Perfis com 4 a 7 anos, amigos antigos e histórico de gastos pessoal. Sustenta BM verificada e operação pesada.", [
+      mk(UserCircle2, "4-7 ANOS", "Perfil com Idade Real do Ativo Sênior", "Perfis com 4 a 7 anos, amigos antigos e histórico de gastos pessoal. Sustenta BM verificada e operação pesada.", [
         "Resistência em auditoria",
         "Combinável com BM verificada",
         "Estável em vertical pesada",
       ]),
-      mk(UserCircle2, "8-10+ ANOS", "Perfil Idade Real do Ativo Premium (2010+)", "Perfis criados em 2010-2014 com timeline rica e atividade orgânica de uma década. O topo da pirâmide.", [
+      mk(UserCircle2, "8-10+ ANOS", "Perfil com Idade Real do Ativo Premium (2010+)", "Perfis criados em 2010-2014 com timeline rica e atividade orgânica de uma década. O topo da pirâmide.", [
         "Idade premium 2010+",
         "Timeline rica",
         "Pré-requisito para BM ilimitada",
       ]),
-      mk(BadgeCheck, "VERIFIED", "Perfil Idade Real do Ativo + Verified", "Perfis idade real do ativo que também passaram pela verificação oficial do Meta — combinação rara e poderosa.", [
+      mk(BadgeCheck, "VERIFIED", "Perfil com Idade Real do Ativo + Verified", "Perfis com idade real do ativo que também passaram pela verificação oficial do Meta — combinação rara e poderosa.", [
         "Idade + verificação",
         "Cap alto de BM destravado",
         "Estoque limitado",
       ]),
     ],
-    footerLine: "Perfil idade real do ativo não se fabrica em uma noite. É anos de história validada.",
+    footerLine: "Perfil com idade real do ativo não se fabrica em uma noite. É anos de história validada.",
   },
   faq: {
     heading: (
@@ -505,14 +505,14 @@ const perfilAged: ProductLandingData = {
           "Pelo próprio Facebook: timestamp de criação no histórico de atividade, fotos antigas com data, primeiros amigos. Walkthrough ao vivo antes da entrega.",
       },
       {
-        question: "Perfil idade real do ativo tem amigos reais ou comprados?",
+        question: "Perfil com idade real do ativo tem amigos reais ou comprados?",
         answer:
           "Reais. Perfil com amigos comprados dispara fingerprint de fazenda e queima a BM em uma semana. Os perfis que vendemos têm rede social orgânica.",
       },
       {
-        question: "Posso usar perfil idade real do ativo para criar uma BM nova?",
+        question: "Posso usar perfil com idade real do ativo para criar uma BM nova?",
         answer:
-          "Pode e deve. Perfil idade real do ativo + BM nova é uma das combinações mais usadas em contingência: você queima a BM se precisar, mas mantém o perfil intacto.",
+          "Pode e deve. Perfil com idade real do ativo + BM nova é uma das combinações mais usadas em contingência: você queima a BM se precisar, mas mantém o perfil intacto.",
       },
       {
         question: "Qual a diferença real entre perfil 2 anos e perfil 10 anos?",
@@ -527,8 +527,8 @@ const perfilAged: ProductLandingData = {
         Trust Score alto começa com <span className="text-gradient italic">perfil de verdade.</span>
       </>
     ),
-    description: "Perfis idade real do ativo validados em fingerprint, idade e histórico — com handover técnico ao vivo.",
-    ctaLabel: "QUERO PERFIL AGED",
+    description: "Perfis com idade real do ativo validados em fingerprint, idade e histórico — com handover técnico ao vivo.",
+    ctaLabel: "QUERO PERFIL COM IDADE REAL",
   },
   featuredGuideSlugs: [
     "trust-score-meta-ads-como-medir-aumentar",
@@ -559,7 +559,7 @@ const paginasFacebook: ProductLandingData = {
   },
   hero: {
     eyebrow: "FAN PAGES PRONTAS PARA RODAR ANÚNCIO",
-    badgeText: "Páginas idade real do ativo · Engajamento real · Verificáveis",
+    badgeText: "Páginas com idade real do ativo · Engajamento real · Verificáveis",
     headline: (
       <>
         Fan Pages <span className="text-gradient">idade real do ativo</span>, com engajamento real e nicho coerente.
@@ -653,7 +653,7 @@ const paginasFacebook: ProductLandingData = {
         Página fraca queima criativo bom. <span className="text-gradient italic">Equilibre a balança.</span>
       </>
     ),
-    description: "Páginas idade real do ativo, verificadas e por nicho, com auditoria de engajamento e handover técnico.",
+    description: "Páginas com idade real do ativo, verificadas e por nicho, com auditoria de engajamento e handover técnico.",
     ctaLabel: "QUERO MINHA FAN PAGE",
   },
   featuredGuideSlugs: [
@@ -772,7 +772,7 @@ const dominiosVerificados: ProductLandingData = {
         CAPI sem domínio verificado é <span className="text-gradient italic">métrica chutada.</span>
       </>
     ),
-    description: "Domínios verificados, idade real do ativo e WABA-ready com DNS e e-mail configurados.",
+    description: "Domínios verificados, com idade real do ativo e WABA-ready com DNS e e-mail configurados.",
     ctaLabel: "QUERO DOMÍNIO VERIFICADO",
   },
   featuredGuideSlugs: [
@@ -1083,7 +1083,7 @@ const aquecimentoContas: ProductLandingData = {
         "Criativos seed orientados",
         "Leitura de Quality Rating",
       ]),
-      mk(UserCircle2, "PROFILE", "Warm-up de Perfil idade real do ativo", "Atividade orgânica controlada (login, browsing, interação) para devolver Trust Score ao perfil parado.", [
+      mk(UserCircle2, "PROFILE", "Warm-up de Perfil com idade real do ativo", "Atividade orgânica controlada (login, browsing, interação) para devolver Trust Score ao perfil parado.", [
         "Atividade orgânica",
         "Geolocalização consistente",
         "Fingerprint protegido",
@@ -1111,7 +1111,7 @@ const aquecimentoContas: ProductLandingData = {
       {
         question: "Quanto tempo dura um warm-up profissional?",
         answer:
-          "Depende do ativo. BM nova: 14 a 21 dias. Perfil idade real do ativo parado: 7 a 10 dias. WABA até tier 100k: 30 a 45 dias. Apressar queima.",
+          "Depende do ativo. BM nova: 14 a 21 dias. Perfil com idade real do ativo parado: 7 a 10 dias. WABA até tier 100k: 30 a 45 dias. Apressar queima.",
       },
       {
         question: "Vocês fazem o warm-up por mim ou eu executo seguindo um plano?",
