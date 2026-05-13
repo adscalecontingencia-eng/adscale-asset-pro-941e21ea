@@ -13,6 +13,9 @@ import ConsultoriaMetaAds from "./pages/ConsultoriaMetaAds.tsx";
 import Sobre from "./pages/Sobre.tsx";
 import Autor from "./pages/Autor.tsx";
 import PillarFacebookAds from "./pages/PillarFacebookAds.tsx";
+import AdminLogin from "./pages/admin/Login.tsx";
+import AdminDashboard from "./pages/admin/Dashboard.tsx";
+import AnalyticsTracker from "./components/AnalyticsTracker.tsx";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +25,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <AnalyticsTracker />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/blog" element={<Blog />} />
@@ -32,6 +36,8 @@ const App = () => (
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/autor/:slug" element={<Autor />} />
           <Route path="/guia-facebook-ads-alto-volume" element={<PillarFacebookAds />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
