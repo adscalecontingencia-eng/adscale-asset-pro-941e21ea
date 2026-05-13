@@ -1,0 +1,43 @@
+# AD Scale
+
+> Ativos de contingência para Meta Ads (Facebook/Instagram) e BMs Verificadas para disparo via WhatsApp Cloud API. Atendemos operações de alto volume com BMs Verificadas, BMs antigas, perfis aged, páginas com Trust Score alto e BMs com WABA ativa nos tiers 250, 1.000 e 10.000 disparos.
+
+AD Scale é fornecedora brasileira especializada em curadoria 1 a 1 de ativos para Meta Ads e WhatsApp Business Platform. Foco em estabilidade, Trust Score, governança e recuperação rápida em cenários de bloqueio.
+
+## Páginas
+
+- [Home](/): Visão geral dos ativos de contingência para Meta Ads e BMs para disparo via API.
+- [BM Verificada](/bm-verificada): BMs Verificadas com Trust Score alto, domínio verificado e suporte para WhatsApp Cloud API.
+- [Contingência Meta Ads](/contingencia-meta-ads): Estrutura completa de contingência para operações de alto volume em Meta Ads.
+- [Consultoria Meta Ads](/consultoria-meta-ads): Consultoria especializada em arquitetura de contingência e proteção de ativos.
+- [Guia Facebook Ads Alto Volume](/guia-facebook-ads-alto-volume): Pillar content sobre como escalar Facebook Ads em alto volume.
+- [Sobre](/sobre): Quem é a AD Scale e como operamos.
+- [Pedro Lucas (autor)](/autor/pedro-lucas): Fundador da AD Scale, especialista em Meta Ads.
+
+## Blog
+
+- [Blog](/blog): Índice completo de artigos sobre BM Verificada, Trust Score, contingência, WhatsApp API e Facebook Ads.
+- [Disparo via API no WhatsApp Cloud](/blog/disparo-via-api-whatsapp-cloud-bm-verificada-guia-completo): Guia completo sobre BMs, tiers (250/1k/10k) e qualidade do número.
+- [O que é Business Manager Verificada](/blog/o-que-e-business-manager-verificada-meta): Como funciona a verificação de BM no Meta.
+- [Trust Score no Meta Ads](/blog/trust-score-meta-ads-como-funciona): O sinal invisível que decide se você escala.
+- [Bloqueio de conta de anúncio no Meta](/blog/bloqueio-conta-anuncio-meta-como-evitar): Causas reais e como evitar.
+- [Warm-up de conta de anúncio Meta](/blog/warm-up-conta-anuncio-meta-passo-a-passo): Protocolo passo a passo.
+- [Como escolher fornecedor de BM Verificada](/blog/como-escolher-fornecedor-bm-verificada): 9 critérios técnicos.
+- [Arquitetura de contingência Meta Ads](/blog/arquitetura-contingencia-meta-ads-operacao-alto-volume): Para operações de alto volume.
+- [Quanto custa uma BM Verificada Facebook em 2026](/blog/quanto-custa-bm-verificada-facebook-2026): Preço, riscos e o que avaliar.
+- [Recuperar conta de anúncio bloqueada](/blog/recuperar-conta-anuncio-bloqueada-facebook-ads): Passo a passo de recuperação.
+- [Trust Score no Facebook Ads em 2026](/blog/trust-score-facebook-ads-como-meta-avalia-conta): Como o Meta avalia sua conta.
+
+## Optional
+
+- [Perfil aged no Facebook](/blog/perfil-aged-facebook-por-que-administrador-importa): Por que o administrador da BM importa.
+- [Página antiga no Facebook](/blog/pagina-antiga-facebook-impacto-na-performance): Impacto real na performance.
+- [Glossário do Meta Ads](/blog/glossario-meta-ads-termos-essenciais-gestor-trafego): 25 termos para gestor de tráfego.
+- [Fingerprint e IP residencial no Meta Ads](/blog/fingerprint-ip-residencial-meta-ads): Isolamento de ambiente.
+- [Pixel vs CAPI](/blog/pixel-vs-capi-conversions-api-meta-ads): Por que rodar os dois e como configurar.
+- [Como calcular o ROI de contingência](/blog/calcular-roi-investimento-contingencia-meta-ads): No Meta Ads.
+- [Limite de gasto no Facebook Ads](/blog/limite-de-gasto-facebook-ads-como-aumentar): Como aumentar.
+- [Domínio verificado no Facebook](/blog/dominio-verificado-facebook-como-configurar-ios14): Configuração e impacto em iOS 14+.
+- [Consultoria Meta Ads vs curso](/blog/consultoria-meta-ads-vs-curso-quando-contratar): Quando contratar especialista.
+- [Checklist de auditoria de BM Facebook](/blog/checklist-auditoria-bm-facebook-18-itens): 18 itens antes de escalar.
+- [Por que contas novas bloqueiam](/blog/bloqueio-conta-nova-facebook-ads-7-motivos): 7 motivos reais.
