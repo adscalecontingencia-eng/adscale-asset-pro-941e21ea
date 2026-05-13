@@ -106,7 +106,7 @@ const Blog = () => {
     },
     {
       title: "Infraestrutura de contingência",
-      description: "Arquitetura, warm-up, fingerprint e ativos com idade real para sustentar volume no Meta Ads.",
+      description: "Arquitetura, warm-up, fingerprint e ativos antigos para sustentar volume no Meta Ads.",
       href: "/blog/arquitetura-contingencia-meta-ads-operacao-alto-volume",
     },
   ];
@@ -120,7 +120,7 @@ const Blog = () => {
     ? "Blog Meta Ads: BM Verificada e Trust Score | AD Scale"
     : `Blog AD Scale${filterLabel}${pageLabel}`;
   const seoDescription = isCanonicalView
-    ? "Aprenda sobre contingência no Meta Ads, bloqueio de conta, BM verificada, Trust Score, perfis com idade real do ativo, Pixel, CAPI e estrutura de escala."
+    ? "Aprenda sobre contingência no Meta Ads, bloqueio de conta, BM verificada, Trust Score, perfis antigos, Pixel, CAPI e estrutura de escala."
     : `Artigos de ${filter === "Todos" ? "Meta Ads" : filter.toLowerCase()} sobre contingência, BM verificada, Trust Score e Facebook Ads.${pageLabel}`;
   const canonicalPath = "/blog";
 
@@ -168,7 +168,7 @@ const Blog = () => {
           "bloqueio conta meta ads",
           "BM verificada",
           "trust score meta",
-          "perfil com idade real do ativo facebook",
+          "perfil antigos facebook",
           "pixel vs capi",
           "warm up meta ads",
         ]}

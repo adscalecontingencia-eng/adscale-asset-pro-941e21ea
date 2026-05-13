@@ -73,7 +73,7 @@ const Index = () => {
     <div className="min-h-screen bg-background overflow-x-hidden w-full max-w-[100vw]">
       <SEO
         title="Contingência Meta Ads: BM Verificada | AD Scale"
-        description="Ativos de contingência para Meta Ads e Facebook Ads: BM Verificada com selo azul, BM antiga, perfil com idade real do ativo e página antiga com Trust Score alto."
+        description="Ativos de contingência para Meta Ads e Facebook Ads: BM Verificada com selo azul, BM antiga, perfil antigos e página antiga com Trust Score alto."
         keywords={[
           "contingência meta ads",
           "contingência facebook ads",
@@ -83,7 +83,7 @@ const Index = () => {
           "bm antiga facebook",
           "trust score meta",
           "trust score facebook ads",
-          "perfil com idade real do ativo facebook",
+          "perfil antigos facebook",
           "página antiga facebook",
           "estrutura de contingência facebook",
           "bloqueio conta de anúncio facebook",

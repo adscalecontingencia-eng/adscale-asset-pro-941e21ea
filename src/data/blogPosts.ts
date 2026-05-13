@@ -334,7 +334,7 @@ Operações sérias mantêm uma reserva de **5 a 20 perfis aged** prontos pra en
   {
     slug: "pagina-antiga-facebook-impacto-na-performance",
     title: "Página antiga no Facebook: o impacto real na performance dos seus anúncios",
-    description: "Por que páginas (fan pages) com idade real performam melhor, têm menos restrições e como integrá-las à sua estrutura de contingência.",
+    description: "Por que páginas (fan pages) antigos performam melhor, têm menos restrições e como integrá-las à sua estrutura de contingência.",
     keywords: ["página antiga facebook", "fan page aged", "página facebook ads", "página antiga para anúncios", "social proof facebook"],
     category: "Topo de funil",
     readingTime: "5 min",
@@ -1028,7 +1028,7 @@ BM verificada há 6 meses vale mais que verificada ontem. O Meta dá peso à **m
 Uma BM que já gastou R$ 50k+ sem incidente tem Trust Score muito superior à zero-spend.
 
 ### 3. Selo azul de página
-Páginas com selo azul vinculadas elevam o pacote em 2-3x o preço — e em estabilidade real.
+Páginas com selo azul vinculadas elevam o pacote em 2-3x o preço — e em estabilantigos.
 
 ### 4. Domínio e CAPI configurados
 BMs entregues prontas (domínio verificado, pixel + CAPI funcionando) economizam dias de setup.

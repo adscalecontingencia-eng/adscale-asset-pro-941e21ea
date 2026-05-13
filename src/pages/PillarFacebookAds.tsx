@@ -118,7 +118,7 @@ const PillarFacebookAds = () => {
             </h2>
             <p className="text-muted-foreground leading-relaxed my-4">
               A estrutura mínima saudável é: <strong className="text-foreground">1 BM principal verificada + 1 BM
-              backup verificada + 2-3 perfis administradores com idade real + páginas com histórico orgânico</strong>. Cada camada
+              backup verificada + 2-3 perfis administradores antigos + páginas com histórico orgânico</strong>. Cada camada
               existe para absorver risco específico.
             </p>
             <ul className="list-disc pl-6 space-y-2 my-4 text-muted-foreground">
@@ -131,7 +131,7 @@ const PillarFacebookAds = () => {
                 standby. Sobe em minutos quando a principal entra em revisão.
               </li>
               <li>
-                <strong className="text-foreground">Perfis com idade real do ativo:</strong> administradores com histórico real, fingerprint
+                <strong className="text-foreground">Perfis antigos:</strong> administradores com histórico real, fingerprint
                 estável e baixo risco de bloqueio em cascata.
               </li>
               <li>
@@ -300,7 +300,7 @@ const PillarFacebookAds = () => {
               {[
                 "BM principal verificada com domínio e Pixel/CAPI configurados",
                 "Pelo menos 1 BM Verificada de backup espelhada",
-                "2-3 perfis administradores com idade real com fingerprint estável",
+                "2-3 perfis administradores antigos com fingerprint estável",
                 "Páginas com histórico orgânico real (não recém-criadas)",
                 "Warm-up documentado e respeitado em qualquer ativo novo",
                 "Auditoria mensal usando o checklist de 18 itens",
