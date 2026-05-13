@@ -8,7 +8,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync, copyFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 
-const SITE_URL = "https://adscalecontingencia.com";
+const SITE_URL = "https://www.adscalecontingencia.com";
 const DIST = resolve("dist");
 const TEMPLATE = readFileSync(resolve(DIST, "index.html"), "utf8");
 
