@@ -255,7 +255,7 @@ for (const post of posts) {
     "@graph": [articleLd(post, canonical, ogImageUrl), breadcrumbs],
   };
   const html = injectMeta(TEMPLATE, {
-    title: `${post.title} | AD Scale`,
+    title: seoTitlesMap[post.slug] ?? post.title,
     description: post.description,
     canonical,
     ogImage: post.ogImage,
