@@ -208,7 +208,9 @@ function writeRoute(routePath, html) {
 let count = 0;
 
 for (const page of staticPages) {
-  const canonical = `${SITE_URL}${page.path}`;
+  // Trailing slash matches what GitHub Pages serves for directory routes,
+  // avoiding 301 redirects that cause "Página com redirecionamento" in GSC.
+  const canonical = `${SITE_URL}${page.path}/`;
   const breadcrumbs = breadcrumbLd([
     { name: "Início", path: "/" },
     { name: page.title.split("|")[0].trim(), path: page.path },
@@ -229,7 +231,7 @@ for (const page of staticPages) {
 }
 
 for (const post of posts) {
-  const canonical = `${SITE_URL}/blog/${post.slug}`;
+  const canonical = `${SITE_URL}/blog/${post.slug}/`;
   const ogImageUrl = post.ogImage?.startsWith("http") ? post.ogImage : `${SITE_URL}${post.ogImage || "/og/og-default.jpg"}`;
   const breadcrumbs = breadcrumbLd([
     { name: "Início", path: "/" },
