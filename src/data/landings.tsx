@@ -54,8 +54,8 @@ export interface ProductLandingData {
 }
 
 const trustDefault = [
-  { value: "High", label: "Trust Score" },
-  { value: "Aged", label: "Idade real" },
+  { value: "Alto", label: "Trust Score" },
+  { value: "Idade real", label: "BMs & Perfis" },
   { value: "Verified", label: "Curadoria 1 a 1" },
 ];
 
