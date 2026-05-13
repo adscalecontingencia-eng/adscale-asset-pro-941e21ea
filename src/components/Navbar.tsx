@@ -31,8 +31,8 @@ const Navbar = () => {
       }`}
     >
       <div className="container max-w-6xl flex items-center justify-between px-4">
-        <Link to="/">
-          <Logo />
+        <Link to="/" aria-label="AD Scale — início">
+          <Logo size={26} />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
