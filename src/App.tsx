@@ -43,6 +43,22 @@ const App = () => (
           {productLandingSlugs.map((slug) => (
             <Route key={slug} path={`/${slug}`} element={<ProductLanding slug={slug} />} />
           ))}
+          {/* PT-BR aliases redirecting to canonical product slugs */}
+          <Route path="/gerente-de-negocios" element={<Navigate to="/business-manager" replace />} />
+          <Route path="/gerente-de-negócios" element={<Navigate to="/business-manager" replace />} />
+          <Route path="/bm" element={<Navigate to="/business-manager" replace />} />
+          <Route path="/bms" element={<Navigate to="/business-manager" replace />} />
+          <Route path="/perfis" element={<Navigate to="/perfis-facebook" replace />} />
+          <Route path="/perfil" element={<Navigate to="/perfis-facebook" replace />} />
+          <Route path="/paginas" element={<Navigate to="/paginas-facebook" replace />} />
+          <Route path="/fan-page" element={<Navigate to="/paginas-facebook" replace />} />
+          <Route path="/fanpage" element={<Navigate to="/paginas-facebook" replace />} />
+          <Route path="/dominios" element={<Navigate to="/dominios-verificados" replace />} />
+          <Route path="/whatsapp-api" element={<Navigate to="/whatsapp-cloud-api" replace />} />
+          <Route path="/pixel" element={<Navigate to="/pixel-capi" replace />} />
+          <Route path="/aquecimento" element={<Navigate to="/aquecimento-contas" replace />} />
+          <Route path="/cartoes" element={<Navigate to="/cartoes-bin-internacional" replace />} />
+          <Route path="/bin" element={<Navigate to="/cartoes-bin-internacional" replace />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
