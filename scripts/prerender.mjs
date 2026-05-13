@@ -14,6 +14,12 @@ const TEMPLATE = readFileSync(resolve(DIST, "index.html"), "utf8");
 
 // ---------- Parse blog posts from src/data/blogPosts.ts via regex ----------
 const blogSource = readFileSync(resolve("src/data/blogPosts.ts"), "utf8");
+// Per-slug short SEO titles (≤60 chars). Falls back to post.title when absent.
+const seoTitlesSource = readFileSync(resolve("src/data/blogSeoTitles.ts"), "utf8");
+const seoTitlesMap = {};
+for (const m of seoTitlesSource.matchAll(/"([^"]+)":\s*\n?\s*"([^"]+)"/g)) {
+  seoTitlesMap[m[1]] = m[2];
+}
 
 // Match each post object block. Each post starts with `slug: "..."` and ends at the next `},` followed by `{` or end of array.
 const postBlocks = blogSource.split(/\n\s*\{/);
