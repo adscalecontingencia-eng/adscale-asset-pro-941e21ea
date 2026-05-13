@@ -114,22 +114,17 @@ function injectMeta(template, { title, description, canonical, ogImage, keywords
   } else {
     html = html.replace("</head>", `    <link rel="canonical" href="${canonical}" />\n  </head>`);
   }
-  html = html.replace(/<meta property="og:type"[^>]*\/>/, `<meta property="og:type" content="${ogType}" />`);
-  html = html.replace(/<meta property="og:url"[^>]*\/>/, `<meta property="og:url" content="${canonical}" />`);
-  html = html.replace(/<meta property="og:title"[^>]*\/>/, `<meta property="og:title" content="${safeTitle}" />`);
-  html = html.replace(
-    /<meta property="og:description"[^>]*\/>/,
-    `<meta property="og:description" content="${safeDesc}" />`,
-  );
-  html = html.replace(/<meta name="twitter:title"[^>]*\/>/, `<meta name="twitter:title" content="${safeTitle}" />`);
-  html = html.replace(
-    /<meta name="twitter:description"[^>]*\/>/,
-    `<meta name="twitter:description" content="${safeDesc}" />`,
-  );
-
-  // Add og:image + article:published_time + per-page JSON-LD before </head>
+  // og:* and twitter:* (title/description/url/type) and og:image were removed from index.html
+  // so social crawlers don't get the homepage's metadata for every internal route.
+  // Inject per-route values + page-specific JSON-LD before </head>.
   const extra = [
+    `<meta property="og:type" content="${ogType}" />`,
+    `<meta property="og:url" content="${canonical}" />`,
+    `<meta property="og:title" content="${safeTitle}" />`,
+    `<meta property="og:description" content="${safeDesc}" />`,
     `<meta property="og:image" content="${ogImageUrl}" />`,
+    `<meta name="twitter:title" content="${safeTitle}" />`,
+    `<meta name="twitter:description" content="${safeDesc}" />`,
     `<meta name="twitter:image" content="${ogImageUrl}" />`,
     publishedAt ? `<meta property="article:published_time" content="${publishedAt}" />` : "",
     jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : "",
