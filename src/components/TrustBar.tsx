@@ -2,10 +2,10 @@ import { ShieldCheck, BadgeCheck, History, Users, Globe2 } from "lucide-react";
 
 const items = [
   { icon: BadgeCheck, label: "BM Verificada Meta" },
-  { icon: History, label: "Ativos Aged" },
-  { icon: ShieldCheck, label: "High Trust Score" },
+  { icon: History, label: "Ativos com Idade Real" },
+  { icon: ShieldCheck, label: "Trust Score Alto" },
   { icon: Users, label: "Perfis Maduros" },
-  { icon: Globe2, label: "Páginas Aged" },
+  { icon: Globe2, label: "Páginas com Idade Real" },
 ];
 
 const TrustBar = () => {
