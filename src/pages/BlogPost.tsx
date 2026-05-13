@@ -8,6 +8,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents, { extractTocFromMarkdown } from "@/components/TableOfContents";
 import { getPostBySlug } from "@/data/blogPosts";
+import { blogSeoTitles } from "@/data/blogSeoTitles";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import pedroPhoto from "@/assets/pedro-lucas-fundador.jpg";
 
