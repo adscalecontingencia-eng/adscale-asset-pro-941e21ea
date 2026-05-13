@@ -115,7 +115,7 @@ const ConsultoriaMetaAds = () => (
         segment: "Agência",
         title: "Agência padronizou operação de 18 clientes",
         scenario: "Agência com 18 contas ativas sofria com BM compartilhada, falta de governança e bloqueios cruzados afetando múltiplos clientes.",
-        action: "Consultoria definiu padrão de 1 BM verificada por cliente, perfis aged dedicados e fluxo de contingência documentado.",
+        action: "Consultoria definiu padrão de 1 BM verificada por cliente, perfis com idade real do ativo dedicados e fluxo de contingência documentado.",
         result: "Tickets de bloqueio caíram 70% em 90 dias e a agência liberou 1 FTE antes alocado em recuperação.",
       },
       {
