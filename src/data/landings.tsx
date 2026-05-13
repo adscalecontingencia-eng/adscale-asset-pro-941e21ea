@@ -55,7 +55,7 @@ export interface ProductLandingData {
 
 const trustDefault = [
   { value: "Alto", label: "Trust Score" },
-  { value: "Idade real", label: "BMs & Perfis" },
+  { value: "Antigos", label: "BMs & Perfis" },
   { value: "Verified", label: "Curadoria 1 a 1" },
 ];
 
@@ -227,7 +227,7 @@ const bmIlimitada: ProductLandingData = {
       ]),
       mk(BadgeCheck, "VERIFIED", "Perfil Verificado", "Perfil pessoal verificado é pré-requisito para destravar BM ilimitada na maioria das verticais.", [
         "Selo de verificação ativo",
-        "Idade real",
+        "Antigos",
         "Vinculação 1 a 1",
       ]),
       mk(Building2, "ANTIGOS", "BM Antigos base", "BM com anos de histórico de gastos limpos serve como camada-mãe da estrutura ilimitada.", [
@@ -330,7 +330,7 @@ const perfisFacebook: ProductLandingData = {
       "Perfis com timeline real, amigos, fotos e atividade orgânica de anos. A base que sustenta sua BM, libera multi-conta e mantém o Trust Score alto no Meta.",
     subheadlineMobile: "Perfis com timeline, amigos e atividade orgânica de anos. Sustentam BM e multi-conta.",
     trustItems: [
-      { value: "Idade real", label: "2+ anos" },
+      { value: "Antigos", label: "2+ anos" },
       { value: "Real", label: "Atividade orgânica" },
       { value: "Verified", label: "Selo opcional" },
     ],
@@ -575,7 +575,7 @@ const paginasFacebook: ProductLandingData = {
     subheadlineMobile:
       "Páginas com idade, seguidores orgânicos e engajamento real. Reduz risco e melhora lookalike.",
     trustItems: [
-      { value: "Idade real", label: "do ativo" },
+      { value: "Antigos", label: "do ativo" },
       { value: "Real", label: "Engajamento orgânico" },
       { value: "Nicho", label: "Match com oferta" },
     ],
@@ -701,7 +701,7 @@ const dominiosVerificados: ProductLandingData = {
     trustItems: [
       { value: "Verified", label: "Meta domain" },
       { value: "DNS", label: "Configurado" },
-      { value: "Idade real", label: "do ativo" },
+      { value: "Antigos", label: "do ativo" },
     ],
   },
   assets: {

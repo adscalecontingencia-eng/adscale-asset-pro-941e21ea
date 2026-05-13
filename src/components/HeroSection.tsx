@@ -18,7 +18,7 @@ export interface HeroSectionProps {
 
 const DEFAULT_TRUST = [
   { value: "Alto", label: "Trust Score" },
-  { value: "Idade real", label: "BMs & Perfis" },
+  { value: "Antigos", label: "BMs & Perfis" },
   { value: "Verified", label: "Business Manager" },
 ];
 
