@@ -1288,20 +1288,6 @@ const recuperacaoBm: ProductLandingData = {
   hero: {
     eyebrow: "QUANDO A BM CAI, A OPERAÇÃO NÃO PODE PARAR",
     badgeText: "Diagnóstico · Defesa · Contingência imediata",
-    headline: (
-      <>
-        Recuperação de <span className="text-gradient">BM bloqueada</span> com defesa documental e contingência em 24h.
-      </>
-    ),
-    headlineMobile: (
-      <>
-        Recuperação de <span className="text-gradient">BM bloqueada</span> em 24h.
-      </>
-    ),
-    subheadline:
-      "Diagnóstico do bloqueio, plano de defesa documental, contestação na Meta e estrutura de contingência ativada no mesmo dia. Sua operação não pausa enquanto a BM é resolvida.",
-    subheadlineMobile:
-      "Diagnóstico, defesa documental e contingência em 24h. Sua operação não pausa.",
     trustItems: [
       { value: "24h", label: "Contingência" },
       { value: "Defense", label: "Documental" },
