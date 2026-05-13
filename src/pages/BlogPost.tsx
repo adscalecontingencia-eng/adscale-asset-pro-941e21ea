@@ -247,7 +247,7 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden w-full max-w-[100vw]">
       <SEO
-        title={`${post.title} | AD Scale`}
+        title={blogSeoTitles[post.slug] ?? post.title}
         description={post.description}
         keywords={post.keywords}
         canonical={`/blog/${post.slug}`}
