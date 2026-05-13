@@ -108,7 +108,7 @@ const businessManager: ProductLandingData = {
         "Cap alto desde o primeiro real",
         "Resistência a review automática",
       ]),
-      mk(Building2, "AGED", "BM Antiga", "Anos de histórico de gastos limpo. Resiste a auditoria e brilha em nichos sensíveis onde BM nova não dura.", [
+      mk(Building2, "IDADE REAL", "BM Antiga", "Anos de histórico de gastos limpo. Resiste a auditoria e brilha em nichos sensíveis onde BM nova não dura.", [
         "Idade comprovável no Meta",
         "Histórico de gastos consistente",
         "Estável em vertical pesada",
@@ -230,7 +230,7 @@ const bmIlimitada: ProductLandingData = {
         "Idade real",
         "Vinculação 1 a 1",
       ]),
-      mk(Building2, "AGED", "BM Aged base", "BM com anos de histórico de gastos limpos serve como camada-mãe da estrutura ilimitada.", [
+      mk(Building2, "IDADE REAL", "BM Aged base", "BM com anos de histórico de gastos limpos serve como camada-mãe da estrutura ilimitada.", [
         "Histórico de gastos comprovado",
         "Sem strike",
         "Estável em auditoria",
@@ -330,7 +330,7 @@ const perfisFacebook: ProductLandingData = {
       "Perfis com timeline real, amigos, fotos e atividade orgânica de anos. A base que sustenta sua BM, libera multi-conta e mantém o Trust Score alto no Meta.",
     subheadlineMobile: "Perfis com timeline, amigos e atividade orgânica de anos. Sustentam BM e multi-conta.",
     trustItems: [
-      { value: "Aged", label: "2+ anos" },
+      { value: "Idade real", label: "2+ anos" },
       { value: "Real", label: "Atividade orgânica" },
       { value: "Verified", label: "Selo opcional" },
     ],
@@ -345,7 +345,7 @@ const perfisFacebook: ProductLandingData = {
     intro:
       "Cada perfil é validado em fingerprint, atividade orgânica e histórico de login antes de chegar em você. Sem perfil de catálogo.",
     items: [
-      mk(UserCircle2, "AGED", "Perfil Aged (2+ anos)", "Perfis com 2 a 5+ anos de atividade real, login orgânico, amigos e timeline coerente.", [
+      mk(UserCircle2, "IDADE REAL", "Perfil Aged (2+ anos)", "Perfis com 2 a 5+ anos de atividade real, login orgânico, amigos e timeline coerente.", [
         "Timeline real e ativa",
         "Amigos e fotos orgânicos",
         "Histórico de login limpo",
@@ -575,7 +575,7 @@ const paginasFacebook: ProductLandingData = {
     subheadlineMobile:
       "Páginas com idade, seguidores orgânicos e engajamento real. Reduz risco e melhora lookalike.",
     trustItems: [
-      { value: "Aged", label: "Idade real" },
+      { value: "Idade real", label: "do ativo" },
       { value: "Real", label: "Engajamento orgânico" },
       { value: "Nicho", label: "Match com oferta" },
     ],
@@ -590,7 +590,7 @@ const paginasFacebook: ProductLandingData = {
     intro:
       "Página fraca derruba CTR, CPM e Trust Score. Trabalhamos quatro categorias para cada momento da operação.",
     items: [
-      mk(FileText, "AGED", "Página Antiga (2+ anos)", "Páginas com 2 a 8+ anos de criação, posts orgânicos e seguidores reais.", [
+      mk(FileText, "IDADE REAL", "Página Antiga (2+ anos)", "Páginas com 2 a 8+ anos de criação, posts orgânicos e seguidores reais.", [
         "Idade comprovada",
         "Seguidores orgânicos",
         "Histórico de posts",
@@ -701,7 +701,7 @@ const dominiosVerificados: ProductLandingData = {
     trustItems: [
       { value: "Verified", label: "Meta domain" },
       { value: "DNS", label: "Configurado" },
-      { value: "Aged", label: "Idade real" },
+      { value: "Idade real", label: "do ativo" },
     ],
   },
   assets: {
@@ -719,7 +719,7 @@ const dominiosVerificados: ProductLandingData = {
         "Atribuição estável",
         "Pré-requisito CAPI",
       ]),
-      mk(Activity, "AGED", "Domínio Aged + DNS", "Domínios com 1+ ano de registro, DNS configurado e histórico limpo.", [
+      mk(Activity, "IDADE REAL", "Domínio Aged + DNS", "Domínios com 1+ ano de registro, DNS configurado e histórico limpo.", [
         "Idade no WHOIS",
         "DNS produção",
         "Sem blacklist",
@@ -1065,7 +1065,7 @@ const aquecimentoContas: ProductLandingData = {
     trustItems: [
       { value: "14-30d", label: "Programa" },
       { value: "Daily", label: "Monitoria" },
-      { value: "High", label: "Trust Score final" },
+      { value: "Alto", label: "Trust Score final" },
     ],
   },
   assets: {
