@@ -98,10 +98,16 @@ function injectMeta(template, { title, description, canonical, ogImage, keywords
       `<meta name="keywords" content="${kw}" />`,
     );
   }
-  html = html.replace(
-    /<link rel="canonical"[^>]*\/>/,
-    `<link rel="canonical" href="${canonical}" />`,
-  );
+  // Canonical was removed from index.html so each route can self-reference.
+  // If a previous run left one, replace it; otherwise inject before </head>.
+  if (/<link rel="canonical"[^>]*\/>/.test(html)) {
+    html = html.replace(
+      /<link rel="canonical"[^>]*\/>/,
+      `<link rel="canonical" href="${canonical}" />`,
+    );
+  } else {
+    html = html.replace("</head>", `    <link rel="canonical" href="${canonical}" />\n  </head>`);
+  }
   html = html.replace(/<meta property="og:type"[^>]*\/>/, `<meta property="og:type" content="${ogType}" />`);
   html = html.replace(/<meta property="og:url"[^>]*\/>/, `<meta property="og:url" content="${canonical}" />`);
   html = html.replace(/<meta property="og:title"[^>]*\/>/, `<meta property="og:title" content="${safeTitle}" />`);
