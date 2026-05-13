@@ -72,7 +72,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden w-full max-w-[100vw]">
       <SEO
-        title="Contingência Meta Ads e Facebook Ads: BM Verificada | AD Scale"
+        title="Contingência Meta Ads: BM Verificada | AD Scale"
         description="Ativos de contingência para Meta Ads e Facebook Ads: BM Verificada com selo azul, BM antiga, perfil aged e página antiga com Trust Score alto."
         keywords={[
           "contingência meta ads",
