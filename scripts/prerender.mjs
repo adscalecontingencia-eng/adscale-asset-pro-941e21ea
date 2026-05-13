@@ -14,6 +14,12 @@ const TEMPLATE = readFileSync(resolve(DIST, "index.html"), "utf8");
 
 // ---------- Parse blog posts from src/data/blogPosts.ts via regex ----------
 const blogSource = readFileSync(resolve("src/data/blogPosts.ts"), "utf8");
+// Per-slug short SEO titles (≤60 chars). Falls back to post.title when absent.
+const seoTitlesSource = readFileSync(resolve("src/data/blogSeoTitles.ts"), "utf8");
+const seoTitlesMap = {};
+for (const m of seoTitlesSource.matchAll(/"([^"]+)":\s*\n?\s*"([^"]+)"/g)) {
+  seoTitlesMap[m[1]] = m[2];
+}
 
 // Match each post object block. Each post starts with `slug: "..."` and ends at the next `},` followed by `{` or end of array.
 const postBlocks = blogSource.split(/\n\s*\{/);
@@ -98,10 +104,16 @@ function injectMeta(template, { title, description, canonical, ogImage, keywords
       `<meta name="keywords" content="${kw}" />`,
     );
   }
-  html = html.replace(
-    /<link rel="canonical"[^>]*\/>/,
-    `<link rel="canonical" href="${canonical}" />`,
-  );
+  // Canonical was removed from index.html so each route can self-reference.
+  // If a previous run left one, replace it; otherwise inject before </head>.
+  if (/<link rel="canonical"[^>]*\/>/.test(html)) {
+    html = html.replace(
+      /<link rel="canonical"[^>]*\/>/,
+      `<link rel="canonical" href="${canonical}" />`,
+    );
+  } else {
+    html = html.replace("</head>", `    <link rel="canonical" href="${canonical}" />\n  </head>`);
+  }
   html = html.replace(/<meta property="og:type"[^>]*\/>/, `<meta property="og:type" content="${ogType}" />`);
   html = html.replace(/<meta property="og:url"[^>]*\/>/, `<meta property="og:url" content="${canonical}" />`);
   html = html.replace(/<meta property="og:title"[^>]*\/>/, `<meta property="og:title" content="${safeTitle}" />`);
@@ -243,7 +255,7 @@ for (const post of posts) {
     "@graph": [articleLd(post, canonical, ogImageUrl), breadcrumbs],
   };
   const html = injectMeta(TEMPLATE, {
-    title: `${post.title} | AD Scale`,
+    title: seoTitlesMap[post.slug] ?? post.title,
     description: post.description,
     canonical,
     ogImage: post.ogImage,

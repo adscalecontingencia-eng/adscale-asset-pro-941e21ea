@@ -117,8 +117,8 @@ const Blog = () => {
   const filterLabel = filter === "Todos" ? "" : ` — ${filter}`;
   const pageLabel = currentPage > 1 ? ` (página ${currentPage})` : "";
   const seoTitle = isCanonicalView
-    ? "Blog Meta Ads: contingência, BM verificada e Trust Score | AD Scale"
-    : `Blog AD Scale${filterLabel}${pageLabel} | Meta Ads e Facebook Ads`;
+    ? "Blog Meta Ads: BM Verificada e Trust Score | AD Scale"
+    : `Blog AD Scale${filterLabel}${pageLabel}`;
   const seoDescription = isCanonicalView
     ? "Aprenda sobre contingência no Meta Ads, bloqueio de conta, BM verificada, Trust Score, perfis aged, Pixel, CAPI e estrutura de escala."
     : `Artigos de ${filter === "Todos" ? "Meta Ads" : filter.toLowerCase()} sobre contingência, BM verificada, Trust Score e Facebook Ads.${pageLabel}`;

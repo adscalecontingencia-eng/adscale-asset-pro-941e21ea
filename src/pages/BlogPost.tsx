@@ -8,6 +8,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
 import TableOfContents, { extractTocFromMarkdown } from "@/components/TableOfContents";
 import { getPostBySlug } from "@/data/blogPosts";
+import { blogSeoTitles } from "@/data/blogSeoTitles";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 import pedroPhoto from "@/assets/pedro-lucas-fundador.jpg";
 
@@ -246,7 +247,7 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden w-full max-w-[100vw]">
       <SEO
-        title={`${post.title} | AD Scale`}
+        title={blogSeoTitles[post.slug] ?? post.title}
         description={post.description}
         keywords={post.keywords}
         canonical={`/blog/${post.slug}`}
