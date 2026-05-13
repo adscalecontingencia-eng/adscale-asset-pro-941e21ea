@@ -5,7 +5,17 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqs = [
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface FAQSectionProps {
+  faqs?: FAQItem[];
+  heading?: React.ReactNode;
+}
+
+const DEFAULT_FAQS: FAQItem[] = [
   {
     question: "Vocês atendem quem está começando?",
     answer:
@@ -48,14 +58,19 @@ const faqs = [
   },
 ];
 
-const FAQSection = () => {
+const FAQSection = ({
+  faqs = DEFAULT_FAQS,
+  heading = (
+    <>
+      Tirando suas <span className="text-gradient">dúvidas</span>
+    </>
+  ),
+}: FAQSectionProps) => {
   return (
     <section id="faq" className="section-padding">
       <div className="container max-w-3xl">
         <div className="text-center mb-12">
-          <h2 className="font-display text-3xl md:text-5xl font-bold">
-            Tirando suas <span className="text-gradient">dúvidas</span>
-          </h2>
+          <h2 className="font-display text-3xl md:text-5xl font-bold">{heading}</h2>
         </div>
 
         <Accordion type="single" collapsible className="space-y-3">
