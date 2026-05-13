@@ -422,20 +422,20 @@ const perfisFacebook: ProductLandingData = {
 // 4. Perfil Idade Real do Ativo
 // ============================================================
 const perfilAged: ProductLandingData = {
-  slug: "perfil-idade real do ativo",
+  slug: "perfil-aged",
   seo: {
-    title: "Perfil Idade Real do Ativo Facebook | Contas Antigas Ativas",
+    title: "Perfil com Idade Real | Contas Antigas Facebook",
     description:
-      "Perfis Facebook idade real do ativo com 2 a 10+ anos de timeline real, amigos, fotos e histórico de login orgânico. Base ideal para BM verificada e Meta Ads.",
+      "Perfis Facebook com idade real do ativo (2 a 10+ anos) e timeline orgânica, amigos, fotos e login limpo. Base ideal para BM verificada e Meta Ads.",
     keywords: [
-      "perfil idade real do ativo facebook",
+      "perfil aged facebook",
       "perfil antigo facebook",
-      "conta idade real do ativo",
+      "conta aged",
       "perfil 2010",
       "perfil envelhecido",
       "conta facebook antiga",
     ],
-    canonical: "/perfil-idade real do ativo",
+    canonical: "/perfil-aged",
   },
   hero: {
     eyebrow: "PERFIS COM ANOS DE TIMELINE REAL",
