@@ -16,7 +16,7 @@ const FooterSection = () => {
         <div className="grid md:grid-cols-3 gap-10 mb-10">
           <div>
             <div className="mb-4">
-              <Logo />
+              <Logo size={28} withTagline />
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Comercialização de ativos de contingência premium para operações
