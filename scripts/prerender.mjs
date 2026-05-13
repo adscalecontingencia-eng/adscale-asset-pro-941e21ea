@@ -83,6 +83,72 @@ const staticPages = [
     description: "Guia completo para escalar Facebook Ads em alto volume: estrutura de contingência, BM verificada, Trust Score e proteção de ativos.",
     keywords: ["facebook ads alto volume", "guia facebook ads", "escalar facebook ads", "alto volume meta ads"],
   },
+  {
+    path: "/business-manager",
+    title: "Business Manager Facebook Ads | AD Scale",
+    description: "Compre Business Manager (BM) para Meta e Facebook Ads: BMs novas, antigas, verificadas e ilimitadas com Trust Score alto e curadoria 1 a 1.",
+    keywords: ["business manager facebook", "comprar business manager", "bm facebook ads", "bm aged", "bm ilimitada"],
+  },
+  {
+    path: "/bm-ilimitada",
+    title: "BM Ilimitada Facebook Ads | Sem Cap de Gasto",
+    description: "BM Ilimitada para Meta Ads: Business Manager sem limite de gasto, com Trust Score alto, ideal para escalar acima de 1k/10k USD por dia.",
+    keywords: ["bm ilimitada", "bm sem limite", "bm desbloqueada", "bm com limite alto", "bm 250 dólares"],
+  },
+  {
+    path: "/perfis-facebook",
+    title: "Perfis Facebook Farmados e Aged | AD Scale",
+    description: "Compre perfis Facebook farmados e aged com timeline real, idade comprovada e Trust Score alto. Base estável para BM, multi-conta e Meta Ads.",
+    keywords: ["perfil facebook farmado", "comprar perfil facebook", "perfil aged", "perfil verificado", "conta facebook farmada"],
+  },
+  {
+    path: "/perfil-aged",
+    title: "Perfil Aged Facebook | Contas Antigas Ativas",
+    description: "Perfis Facebook aged com 2 a 10+ anos de timeline real, amigos, fotos e histórico de login orgânico. Base ideal para BM verificada e Meta Ads.",
+    keywords: ["perfil aged facebook", "perfil antigo facebook", "conta aged", "perfil 2010", "perfil envelhecido"],
+  },
+  {
+    path: "/paginas-facebook",
+    title: "Comprar Fan Page Facebook | Páginas Antigas Aged",
+    description: "Fan Pages antigas e verificadas para Meta Ads: páginas com idade, engajamento real, seguidores orgânicos e nicho coerente para a sua oferta.",
+    keywords: ["comprar fan page", "fan page antiga", "página facebook ads", "página com seguidores", "fan page verificada"],
+  },
+  {
+    path: "/dominios-verificados",
+    title: "Domínios Verificados Meta | Para Facebook Ads",
+    description: "Domínios verificados no Meta para Facebook Ads, conversions API e WhatsApp Cloud API. Verificação ativa, DNS configurado e Trust Score alto.",
+    keywords: ["domínio verificado meta", "verificação de domínio facebook", "domínio com trust", "domínio aquecido"],
+  },
+  {
+    path: "/whatsapp-cloud-api",
+    title: "WhatsApp Cloud API + BM Verificada | AD Scale",
+    description: "BM Verificada para WhatsApp Cloud API: WABA verificada, número high quality, templates aprovados e tier 1k/10k/100k para disparo oficial.",
+    keywords: ["whatsapp cloud api", "bm para whatsapp api", "waba verificada", "tier whatsapp api", "comprar bm whatsapp api"],
+  },
+  {
+    path: "/pixel-capi",
+    title: "Pixel Facebook + CAPI | Conversions API Meta",
+    description: "Pixel verificado e Conversions API (CAPI) configurada para Facebook Ads pós iOS 14+: atribuição estável, eventos prioritários e domínio verificado.",
+    keywords: ["pixel facebook capi", "conversions api meta", "capi facebook ads", "pixel verificado"],
+  },
+  {
+    path: "/aquecimento-contas",
+    title: "Aquecimento de Contas Facebook Ads | Warm-up",
+    description: "Serviço de aquecimento (warm-up) profissional para contas Facebook Ads, BMs e perfis. Estratégia de cap, criativo e cadência para Trust Score alto.",
+    keywords: ["aquecimento conta facebook", "warm up facebook ads", "esquentar bm", "esquentar conta ads"],
+  },
+  {
+    path: "/cartoes-bin-internacional",
+    title: "BIN para Facebook Ads | Cartões Internacionais",
+    description: "BIN e cartões internacionais aprovadores para Meta Ads: testados em volume, com baixa taxa de hard decline e sem disparo de fraude na BM.",
+    keywords: ["bin para facebook ads", "cartão internacional ads", "bin que aprova meta", "cartão para bm"],
+  },
+  {
+    path: "/recuperacao-bm",
+    title: "Recuperação de BM Bloqueada | Meta Ads | AD Scale",
+    description: "Recuperação e desbloqueio de BM bloqueada no Meta Ads: diagnóstico, plano de defesa, contestação documental e contingência imediata.",
+    keywords: ["bm bloqueada recuperar", "desbloqueio bm", "recuperar conta facebook ads", "bm restrita"],
+  },
 ];
 
 // ---------- HTML transform ----------

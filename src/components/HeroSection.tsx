@@ -2,7 +2,48 @@ import { ArrowRight } from "lucide-react";
 import DotGlobe from "./DotGlobe";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 
-const HeroSection = () => {
+export interface HeroSectionProps {
+  eyebrow?: string;
+  /** Heading nodes — pode usar JSX para destaques */
+  headline?: React.ReactNode;
+  headlineMobile?: React.ReactNode;
+  subheadline?: string;
+  subheadlineMobile?: string;
+  badgeText?: string;
+  primaryCtaLabel?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+  trustItems?: { value: string; label: string }[];
+}
+
+const DEFAULT_TRUST = [
+  { value: "High", label: "Trust Score" },
+  { value: "Aged", label: "BMs & Perfis" },
+  { value: "Verified", label: "Business Manager" },
+];
+
+const HeroSection = ({
+  eyebrow = "FEITO PARA QUEM ESCALA DE VERDADE NO META",
+  headline = (
+    <>
+      Quando o leilão aperta, a <span className="text-gradient">qualidade do ativo</span> é o que mantém o{" "}
+      <span className="text-primary font-bold">ROAS</span>.
+    </>
+  ),
+  headlineMobile = (
+    <>
+      Quando o leilão aperta, a <span className="text-gradient">qualidade do ativo</span> mantém o{" "}
+      <span className="text-primary font-bold">ROAS</span>.
+    </>
+  ),
+  subheadline = "BMs Verificadas, BMs antigas, perfis e páginas com idade real e Trust Score alto no Meta. A estrutura que sustenta o seu volume quando o leilão aperta.",
+  subheadlineMobile = "BMs Verificadas, BMs antigas, perfis e páginas com idade real e Trust Score alto. A estrutura que sustenta seu volume.",
+  badgeText = "Ativos com Trust Score alto · Curadoria 1 a 1",
+  primaryCtaLabel = "FALAR COM O TIME",
+  secondaryCtaLabel = "Ver Ativos",
+  secondaryCtaHref = "#ativos",
+  trustItems = DEFAULT_TRUST,
+}: HeroSectionProps) => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden w-full">
       <div className="absolute inset-0 grid-texture opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
@@ -14,152 +55,98 @@ const HeroSection = () => {
         {/* Desktop */}
         <div className="hidden md:grid md:grid-cols-[1fr_auto] gap-6 lg:gap-10 items-center">
           <div className="max-w-xl">
-            <div
-              className="badge-pill mb-6 animate-fade-in-up"
-              style={{ animationDelay: "0.05s" }}
-            >
+            <div className="badge-pill mb-6 animate-fade-in-up" style={{ animationDelay: "0.05s" }}>
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              Ativos com Trust Score alto · Curadoria 1 a 1
+              {badgeText}
             </div>
 
-            <p
-              className="text-muted-foreground uppercase tracking-widest text-sm mb-3 animate-fade-in-up"
-              style={{ animationDelay: "0.1s" }}
-            >
-              FEITO PARA QUEM ESCALA DE VERDADE NO META
+            <p className="text-muted-foreground uppercase tracking-widest text-sm mb-3 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+              {eyebrow}
             </p>
 
-            <h1
-              className="font-display text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 animate-fade-in-up"
-              style={{ animationDelay: "0.15s" }}
-            >
-              Quando o leilão aperta, a{" "}
-              <span className="text-gradient">qualidade do ativo</span>{" "}
-              é o que mantém o <span className="text-primary font-bold">ROAS</span>.
+            <h1 className="font-display text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
+              {headline}
             </h1>
 
-            <p
-              className="text-muted-foreground text-lg md:text-xl max-w-xl mb-8 leading-relaxed animate-fade-in-up"
-              style={{ animationDelay: "0.25s" }}
-            >
-              BMs Verificadas, BMs antigas, perfis e páginas com idade real e
-              Trust Score alto no Meta. A estrutura que sustenta o seu volume
-              quando o leilão aperta.
+            <p className="text-muted-foreground text-lg md:text-xl max-w-xl mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.25s" }}>
+              {subheadline}
             </p>
 
-            <div
-              className="flex flex-row gap-4 animate-fade-in-up"
-              style={{ animationDelay: "0.35s" }}
-            >
+            <div className="flex flex-row gap-4 animate-fade-in-up" style={{ animationDelay: "0.35s" }}>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-gradient-primary text-primary-foreground font-bold px-8 py-4 rounded-xl text-lg transition-all hover:scale-105 animate-pulse-glow"
               >
-                FALAR COM O TIME
+                {primaryCtaLabel}
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a
-                href="#ativos"
+                href={secondaryCtaHref}
                 className="inline-flex items-center justify-center gap-2 border border-border/50 bg-card/60 px-8 py-4 rounded-xl text-lg font-medium text-foreground transition-all hover:border-primary/50"
               >
                 <span className="w-0 h-0 border-l-[8px] border-l-primary border-y-[5px] border-y-transparent" />
-                Ver Ativos
+                {secondaryCtaLabel}
               </a>
             </div>
 
-            <div
-              className="mt-12 flex flex-wrap items-center gap-6 md:gap-10 animate-fade-in-up"
-              style={{ animationDelay: "0.5s" }}
-            >
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-primary" />
-                <span className="text-foreground font-bold">High</span>
-                <span className="text-muted-foreground text-sm">Trust Score</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-primary" />
-                <span className="text-foreground font-bold">Aged</span>
-                <span className="text-muted-foreground text-sm">BMs &amp; Perfis</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-primary" />
-                <span className="text-foreground font-bold">Verified</span>
-                <span className="text-muted-foreground text-sm">Business Manager</span>
-              </div>
+            <div className="mt-12 flex flex-wrap items-center gap-6 md:gap-10 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+              {trustItems.map((t) => (
+                <div key={t.label} className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-primary" />
+                  <span className="text-foreground font-bold">{t.value}</span>
+                  <span className="text-muted-foreground text-sm">{t.label}</span>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div
-            className="flex items-center justify-center animate-fade-in-up"
-            style={{ animationDelay: "0.3s" }}
-          >
+          <div className="flex items-center justify-center animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
             <DotGlobe size={480} />
           </div>
         </div>
 
         {/* Mobile */}
         <div className="flex flex-col items-center md:hidden">
-          <div
-            className="w-full flex justify-center mb-4 animate-fade-in-up"
-            style={{ animationDelay: "0.1s" }}
-          >
+          <div className="w-full flex justify-center mb-4 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
             <DotGlobe size={200} />
           </div>
 
           <div className="w-full text-center">
-            <div
-              className="badge-pill mb-3 animate-fade-in-up mx-auto"
-              style={{ animationDelay: "0.15s" }}
-            >
+            <div className="badge-pill mb-3 animate-fade-in-up mx-auto" style={{ animationDelay: "0.15s" }}>
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              Trust Score alto · Curadoria 1 a 1
+              {badgeText}
             </div>
 
-            <p
-              className="text-muted-foreground uppercase tracking-widest text-xs mb-2 animate-fade-in-up"
-              style={{ animationDelay: "0.2s" }}
-            >
-              PARA QUEM ESCALA DE VERDADE NO META
+            <p className="text-muted-foreground uppercase tracking-widest text-xs mb-2 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+              {eyebrow}
             </p>
 
-            <h1
-              className="font-display text-2xl font-bold leading-[1.1] mb-3 animate-fade-in-up"
-              style={{ animationDelay: "0.25s" }}
-            >
-              Quando o leilão aperta, a{" "}
-              <span className="text-gradient">qualidade do ativo</span>{" "}
-              mantém o <span className="text-primary font-bold">ROAS</span>.
+            <h1 className="font-display text-2xl font-bold leading-[1.1] mb-3 animate-fade-in-up" style={{ animationDelay: "0.25s" }}>
+              {headlineMobile}
             </h1>
 
-            <p
-              className="text-muted-foreground text-sm mb-4 leading-relaxed animate-fade-in-up px-2"
-              style={{ animationDelay: "0.3s" }}
-            >
-              BMs Verificadas, BMs antigas, perfis e páginas com idade real e
-              Trust Score alto. A estrutura que sustenta seu volume.
+            <p className="text-muted-foreground text-sm mb-4 leading-relaxed animate-fade-in-up px-2" style={{ animationDelay: "0.3s" }}>
+              {subheadlineMobile}
             </p>
 
-            <div
-              className="flex flex-col gap-3 animate-fade-in-up"
-              style={{ animationDelay: "0.35s" }}
-            >
+            <div className="flex flex-col gap-3 animate-fade-in-up" style={{ animationDelay: "0.35s" }}>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-gradient-primary text-primary-foreground font-bold px-6 py-3.5 rounded-xl text-base transition-all hover:scale-105 animate-pulse-glow"
               >
-                FALAR COM O TIME
+                {primaryCtaLabel}
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a
-                href="#ativos"
+                href={secondaryCtaHref}
                 className="inline-flex items-center justify-center gap-2 border border-border/50 bg-card/60 px-6 py-3.5 rounded-xl text-base font-medium text-foreground transition-all hover:border-primary/50"
               >
                 <span className="w-0 h-0 border-l-[8px] border-l-primary border-y-[5px] border-y-transparent" />
-                Ver Ativos
+                {secondaryCtaLabel}
               </a>
             </div>
           </div>

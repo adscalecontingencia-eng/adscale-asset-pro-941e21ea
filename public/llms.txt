@@ -41,3 +41,17 @@ AD Scale é fornecedora brasileira especializada em curadoria 1 a 1 de ativos pa
 - [Consultoria Meta Ads vs curso](/blog/consultoria-meta-ads-vs-curso-quando-contratar): Quando contratar especialista.
 - [Checklist de auditoria de BM Facebook](/blog/checklist-auditoria-bm-facebook-18-itens): 18 itens antes de escalar.
 - [Por que contas novas bloqueiam](/blog/bloqueio-conta-nova-facebook-ads-7-motivos): 7 motivos reais.
+
+## Landing Pages por Produto
+
+- [Business Manager](/business-manager): BMs novas, aged, verificadas e ilimitadas para Meta Ads.
+- [BM Ilimitada](/bm-ilimitada): Business Manager sem cap de gasto travado.
+- [Perfis Facebook](/perfis-facebook): Perfis farmados, aged e verificados.
+- [Perfil Aged](/perfil-aged): Perfis Facebook 2010+ com timeline real.
+- [Páginas Facebook](/paginas-facebook): Fan Pages antigas, verificadas e por nicho.
+- [Domínios Verificados](/dominios-verificados): Domínios verificados no Meta para CAPI e WABA.
+- [WhatsApp Cloud API](/whatsapp-cloud-api): BM + WABA verificadas, número HQ, tier 1k/10k/100k.
+- [Pixel + CAPI](/pixel-capi): Pixel e Conversions API server-side configurados.
+- [Aquecimento de Contas](/aquecimento-contas): Warm-up profissional para BMs, perfis e WABA.
+- [Cartões e BIN Internacional](/cartoes-bin-internacional): BINs aprovadores para Meta Ads.
+- [Recuperação de BM](/recuperacao-bm): Desbloqueio de BM e contingência em 24h.
