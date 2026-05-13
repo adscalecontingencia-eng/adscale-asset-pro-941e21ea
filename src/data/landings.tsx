@@ -27,10 +27,10 @@ export interface ProductLandingData {
   hero: {
     eyebrow: string;
     badgeText: string;
-    headline: ReactNode;
-    headlineMobile: ReactNode;
-    subheadline: string;
-    subheadlineMobile: string;
+    headline?: ReactNode;
+    headlineMobile?: ReactNode;
+    subheadline?: string;
+    subheadlineMobile?: string;
     trustItems?: { value: string; label: string }[];
   };
   assets: {
