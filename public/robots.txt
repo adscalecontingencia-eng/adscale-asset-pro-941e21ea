@@ -45,4 +45,5 @@ Crawl-delay: 5
 Host: https://www.adscalecontingencia.com
 
 # Sitemap (índice agrega páginas + posts)
+Sitemap: https://www.adscalecontingencia.com/sitemap.xml
 Sitemap: https://www.adscalecontingencia.com/sitemap-index.xml
