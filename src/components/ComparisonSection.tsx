@@ -10,7 +10,7 @@ const ComparisonSection = () => {
     {
       label: "Trust Score no Meta",
       common: "Low / Médio (susceptível a revista)",
-      adscale: "High Score (resistência natural)",
+      adscale: "Trust Score alto (resistência natural)",
     },
     {
       label: "Histórico de gasto",
