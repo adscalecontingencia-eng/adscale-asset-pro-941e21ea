@@ -16,6 +16,8 @@ import PillarFacebookAds from "./pages/PillarFacebookAds.tsx";
 import AdminLogin from "./pages/admin/Login.tsx";
 import AdminDashboard from "./pages/admin/Dashboard.tsx";
 import AnalyticsTracker from "./components/AnalyticsTracker.tsx";
+import ProductLanding from "./pages/ProductLanding.tsx";
+import { productLandingSlugs } from "./data/landings";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +40,9 @@ const App = () => (
           <Route path="/guia-facebook-ads-alto-volume" element={<PillarFacebookAds />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          {productLandingSlugs.map((slug) => (
+            <Route key={slug} path={`/${slug}`} element={<ProductLanding slug={slug} />} />
+          ))}
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
