@@ -5,7 +5,7 @@ const ContingenciaMetaAds = () => (
     seo={{
       title: "Contingência Meta Ads e Facebook Ads para Alto Volume | AD Scale",
       description:
-        "Estrutura de contingência para Meta Ads e Facebook Ads: BMs reservas, perfis com idade real do ativo, páginas antigas e fluxo de recuperação para evitar bloqueios.",
+        "Estrutura de contingência para Meta Ads e Facebook Ads: BMs reservas, perfis antigos, páginas antigas e fluxo de recuperação para evitar bloqueios.",
       keywords: [
         "contingência meta ads",
         "contingência facebook ads",
@@ -24,10 +24,10 @@ const ContingenciaMetaAds = () => (
     }}
     eyebrow="Contingência"
     h1="Estrutura de contingência para Meta Ads e Facebook Ads"
-    subheadline="Pacotes de ativos reserva — BMs verificadas, perfis com idade real do ativo, páginas antigas e fluxo de recuperação — para que bloqueios não interrompam seu faturamento."
+    subheadline="Pacotes de ativos reserva — BMs verificadas, perfis antigos, páginas antigas e fluxo de recuperação — para que bloqueios não interrompam seu faturamento."
     bullets={[
       "BMs reservas em standby com Trust Score alto",
-      "Perfis com idade real do ativo (administradores antigos) prontos para uso",
+      "Perfis antigos (administradores antigos) prontos para uso",
       "Páginas com histórico real e engajamento",
       "Plano de rotação para reduzir risco de bloqueio em série",
       "Compatível com gestores de tráfego e agências",
@@ -95,7 +95,7 @@ const ContingenciaMetaAds = () => (
         name: "Gustavo T.",
         role: "Operação Drop Premium",
         operation: "Nicho de luxo",
-        quote: "Os perfis com idade real do ativo + páginas antigas reduziram drasticamente o gatilho de revisão. Em 45 dias, zero bloqueios mesmo escalando agressivo no Facebook Ads.",
+        quote: "Os perfis antigos + páginas antigas reduziram drasticamente o gatilho de revisão. Em 45 dias, zero bloqueios mesmo escalando agressivo no Facebook Ads.",
         metric: "0",
         metricLabel: "bloqueios em 45 dias",
         volume: "R$ 150k/dia",
@@ -115,14 +115,14 @@ const ContingenciaMetaAds = () => (
         segment: "Alto volume",
         title: "DTC de suplementos eliminou perdas por bloqueio",
         scenario: "Operação com R$ 200k/dia perdia em média R$ 600k/mês em receita por bloqueios consecutivos da BM principal.",
-        action: "Implantação de 3 BMs reservas verificadas com perfis com idade real do ativo distintos, rotação semanal e CAPI espelhado em todas.",
+        action: "Implantação de 3 BMs reservas verificadas com perfis antigos distintos, rotação semanal e CAPI espelhado em todas.",
         result: "Perda mensal por bloqueio caiu para menos de R$ 40k em 60 dias, com escala mantida.",
       },
       {
         segment: "Lançamento",
         title: "Produtora reduziu risco em lançamento crítico",
         scenario: "Lançamento de R$ 3M previsto para 10 dias, com BM única e histórico de revisão recente — risco alto de queda no pico.",
-        action: "Montagem de pacote de contingência com 2 BMs reservas, perfis com idade real do ativo dedicados e plano de chaveamento em 1h.",
+        action: "Montagem de pacote de contingência com 2 BMs reservas, perfis antigos dedicados e plano de chaveamento em 1h.",
         result: "Lançamento entregou R$ 3,4M com 1 bloqueio rapidamente contornado, sem perda de janela.",
       },
     ]}

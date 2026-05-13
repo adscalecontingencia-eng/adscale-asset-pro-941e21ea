@@ -11,7 +11,7 @@ const items = [
     icon: History,
     title: "Idade real, sem maquiagem",
     description:
-      "Idade comprovada pelo próprio histórico do Meta. Nada de perfil 'envelhecido' em 30 dias — aqui é ativo legítimo, com tempo de vida de verdade.",
+      "Idade comprovada pelo próprio histórico do Meta. Nada de perfil 'antigo' em 30 dias — aqui é ativo legítimo, com tempo de vida de verdade.",
   },
   {
     icon: Activity,

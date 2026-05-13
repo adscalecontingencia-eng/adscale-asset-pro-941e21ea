@@ -86,7 +86,7 @@ const ConsultoriaMetaAds = () => (
         name: "Felipe M.",
         role: "Sócio de Agência Performance",
         operation: "Múltiplos verticais",
-        quote: "A consultoria reorganizou nossa arquitetura de BMs e perfis. Saímos de bloqueio recorrente para previsibilidade real em todas as contas.",
+        quote: "A consultoria reorganizou nossa arquitetura de BMs e perfis. Saímos de bloqueio recorrente para previsibilantigos em todas as contas.",
         metric: "12",
         metricLabel: "ativos rodando estáveis",
         volume: "R$ 400k/dia",
@@ -115,7 +115,7 @@ const ConsultoriaMetaAds = () => (
         segment: "Agência",
         title: "Agência padronizou operação de 18 clientes",
         scenario: "Agência com 18 contas ativas sofria com BM compartilhada, falta de governança e bloqueios cruzados afetando múltiplos clientes.",
-        action: "Consultoria definiu padrão de 1 BM verificada por cliente, perfis com idade real do ativo dedicados e fluxo de contingência documentado.",
+        action: "Consultoria definiu padrão de 1 BM verificada por cliente, perfis antigos dedicados e fluxo de contingência documentado.",
         result: "Tickets de bloqueio caíram 70% em 90 dias e a agência liberou 1 FTE antes alocado em recuperação.",
       },
       {

@@ -28,7 +28,7 @@ const DEFAULT_ASSETS: AssetItem[] = [
   },
   {
     icon: Building2,
-    tag: "IDADE REAL",
+    tag: "ANTIGOS",
     title: "BM Antiga",
     description:
       "BMs com anos de histórico, gastos consistentes e ficha limpa. Aguentam auditoria, sustentam ticket alto e seguram nichos onde ativo novo não dura uma semana.",
@@ -44,7 +44,7 @@ const DEFAULT_ASSETS: AssetItem[] = [
   },
   {
     icon: FileText,
-    tag: "IDADE REAL",
+    tag: "ANTIGOS",
     title: "Página Antiga",
     description:
       "Fanpages com idade, engajamento real e nicho coerente com a sua oferta. Diminui muito o risco de derrubada por denúncia e ainda alimenta lookalikes mais precisos.",
