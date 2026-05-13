@@ -204,19 +204,6 @@ const bmIlimitada: ProductLandingData = {
   hero: {
     eyebrow: "ESCALE SEM TRAVAR NO CAP DE GASTO",
     badgeText: "BM Ilimitada · Cap alto · Verificadas",
-    headline: (
-      <>
-        <span className="text-gradient">BM Ilimitada</span> para escalar Meta Ads sem barreira de gasto.
-      </>
-    ),
-    headlineMobile: (
-      <>
-        <span className="text-gradient">BM Ilimitada</span> sem barreira de gasto.
-      </>
-    ),
-    subheadline:
-      "Business Manager sem cap pré-definido, com perfil verificado, histórico financeiro robusto e Trust Score alto. Para quem opera 6 e 7 dígitos por mês no Meta Ads.",
-    subheadlineMobile: "BM sem cap pré-definido, com perfil verificado e Trust Score alto. Para quem opera volume.",
     trustItems: [
       { value: "Sem cap", label: "de gasto" },
       { value: "10k+", label: "USD/dia" },
