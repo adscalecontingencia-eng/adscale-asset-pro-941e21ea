@@ -102,8 +102,10 @@ const AdminDashboard = () => {
       if (!mounted) return;
 
       if (error) {
-        toast.error("Sem permissão para visualizar as métricas.");
-        navigate("/admin/login", { replace: true });
+        console.error("[admin] whatsapp_clicks query error:", error);
+        toast.error(`Erro ao carregar métricas: ${error.message}`);
+        setAuthorized(true);
+        setLoading(false);
         return;
       }
 
