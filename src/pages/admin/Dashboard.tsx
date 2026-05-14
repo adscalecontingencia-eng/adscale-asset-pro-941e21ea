@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/table";
 import { Card } from "@/components/ui/card";
 import Logo from "@/components/Logo";
-import { LogOut, MousePointerClick, Search, TrendingUp, Globe } from "lucide-react";
+import { LogOut, MousePointerClick, Search, TrendingUp, Globe, Download } from "lucide-react";
 import {
   ResponsiveContainer,
   AreaChart,
