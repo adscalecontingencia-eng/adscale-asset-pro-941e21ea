@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { captureAttribution, trackWhatsAppClick } from "@/lib/whatsapp";
+import { buildWhatsAppUrl, captureAttribution, trackWhatsAppClick } from "@/lib/whatsapp";
 
 /**
  * Global side-effects:
@@ -26,6 +26,14 @@ const AnalyticsTracker = () => {
         link.getAttribute("data-cta") ||
         (link.textContent || "").trim().slice(0, 80) ||
         "wa_link";
+
+      // Rewrite href on the fly so the WhatsApp message includes the page of origin.
+      try {
+        link.href = buildWhatsAppUrl();
+      } catch {
+        /* no-op */
+      }
+
       trackWhatsAppClick({ ctaLabel, source: "whatsapp_button" });
     };
     document.addEventListener("click", handler, { capture: true });

@@ -1,8 +1,20 @@
 import { supabase } from "@/integrations/supabase/client";
 
 const WHATSAPP_NUMBER = "553198416336";
+const SITE_ORIGIN = "https://adscalecontingencia.com";
 const DEFAULT_MESSAGE =
   "Olá! Vim do site da AD Scale e tenho interesse nos ativos de contingência (BM Verificada / BM antiga / perfis aged).";
+
+/** Build a human-readable label for the current page. */
+function getPageContext(): { path: string; title: string; url: string } {
+  if (typeof window === "undefined") {
+    return { path: "/", title: "AD Scale", url: SITE_ORIGIN };
+  }
+  const path = window.location.pathname || "/";
+  const title = document.title || "AD Scale";
+  const url = `${SITE_ORIGIN}${path}${window.location.search}`;
+  return { path, title, url };
+}
 
 const SESSION_KEY = "adscale_session_id";
 const ATTRIBUTION_KEY = "adscale_attribution";
@@ -112,14 +124,16 @@ export function captureAttribution(): Attribution {
   return attr;
 }
 
-/** Build the wa.me URL with a context-aware pre-filled message. */
+/** Build the wa.me URL with a context-aware pre-filled message that includes the page of origin. */
 export function buildWhatsAppUrl(opts?: { message?: string; cta?: string }): string {
-  const msg = opts?.message ?? DEFAULT_MESSAGE;
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+  const { title, url } = getPageContext();
+  const base = opts?.message ?? DEFAULT_MESSAGE;
+  const ctx = `\n\n— Página: ${title}\n${url}`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(base + ctx)}`;
 }
 
 /** Default URL with the default message — kept for backwards compatibility. */
-export const WHATSAPP_URL = buildWhatsAppUrl();
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`;
 
 /** Fire-and-forget click tracking. Never blocks navigation. */
 export function trackWhatsAppClick(opts?: {
