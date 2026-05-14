@@ -124,14 +124,16 @@ export function captureAttribution(): Attribution {
   return attr;
 }
 
-/** Build the wa.me URL with a context-aware pre-filled message. */
+/** Build the wa.me URL with a context-aware pre-filled message that includes the page of origin. */
 export function buildWhatsAppUrl(opts?: { message?: string; cta?: string }): string {
-  const msg = opts?.message ?? DEFAULT_MESSAGE;
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+  const { title, url } = getPageContext();
+  const base = opts?.message ?? DEFAULT_MESSAGE;
+  const ctx = `\n\n— Página: ${title}\n${url}`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(base + ctx)}`;
 }
 
 /** Default URL with the default message — kept for backwards compatibility. */
-export const WHATSAPP_URL = buildWhatsAppUrl();
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`;
 
 /** Fire-and-forget click tracking. Never blocks navigation. */
 export function trackWhatsAppClick(opts?: {
