@@ -146,8 +146,14 @@ export function trackWhatsAppClick(opts?: {
   const attr = captureAttribution();
   const ua = navigator.userAgent || "";
 
+  // Normalize: route = current page path; landing_page = first-touch path,
+  // falling back to current path so it's NEVER null.
+  const currentPath = window.location.pathname + window.location.search;
+  const route = window.location.pathname || "/";
+  const landingPage = (attr.landing_page && attr.landing_page.trim()) || currentPath || route;
+
   const payload = {
-    route: window.location.pathname,
+    route,
     source: opts?.source ?? "whatsapp_button",
     cta_label: opts?.ctaLabel ?? null,
     utm_source: attr.utm_source ?? null,
@@ -160,7 +166,7 @@ export function trackWhatsAppClick(opts?: {
     search_keyword: attr.search_keyword ?? null,
     gclid: attr.gclid ?? null,
     fbclid: attr.fbclid ?? null,
-    landing_page: attr.landing_page ?? null,
+    landing_page: landingPage,
     user_agent: ua,
     device: detectDevice(ua),
     session_id: getSessionId(),
