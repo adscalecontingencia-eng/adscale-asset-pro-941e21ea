@@ -197,6 +197,67 @@ const AdminDashboard = () => {
     navigate("/admin/login", { replace: true });
   };
 
+  const handleExportCSV = () => {
+    const headers = [
+      "data",
+      "rota",
+      "landing_page",
+      "cta",
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_term",
+      "utm_content",
+      "search_engine",
+      "search_keyword",
+      "gclid",
+      "fbclid",
+      "referrer",
+      "device",
+      "top_gsc_queries",
+    ];
+    const escape = (v: unknown) => {
+      const s = v == null ? "" : String(v);
+      return /[",\n;]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+    };
+    const rows = clicks.map((c) => {
+      const page = c.landing_page || c.route || "";
+      const top = (gscQueries[page] ?? [])
+        .slice(0, 3)
+        .map((q) => `${q.query} (${q.clicks}c/${q.impressions}i)`)
+        .join(" | ");
+      return [
+        new Date(c.created_at).toISOString(),
+        c.route,
+        c.landing_page,
+        c.cta_label,
+        c.utm_source,
+        c.utm_medium,
+        c.utm_campaign,
+        c.utm_term,
+        c.utm_content,
+        c.search_engine,
+        c.search_keyword,
+        c.gclid,
+        c.fbclid,
+        c.referrer,
+        c.device,
+        top,
+      ].map(escape).join(",");
+    });
+    const csv = "\ufeff" + [headers.join(","), ...rows].join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `adscale-leads-${new Date().toISOString().slice(0, 10)}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast.success(`Exportados ${clicks.length} leads`);
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center text-muted-foreground">
