@@ -1,8 +1,20 @@
 import { supabase } from "@/integrations/supabase/client";
 
 const WHATSAPP_NUMBER = "553198416336";
+const SITE_ORIGIN = "https://adscalecontingencia.com";
 const DEFAULT_MESSAGE =
   "Olá! Vim do site da AD Scale e tenho interesse nos ativos de contingência (BM Verificada / BM antiga / perfis aged).";
+
+/** Build a human-readable label for the current page. */
+function getPageContext(): { path: string; title: string; url: string } {
+  if (typeof window === "undefined") {
+    return { path: "/", title: "AD Scale", url: SITE_ORIGIN };
+  }
+  const path = window.location.pathname || "/";
+  const title = document.title || "AD Scale";
+  const url = `${SITE_ORIGIN}${path}${window.location.search}`;
+  return { path, title, url };
+}
 
 const SESSION_KEY = "adscale_session_id";
 const ATTRIBUTION_KEY = "adscale_attribution";
