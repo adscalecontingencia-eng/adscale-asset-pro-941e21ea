@@ -77,6 +77,18 @@ const groupCount = <T extends string | null | undefined>(
     .sort((a, b) => b.count - a.count);
 };
 
+const groupCountValues = (values: (string | null | undefined)[]) => {
+  const map = new Map<string, number>();
+  for (const v of values) {
+    const k = v || "(vazio)";
+    map.set(k, (map.get(k) ?? 0) + 1);
+  }
+  return Array.from(map.entries())
+    .map(([name, count]) => ({ name, count }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 8);
+};
+
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
