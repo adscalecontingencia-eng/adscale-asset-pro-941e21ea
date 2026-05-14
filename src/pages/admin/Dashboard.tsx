@@ -42,6 +42,7 @@ type Click = {
   gclid: string | null;
   fbclid: string | null;
   device: string | null;
+  landing_page: string | null;
 };
 
 const Stat = ({
@@ -76,11 +77,26 @@ const groupCount = <T extends string | null | undefined>(
     .sort((a, b) => b.count - a.count);
 };
 
+const groupCountValues = (values: (string | null | undefined)[]) => {
+  const map = new Map<string, number>();
+  for (const v of values) {
+    const k = v || "(vazio)";
+    map.set(k, (map.get(k) ?? 0) + 1);
+  }
+  return Array.from(map.entries())
+    .map(([name, count]) => ({ name, count }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 8);
+};
+
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [authorized, setAuthorized] = useState(false);
   const [clicks, setClicks] = useState<Click[]>([]);
+  const [gscQueries, setGscQueries] = useState<
+    Record<string, { query: string; clicks: number; impressions: number }[]>
+  >({});
 
   useEffect(() => {
     let mounted = true;
@@ -112,6 +128,21 @@ const AdminDashboard = () => {
       setClicks((data ?? []) as Click[]);
       setAuthorized(true);
       setLoading(false);
+
+      // Fetch organic keywords from Google Search Console for each unique landing page.
+      const pages = Array.from(
+        new Set(((data ?? []) as Click[]).map((c) => c.landing_page || c.route).filter(Boolean)),
+      ) as string[];
+      if (pages.length) {
+        try {
+          const { data: gsc } = await supabase.functions.invoke("gsc-queries-for-page", {
+            body: { pages },
+          });
+          if (gsc?.queriesByPage) setGscQueries(gsc.queriesByPage);
+        } catch (err) {
+          console.warn("[admin] GSC fetch failed", err);
+        }
+      }
     };
 
     init();
@@ -161,15 +192,6 @@ const AdminDashboard = () => {
     () => groupCount(clicks, "utm_campaign").slice(0, 8),
     [clicks],
   );
-  const byKeyword = useMemo(
-    () =>
-      groupCount(
-        clicks.filter((c) => c.search_keyword),
-        "search_keyword",
-      ).slice(0, 12),
-    [clicks],
-  );
-
   const handleLogout = async () => {
     await supabase.auth.signOut();
     navigate("/admin/login", { replace: true });
@@ -264,11 +286,60 @@ const AdminDashboard = () => {
         </Card>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <BreakdownCard title="Por rota" rows={byRoute} />
+          <BreakdownCard title="Por rota (página do clique)" rows={byRoute} />
+          <BreakdownCard
+            title="Landing pages (página de entrada)"
+            rows={groupCountValues(clicks.map((c) => c.landing_page))}
+          />
           <BreakdownCard title="Por fonte (utm_source)" rows={bySource} />
           <BreakdownCard title="Por campanha (utm_campaign)" rows={byCampaign} />
-          <BreakdownCard title="Palavras-chave do Google" rows={byKeyword} highlight />
         </div>
+
+        <Card className="p-5 bg-card border-border/50">
+          <h2 className="font-display font-semibold mb-1">Palavras-chave do Google (orgânico)</h2>
+          <p className="text-xs text-muted-foreground mb-4">
+            O Google não envia mais a palavra-chave no clique. Estas são as queries do Search
+            Console que mais trazem tráfego para cada landing page de onde vieram leads (últimos
+            90 dias).
+          </p>
+          {Object.keys(gscQueries).length === 0 ? (
+            <p className="text-sm text-muted-foreground">
+              Buscando no Google Search Console... (pode levar alguns segundos na primeira carga)
+            </p>
+          ) : (
+            <div className="space-y-5">
+              {Object.entries(gscQueries).map(([page, queries]) => (
+                <div key={page}>
+                  <div className="text-sm font-medium mb-2 text-foreground">
+                    {page}{" "}
+                    <span className="text-xs text-muted-foreground font-normal">
+                      · landing page
+                    </span>
+                  </div>
+                  {queries.length === 0 ? (
+                    <p className="text-xs text-muted-foreground pl-2">
+                      Sem queries indexadas ainda.
+                    </p>
+                  ) : (
+                    <ul className="space-y-1 pl-2">
+                      {queries.map((q) => (
+                        <li
+                          key={q.query}
+                          className="text-sm flex items-center justify-between gap-3"
+                        >
+                          <span className="text-primary truncate">{q.query}</span>
+                          <span className="text-xs text-muted-foreground tabular-nums shrink-0">
+                            {q.clicks} cliques · {q.impressions} impr.
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </Card>
 
         <Card className="p-5 bg-card border-border/50">
           <h2 className="font-display font-semibold mb-4">Últimos 50 cliques</h2>
@@ -277,10 +348,10 @@ const AdminDashboard = () => {
               <TableHeader>
                 <TableRow>
                   <TableHead>Data</TableHead>
-                  <TableHead>Rota</TableHead>
+                  <TableHead>Rota (clique)</TableHead>
+                  <TableHead>Landing page</TableHead>
                   <TableHead>CTA</TableHead>
                   <TableHead>Fonte</TableHead>
-                  <TableHead>Campanha</TableHead>
                   <TableHead>Keyword</TableHead>
                   <TableHead>Device</TableHead>
                 </TableRow>
@@ -292,13 +363,18 @@ const AdminDashboard = () => {
                       {new Date(c.created_at).toLocaleString("pt-BR")}
                     </TableCell>
                     <TableCell className="text-xs">{c.route ?? "—"}</TableCell>
+                    <TableCell className="text-xs">{c.landing_page ?? "—"}</TableCell>
                     <TableCell className="text-xs">{c.cta_label ?? "—"}</TableCell>
                     <TableCell className="text-xs">
-                      {c.utm_source ?? c.search_engine ?? "direto"}
+                      {c.utm_source ??
+                        (c.search_engine === "google"
+                          ? "Google orgânico"
+                          : c.search_engine ?? "direto")}
                     </TableCell>
-                    <TableCell className="text-xs">{c.utm_campaign ?? "—"}</TableCell>
                     <TableCell className="text-xs text-primary">
-                      {c.search_keyword ?? c.utm_term ?? "—"}
+                      {c.search_keyword ??
+                        c.utm_term ??
+                        (c.search_engine === "google" ? "(não fornecida)" : "—")}
                     </TableCell>
                     <TableCell className="text-xs">{c.device ?? "—"}</TableCell>
                   </TableRow>
