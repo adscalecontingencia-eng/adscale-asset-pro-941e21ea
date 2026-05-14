@@ -283,11 +283,60 @@ const AdminDashboard = () => {
         </Card>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <BreakdownCard title="Por rota" rows={byRoute} />
+          <BreakdownCard title="Por rota (página do clique)" rows={byRoute} />
+          <BreakdownCard
+            title="Landing pages (página de entrada)"
+            rows={groupCountValues(clicks.map((c) => c.landing_page))}
+          />
           <BreakdownCard title="Por fonte (utm_source)" rows={bySource} />
           <BreakdownCard title="Por campanha (utm_campaign)" rows={byCampaign} />
-          <BreakdownCard title="Palavras-chave do Google" rows={byKeyword} highlight />
         </div>
+
+        <Card className="p-5 bg-card border-border/50">
+          <h2 className="font-display font-semibold mb-1">Palavras-chave do Google (orgânico)</h2>
+          <p className="text-xs text-muted-foreground mb-4">
+            O Google não envia mais a palavra-chave no clique. Estas são as queries do Search
+            Console que mais trazem tráfego para cada landing page de onde vieram leads (últimos
+            90 dias).
+          </p>
+          {Object.keys(gscQueries).length === 0 ? (
+            <p className="text-sm text-muted-foreground">
+              Buscando no Google Search Console... (pode levar alguns segundos na primeira carga)
+            </p>
+          ) : (
+            <div className="space-y-5">
+              {Object.entries(gscQueries).map(([page, queries]) => (
+                <div key={page}>
+                  <div className="text-sm font-medium mb-2 text-foreground">
+                    {page}{" "}
+                    <span className="text-xs text-muted-foreground font-normal">
+                      · landing page
+                    </span>
+                  </div>
+                  {queries.length === 0 ? (
+                    <p className="text-xs text-muted-foreground pl-2">
+                      Sem queries indexadas ainda.
+                    </p>
+                  ) : (
+                    <ul className="space-y-1 pl-2">
+                      {queries.map((q) => (
+                        <li
+                          key={q.query}
+                          className="text-sm flex items-center justify-between gap-3"
+                        >
+                          <span className="text-primary truncate">{q.query}</span>
+                          <span className="text-xs text-muted-foreground tabular-nums shrink-0">
+                            {q.clicks} cliques · {q.impressions} impr.
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </Card>
 
         <Card className="p-5 bg-card border-border/50">
           <h2 className="font-display font-semibold mb-4">Últimos 50 cliques</h2>
@@ -296,10 +345,10 @@ const AdminDashboard = () => {
               <TableHeader>
                 <TableRow>
                   <TableHead>Data</TableHead>
-                  <TableHead>Rota</TableHead>
+                  <TableHead>Rota (clique)</TableHead>
+                  <TableHead>Landing page</TableHead>
                   <TableHead>CTA</TableHead>
                   <TableHead>Fonte</TableHead>
-                  <TableHead>Campanha</TableHead>
                   <TableHead>Keyword</TableHead>
                   <TableHead>Device</TableHead>
                 </TableRow>
@@ -311,13 +360,18 @@ const AdminDashboard = () => {
                       {new Date(c.created_at).toLocaleString("pt-BR")}
                     </TableCell>
                     <TableCell className="text-xs">{c.route ?? "—"}</TableCell>
+                    <TableCell className="text-xs">{c.landing_page ?? "—"}</TableCell>
                     <TableCell className="text-xs">{c.cta_label ?? "—"}</TableCell>
                     <TableCell className="text-xs">
-                      {c.utm_source ?? c.search_engine ?? "direto"}
+                      {c.utm_source ??
+                        (c.search_engine === "google"
+                          ? "Google orgânico"
+                          : c.search_engine ?? "direto")}
                     </TableCell>
-                    <TableCell className="text-xs">{c.utm_campaign ?? "—"}</TableCell>
                     <TableCell className="text-xs text-primary">
-                      {c.search_keyword ?? c.utm_term ?? "—"}
+                      {c.search_keyword ??
+                        c.utm_term ??
+                        (c.search_engine === "google" ? "(não fornecida)" : "—")}
                     </TableCell>
                     <TableCell className="text-xs">{c.device ?? "—"}</TableCell>
                   </TableRow>
