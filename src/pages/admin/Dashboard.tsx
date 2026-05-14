@@ -113,6 +113,21 @@ const AdminDashboard = () => {
       setClicks((data ?? []) as Click[]);
       setAuthorized(true);
       setLoading(false);
+
+      // Fetch organic keywords from Google Search Console for each unique landing page.
+      const pages = Array.from(
+        new Set(((data ?? []) as Click[]).map((c) => c.landing_page || c.route).filter(Boolean)),
+      ) as string[];
+      if (pages.length) {
+        try {
+          const { data: gsc } = await supabase.functions.invoke("gsc-queries-for-page", {
+            body: { pages },
+          });
+          if (gsc?.queriesByPage) setGscQueries(gsc.queriesByPage);
+        } catch (err) {
+          console.warn("[admin] GSC fetch failed", err);
+        }
+      }
     };
 
     init();
