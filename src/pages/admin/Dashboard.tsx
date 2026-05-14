@@ -192,15 +192,6 @@ const AdminDashboard = () => {
     () => groupCount(clicks, "utm_campaign").slice(0, 8),
     [clicks],
   );
-  const byKeyword = useMemo(
-    () =>
-      groupCount(
-        clicks.filter((c) => c.search_keyword),
-        "search_keyword",
-      ).slice(0, 12),
-    [clicks],
-  );
-
   const handleLogout = async () => {
     await supabase.auth.signOut();
     navigate("/admin/login", { replace: true });
