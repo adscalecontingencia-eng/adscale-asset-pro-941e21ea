@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { captureAttribution, trackWhatsAppClick } from "@/lib/whatsapp";
+import { buildWhatsAppUrl, captureAttribution, trackWhatsAppClick } from "@/lib/whatsapp";
 
 /**
  * Global side-effects:
