@@ -42,6 +42,7 @@ type Click = {
   gclid: string | null;
   fbclid: string | null;
   device: string | null;
+  landing_page: string | null;
 };
 
 const Stat = ({
