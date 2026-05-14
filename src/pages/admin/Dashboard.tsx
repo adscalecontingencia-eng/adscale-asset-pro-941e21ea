@@ -82,6 +82,9 @@ const AdminDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [authorized, setAuthorized] = useState(false);
   const [clicks, setClicks] = useState<Click[]>([]);
+  const [gscQueries, setGscQueries] = useState<
+    Record<string, { query: string; clicks: number; impressions: number }[]>
+  >({});
 
   useEffect(() => {
     let mounted = true;
