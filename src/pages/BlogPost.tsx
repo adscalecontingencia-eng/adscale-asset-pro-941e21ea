@@ -397,10 +397,12 @@ const BlogPost = () => {
               <div className="prose-content">
                 {blocks.slice(0, mid)}
                 <MidArticleCTA
-                  title={`Quer aplicar isso (${pillar?.shortTitle ?? "contingência Meta Ads"}) na sua operação?`}
-                  description="A AD Scale faz um diagnóstico rápido pelo WhatsApp e mostra o caminho mais curto para você sair do bloqueio, escalar com previsibilidade ou subir uma BM verificada na mesma semana."
-                  whatsappMessage={`Olá! Li o artigo "${post.title}" no blog da AD Scale e quero entender como aplicar isso na minha operação.`}
+                  title={post.ctaTitle ?? `Quer aplicar isso (${pillar?.shortTitle ?? "contingência Meta Ads"}) na sua operação?`}
+                  description={post.ctaDescription ?? "A AD Scale faz um diagnóstico rápido pelo WhatsApp e mostra o caminho mais curto para você sair do bloqueio, escalar com previsibilidade ou subir uma BM verificada na mesma semana."}
+                  whatsappMessage={post.ctaWhatsappMessage ?? `Olá! Li o artigo "${post.title}" no blog da AD Scale e quero entender como aplicar isso na minha operação.`}
+                  ctaLabel={post.ctaLabel}
                 />
+
                 {blocks.slice(mid)}
               </div>
             );
