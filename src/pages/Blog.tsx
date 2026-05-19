@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import SEO from "@/components/SEO";
+import BlogSearch from "@/components/BlogSearch";
 import { Button } from "@/components/ui/button";
 import {
   Pagination,
@@ -16,6 +17,7 @@ import {
   PaginationEllipsis,
 } from "@/components/ui/pagination";
 import { blogPosts, type BlogPost } from "@/data/blogPosts";
+import { pillars, getPostsForPillar } from "@/data/blogPillars";
 
 type FunnelFilter = "Todos" | "Topo de funil" | "Meio de funil" | "Fundo de funil";
 
