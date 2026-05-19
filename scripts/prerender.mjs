@@ -149,6 +149,42 @@ const staticPages = [
     description: "Recuperação e desbloqueio de BM bloqueada no Meta Ads: diagnóstico, plano de defesa, contestação documental e contingência imediata.",
     keywords: ["bm bloqueada recuperar", "desbloqueio bm", "recuperar conta facebook ads", "bm restrita"],
   },
+  {
+    path: "/blog/pilar/business-manager",
+    title: "Business Manager: tudo sobre BM no Meta | Blog AD Scale",
+    description: "Pilar completo sobre Business Manager no Meta Ads: BM verificada, BM ilimitada, preço, auditoria, fornecedores e arquitetura de contingência.",
+    keywords: ["business manager", "bm verificada", "bm ilimitada", "comprar bm", "auditoria bm"],
+  },
+  {
+    path: "/blog/pilar/perfis-e-paginas",
+    title: "Perfis e Páginas Facebook | Pilar | Blog AD Scale",
+    description: "Perfis aged, fan pages antigas e fingerprint para Meta Ads: por que o administrador importa e como proteger esses ativos.",
+    keywords: ["perfil aged", "fan page antiga", "fingerprint meta", "perfil farmado"],
+  },
+  {
+    path: "/blog/pilar/seguranca-e-bloqueios",
+    title: "Segurança e Bloqueios Meta Ads | Pilar | Blog AD Scale",
+    description: "Como diagnosticar bloqueios, recuperar BMs e contas, montar plano de appeal e blindar contas novas antes do primeiro real gasto.",
+    keywords: ["bloqueio conta facebook", "bm bloqueada", "recuperar conta ads", "appeal facebook ads"],
+  },
+  {
+    path: "/blog/pilar/escala-e-performance",
+    title: "Escala e Performance Meta Ads | Pilar | Blog AD Scale",
+    description: "Warm-up, Trust Score, spending limit, Pixel + CAPI, domínio verificado e ROI de contingência para escalar Meta Ads com previsibilidade.",
+    keywords: ["warm up meta ads", "trust score", "limite de gasto", "pixel capi", "conversions api"],
+  },
+  {
+    path: "/blog/pilar/whatsapp-api",
+    title: "WhatsApp Cloud API e BM Verificada | Pilar | Blog AD Scale",
+    description: "Tudo sobre WhatsApp Cloud API ligado à BM verificada: WABA, número high quality, tiers 1k/10k/100k e templates aprovados.",
+    keywords: ["whatsapp cloud api", "waba verificada", "disparo whatsapp api", "tier whatsapp"],
+  },
+  {
+    path: "/blog/pilar/fundamentos-e-estrategia",
+    title: "Fundamentos e Estratégia Meta Ads | Pilar | Blog AD Scale",
+    description: "Glossário, comparativos de formação e decisões estratégicas para gestores de tráfego que pretendem investir em contingência Meta Ads.",
+    keywords: ["glossário meta ads", "consultoria meta ads", "gestor de tráfego"],
+  },
 ];
 
 // ---------- HTML transform ----------
