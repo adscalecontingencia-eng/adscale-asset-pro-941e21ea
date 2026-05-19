@@ -450,7 +450,7 @@ const BlogPost = () => {
           <TableOfContents items={toc} />
 
           {(() => {
-            const blocks = renderMarkdown(post.content);
+            const blocks = renderMarkdown(post.content, `blog_${post.slug}`);
             const mid = Math.floor(blocks.length / 2);
             return (
               <div className="prose-content">
