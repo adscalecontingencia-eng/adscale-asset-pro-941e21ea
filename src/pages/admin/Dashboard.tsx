@@ -199,26 +199,86 @@ const AdminDashboard = () => {
     };
   }, [navigate]);
 
-  const stats = useMemo(() => {
-    const total = clicks.length;
-    const last24h = clicks.filter(
-      (c) => Date.now() - new Date(c.created_at).getTime() < 24 * 3600 * 1000,
-    ).length;
-    const fromGoogle = clicks.filter(
-      (c) => c.search_engine === "google" || c.utm_source?.toLowerCase().includes("google"),
-    ).length;
-    const withKeyword = clicks.filter((c) => c.search_keyword).length;
-    return { total, last24h, fromGoogle, withKeyword };
+  // Dropdown option lists derived from full dataset.
+  const sourceOptions = useMemo(() => {
+    const s = new Set<string>();
+    clicks.forEach((c) => {
+      if (c.utm_source) s.add(c.utm_source);
+      else if (c.search_engine) s.add(c.search_engine);
+      else s.add("direto");
+    });
+    return Array.from(s).sort();
   }, [clicks]);
 
+  const deviceOptions = useMemo(() => {
+    const s = new Set<string>();
+    clicks.forEach((c) => c.device && s.add(c.device));
+    return Array.from(s).sort();
+  }, [clicks]);
+
+  const filteredClicks = useMemo(() => {
+    const cutoff = periodMs[period];
+    const now = Date.now();
+    const q = query
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim();
+    return clicks.filter((c) => {
+      if (cutoff != null && now - new Date(c.created_at).getTime() > cutoff) return false;
+      if (device !== "all" && c.device !== device) return false;
+      if (source !== "all") {
+        const eff = c.utm_source ?? c.search_engine ?? "direto";
+        if (eff !== source) return false;
+      }
+      if (onlyWithKeyword && !c.search_keyword && !c.utm_term) return false;
+      if (q.length >= 2) {
+        const hay = [
+          c.route,
+          c.landing_page,
+          c.cta_label,
+          c.utm_source,
+          c.utm_medium,
+          c.utm_campaign,
+          c.utm_term,
+          c.utm_content,
+          c.search_keyword,
+          c.referrer,
+          c.gclid,
+          c.fbclid,
+        ]
+          .join(" ")
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+  }, [clicks, period, query, device, source, onlyWithKeyword]);
+
+  const stats = useMemo(() => {
+    const total = filteredClicks.length;
+    const last24h = filteredClicks.filter(
+      (c) => Date.now() - new Date(c.created_at).getTime() < 24 * 3600 * 1000,
+    ).length;
+    const fromGoogle = filteredClicks.filter(
+      (c) => c.search_engine === "google" || c.utm_source?.toLowerCase().includes("google"),
+    ).length;
+    const withKeyword = filteredClicks.filter((c) => c.search_keyword || c.utm_term).length;
+    return { total, last24h, fromGoogle, withKeyword };
+  }, [filteredClicks]);
+
+  // Time series: bucket size adapts to selected period.
   const series = useMemo(() => {
+    const days = period === "24h" ? 1 : period === "7d" ? 7 : period === "30d" ? 30 : 90;
     const buckets = new Map<string, number>();
-    for (let i = 13; i >= 0; i--) {
+    for (let i = days - 1; i >= 0; i--) {
       const d = new Date();
       d.setDate(d.getDate() - i);
       buckets.set(d.toISOString().slice(0, 10), 0);
     }
-    for (const c of clicks) {
+    for (const c of filteredClicks) {
       const day = c.created_at.slice(0, 10);
       if (buckets.has(day)) buckets.set(day, (buckets.get(day) ?? 0) + 1);
     }
@@ -226,18 +286,74 @@ const AdminDashboard = () => {
       date: date.slice(5),
       cliques: count,
     }));
-  }, [clicks]);
+  }, [filteredClicks, period]);
 
-  const byRoute = useMemo(() => groupCount(clicks, "route").slice(0, 8), [clicks]);
-  const bySource = useMemo(() => groupCount(clicks, "utm_source").slice(0, 8), [clicks]);
+  const byRoute = useMemo(() => groupCount(filteredClicks, "route").slice(0, 10), [filteredClicks]);
+  const bySource = useMemo(() => groupCount(filteredClicks, "utm_source").slice(0, 10), [filteredClicks]);
   const byCampaign = useMemo(
-    () => groupCount(clicks, "utm_campaign").slice(0, 8),
-    [clicks],
+    () => groupCount(filteredClicks, "utm_campaign").slice(0, 10),
+    [filteredClicks],
   );
+
+  // Unified keywords: combine paid (utm_term), direct keyword and GSC organic queries
+  // for pages where a lead clicked.
+  const topKeywords = useMemo(() => {
+    const map = new Map<string, { clicks: number; impressions: number; source: string }>();
+    for (const c of filteredClicks) {
+      const k = (c.search_keyword || c.utm_term || "").trim().toLowerCase();
+      if (!k) continue;
+      const cur = map.get(k) ?? { clicks: 0, impressions: 0, source: c.utm_term ? "pago/utm" : "direto" };
+      cur.clicks += 1;
+      map.set(k, cur);
+    }
+    const pagesInScope = new Set(filteredClicks.map((c) => c.landing_page || c.route).filter(Boolean) as string[]);
+    for (const [page, qs] of Object.entries(gscQueries)) {
+      if (!pagesInScope.has(page)) continue;
+      for (const q of qs) {
+        const k = q.query.trim().toLowerCase();
+        const cur = map.get(k) ?? { clicks: 0, impressions: 0, source: "gsc orgânico" };
+        cur.clicks += q.clicks;
+        cur.impressions += q.impressions;
+        if (!cur.source.includes("gsc")) cur.source = `${cur.source} + gsc`;
+        map.set(k, cur);
+      }
+    }
+    return Array.from(map.entries())
+      .map(([keyword, v]) => ({ keyword, ...v }))
+      .sort((a, b) => b.clicks - a.clicks || b.impressions - a.impressions)
+      .slice(0, 30);
+  }, [filteredClicks, gscQueries]);
+
+  const filteredLeads = useMemo(() => {
+    const cutoff = periodMs[period];
+    const now = Date.now();
+    const q = query.toLowerCase().trim();
+    return leads.filter((l) => {
+      if (cutoff != null && now - new Date(l.created_at).getTime() > cutoff) return false;
+      if (q.length >= 2) {
+        const hay = [l.email, l.pillar_slug, l.pillar_label, l.utm_campaign, l.source_route]
+          .join(" ")
+          .toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+  }, [leads, period, query]);
+
+  const resetFilters = () => {
+    setPeriod("30d");
+    setQuery("");
+    setDevice("all");
+    setSource("all");
+    setOnlyWithKeyword(false);
+  };
+
   const handleLogout = async () => {
     await supabase.auth.signOut();
     navigate("/admin/login", { replace: true });
   };
+
+
 
   const handleExportCSV = () => {
     const headers = [
