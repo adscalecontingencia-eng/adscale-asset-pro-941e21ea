@@ -30,18 +30,77 @@ const renderMarkdown = (md: string) => {
   const blocks: JSX.Element[] = [];
   let i = 0;
 
-  const inline = (text: string) => {
-    const parts = text.split(/(\*\*[^*]+\*\*)/g);
-    return parts.map((p, idx) =>
-      p.startsWith("**") && p.endsWith("**") ? (
-        <strong key={idx} className="text-foreground font-semibold">
-          {p.slice(2, -2)}
-        </strong>
-      ) : (
-        <span key={idx}>{p}</span>
-      ),
-    );
+  const WA_NUMBER = "553198416336";
+  const buildInlineWaHref = (msg: string, campaign: string) => {
+    const qs = new URLSearchParams({
+      text: msg,
+      utm_source: "blog",
+      utm_medium: "inline_cta",
+      utm_campaign: campaign,
+    }).toString();
+    return `https://wa.me/${WA_NUMBER}?${qs}`;
   };
+
+  const inline = (text: string, campaign = "blog_post") => {
+    // First split by bold, then within each segment parse links.
+    const boldParts = text.split(/(\*\*[^*]+\*\*)/g);
+    const out: JSX.Element[] = [];
+    let key = 0;
+    for (const part of boldParts) {
+      if (part.startsWith("**") && part.endsWith("**")) {
+        out.push(
+          <strong key={key++} className="text-foreground font-semibold">
+            {part.slice(2, -2)}
+          </strong>,
+        );
+        continue;
+      }
+      // Parse [text](url) links inside this segment.
+      const linkRe = /\[([^\]]+)\]\(([^)]+)\)/g;
+      let lastIdx = 0;
+      let m: RegExpExecArray | null;
+      while ((m = linkRe.exec(part)) !== null) {
+        if (m.index > lastIdx) {
+          out.push(<span key={key++}>{part.slice(lastIdx, m.index)}</span>);
+        }
+        const label = m[1];
+        const url = m[2];
+        if (url.startsWith("wa:")) {
+          // WhatsApp CTA with tracking
+          const msg = url.slice(3);
+          out.push(
+            <a
+              key={key++}
+              href={buildInlineWaHref(msg, campaign)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-primary underline underline-offset-4 hover:text-primary/80"
+            >
+              {label}
+            </a>,
+          );
+        } else {
+          const isExternal = /^https?:\/\//.test(url);
+          out.push(
+            <a
+              key={key++}
+              href={url}
+              {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="text-primary underline underline-offset-4 hover:text-primary/80"
+            >
+              {label}
+            </a>,
+          );
+        }
+        lastIdx = m.index + m[0].length;
+      }
+      if (lastIdx < part.length) {
+        out.push(<span key={key++}>{part.slice(lastIdx)}</span>);
+      }
+    }
+    return out;
+  };
+
 
   while (i < lines.length) {
     const line = lines[i];
