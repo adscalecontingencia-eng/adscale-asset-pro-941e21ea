@@ -339,14 +339,56 @@ const BlogPost = () => {
 
           <TableOfContents items={toc} />
 
-          <div className="prose-content">{renderMarkdown(post.content)}</div>
+          {(() => {
+            const blocks = renderMarkdown(post.content);
+            const mid = Math.floor(blocks.length / 2);
+            return (
+              <div className="prose-content">
+                {blocks.slice(0, mid)}
+                <MidArticleCTA
+                  title={`Quer aplicar isso (${pillar?.shortTitle ?? "contingência Meta Ads"}) na sua operação?`}
+                  description="A AD Scale faz um diagnóstico rápido pelo WhatsApp e mostra o caminho mais curto para você sair do bloqueio, escalar com previsibilidade ou subir uma BM verificada na mesma semana."
+                  whatsappMessage={`Olá! Li o artigo "${post.title}" no blog da AD Scale e quero entender como aplicar isso na minha operação.`}
+                />
+                {blocks.slice(mid)}
+              </div>
+            );
+          })()}
 
-          <div className="mt-16 p-8 rounded-lg border border-primary/30 bg-primary/5 text-center">
+          {pillar && (
+            <aside className="mt-12 p-6 rounded-lg border border-border/60 bg-card/60">
+              <div className="flex items-start gap-3">
+                <Layers className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                <div className="flex-1">
+                  <p className="text-xs uppercase tracking-wide text-muted-foreground mb-1">
+                    Faz parte do pilar
+                  </p>
+                  <Link
+                    to={`/blog/pilar/${pillar.slug}`}
+                    className="font-display text-lg font-semibold text-foreground hover:text-primary transition-colors"
+                  >
+                    {pillar.title}
+                  </Link>
+                  <p className="text-sm text-muted-foreground mt-1">{pillar.description}</p>
+                  <Link
+                    to={`/blog/pilar/${pillar.slug}`}
+                    className="inline-flex items-center gap-1 text-primary text-sm font-medium mt-3"
+                  >
+                    Ver todos os artigos do pilar
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </aside>
+          )}
+
+          <div className="mt-12 p-8 rounded-lg border border-primary/30 bg-primary/5 text-center">
             <h2 className="font-display text-xl md:text-2xl font-bold mb-3">
-              Precisa de ativos de contingência reais para sua operação?
+              Pronto para resolver isso de vez?
             </h2>
-            <p className="text-muted-foreground mb-6">
-              BMs Verificadas, BMs antigas, perfis e páginas com Trust Score alto. Curadoria 1 a 1.
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              BMs Verificadas, BMs antigas, perfis aged e páginas com Trust Score alto — curadoria 1 a 1
+              e suporte de quem opera Meta Ads em alto volume todos os dias.
             </p>
             <a
               href={WHATSAPP_URL}
@@ -354,7 +396,7 @@ const BlogPost = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground font-bold px-8 py-3.5 rounded-lg transition-all hover:scale-105"
             >
-              Falar com o time
+              Falar com o time no WhatsApp
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
