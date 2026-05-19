@@ -25,23 +25,82 @@ const slugify = (text: string) =>
     .replace(/\s+/g, "-");
 
 /** Markdown renderer — handles h2/h3 (with anchor IDs), lists, tables, blockquotes, paragraphs, bold. */
-const renderMarkdown = (md: string) => {
+const renderMarkdown = (md: string, campaign = "blog_post") => {
   const lines = md.trim().split("\n");
   const blocks: JSX.Element[] = [];
   let i = 0;
 
-  const inline = (text: string) => {
-    const parts = text.split(/(\*\*[^*]+\*\*)/g);
-    return parts.map((p, idx) =>
-      p.startsWith("**") && p.endsWith("**") ? (
-        <strong key={idx} className="text-foreground font-semibold">
-          {p.slice(2, -2)}
-        </strong>
-      ) : (
-        <span key={idx}>{p}</span>
-      ),
-    );
+  const WA_NUMBER = "553198416336";
+  const buildInlineWaHref = (msg: string, campaign: string) => {
+    const qs = new URLSearchParams({
+      text: msg,
+      utm_source: "blog",
+      utm_medium: "inline_cta",
+      utm_campaign: campaign,
+    }).toString();
+    return `https://wa.me/${WA_NUMBER}?${qs}`;
   };
+
+  const inline = (text: string, cmp = campaign) => {
+    // First split by bold, then within each segment parse links.
+    const boldParts = text.split(/(\*\*[^*]+\*\*)/g);
+    const out: JSX.Element[] = [];
+    let key = 0;
+    for (const part of boldParts) {
+      if (part.startsWith("**") && part.endsWith("**")) {
+        out.push(
+          <strong key={key++} className="text-foreground font-semibold">
+            {part.slice(2, -2)}
+          </strong>,
+        );
+        continue;
+      }
+      // Parse [text](url) links inside this segment.
+      const linkRe = /\[([^\]]+)\]\(([^)]+)\)/g;
+      let lastIdx = 0;
+      let m: RegExpExecArray | null;
+      while ((m = linkRe.exec(part)) !== null) {
+        if (m.index > lastIdx) {
+          out.push(<span key={key++}>{part.slice(lastIdx, m.index)}</span>);
+        }
+        const label = m[1];
+        const url = m[2];
+        if (url.startsWith("wa:")) {
+          // WhatsApp CTA with tracking
+          const msg = url.slice(3);
+          out.push(
+            <a
+              key={key++}
+              href={buildInlineWaHref(msg, cmp)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-primary underline underline-offset-4 hover:text-primary/80"
+            >
+              {label}
+            </a>,
+          );
+        } else {
+          const isExternal = /^https?:\/\//.test(url);
+          out.push(
+            <a
+              key={key++}
+              href={url}
+              {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="text-primary underline underline-offset-4 hover:text-primary/80"
+            >
+              {label}
+            </a>,
+          );
+        }
+        lastIdx = m.index + m[0].length;
+      }
+      if (lastIdx < part.length) {
+        out.push(<span key={key++}>{part.slice(lastIdx)}</span>);
+      }
+    }
+    return out;
+  };
+
 
   while (i < lines.length) {
     const line = lines[i];
@@ -391,16 +450,18 @@ const BlogPost = () => {
           <TableOfContents items={toc} />
 
           {(() => {
-            const blocks = renderMarkdown(post.content);
+            const blocks = renderMarkdown(post.content, `blog_${post.slug}`);
             const mid = Math.floor(blocks.length / 2);
             return (
               <div className="prose-content">
                 {blocks.slice(0, mid)}
                 <MidArticleCTA
-                  title={`Quer aplicar isso (${pillar?.shortTitle ?? "contingência Meta Ads"}) na sua operação?`}
-                  description="A AD Scale faz um diagnóstico rápido pelo WhatsApp e mostra o caminho mais curto para você sair do bloqueio, escalar com previsibilidade ou subir uma BM verificada na mesma semana."
-                  whatsappMessage={`Olá! Li o artigo "${post.title}" no blog da AD Scale e quero entender como aplicar isso na minha operação.`}
+                  title={post.ctaTitle ?? `Quer aplicar isso (${pillar?.shortTitle ?? "contingência Meta Ads"}) na sua operação?`}
+                  description={post.ctaDescription ?? "A AD Scale faz um diagnóstico rápido pelo WhatsApp e mostra o caminho mais curto para você sair do bloqueio, escalar com previsibilidade ou subir uma BM verificada na mesma semana."}
+                  whatsappMessage={post.ctaWhatsappMessage ?? `Olá! Li o artigo "${post.title}" no blog da AD Scale e quero entender como aplicar isso na minha operação.`}
+                  ctaLabel={post.ctaLabel}
                 />
+
                 {blocks.slice(mid)}
               </div>
             );

@@ -40,6 +40,9 @@ export const pillars: Pillar[] = [
       "checklist-auditoria-bm-facebook-18-itens",
       "estrutura-bm-conta-pixel-pagina-relacao",
       "arquitetura-contingencia-meta-ads-operacao-alto-volume",
+      "estrategia-3-camadas-bm-meta-ads-contingencia",
+      "permissoes-equipe-bm-papeis-acesso-correto",
+      "auditoria-30-minutos-conta-anuncio-meta",
     ],
   },
   {
@@ -63,6 +66,9 @@ export const pillars: Pillar[] = [
       "perfil-aged-facebook-por-que-administrador-importa",
       "pagina-antiga-facebook-impacto-na-performance",
       "fingerprint-ip-residencial-meta-ads",
+      "ip-residencial-vs-datacenter-meta-ads",
+      "anti-detect-browser-meta-ads-quando-usar",
+      "saude-perfil-administrador-bm-rotina-semanal",
     ],
   },
   {
@@ -89,6 +95,8 @@ export const pillars: Pillar[] = [
       "autenticacao-2-fatores-conta-facebook-ads",
       "politicas-anuncios-meta-erros-comuns-reprovacao",
       "nichos-sensiveis-meta-ads-quais-sao",
+      "recuperar-pagina-facebook-restrita-passo-a-passo",
+      "dia-do-bloqueio-runbook-emergencia-meta-ads",
     ],
   },
   {
@@ -119,6 +127,11 @@ export const pillars: Pillar[] = [
       "como-funciona-leilao-meta-ads",
       "metricas-essenciais-meta-ads-iniciantes",
       "calcular-roi-investimento-contingencia-meta-ads",
+      "configurar-capi-conversions-api-server-side",
+      "diagnostico-performance-queda-meta-ads-checklist",
+      "migrar-pixel-bm-sem-perder-aprendizado",
+      "estrutura-campanha-cbo-abo-quando-usar",
+      "spending-limit-meta-como-subir-degraus",
     ],
   },
   {

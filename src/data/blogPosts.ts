@@ -10,6 +10,11 @@ export type BlogPost = {
   ogImage: string;
   /** Markdown-like content rendered by BlogPost page */
   content: string;
+  /** Optional per-post mid-article CTA overrides (rendered by BlogPost page). */
+  ctaTitle?: string;
+  ctaDescription?: string;
+  ctaWhatsappMessage?: string;
+  ctaLabel?: string;
 };
 
 export const blogPosts: BlogPost[] = [
@@ -2624,6 +2629,1142 @@ Não confie cegamente em "regra automatizada agressiva". Pausar criativo após 1
 5. Não mexer nas campanhas nos primeiros **3-4 dias** (fase de aprendizado).
 
 > Quando começar a escalar, leia [como funciona o leilão](/blog/como-funciona-leilao-meta-ads) e [warm-up de conta](/blog/warm-up-conta-anuncio-meta-passo-a-passo).
+`,
+  },
+  // ============ WAVE B — Operação (Meio de funil) ============
+  {
+    slug: "estrategia-3-camadas-bm-meta-ads-contingencia",
+    title: "Estratégia de 3 camadas: principal, secundária e reserva para Meta Ads",
+    description:
+      "Como estruturar BM principal, secundária e reserva no Meta Ads para nunca parar de rodar — distribuição de gasto, sinal e perfis admin entre camadas.",
+    keywords: ["estrategia 3 camadas bm", "bm principal secundaria", "contingencia meta ads", "estrutura bm escalada", "operacao multi bm"],
+    category: "Meio de funil",
+    readingTime: "9 min",
+    publishedAt: "2026-05-19",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Quer montar sua arquitetura de 3 camadas hoje?",
+    ctaDescription: "A AD Scale entrega BM principal, secundária e reserva já configuradas com handover técnico, pronto para você plugar e rodar sem perder leilão.",
+    ctaWhatsappMessage: "Olá! Vim do blog (estratégia 3 camadas) e quero montar minha arquitetura de contingência com BMs prontas.",
+    ctaLabel: "Falar com especialista no WhatsApp",
+    content: `
+:::tldr
+Operação séria roda **3 camadas em paralelo**: principal (80% do gasto), secundária (15%) e reserva (5% + warm-up contínuo). Quando a principal cai, a secundária já está aquecida e a reserva entra em até 1h. Sem isso, qualquer bloqueio para o faturamento por dias.
+:::
+
+Quem opera Meta Ads em volume sabe: bloqueio não é se, é quando. A diferença entre quem perde 7 dias de faturamento e quem perde 2 horas está na **arquitetura de camadas**.
+
+## As 3 camadas
+
+### Camada 1 — Principal (80% do gasto)
+- BM verificada com mais histórico.
+- Pixel + CAPI maduros (3-6 meses de evento Purchase).
+- Cartão PJ principal com limite alto.
+- 1-2 admin masters com 2FA físico.
+
+### Camada 2 — Secundária (15% do gasto, sempre ativa)
+- BM verificada **diferente da principal** (outro fornecedor, outro CNPJ idealmente).
+- Roda 10-20% do gasto diariamente para manter sinal vivo.
+- Pixel próprio (não compartilha com a 1).
+- Mesmas campanhas-chave duplicadas em modo "espelho".
+
+### Camada 3 — Reserva (5% gasto + warm-up)
+- BM nova ou aged em fase de warm-up controlado ([guia](/blog/warm-up-conta-anuncio-meta-passo-a-passo)).
+- Recebe 1 campanha de baixo risco rodando R$ 30-100/dia.
+- Pronta para virar Camada 2 se a Camada 1 cair.
+
+## Por que distribuir e não centralizar
+
+| Risco | Conta única | 3 camadas |
+|---|---|---|
+| Bloqueio principal | Operação parada 3-7 dias | Secundária assume em 1h |
+| Reset de aprendizado | Total | Limitado a 80% |
+| Limite de gasto | Trava em horário de pico | Soma das 3 camadas |
+| Recuperação | Único caminho de appeal | 3 caminhos paralelos |
+
+[Quero montar isso na minha operação esta semana](wa:Vim%20do%20blog%20da%20AD%20Scale%20e%20quero%20montar%20a%20arquitetura%20de%203%20camadas%20%28principal%2Bsecund%C3%A1ria%2Breserva%29%20na%20minha%20operação.)
+
+## Regras de ouro
+
+:::callout type=warning
+**Nunca** use o mesmo perfil admin nas 3 camadas. Se o admin cair, as 3 caem juntas. Um admin diferente por camada (todos com 2FA físico) preserva a redundância.
+:::
+
+- Cartões diferentes por camada (não use o mesmo BIN).
+- IPs residenciais diferentes (anti-detect ou perfis separados).
+- Criativos com pequenas variações em cada camada (evita detecção de duplicidade).
+- Domínio verificado em todas — mesmo domínio pode estar em até 2 BMs como *partner*.
+
+## Cronograma de rotação
+
+Toda **2ª e 5ª feira**:
+1. Auditoria rápida das 3 BMs ([checklist](/blog/checklist-auditoria-bm-facebook-18-itens)).
+2. Aumentar 10% do gasto na secundária para manter Trust Score.
+3. Subir 1 criativo novo na reserva.
+4. Conferir Account Quality em todas.
+
+> Esse nível de operação não é exagero — é o padrão de quem fatura 6-7 dígitos/mês com previsibilidade. Veja a [arquitetura completa de contingência](/blog/arquitetura-contingencia-meta-ads-operacao-alto-volume).
+`,
+  },
+  {
+    slug: "ip-residencial-vs-datacenter-meta-ads",
+    title: "IP residencial vs datacenter no Meta Ads: qual usar e quando",
+    description:
+      "Diferença prática entre IP residencial, móvel e datacenter para operar BM no Meta Ads, quando cada um é seguro, e como configurar sem disparar revisão.",
+    keywords: ["ip residencial meta ads", "ip datacenter facebook", "proxy bm meta", "ip movel meta", "fingerprint ip facebook"],
+    category: "Meio de funil",
+    readingTime: "7 min",
+    publishedAt: "2026-05-19",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Precisa de IP residencial + fingerprint estável?",
+    ctaDescription: "Cada BM entregue pela AD Scale vem com configuração de IP residencial / móvel compatível com o histórico do ativo, para você não queimar o aquecimento no primeiro login.",
+    ctaWhatsappMessage: "Olá! Vim do blog (IP residencial vs datacenter) e quero configurar IP + fingerprint na minha operação.",
+    content: `
+:::tldr
+**IP residencial** é o padrão para acessar BM séria. **IP móvel** é o nível superior (mesmo nível dos usuários reais). **Datacenter** dispara revisão em horas. Mas o IP só funciona se for **estável, do mesmo país e combinado com fingerprint coerente**.
+:::
+
+Trocar de IP toda hora derruba operação tão rápido quanto trocar de senha toda hora. O Meta cruza IP, fingerprint, dispositivo e fuso — qualquer inconsistência alimenta o alerta de "atividade suspeita".
+
+## Os 3 tipos de IP
+
+| Tipo | Origem | Confiança Meta | Custo |
+|---|---|---|---|
+| Datacenter | AWS, Google, OVH | Baixíssima | Barato |
+| Residencial | Provedor doméstico real | Alta | Médio |
+| Móvel (4G/5G) | Operadora celular | Altíssima | Alto |
+
+## Por que datacenter queima
+
+ASNs de datacenter são públicos. O Meta tem listas dos principais (AWS, DigitalOcean, OVH, Hetzner). Acesso administrativo a BM verificada vindo dessas faixas = revisão automática.
+
+:::callout type=warning
+VPN comercial (NordVPN, ExpressVPN) **é datacenter**. Mesmo em "modo residencial", a maioria roda em IPs marcados. Não use para acessar BM verificada.
+:::
+
+## IP residencial — o que checar
+
+1. **País** = país do CNPJ da BM.
+2. **Estabilidade** — mesma faixa por meses, não rotaciona por sessão.
+3. **ISP coerente** — Vivo Fibra, Claro Net, GVT etc. (não "Residential Proxy Network Inc").
+4. **Sem histórico de spam** — checar em [https://www.spamhaus.org](https://www.spamhaus.org/lookup/).
+
+## IP móvel — quando vale
+
+- Acesso ao app do Business Suite no celular.
+- Operações de nicho sensível.
+- BMs que sofreram revisão recente e precisam de "reset" de confiança.
+
+[Quero IP residencial + perfil aged configurados](wa:Vim%20do%20blog%20%28IP%20residencial%29%20e%20quero%20configurar%20IP%20%2B%20fingerprint%20coerentes%20na%20minha%20BM.)
+
+## Combinação correta IP + Fingerprint
+
+IP sozinho não basta. O Meta lê:
+
+- User-agent (Chrome real, versão recente).
+- Resolução de tela, fuso horário, idioma.
+- Cookies persistentes da sessão.
+- Padrão de navegação humano (movimento de mouse, intervalo entre cliques).
+
+:::callout type=tip
+Ferramentas como AdsPower, Multilogin ou Dolphin{anty} sincronizam fingerprint + IP. Combine **1 perfil = 1 IP residencial = 1 BM**. Não compartilhe IPs entre BMs.
+:::
+
+## Sinais de queima por IP errado
+
+- Pedido de "Confirmar identidade" no primeiro login.
+- 2FA disparado mesmo em dispositivo de confiança.
+- Restrição súbita de funcionalidades (criar conta, pagamento).
+- Account Quality despencando sem motivo aparente.
+
+> Próximo passo: rever o [fingerprint e perfil administrador](/blog/fingerprint-ip-residencial-meta-ads).
+`,
+  },
+  {
+    slug: "anti-detect-browser-meta-ads-quando-usar",
+    title: "Navegador anti-detect para Meta Ads: quando usar e como configurar",
+    description:
+      "Quando faz sentido usar AdsPower, Multilogin ou Dolphin Anty para operar Meta Ads, riscos de uso errado e o setup mínimo que protege a BM sem disparar revisão.",
+    keywords: ["anti detect meta ads", "adspower facebook", "multilogin bm", "dolphin anty", "navegador anti deteccao"],
+    category: "Meio de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-20",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Quer setup de perfil + IP + anti-detect pronto?",
+    ctaDescription: "Em vez de gastar semanas testando fingerprint, receba a BM já com perfil aged, IP residencial e configuração de browser compatível. Tudo entregue por WhatsApp em 1 dia útil.",
+    ctaWhatsappMessage: "Olá! Vim do blog (anti-detect browser) e quero setup completo de perfil + IP + browser.",
+    content: `
+:::tldr
+Anti-detect browser **não é truque**, é infraestrutura. Ele separa BMs sem cross-contamination de cookies, fingerprint e IP. Usado errado, é flag automático no Meta. Usado certo, sustenta operação multi-BM por meses.
+:::
+
+A pergunta certa não é "anti-detect é seguro?" mas "o que você está tentando evitar?". Quem opera 1 BM no notebook pessoal não precisa. Quem opera 3+ BMs em paralelo, sim — e precisa configurar como gente grande.
+
+## Quando você precisa
+
+- 2+ BMs no mesmo computador.
+- Acesso compartilhado entre time/agência.
+- Operação distribuída entre cidades/países.
+- Histórico recente de bloqueio por "atividade suspeita".
+
+## Quando não precisa
+
+- 1 BM, 1 admin, 1 máquina dedicada, IP residencial estável.
+- Operação inicial < R$ 5k/mês.
+
+## Os principais players
+
+| Ferramenta | Forte em | Preço típico |
+|---|---|---|
+| AdsPower | Custo-benefício, BR-friendly | US$ 5-50/mês |
+| Multilogin | Stealth máximo | US$ 99-300/mês |
+| Dolphin Anty | Times grandes, API | US$ 89-199/mês |
+| GoLogin | Iniciante | US$ 24-99/mês |
+
+## Setup mínimo seguro
+
+1. **1 perfil = 1 BM = 1 IP residencial fixo**.
+2. País do IP = país da BM.
+3. Fuso, idioma e resolução = padrão do mercado-alvo (BR: GMT-3, pt-BR, 1920×1080).
+4. User-agent Chrome **estável** (não trocar a cada login).
+5. Cookies persistentes do perfil (não limpar entre sessões).
+6. Login Meta + WhatsApp + e-mail recovery **dentro do mesmo perfil**.
+
+[Quero meu setup configurado por especialista](wa:Vim%20do%20blog%20%28anti-detect%29%20e%20quero%20setup%20de%20perfil%20%2B%20IP%20%2B%20browser%20pronto%20para%20minha%20BM.)
+
+## Erros que queimam tudo
+
+:::callout type=warning
+**Trocar IP por sessão** (rotating proxy) dentro de perfil anti-detect é um dos sinais mais fortes de operação suspeita. Use IP **sticky** (mesmo IP por dias).
+:::
+
+- Reusar fingerprint entre perfis.
+- Login Meta + Google + e-mail em perfis diferentes.
+- Mexer no fuso horário sem ajustar o IP no mesmo país.
+- Acessar a mesma BM ora pelo anti-detect, ora pelo Chrome normal.
+
+## Sinais de que está funcionando
+
+- Login sem pedido de verificação adicional.
+- Account Quality estável.
+- Spending cap sobe nos prazos normais ([guia](/blog/limite-de-gasto-facebook-ads-como-aumentar)).
+- Sem 2FA inesperado.
+
+> Combine com a estratégia de [3 camadas de BM](/blog/estrategia-3-camadas-bm-meta-ads-contingencia) para cobertura total.
+`,
+  },
+  {
+    slug: "permissoes-equipe-bm-papeis-acesso-correto",
+    title: "Permissões da BM: papéis, acessos e o erro que custou a conta de muito gestor",
+    description:
+      "Mapa completo dos papéis na Business Manager (admin, employee, finanças, analista), o que cada um pode fazer e como evitar perder a BM por dar acesso master a quem não devia.",
+    keywords: ["permissoes bm", "papeis business manager", "acesso bm facebook", "admin bm", "remover acesso bm"],
+    category: "Meio de funil",
+    readingTime: "7 min",
+    publishedAt: "2026-05-20",
+    ogImage: "/og/og-default.jpg",
+    content: `
+:::tldr
+A BM tem **3 níveis** (Pessoas, Parceiros, Contas conectadas) e papéis específicos em cada um. **Dar admin master a freela ou agência é o erro #1** que faz dono perder a própria empresa em 24h. Use papéis mínimos + 2FA + auditoria semanal.
+:::
+
+A história se repete: dono contrata agência → dá admin master → agência sai → não tira → ou pior, agência tira o dono. Tudo previsível, tudo evitável com 5 minutos de configuração correta.
+
+## Os 3 níveis de acesso
+
+### 1. Pessoas (dentro da BM)
+- **Admin master**: tudo, inclusive remover outros admins.
+- **Employee**: opera contas e páginas, **não** muda configurações.
+
+### 2. Parceiros (BMs externas)
+- Você compartilha um ativo (página, pixel, conta) com outra BM.
+- A BM parceira não vê seus outros ativos.
+
+### 3. Acessos específicos por ativo
+- **Conta de anúncio**: Gerente, Anunciante, Analista.
+- **Página**: Admin, Editor, Moderador, Anunciante, Analista.
+- **Pixel**: Admin, Analista.
+
+## Matriz: quem precisa de quê
+
+| Papel real | Conta anúncio | Página | Pixel | BM (Pessoas) |
+|---|---|---|---|---|
+| Dono | Gerente | Admin | Admin | **Admin master** |
+| Gestor sênior | Gerente | Admin | Admin | Admin master |
+| Analista de mídia | Anunciante | Anunciante | Analista | Employee |
+| Designer | – | Editor | – | Employee |
+| Agência externa | Gerente | Anunciante | Analista | **Parceiro** (não Pessoa) |
+| Financeiro | Analista + Cobrança | – | – | Employee |
+
+[Quero auditoria de acessos da minha BM esta semana](wa:Vim%20do%20blog%20%28permissões%20BM%29%20e%20quero%20auditoria%20de%20acessos%20agora.)
+
+## Regras de ouro
+
+1. **Toda agência entra como Parceiro**, nunca como Pessoa.
+2. **2 admins masters, no mínimo** (single point of failure).
+3. **2FA obrigatório** em todos os admins ([guia](/blog/autenticacao-2-fatores-conta-facebook-ads)).
+4. E-mails admin **corporativos** (não @gmail pessoal).
+5. Auditoria mensal: quem ainda está aqui?
+
+:::callout type=warning
+**Nunca** dê admin master a freela "por praticidade". Ele pode te remover, mudar e-mail de recovery e te trancar fora da sua própria BM em 5 minutos.
+:::
+
+## Saídas seguras
+
+Quando alguém sai do time:
+
+1. Remover do Pessoas **imediatamente**.
+2. Remover do 2FA backup (se compartilharam códigos).
+3. Trocar senhas de contas de e-mail corporativo.
+4. Revisar logs em **Atividade comercial** nos últimos 30 dias.
+5. Se era admin master, **mudar o e-mail de recuperação da BM**.
+
+## Quando o problema já aconteceu
+
+- Você ainda tem admin master? Remova o invasor.
+- Não tem mais? Use **Account Recovery** com documento + comprovante de domínio.
+- Sem domínio verificado? O appeal fica pesado — peça ajuda profissional.
+
+> Faça também o [checklist completo de auditoria](/blog/checklist-auditoria-bm-facebook-18-itens).
+`,
+  },
+  {
+    slug: "configurar-capi-conversions-api-server-side",
+    title: "Como configurar CAPI (Conversions API) server-side em 2026",
+    description:
+      "Tutorial prático para subir Conversions API server-side conectada ao Pixel, com deduplicação correta, eventos avançados e validação no Events Manager.",
+    keywords: ["configurar capi", "conversions api server side", "capi meta", "deduplicacao pixel capi", "events manager capi"],
+    category: "Meio de funil",
+    readingTime: "10 min",
+    publishedAt: "2026-05-21",
+    ogImage: "/og/og-pixel-capi.jpg",
+    ctaTitle: "Sem time técnico para subir CAPI?",
+    ctaDescription: "A AD Scale entrega CAPI configurada e deduplicada com a sua BM verificada, em até 48h. Você só pluga a URL do servidor e segue rodando.",
+    ctaWhatsappMessage: "Olá! Vim do blog (CAPI server-side) e quero configurar Conversions API na minha operação.",
+    content: `
+:::tldr
+CAPI server-side **recupera 30-40% dos eventos** perdidos por bloqueador, iOS e ITP. Mas só funciona com **deduplicação correta** (event_id + event_name + event_time idênticos entre Pixel e CAPI). Errar dedup = inflação de conversão e ruído no algoritmo.
+:::
+
+Pixel sozinho em 2026 é instalar metade do sensor. Subir CAPI server-side é o que separa operação amadora de operação que escala mantendo ROAS.
+
+## Por que CAPI server-side
+
+| Fonte | Perde para... | Recupera com CAPI |
+|---|---|---|
+| Bloqueador (uBlock, Brave) | ~15% | Sim |
+| iOS 14+ App Tracking | ~20% | Parcial |
+| Safari ITP | ~10% | Sim |
+| Conexão instável | ~5% | Sim |
+
+## Pré-requisitos
+
+- BM verificada com pixel/dataset ativo.
+- Domínio verificado em **Segurança da marca**.
+- Servidor capaz de POST HTTPS (Node, PHP, Edge function, etc.).
+- Access token de longa duração gerado no Events Manager.
+
+## Passo a passo
+
+### 1. Gerar Access Token
+\`Events Manager → seu dataset → Configurações → Gerar token de acesso\`. Guarde no servidor (variável de ambiente, **nunca** no frontend).
+
+### 2. Endpoint do Meta
+\`POST https://graph.facebook.com/v19.0/{dataset_id}/events?access_token={TOKEN}\`
+
+### 3. Payload mínimo (Purchase)
+\`\`\`json
+{
+  "data": [{
+    "event_name": "Purchase",
+    "event_time": 1716156000,
+    "event_id": "ord_abc123",
+    "action_source": "website",
+    "event_source_url": "https://loja.com/obrigado",
+    "user_data": {
+      "em": ["sha256_email"],
+      "ph": ["sha256_telefone"],
+      "client_ip_address": "189.x.x.x",
+      "client_user_agent": "Mozilla/5.0..."
+    },
+    "custom_data": {
+      "value": 349.90,
+      "currency": "BRL",
+      "content_ids": ["sku-1234"]
+    }
+  }]
+}
+\`\`\`
+
+### 4. Deduplicação correta
+- O **mesmo \`event_id\`** deve sair do Pixel **e** do CAPI para o mesmo evento.
+- \`event_name\` e \`event_time\` idênticos.
+- O Meta junta os dois e conta como 1.
+
+[Quero CAPI configurada e deduplicada na minha BM](wa:Vim%20do%20blog%20%28CAPI%20server-side%29%20e%20quero%20Conversions%20API%20configurada%20e%20deduplicada.)
+
+### 5. Hash dos dados pessoais
+- Sempre SHA-256.
+- Lowercase + trim antes do hash.
+- E-mail: \`crypto.createHash("sha256").update(email.trim().toLowerCase()).digest("hex")\`.
+
+### 6. Validação no Events Manager
+- \`Test Events\` → cole o test code → dispara evento → confirma recebido.
+- \`Visão geral → Diagnostics\` mostra match quality (>7 = bom, >8.5 = excelente).
+
+:::callout type=warning
+Não enviar IP + user_agent reduz match quality drasticamente. E sem match quality bom, o algoritmo otimiza pior — você paga CAPI sem colher ROI.
+:::
+
+## Eventos prioritários
+
+| Evento | event_id sugerido | Quando enviar |
+|---|---|---|
+| PageView | uuid por carregamento | Toda navegação |
+| ViewContent | content_id + uuid | Página de produto |
+| Lead | lead_id do CRM | Form enviado |
+| InitiateCheckout | cart_id | Início checkout |
+| AddPaymentInfo | cart_id | Cartão preenchido |
+| **Purchase** | **order_id** | **Pagamento aprovado** |
+
+## Erros comuns
+
+- Hash em UPPERCASE → quebra match.
+- \`event_time\` em milissegundos (Meta espera segundos).
+- Enviar CAPI sem Pixel correspondente → conversões duplicadas.
+- Esquecer \`fbp\` e \`fbc\` (cookies do navegador) no \`user_data\`.
+
+> Próximo nível: integrar CAPI com [migração de pixel sem perder aprendizado](/blog/migrar-pixel-bm-sem-perder-aprendizado).
+`,
+  },
+  {
+    slug: "diagnostico-performance-queda-meta-ads-checklist",
+    title: "Performance caiu no Meta Ads: checklist de diagnóstico em 12 pontos",
+    description:
+      "Roteiro prático para diagnosticar queda de performance no Meta Ads sem chutar — do criativo ao pixel, do leilão à fadiga da audiência, em 12 pontos.",
+    keywords: ["queda performance meta ads", "diagnostico meta ads", "cpm subiu", "roas caiu meta", "checklist performance facebook"],
+    category: "Meio de funil",
+    readingTime: "9 min",
+    publishedAt: "2026-05-21",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Queda forte agora? Em 15 min a gente acha o gargalo",
+    ctaDescription: "Mande seus prints do Ads Manager e faremos diagnóstico ao vivo no WhatsApp, apontando os 3 pontos de maior impacto para reverter a queda esta semana.",
+    ctaWhatsappMessage: "Olá! Minha performance no Meta Ads caiu. Vim do blog e quero o diagnóstico em 15 min.",
+    ctaLabel: "Pedir diagnóstico de emergência",
+    content: `
+:::tldr
+Antes de duplicar campanha ou jogar mais dinheiro, rode este checklist de **12 pontos** — criativo, pixel, audiência, conta, leilão, sazonalidade. Em 80% dos casos o gargalo está em **2 ou 3** desses pontos, não no orçamento.
+:::
+
+Performance caiu. A pior decisão é mexer em tudo ao mesmo tempo. Este é o roteiro que aplico antes de qualquer ajuste estrutural.
+
+## Os 12 pontos
+
+### Criativo (1-3)
+1. **Frequência > 3** em conjunto principal? Renovar.
+2. **Hook rate < 25%** no vídeo principal? Refazer 3 primeiros segundos.
+3. **CTR caindo dia a dia há 5+ dias**? Criativo saturado.
+
+### Pixel/CAPI (4-5)
+4. **Match quality < 6** no Events Manager? Subir dados (email, telefone, IP, UA).
+5. **Eventos Purchase oscilando** vs Stripe/checkout real? Pixel duplicado ou CAPI com dedup errada ([guia](/blog/configurar-capi-conversions-api-server-side)).
+
+### Audiência (6-7)
+6. **Saturação**: gasto acumulado > 30% do tamanho da audiência? Expandir.
+7. **Sobreposição** entre conjuntos > 30%? Consolidar.
+
+### Conta (8-9)
+8. **[Account Quality](/blog/qualidade-conta-anuncio-meta-como-medir)** com warning novo? Tratar antes de tudo.
+9. **Spending limit** chegou perto do teto e bateu freio? Solicitar aumento ([guia](/blog/limite-de-gasto-facebook-ads-como-aumentar)).
+
+### Leilão (10-11)
+10. **CPM subiu sem CTR cair**? Concorrência aumentou — concorrente lançou, é sazonalidade ou eleição.
+11. **CPM subiu COM CTR caindo**? Trust Score caindo. Auditoria urgente.
+
+### Operacional (12)
+12. **Trocas recentes**: novo pixel, novo cartão, mudança de admin, migração de conta? Reverter ou estabilizar antes de otimizar.
+
+[Quero diagnóstico ao vivo no meu painel](wa:Vim%20do%20blog%20%28queda%20de%20performance%29%20e%20quero%20diagn%C3%B3stico%20ao%20vivo%20no%20meu%20Ads%20Manager.)
+
+## Ordem de prioridade na correção
+
+:::callout type=tip
+Resolva **conta antes de criativo**, **criativo antes de audiência**, **audiência antes de orçamento**. Mexer em orçamento sem corrigir o resto só amplifica o problema.
+:::
+
+## Quando é o algoritmo passando por update
+
+- Queda generalizada no mercado (concorrentes reclamando junto).
+- Início de mês (reset de delivery).
+- Black Friday, eleição, Copa, Natal.
+
+Nesse caso: segure ajustes, mantenha gasto, espere 5-7 dias antes de declarar problema.
+
+## Quando é a conta
+
+- Você é o único caindo no nicho.
+- Notificações recentes no Account Quality.
+- Mudanças operacionais recentes.
+- Outras contas suas estão bem.
+
+→ Trate como questão de conta: [recuperar performance via warm-up](/blog/warm-up-conta-anuncio-meta-passo-a-passo) ou ativar [BM secundária](/blog/estrategia-3-camadas-bm-meta-ads-contingencia).
+
+## Plano de ação 48h
+
+1. Pause campanhas com CPA > 1.5x meta.
+2. Renove 2-3 criativos com hook novo.
+3. Verifique pixel/CAPI no Events Manager.
+4. Audite Account Quality.
+5. Não toque em orçamento por 72h.
+6. Mensure no dia 4.
+
+> Se a queda persistir 7+ dias, é hora de considerar [migrar para BM secundária](/blog/estrategia-3-camadas-bm-meta-ads-contingencia).
+`,
+  },
+  {
+    slug: "auditoria-30-minutos-conta-anuncio-meta",
+    title: "Auditoria de 30 minutos na conta de anúncio do Meta: o que olhar",
+    description:
+      "Roteiro de auditoria semanal/mensal para conta de anúncio Meta: estrutura, criativos, pixel, audiências, Account Quality, billing e segurança em 30 minutos.",
+    keywords: ["auditoria conta meta ads", "auditoria facebook ads", "checklist semanal meta", "diagnostico conta ads", "rotina auditoria meta"],
+    category: "Meio de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-22",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Quer auditoria feita por especialista esta semana?",
+    ctaDescription: "Mandamos o relatório em PDF + call de 30 min mostrando os 5 ajustes de maior impacto. Sem custo na primeira auditoria.",
+    ctaWhatsappMessage: "Olá! Quero auditoria de 30 min na minha conta de Meta Ads (vim do blog).",
+    content: `
+:::tldr
+Reserve **30 minutos toda 6ª feira**: 5 min em conta, 5 em pixel, 5 em criativos, 5 em audiências, 5 em billing, 5 em segurança. Quem faz audit semanal **previne 80% dos bloqueios** que pegam o resto do mercado de surpresa.
+:::
+
+Audit não é luxo de agência grande. É a diferença entre operação que vive 3 anos e operação que vive 3 meses.
+
+## Os 6 blocos (5 min cada)
+
+### Bloco 1 — Conta
+- Status: ativa, em revisão ou restrita?
+- Saldo + cartão funcionando?
+- Limite de gasto vs gasto da semana.
+- Notificações novas no Business Suite.
+
+### Bloco 2 — Pixel / CAPI
+- Events Manager → últimos 7 dias, eventos chegando?
+- Match quality > 7?
+- Discrepância Pixel vs CAPI < 10%?
+- Test Events validados.
+
+### Bloco 3 — Criativos
+- Top 3 anúncios: hook rate, CTR, frequência.
+- Algum em frequência > 3 e CTR caindo? Pausar/renovar.
+- Algum com reprovação recente? Investigar política.
+
+### Bloco 4 — Audiências
+- Lookalikes atualizadas (< 30 dias)?
+- Públicos de retargeting com volume mínimo (1k+)?
+- Sobreposição entre conjuntos abaixo de 30%.
+
+### Bloco 5 — Billing
+- Fatura paga sem atraso?
+- Método principal + backup ativos?
+- Cobrança em moeda esperada (BRL ou USD).
+
+### Bloco 6 — Segurança
+- [Account Quality](/blog/qualidade-conta-anuncio-meta-como-medir): 0 warnings?
+- 2FA ativo em todos os admins?
+- Lista de Pessoas / Parceiros: quem ainda deveria estar?
+- Logs de login: nada estranho?
+
+[Quero a primeira auditoria sem custo](wa:Vim%20do%20blog%20%28auditoria%2030%20min%29%20e%20quero%20auditoria%20da%20minha%20conta.)
+
+## Template de relatório
+
+\`\`\`text
+[ Auditoria - Semana DD/MM ]
+Conta: ATIVA  Saldo: OK  Notificações: 0
+Pixel: match 8.2  CAPI: -8% vs Pixel  Test: OK
+Criativos: 2 saturados (renovar)
+Audiências: LAL 1% expirada (atualizar)
+Billing: cartão principal OK, backup OK
+Segurança: 0 warning, 2FA OK, 5 pessoas (ok)
+
+Ações da semana:
+1. Renovar criativo vídeo01 e img03
+2. Atualizar LAL compra 1%
+3. Aumentar 10% gasto camada secundária
+\`\`\`
+
+## Sinais de alerta amarelos (priorizar próxima auditoria)
+
+:::callout type=warning
+- Match quality caindo 3 semanas seguidas.
+- Frequência média subindo + CTR caindo.
+- CPM 30% acima da média do trimestre.
+- Notificação nova no Account Quality.
+- Login de IP novo sem motivo.
+:::
+
+## Quando virar auditoria de emergência
+
+- Conta restrita.
+- Pixel parou de receber.
+- CAPI parou de subir match.
+- 2 ou mais criativos reprovados no mesmo dia.
+
+> Audit semanal + [estratégia de 3 camadas](/blog/estrategia-3-camadas-bm-meta-ads-contingencia) = previsibilidade real.
+`,
+  },
+  {
+    slug: "migrar-pixel-bm-sem-perder-aprendizado",
+    title: "Como migrar Pixel para outra BM sem perder aprendizado",
+    description:
+      "Roteiro técnico para migrar pixel/dataset entre BMs preservando histórico de eventos, audiências, otimização e match quality. Riscos, plano B e checklist.",
+    keywords: ["migrar pixel bm", "transferir pixel meta", "pixel nova bm", "perder aprendizado pixel", "migracao dataset meta"],
+    category: "Meio de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-22",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Vai migrar pixel? Faça acompanhado",
+    ctaDescription: "Migrar pixel sem plano é jogar 6 meses de aprendizado fora. A AD Scale faz a migração com você no WhatsApp, validando cada passo em tempo real.",
+    ctaWhatsappMessage: "Olá! Vim do blog e quero migrar meu pixel para outra BM sem perder aprendizado.",
+    content: `
+:::tldr
+Pixel **não migra de verdade** — só muda de dono. O histórico de eventos fica, mas **públicos baseados em pixel precisam ser recriados na nova BM**. Migração mal feita reseta otimização e queima 2-4 semanas de performance.
+:::
+
+Muita gente "migra pixel" sem entender que está abrindo mão de audiências, lookalikes e parte do aprendizado de campanha. Se for fazer, faça com plano.
+
+## Quando migrar de verdade
+
+- BM antiga vai ser desativada / bloqueada.
+- Mudança societária / CNPJ.
+- Consolidação de operações (3 BMs viram 1).
+
+## Quando NÃO migrar
+
+- "Achei que a outra BM é melhor" — use **Partner Access** em vez de transferir.
+- BM nova ainda não verificada.
+- Sem plano B se algo der errado.
+
+## O que se preserva
+
+| Item | Migra | Observação |
+|---|---|---|
+| ID do pixel | Sim | Mesmo ID, novo dono |
+| Histórico de eventos | Sim | Janela 180 dias |
+| Domínio verificado | Não direto | Reverificar na nova BM |
+| Públicos baseados em pixel | **Não** | Recriar na nova BM |
+| Lookalikes | **Não** | Recriar do zero |
+| CAPI (token) | Não | Gerar novo |
+| Aprendizado de campanha | Reset parcial | 1-2 semanas |
+
+[Quero migrar com acompanhamento técnico](wa:Vim%20do%20blog%20%28migrar%20pixel%29%20e%20quero%20fazer%20a%20migra%C3%A7%C3%A3o%20acompanhado%20por%20especialista.)
+
+## Passo a passo seguro
+
+### Fase 1 — Preparar (3 dias antes)
+1. Print da estrutura atual (campanhas, audiências, públicos).
+2. Exportar listas customizadas baseadas em pixel.
+3. Conferir que domínio verificado está documentado (DNS records).
+4. Decidir BM destino (deve ser **verificada** e estável).
+
+### Fase 2 — Migrar
+1. Em BM origem: \`Configurações → Pixels → Compartilhar → Transferir propriedade\`.
+2. Aceitar em BM destino.
+3. **Reverificar domínio** na nova BM (subir novo token DNS ou Meta tag).
+4. Gerar novo Access Token CAPI ([guia](/blog/configurar-capi-conversions-api-server-side)).
+5. Atualizar variável de ambiente no servidor.
+
+### Fase 3 — Reconstruir
+1. Recriar audiências baseadas em eventos (Compradores 30d, Carrinho 14d).
+2. Recriar lookalikes a partir dessas audiências (precisam de 24-48h para encherem).
+3. Subir campanhas espelho na nova BM com orçamento **30% do total** nos primeiros 7 dias.
+
+:::callout type=warning
+**Não pause campanha antiga no dia 1.** Rode 7-14 dias em paralelo enquanto a nova "aprende". Cortar abrupto é o erro que custa as 2-4 semanas perdidas.
+:::
+
+## Plano B
+
+Se a nova BM travar logo após migração:
+
+- Mantenha a antiga rodando (não perdeu posse de outras coisas — só o pixel).
+- Migre de volta se ainda estiver na janela de 14 dias.
+- Suba CAPI server-side enquanto isso (recupera parte do sinal).
+
+## Sinais de migração saudável (dia 7-14)
+
+- Match quality recupera para níveis prévios.
+- CPA dentro de +20% da linha de base.
+- Sem queda em Account Quality.
+- Spending limit estável.
+
+> Antes de migrar, considere se **acesso de parceiro** ([Pessoas e Parceiros](/blog/permissoes-equipe-bm-papeis-acesso-correto)) resolve sem mexer em posse.
+`,
+  },
+  {
+    slug: "estrutura-campanha-cbo-abo-quando-usar",
+    title: "CBO vs ABO no Meta Ads: quando usar cada um (2026)",
+    description:
+      "Diferença prática entre Campaign Budget Optimization (CBO) e Ad Set Budget Optimization (ABO), quando cada um performa melhor e como combinar os dois numa estrutura escalável.",
+    keywords: ["cbo abo meta ads", "campaign budget optimization", "advantage campaign budget", "estrutura campanha facebook", "orçamento campanha vs conjunto"],
+    category: "Meio de funil",
+    readingTime: "7 min",
+    publishedAt: "2026-05-23",
+    ogImage: "/og/og-default.jpg",
+    content: `
+:::tldr
+**CBO (Advantage Campaign Budget)** entrega melhor em escala (3+ conjuntos, audiência ampla). **ABO** ganha em **teste de audiência/criativo** (quer dado por conjunto). Operação madura combina: ABO para descobrir, CBO para escalar.
+:::
+
+A briga "CBO vs ABO" é antiga e mal colocada. Os dois servem para coisas diferentes — quem entende isso testa mais rápido e escala mais barato.
+
+## Definição rápida
+
+- **ABO**: orçamento definido **por conjunto de anúncio** (Ad Set).
+- **CBO**: orçamento definido **na campanha**, Meta distribui entre conjuntos.
+
+## Quando CBO vence
+
+- Campanha com 3+ conjuntos rodando o mesmo objetivo.
+- Audiências amplas (advantage+, lookalikes 5-10%).
+- Volume de conversão alto (>50 conversões/conjunto/semana).
+- Foco em escalar gasto sem microajuste.
+
+## Quando ABO vence
+
+- Teste de público (quer saber qual conjunto bate melhor).
+- Teste de criativo isolado (1 conjunto = 1 criativo).
+- Budget pequeno (<R$ 200/dia total).
+- Nichos com curva de aprendizado longa.
+
+## Estrutura híbrida (avançada)
+
+\`\`\`text
+[CAMPANHA] Vendas - Aquisição CBO  → R$ 2.000/dia
+  ├─ Conjunto A: LAL 1% compradores
+  ├─ Conjunto B: LAL 2-5% compradores
+  └─ Conjunto C: Advantage+ Audience
+
+[CAMPANHA] Testes - Criativos ABO  → R$ 50/dia por conjunto
+  ├─ Conjunto T1: criativo novo 01
+  ├─ Conjunto T2: criativo novo 02
+  └─ Conjunto T3: criativo novo 03
+\`\`\`
+
+Vencedor do ABO entra no CBO de escala. Padrão de operação madura.
+
+[Quero estrutura híbrida desenhada para minha conta](wa:Vim%20do%20blog%20%28CBO%20vs%20ABO%29%20e%20quero%20estrutura%20h%C3%ADbrida%20desenhada%20para%20minha%20conta.)
+
+## Regras de ouro
+
+:::callout type=tip
+No CBO, **não fixe spend cap por conjunto**. Isso quebra a lógica do algoritmo de distribuir. Se precisa garantir mínimo num conjunto específico, use ABO ou crie campanha CBO separada.
+:::
+
+- Não duplique conjunto vencedor para "dar mais" — o Meta já distribui no CBO.
+- Em ABO, mantenha orçamento estável 5-7 dias antes de julgar.
+- Em CBO, espere 3 dias após qualquer alteração de >20% no orçamento.
+- Não misture objetivos diferentes na mesma campanha CBO.
+
+## Métricas para comparar
+
+| Métrica | CBO | ABO |
+|---|---|---|
+| Velocidade de aprendizado | Alta | Média |
+| Granularidade de dado | Baixa | Alta |
+| Risco de algoritmo "favorecer um errado" | Médio | Baixo |
+| Esforço operacional | Baixo | Alto |
+
+## Quando voltar ao ABO depois de só CBO
+
+- Suspeita que algoritmo está alocando mal entre conjuntos.
+- Quer reduzir gasto em segmento específico.
+- Testando hipótese nova de público.
+
+> Combine com [Account Quality saudável](/blog/qualidade-conta-anuncio-meta-como-medir) e [pixel/CAPI maduros](/blog/configurar-capi-conversions-api-server-side) — sem isso, qualquer estrutura performa mal.
+`,
+  },
+  {
+    slug: "spending-limit-meta-como-subir-degraus",
+    title: "Subir Spending Limit do Meta Ads em degraus: cronograma de 30 dias",
+    description:
+      "Cronograma prático de 30 dias para subir o limite de gasto da conta sem disparar revisão: do dia 1 ao dia 30, com valores, sinais e pontos de checagem.",
+    keywords: ["aumentar spending limit", "limite gasto meta ads", "subir limite conta facebook", "warm up gasto", "spending cap meta"],
+    category: "Meio de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-23",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Já tem urgência de subir gasto e não dá pra esperar 30 dias?",
+    ctaDescription: "Receba uma BM verificada com limite alto desde o dia 1, evitando todo o cronograma de warm-up. Entrega e handover técnico em até 24h.",
+    ctaWhatsappMessage: "Olá! Vim do blog (spending limit) e quero BM com limite alto já no dia 1.",
+    content: `
+:::tldr
+O Meta sobe limite **em degraus**, observando consistência. Cronograma seguro: começa em R$ 100/dia, dobra a cada 3-5 dias enquanto métricas estão saudáveis. Em 30 dias bem feitos, conta nova chega tranquilamente em R$ 5-10k/dia.
+:::
+
+Aumentar gasto não é "apertar +30% no orçamento". É construir histórico que o algoritmo entende como negócio real crescendo.
+
+## Cronograma de 30 dias
+
+| Dia | Gasto/dia | Foco |
+|---|---|---|
+| 1-3 | R$ 100 | Tráfego ou engajamento, criativo limpo |
+| 4-7 | R$ 200 | Primeira conversão otimizada (Lead barato) |
+| 8-12 | R$ 400 | Subir Purchase, monitorar Account Quality |
+| 13-17 | R$ 800 | Lookalike 1%, expansão de audiência |
+| 18-22 | R$ 1.500 | 2-3 criativos rodando, dedup CAPI ok |
+| 23-30 | R$ 3-10k | Escala via CBO, novos públicos |
+
+[Não quero esperar 30 dias — quero BM pronta com limite alto](wa:Vim%20do%20blog%20%28spending%20limit%29%20e%20quero%20BM%20verificada%20com%20limite%20alto%20no%20dia%201.)
+
+## Regras durante o warm-up
+
+### Pagamento
+- Cartão PJ no CNPJ da BM.
+- Pré-pagar saldo antes de subir degrau.
+- Não trocar de cartão durante o cronograma.
+
+### Criativo
+- Começar com criativo limpo, sem palavra forte.
+- Não usar nicho sensível nos primeiros 7 dias.
+- Renovar criativo a cada 5-7 dias para evitar fadiga.
+
+### Audiência
+- Começar amplo (advantage+), não micro-segmentar.
+- Lookalike só a partir do dia 13 (quando já tem evento de conversão).
+
+### Pixel
+- Subir Pixel + CAPI desde dia 1.
+- Match quality >7 antes de dobrar o gasto.
+
+## Sinais para **pausar** o aumento
+
+:::callout type=warning
+- CPA fugindo +50% da meta.
+- Account Quality com warning novo.
+- Spending cap não acompanha (Meta limitou).
+- Cartão recusou cobrança alguma vez.
+- Frequência > 3 nas audiências principais.
+
+Se qualquer um aparecer, **mantenha o gasto atual por 5 dias** antes de subir de novo.
+:::
+
+## Quando o Meta libera "Sem limite"
+
+Geralmente após:
+- 90+ dias de gasto consistente.
+- CNPJ + domínio verificados.
+- Match quality estável >8.
+- 0 violações nos últimos 60 dias.
+
+Não há botão — Meta faz automaticamente. Para escala 6-7 dígitos/mês, mantenha pelo menos **1 BM já com limite removido** ([guia](/blog/tipos-de-bm-meta-nova-antiga-verificada-ilimitada)).
+
+## Erros que resetam o warm-up
+
+- Saltos de >100% num único dia.
+- Trocar objetivo de campanha durante warm-up.
+- Pausar tudo por 3+ dias e voltar.
+- Mudar admin master no meio.
+- Migrar pixel ([guia](/blog/migrar-pixel-bm-sem-perder-aprendizado)) sem plano.
+
+> Para tese de operação que não pode esperar 30 dias, use [BM secundária pronta](/blog/estrategia-3-camadas-bm-meta-ads-contingencia) como ponte.
+`,
+  },
+  {
+    slug: "recuperar-pagina-facebook-restrita-passo-a-passo",
+    title: "Recuperar página do Facebook restrita: passo a passo de appeal",
+    description:
+      "Por que páginas são restritas, como ler o motivo correto, como escrever o appeal certo e o que fazer quando o appeal é negado uma, duas ou três vezes.",
+    keywords: ["recuperar pagina facebook", "pagina restrita facebook", "appeal pagina facebook", "pagina bloqueada", "fan page restrita"],
+    category: "Meio de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-24",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Página caiu e parou seu Meta Ads?",
+    ctaDescription: "Mande o print da restrição no WhatsApp e analisamos seu caso em 15 min, indicando se vale appeal próprio, appeal especializado ou troca de página antiga.",
+    ctaWhatsappMessage: "Olá! Minha página do Facebook foi restrita e preciso recuperar (vim do blog).",
+    ctaLabel: "Enviar caso para análise",
+    content: `
+:::tldr
+Página restrita = anúncios param. O caminho é: **ler o motivo exato → appeal escrito com prova → aguardar 24-72h → se negado, escalar via Business Help**. Em ~40% dos casos o appeal funciona; nos demais, página nova + estratégia de plano B.
+:::
+
+Quando a página cai, o desespero faz a maioria postar 5 appeals em sequência. Isso piora. O Meta lê reincidência como confirmação de problema.
+
+## Tipos de restrição
+
+| Status | O que significa | Recuperável? |
+|---|---|---|
+| Aviso (warning) | Política violada, sem restrição operacional ainda | Sim |
+| Restrição parcial | Pode postar, **não pode anunciar** | Sim (appeal) |
+| Restrição total | Não posta, não anuncia | Difícil |
+| Removida | Página apagada | Quase nunca |
+
+## Passo a passo do appeal
+
+### 1. Identificar a restrição
+\`Página → Qualidade da página → Restrições\`. Anote:
+- Política exata violada.
+- Data e post/anúncio específico (se citado).
+- Status atual e prazo de revisão.
+
+### 2. Coletar prova de legitimidade
+- CNPJ ativo no nome da página.
+- Comprovante de endereço comercial.
+- Domínio verificado vinculado.
+- Histórico de gasto / posts orgânicos.
+
+### 3. Escrever o appeal certo
+
+Estrutura ideal (em até 1000 caracteres):
+
+\`\`\`text
+Sou [nome], responsável pela página [nome]. 
+A página representa a empresa [CNPJ], que opera no segmento 
+[descrição]. Identifiquei a restrição relacionada a [motivo]. 
+Acredito ter havido um erro de classificação porque [argumento 
+específico, 2-3 frases]. Em anexo: CNPJ ativo, comprovante de 
+endereço e domínio verificado. Estou à disposição para qualquer 
+verificação adicional.
+\`\`\`
+
+[Quero ajuda para escrever o appeal certo](wa:Vim%20do%20blog%20%28recuperar%20p%C3%A1gina%29%20e%20quero%20ajuda%20para%20escrever%20o%20appeal%20certo.)
+
+### 4. Aguardar 24-72h
+- Não envie segundo appeal antes da resposta.
+- Não poste conteúdo polêmico nesse intervalo.
+- Não troque admin no meio.
+
+### 5. Se negado: escalar
+
+- **Business Help**: \`Suporte → Falar com um especialista → Chat\` (disponível em BMs verificadas).
+- Anexar **novos** documentos, não repetir os mesmos.
+- Tom profissional, sem urgência emocional.
+
+### 6. Após 3 negações
+- Apelar via **WhatsApp Business** se a página estiver vinculada à WABA.
+- Considerar página nova com **histórico orgânico de 60+ dias** antes de voltar a anunciar.
+
+## O que NUNCA fazer
+
+:::callout type=warning
+- Comentar nos posts do Meta pedindo recuperação.
+- Pedir ajuda em grupos públicos com print da BM (vira target).
+- Pagar "consultor que recupera 100% garantido em 24h" — golpe.
+- Criar página clone com o mesmo nome (suspende as duas).
+:::
+
+## Plano B paralelo
+
+Enquanto o appeal corre:
+
+1. Mover anúncios para **página secundária** vinculada à BM ([estrutura](/blog/permissoes-equipe-bm-papeis-acesso-correto)).
+2. Subir 1 conjunto com **gasto baixo** na página B para manter sinal.
+3. Não pausar tudo — gasto zero por 7 dias derruba a BM inteira.
+
+## Prevenção
+
+- Página com 2 admins masters.
+- Posts orgânicos semanais (algoritmo lê como conta viva).
+- Resposta a mensagens em <24h (CSAT da página).
+- Reviews respondidos.
+- Evitar tags em ondas (engagement bait).
+
+> Tem operação em nicho sensível? Mantenha sempre **2 páginas antigas** prontas ([guia de páginas antigas](/blog/pagina-antiga-facebook-impacto-na-performance)).
+`,
+  },
+  {
+    slug: "saude-perfil-administrador-bm-rotina-semanal",
+    title: "Saúde do perfil administrador da BM: rotina semanal de 10 minutos",
+    description:
+      "Como manter o perfil administrador da Business Manager saudável: login consistente, atividade orgânica, 2FA, dispositivos confiáveis e checklist semanal de 10 min.",
+    keywords: ["perfil administrador bm", "saude perfil facebook", "rotina perfil bm", "perfil admin nao bloquear", "perfil aged manutencao"],
+    category: "Meio de funil",
+    readingTime: "6 min",
+    publishedAt: "2026-05-24",
+    ogImage: "/og/og-default.jpg",
+    content: `
+:::tldr
+Perfil admin é o ponto fraco mais ignorado. Se ele cair, **toda a BM cai junto**. Rotina semanal de 10 min: login consistente, 1-2 ações orgânicas, conferência de 2FA e dispositivos, log de atividade. Quem faz, dorme tranquilo.
+:::
+
+A maioria das BMs que somem foi por causa do perfil admin — não da BM em si. Tratar o perfil como ativo crítico muda o jogo.
+
+## Rotina semanal (10 min)
+
+### Login (2 min)
+- Entrar **toda semana** pelo mesmo dispositivo + IP.
+- Não ficar 14+ dias sem login (gatilha verificação).
+- Abrir Feed e rolar 1 min — comportamento humano.
+
+### Atividade orgânica (3 min)
+- Curtir 2-3 posts de amigos/páginas seguidas.
+- Comentar algo curto e real em 1 post.
+- Reagir a 1 Story.
+
+### Segurança (3 min)
+- \`Configurações → Senha e segurança → Onde você está conectado\`.
+- Remover sessões antigas e desconhecidas.
+- Confirmar dispositivos confiáveis (2-3, não 15).
+- 2FA ativo? App autenticador sincronizado?
+
+### Verificação rápida (2 min)
+- E-mail e telefone de recuperação corretos.
+- Nenhuma notificação de "ação requerida".
+- Account Status do perfil = normal.
+
+[Quero perfil aged já configurado e monitorado](wa:Vim%20do%20blog%20%28sa%C3%BAde%20do%20perfil%29%20e%20quero%20perfil%20admin%20aged%20j%C3%A1%20configurado.)
+
+## O que **derruba** perfil admin
+
+:::callout type=warning
+- Login de país diferente sem viagem registrada.
+- Trocar dispositivo + IP no mesmo dia.
+- Adicionar muitos amigos novos de uma vez.
+- Entrar em vários grupos numa só sessão.
+- Compartilhar conteúdo polêmico ou denunciado.
+- Comentar em massa (parece bot).
+- Sair do Facebook por 30+ dias.
+:::
+
+## Sinais amarelos
+
+- Pedido inesperado de "Confirmar identidade".
+- 2FA pedido em dispositivo confiável.
+- Captcha em ações simples (curtir, comentar).
+- Mensagens demorando para enviar.
+
+→ Pause aumentos de gasto na BM, monitore por 7 dias antes de qualquer mudança grande.
+
+## Sinais vermelhos (ação imediata)
+
+- Perfil em revisão.
+- Bloqueio temporário de envio.
+- Restrição de criar anúncios.
+- Notificação "atividade incomum".
+
+→ **Pare logins novos**, transfira admin master para perfil saudável já cadastrado, abra appeal.
+
+## Estratégia de redundância
+
+- **2 admins master** na BM, em perfis diferentes (cidades/IPs diferentes).
+- Cada perfil opera **uma BM principal** — não centralize tudo em 1 perfil só.
+- Cadastre **e-mail de recuperação corporativo** em ambos.
+
+## Quando trocar de perfil admin
+
+- Após bloqueio do perfil principal.
+- Quando admin sai da empresa.
+- Em migração de operação (CNPJ novo, mudança societária).
+
+Faça com sobreposição: novo admin entra → 14 dias de operação juntos → antigo sai. Nunca de uma vez.
+
+> Veja também [permissões corretas da BM](/blog/permissoes-equipe-bm-papeis-acesso-correto) e [tipos de perfil aged](/blog/perfil-aged-facebook-por-que-administrador-importa).
+`,
+  },
+  {
+    slug: "dia-do-bloqueio-runbook-emergencia-meta-ads",
+    title: "Dia do bloqueio: runbook de emergência para BM ou conta do Meta",
+    description:
+      "Runbook minuto a minuto para o dia em que sua BM ou conta de anúncio é bloqueada: primeiras 2h, 24h, 72h e 7 dias. Decisão entre appeal e BM reserva.",
+    keywords: ["bm bloqueada o que fazer", "runbook bloqueio meta", "conta bloqueada emergencia", "appeal urgente bm", "plano contingencia bloqueio"],
+    category: "Meio de funil",
+    readingTime: "9 min",
+    publishedAt: "2026-05-25",
+    ogImage: "/og/og-bloqueio.jpg",
+    ctaTitle: "Está bloqueado agora? Não perca a próxima hora",
+    ctaDescription: "Mande a notificação do Meta no WhatsApp. Em 15 min indicamos se vale appeal próprio, appeal técnico ou subir BM reserva imediatamente — e operamos com você se precisar.",
+    ctaWhatsappMessage: "URGENTE: minha BM/conta foi bloqueada AGORA. Vim do blog e preciso de ajuda imediata.",
+    ctaLabel: "Pedir ajuda emergencial",
+    content: `
+:::tldr
+Bloqueio aconteceu. Próximas 2h definem se você perde 1 dia ou 1 semana. **Não envie 5 appeals desesperados**. Siga o runbook: diagnóstico → appeal único bem feito → ativação da BM reserva em paralelo.
+:::
+
+Toda operação séria tem este runbook impresso. Você vai usar mais cedo ou mais tarde.
+
+## Hora 0 — Primeiros 15 minutos
+
+1. **Pare de mexer.** Não envie appeal ainda.
+2. Print de **tudo**: notificação, Account Quality, último anúncio rodando.
+3. Identifique o nível do bloqueio:
+   - Anúncio individual reprovado? Pequeno.
+   - Conta de anúncio restrita? Médio.
+   - **BM inteira bloqueada?** Grave.
+   - Perfil admin caído? **Crítico**.
+4. Anote o motivo exato citado pelo Meta.
+
+[Quero ajuda de especialista AGORA](wa:URGENTE%3A%20minha%20BM%20foi%20bloqueada%20agora.%20Vim%20do%20blog%20e%20preciso%20de%20ajuda%20imediata.)
+
+## Hora 0-2 — Diagnóstico
+
+### Causa provável
+
+| Sinal | Causa típica |
+|---|---|
+| Reprovação repetida do mesmo criativo | Política de anúncio |
+| Pico atípico de gasto antes do bloqueio | Antifraude de pagamento |
+| Login estranho recente | Segurança do perfil |
+| Migração / mudança recente de admin | Trust Score em queda |
+| Nicho sensível em conta nova | Revisão automática |
+
+### Ativação da reserva (em paralelo)
+- Tem [BM secundária](/blog/estrategia-3-camadas-bm-meta-ads-contingencia)? Suba +30% do gasto principal nela **agora**.
+- Tem reserva? Suba para 10-15% do gasto principal.
+- Não tem? Pule para o bloco "Não tem reserva".
+
+## Hora 2-24 — O appeal (uma vez só)
+
+- Use o motivo exato da notificação.
+- Anexe CNPJ, comprovante de endereço, domínio verificado.
+- Texto profissional, máximo 1000 caracteres.
+- **Um único appeal**, não 5.
+- Se a BM é verificada, abra também ticket via Business Help.
+
+## Dia 1-3
+
+- **Não republique** criativo que foi reprovado.
+- Mantenha gasto na secundária subindo em degraus controlados.
+- Verifique Account Quality diariamente, sem mexer.
+
+## Dia 3-7
+
+- Sem resposta do appeal? Envie **segundo apelo** com novos documentos e ângulo diferente.
+- Comece a **migrar audiências críticas** para a secundária.
+- Suba 1 nova BM reserva se ainda não tinha 3 camadas.
+
+## Dia 7+
+
+- Se o appeal foi negado 2x → mover tudo para secundária + manter principal "morta" 30 dias antes de tentar resgate final.
+- Audit completo da operação: por que caiu? O que mudar para não repetir?
+
+## Não tem reserva — plano B emergencial
+
+:::callout type=warning
+Sem BM reserva, o caminho é **subir uma nova BM verificada no menor tempo possível**. Isso pode levar de 1 dia (BM pronta de fornecedor) a 30 dias (do zero). Durante esse tempo, o faturamento para — exatamente o que a contingência existe para evitar.
+:::
+
+[Preciso de BM reserva pronta hoje](wa:URGENTE%3A%20preciso%20de%20BM%20reserva%20pronta%20HOJE%20%28vim%20do%20blog%29.)
+
+## O que não fazer
+
+- 5 appeals em 1 dia.
+- Criar BM clone com mesmo nome/domínio.
+- Comprar BM "qualquer uma" no grupo de Telegram.
+- Trocar todos os admins de uma vez.
+- Cancelar cartão e refazer pagamento.
+
+## Após resolver — autópsia obrigatória
+
+Em até 48h:
+- O que causou o bloqueio (raiz, não sintoma)?
+- O que da operação amplificou o risco?
+- Quais 3 mudanças estruturais evitam a recorrência?
+- Adicionar à rotina de [auditoria semanal](/blog/auditoria-30-minutos-conta-anuncio-meta)?
+
+> Bloqueio é evento esperado. Pânico é evitável. Quem tem [3 camadas](/blog/estrategia-3-camadas-bm-meta-ads-contingencia) + reserva pronta resolve no mesmo dia. Quem não tem aprende caro.
 `,
   },
 ];
