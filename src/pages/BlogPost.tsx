@@ -1,15 +1,18 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import { ArrowLeft, Calendar, Clock, ArrowRight, RefreshCw } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, ArrowRight, RefreshCw, Layers } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import SEO from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
+import MidArticleCTA from "@/components/MidArticleCTA";
 import TableOfContents, { extractTocFromMarkdown } from "@/components/TableOfContents";
 import { getPostBySlug } from "@/data/blogPosts";
 import { blogSeoTitles } from "@/data/blogSeoTitles";
+import { getPillarForPost } from "@/data/blogPillars";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
+import { SITE_URL } from "@/lib/site";
 import pedroPhoto from "@/assets/pedro-lucas-fundador.jpg";
 
 const slugify = (text: string) =>
@@ -183,12 +186,17 @@ const BlogPost = () => {
   const formattedPublished = new Date(post.publishedAt).toLocaleDateString("pt-BR");
   const formattedModified = new Date(dateModified).toLocaleDateString("pt-BR");
 
+  const pillar = getPillarForPost(post.slug);
+
   const breadcrumbItems = [
     { label: "Início", href: "/" },
     { label: "Blog", href: "/blog" },
-    { label: post.category, href: `/blog?funil=${post.category === "Topo de funil" ? "tof" : post.category === "Meio de funil" ? "mof" : "bof"}` },
+    ...(pillar ? [{ label: pillar.shortTitle, href: `/blog/pilar/${pillar.slug}` }] : []),
     { label: post.title },
   ];
+
+  const canonicalUrl = `${SITE_URL}/blog/${post.slug}/`;
+  const ogImageAbs = `${SITE_URL}${post.ogImage}`;
 
   const articleSchema: Record<string, unknown> = {
     "@type": "BlogPosting",
@@ -200,31 +208,40 @@ const BlogPost = () => {
     author: {
       "@type": "Person",
       name: "Pedro Lucas",
-      url: "https://adscalecontingencia.com/autor/pedro-lucas",
-      image: "https://adscalecontingencia.com/autores/pedro-lucas.jpg",
+      url: `${SITE_URL}/autor/pedro-lucas`,
     },
     publisher: {
       "@type": "Organization",
       name: "AD Scale",
       logo: {
         "@type": "ImageObject",
-        url: "https://adscalecontingencia.com/og/og-default.jpg",
+        url: `${SITE_URL}/og/logo-adscale.png`,
       },
     },
     keywords: post.keywords.join(", "),
     image: {
       "@type": "ImageObject",
-      url: `https://adscalecontingencia.com${post.ogImage}`,
+      url: ogImageAbs,
       width: 1200,
       height: 630,
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://adscalecontingencia.com/blog/${post.slug}`,
+      "@id": canonicalUrl,
     },
   };
 
-  const graph: Record<string, unknown>[] = [articleSchema];
+  const breadcrumbSchema = {
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbItems.map((b, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: b.label,
+      item: b.href ? `${SITE_URL}${b.href}` : undefined,
+    })),
+  };
+
+  const graph: Record<string, unknown>[] = [articleSchema, breadcrumbSchema];
   if (faqEntities.length) {
     graph.push({ "@type": "FAQPage", mainEntity: faqEntities });
   }
@@ -237,7 +254,7 @@ const BlogPost = () => {
         "@type": "HowToStep",
         position: idx + 1,
         name: t.label,
-        url: `https://adscalecontingencia.com/blog/${post.slug}#${t.id}`,
+        url: `${canonicalUrl}#${t.id}`,
       })),
     });
   }
@@ -322,14 +339,56 @@ const BlogPost = () => {
 
           <TableOfContents items={toc} />
 
-          <div className="prose-content">{renderMarkdown(post.content)}</div>
+          {(() => {
+            const blocks = renderMarkdown(post.content);
+            const mid = Math.floor(blocks.length / 2);
+            return (
+              <div className="prose-content">
+                {blocks.slice(0, mid)}
+                <MidArticleCTA
+                  title={`Quer aplicar isso (${pillar?.shortTitle ?? "contingência Meta Ads"}) na sua operação?`}
+                  description="A AD Scale faz um diagnóstico rápido pelo WhatsApp e mostra o caminho mais curto para você sair do bloqueio, escalar com previsibilidade ou subir uma BM verificada na mesma semana."
+                  whatsappMessage={`Olá! Li o artigo "${post.title}" no blog da AD Scale e quero entender como aplicar isso na minha operação.`}
+                />
+                {blocks.slice(mid)}
+              </div>
+            );
+          })()}
 
-          <div className="mt-16 p-8 rounded-lg border border-primary/30 bg-primary/5 text-center">
+          {pillar && (
+            <aside className="mt-12 p-6 rounded-lg border border-border/60 bg-card/60">
+              <div className="flex items-start gap-3">
+                <Layers className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                <div className="flex-1">
+                  <p className="text-xs uppercase tracking-wide text-muted-foreground mb-1">
+                    Faz parte do pilar
+                  </p>
+                  <Link
+                    to={`/blog/pilar/${pillar.slug}`}
+                    className="font-display text-lg font-semibold text-foreground hover:text-primary transition-colors"
+                  >
+                    {pillar.title}
+                  </Link>
+                  <p className="text-sm text-muted-foreground mt-1">{pillar.description}</p>
+                  <Link
+                    to={`/blog/pilar/${pillar.slug}`}
+                    className="inline-flex items-center gap-1 text-primary text-sm font-medium mt-3"
+                  >
+                    Ver todos os artigos do pilar
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </aside>
+          )}
+
+          <div className="mt-12 p-8 rounded-lg border border-primary/30 bg-primary/5 text-center">
             <h2 className="font-display text-xl md:text-2xl font-bold mb-3">
-              Precisa de ativos de contingência reais para sua operação?
+              Pronto para resolver isso de vez?
             </h2>
-            <p className="text-muted-foreground mb-6">
-              BMs Verificadas, BMs antigas, perfis e páginas com Trust Score alto. Curadoria 1 a 1.
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              BMs Verificadas, BMs antigas, perfis aged e páginas com Trust Score alto — curadoria 1 a 1
+              e suporte de quem opera Meta Ads em alto volume todos os dias.
             </p>
             <a
               href={WHATSAPP_URL}
@@ -337,7 +396,7 @@ const BlogPost = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground font-bold px-8 py-3.5 rounded-lg transition-all hover:scale-105"
             >
-              Falar com o time
+              Falar com o time no WhatsApp
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>

@@ -17,6 +17,18 @@ AD Scale é fornecedora brasileira especializada em curadoria 1 a 1 de ativos pa
 ## Blog
 
 - [Blog](/blog): Índice completo de artigos sobre BM Verificada, Trust Score, contingência, WhatsApp API e Facebook Ads.
+
+## Pilares do Blog
+
+- [Pilar Business Manager](/blog/pilar/business-manager): BM verificada, BM ilimitada, preço, auditoria e fornecedores.
+- [Pilar Perfis e Páginas](/blog/pilar/perfis-e-paginas): Perfis aged, fan pages antigas e fingerprint para Meta Ads.
+- [Pilar Segurança e Bloqueios](/blog/pilar/seguranca-e-bloqueios): Bloqueios, recuperação, appeal e contas novas.
+- [Pilar Escala e Performance](/blog/pilar/escala-e-performance): Warm-up, Trust Score, limite de gasto, Pixel + CAPI e ROI.
+- [Pilar WhatsApp API](/blog/pilar/whatsapp-api): WABA verificada, tiers, templates e disparo via Cloud API.
+- [Pilar Fundamentos e Estratégia](/blog/pilar/fundamentos-e-estrategia): Glossário, consultoria vs curso e decisões estratégicas.
+
+## Artigos em destaque
+
 - [Disparo via API no WhatsApp Cloud](/blog/disparo-via-api-whatsapp-cloud-bm-verificada-guia-completo): Guia completo sobre BMs, tiers (250/1k/10k) e qualidade do número.
 - [O que é Business Manager Verificada](/blog/o-que-e-business-manager-verificada-meta): Como funciona a verificação de BM no Meta.
 - [Trust Score no Meta Ads](/blog/trust-score-meta-ads-como-funciona): O sinal invisível que decide se você escala.
