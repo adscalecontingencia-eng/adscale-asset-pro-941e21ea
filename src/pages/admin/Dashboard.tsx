@@ -698,7 +698,9 @@ const AdminDashboard = () => {
         </Card>
 
         <Card className="p-5 bg-card border-border/50">
-          <h2 className="font-display font-semibold mb-4">Últimos 50 cliques</h2>
+          <h2 className="font-display font-semibold mb-4">
+            Últimos 50 cliques <span className="text-xs text-muted-foreground font-normal">(do filtro)</span>
+          </h2>
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
@@ -713,7 +715,7 @@ const AdminDashboard = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {clicks.slice(0, 50).map((c) => (
+                {filteredClicks.slice(0, 50).map((c) => (
                   <TableRow key={c.id}>
                     <TableCell className="text-xs whitespace-nowrap">
                       {new Date(c.created_at).toLocaleString("pt-BR")}
@@ -735,10 +737,60 @@ const AdminDashboard = () => {
                     <TableCell className="text-xs">{c.device ?? "—"}</TableCell>
                   </TableRow>
                 ))}
-                {clicks.length === 0 && (
+                {filteredClicks.length === 0 && (
                   <TableRow>
                     <TableCell colSpan={7} className="text-center text-muted-foreground py-8">
-                      Nenhum clique registrado ainda.
+                      Nenhum clique para o filtro atual.
+                    </TableCell>
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </div>
+        </Card>
+
+        {/* Newsletter leads */}
+        <Card className="p-5 bg-card border-border/50">
+          <div className="flex items-center justify-between mb-1">
+            <h2 className="font-display font-semibold flex items-center gap-2">
+              <Mail className="w-4 h-4 text-primary" /> Inscrições · Contingência Semanal
+            </h2>
+            <span className="text-xs text-muted-foreground">
+              {filteredLeads.length} de {leads.length}
+            </span>
+          </div>
+          <p className="text-xs text-muted-foreground mb-4">
+            Leads capturados pelo formulário do blog (sujeitos ao filtro de período e busca).
+          </p>
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Data</TableHead>
+                  <TableHead>E-mail</TableHead>
+                  <TableHead>Pilar</TableHead>
+                  <TableHead>Campanha</TableHead>
+                  <TableHead>Origem</TableHead>
+                  <TableHead>Device</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {filteredLeads.slice(0, 100).map((l) => (
+                  <TableRow key={l.id}>
+                    <TableCell className="text-xs whitespace-nowrap">
+                      {new Date(l.created_at).toLocaleString("pt-BR")}
+                    </TableCell>
+                    <TableCell className="text-xs text-primary">{l.email}</TableCell>
+                    <TableCell className="text-xs">{l.pillar_label ?? l.pillar_slug ?? "—"}</TableCell>
+                    <TableCell className="text-xs">{l.utm_campaign ?? "—"}</TableCell>
+                    <TableCell className="text-xs">{l.source_route ?? "—"}</TableCell>
+                    <TableCell className="text-xs">{l.device ?? "—"}</TableCell>
+                  </TableRow>
+                ))}
+                {filteredLeads.length === 0 && (
+                  <TableRow>
+                    <TableCell colSpan={6} className="text-center text-muted-foreground py-8">
+                      Nenhuma inscrição para o filtro atual.
                     </TableCell>
                   </TableRow>
                 )}
@@ -750,6 +802,7 @@ const AdminDashboard = () => {
     </div>
   );
 };
+
 
 const BreakdownCard = ({
   title,
