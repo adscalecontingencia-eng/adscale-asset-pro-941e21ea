@@ -71,7 +71,7 @@ const renderMarkdown = (md: string, campaign = "blog_post") => {
           out.push(
             <a
               key={key++}
-              href={buildInlineWaHref(msg, campaign)}
+              href={buildInlineWaHref(msg, cmp)}
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold text-primary underline underline-offset-4 hover:text-primary/80"
