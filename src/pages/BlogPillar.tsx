@@ -162,6 +162,9 @@ const BlogPillar = () => {
             ctaLabel="Quero o diagnóstico no WhatsApp"
           />
 
+          <NewsletterCTA pillarLabel={pillar.shortTitle} pillarSlug={pillar.slug} />
+
+
           <section aria-labelledby="outros-pilares" className="mt-16">
             <h2 id="outros-pilares" className="font-display text-2xl font-bold mb-6">
               Outros pilares do blog
