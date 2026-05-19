@@ -160,6 +160,17 @@ const AdminDashboard = () => {
       setAuthorized(true);
       setLoading(false);
 
+      // Fetch newsletter leads (admin RLS).
+      supabase
+        .from("newsletter_leads")
+        .select("id,created_at,email,pillar_slug,pillar_label,source_route,utm_campaign,device")
+        .order("created_at", { ascending: false })
+        .limit(500)
+        .then(({ data: rows, error: lerr }) => {
+          if (lerr) console.warn("[admin] newsletter_leads:", lerr.message);
+          if (mounted && rows) setLeads(rows as NewsletterLead[]);
+        });
+
       // Fetch organic keywords from Google Search Console for each unique landing page.
       const pages = Array.from(
         new Set(((data ?? []) as Click[]).map((c) => c.landing_page || c.route).filter(Boolean)),
