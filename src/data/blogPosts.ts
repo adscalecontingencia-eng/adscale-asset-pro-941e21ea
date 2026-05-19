@@ -10,6 +10,11 @@ export type BlogPost = {
   ogImage: string;
   /** Markdown-like content rendered by BlogPost page */
   content: string;
+  /** Optional per-post mid-article CTA overrides (rendered by BlogPost page). */
+  ctaTitle?: string;
+  ctaDescription?: string;
+  ctaWhatsappMessage?: string;
+  ctaLabel?: string;
 };
 
 export const blogPosts: BlogPost[] = [
