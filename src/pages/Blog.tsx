@@ -95,23 +95,16 @@ const Blog = () => {
     return base as Record<FunnelFilter, number>;
   }, [sortedPosts]);
 
-  const featuredCategories = [
-    {
-      title: "Bloqueios e recuperação",
-      description: "Guias para reduzir downtime, responder revisões e proteger a operação em picos de risco.",
-      href: "/blog/bloqueio-conta-anuncio-meta-como-evitar",
-    },
-    {
-      title: "BM verificada e Trust Score",
-      description: "Conteúdo para entender reputação de ativos, verificação e estabilidade de escala.",
-      href: "/blog/o-que-e-business-manager-verificada-meta",
-    },
-    {
-      title: "Infraestrutura de contingência",
-      description: "Arquitetura, warm-up, fingerprint e ativos antigos para sustentar volume no Meta Ads.",
-      href: "/blog/arquitetura-contingencia-meta-ads-operacao-alto-volume",
-    },
-  ];
+  const pillarCards = useMemo(
+    () =>
+      pillars.map((p) => ({
+        slug: p.slug,
+        title: p.shortTitle,
+        description: p.description,
+        count: getPostsForPillar(p.slug).length,
+      })),
+    [],
+  );
 
   // Dynamic SEO: only the unfiltered page 1 is the canonical/indexable version.
   // Filtered or paginated views point canonical back to /blog and are noindex,follow.
