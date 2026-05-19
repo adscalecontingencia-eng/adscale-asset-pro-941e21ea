@@ -446,7 +446,7 @@ const AdminDashboard = () => {
               variant="outline"
               size="sm"
               onClick={handleExportCSV}
-              disabled={clicks.length === 0}
+              disabled={filteredClicks.length === 0}
               className="gap-2"
             >
               <Download className="w-4 h-4" /> Exportar CSV
