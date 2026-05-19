@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import SEO from "@/components/SEO";
+import BlogSearch from "@/components/BlogSearch";
 import { Button } from "@/components/ui/button";
 import {
   Pagination,
@@ -16,6 +17,7 @@ import {
   PaginationEllipsis,
 } from "@/components/ui/pagination";
 import { blogPosts, type BlogPost } from "@/data/blogPosts";
+import { pillars, getPostsForPillar } from "@/data/blogPillars";
 
 type FunnelFilter = "Todos" | "Topo de funil" | "Meio de funil" | "Fundo de funil";
 
@@ -93,23 +95,16 @@ const Blog = () => {
     return base as Record<FunnelFilter, number>;
   }, [sortedPosts]);
 
-  const featuredCategories = [
-    {
-      title: "Bloqueios e recuperação",
-      description: "Guias para reduzir downtime, responder revisões e proteger a operação em picos de risco.",
-      href: "/blog/bloqueio-conta-anuncio-meta-como-evitar",
-    },
-    {
-      title: "BM verificada e Trust Score",
-      description: "Conteúdo para entender reputação de ativos, verificação e estabilidade de escala.",
-      href: "/blog/o-que-e-business-manager-verificada-meta",
-    },
-    {
-      title: "Infraestrutura de contingência",
-      description: "Arquitetura, warm-up, fingerprint e ativos antigos para sustentar volume no Meta Ads.",
-      href: "/blog/arquitetura-contingencia-meta-ads-operacao-alto-volume",
-    },
-  ];
+  const pillarCards = useMemo(
+    () =>
+      pillars.map((p) => ({
+        slug: p.slug,
+        title: p.shortTitle,
+        description: p.description,
+        count: getPostsForPillar(p.slug).length,
+      })),
+    [],
+  );
 
   // Dynamic SEO: only the unfiltered page 1 is the canonical/indexable version.
   // Filtered or paginated views point canonical back to /blog and are noindex,follow.
@@ -188,25 +183,40 @@ const Blog = () => {
             <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">
               Blog <span className="text-gradient">AD Scale</span>
             </h1>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
               Conteúdo educacional e estratégico para reduzir bloqueios, elevar o Trust Score e operar com mais
               previsibilidade no Meta Ads.
             </p>
+            <BlogSearch />
           </header>
 
           <section aria-labelledby="clusters-heading" className="mb-12">
-            <h2 id="clusters-heading" className="font-display text-2xl md:text-3xl font-bold mb-6">
-              Comece pelos temas mais buscados
+            <h2 id="clusters-heading" className="font-display text-2xl md:text-3xl font-bold mb-2">
+              Pilares de conteúdo
             </h2>
+            <p className="text-sm text-muted-foreground mb-6">
+              Navegue pelos grandes temas que cobrimos sobre contingência Meta Ads.
+            </p>
             <div className="grid gap-4 md:grid-cols-3">
-              {featuredCategories.map((item) => (
+              {pillarCards.map((item) => (
                 <Link
-                  key={item.title}
-                  to={item.href}
-                  className="border border-border/50 bg-card/60 hover:border-primary/40 transition-colors p-5 rounded-lg"
+                  key={item.slug}
+                  to={`/blog/pilar/${item.slug}`}
+                  className="group border border-border/50 bg-card/60 hover:border-primary/40 transition-colors p-5 rounded-lg flex flex-col"
                 >
-                  <h3 className="font-display text-lg font-semibold mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  <div className="flex items-start justify-between gap-3 mb-2">
+                    <h3 className="font-display text-lg font-semibold group-hover:text-primary transition-colors">
+                      {item.title}
+                    </h3>
+                    <span className="text-xs px-2 py-1 rounded-full bg-muted text-muted-foreground shrink-0">
+                      {item.count}
+                    </span>
+                  </div>
+                  <p className="text-sm text-muted-foreground flex-1">{item.description}</p>
+                  <span className="inline-flex items-center gap-1 text-primary text-sm font-medium mt-3">
+                    Ver pilar
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </span>
                 </Link>
               ))}
             </div>
