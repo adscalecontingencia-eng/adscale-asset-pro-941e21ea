@@ -35,7 +35,13 @@ export const pillars: Pillar[] = [
     postSlugs: [
       "o-que-e-business-manager-verificada-meta",
       "tipos-de-bm-meta-nova-antiga-verificada-ilimitada",
+      "comparativo-bm-verificada-vs-ilimitada-qual-escolher",
+      "bm-ilimitada-vale-a-pena-100k-dia",
       "como-escolher-fornecedor-bm-verificada",
+      "melhor-fornecedor-bm-verificada-brasil-2026",
+      "onde-comprar-bm-verificada-com-seguranca-2026",
+      "checklist-10-perguntas-antes-comprar-bm-fornecedor",
+      "bm-pronta-vs-bm-do-zero-quanto-tempo-economiza",
       "quanto-custa-bm-verificada-facebook-2026",
       "checklist-auditoria-bm-facebook-18-itens",
       "estrutura-bm-conta-pixel-pagina-relacao",
@@ -64,6 +70,7 @@ export const pillars: Pillar[] = [
     relatedLandingLabel: "Ver perfis e páginas",
     postSlugs: [
       "perfil-aged-facebook-por-que-administrador-importa",
+      "preco-perfil-aged-facebook-vale-investimento",
       "pagina-antiga-facebook-impacto-na-performance",
       "fingerprint-ip-residencial-meta-ads",
       "ip-residencial-vs-datacenter-meta-ads",
@@ -90,11 +97,13 @@ export const pillars: Pillar[] = [
     postSlugs: [
       "bloqueio-conta-anuncio-meta-como-evitar",
       "recuperar-conta-anuncio-bloqueada-facebook-ads",
+      "case-infoproduto-recuperou-conta-bloqueada-48h",
       "bloqueio-conta-nova-facebook-ads-7-motivos",
       "qualidade-conta-anuncio-meta-como-medir",
       "autenticacao-2-fatores-conta-facebook-ads",
       "politicas-anuncios-meta-erros-comuns-reprovacao",
       "nichos-sensiveis-meta-ads-quais-sao",
+      "case-nicho-sensivel-emagrecimento-90-dias-sem-ban",
       "recuperar-pagina-facebook-restrita-passo-a-passo",
       "dia-do-bloqueio-runbook-emergencia-meta-ads",
     ],
@@ -118,6 +127,7 @@ export const pillars: Pillar[] = [
     relatedLandingLabel: "Ver serviço de aquecimento",
     postSlugs: [
       "warm-up-conta-anuncio-meta-passo-a-passo",
+      "aquecimento-proprio-vs-servico-warm-up-meta-ads",
       "trust-score-meta-ads-como-funciona",
       "trust-score-facebook-ads-como-meta-avalia-conta",
       "limite-de-gasto-facebook-ads-como-aumentar",
@@ -132,6 +142,8 @@ export const pillars: Pillar[] = [
       "migrar-pixel-bm-sem-perder-aprendizado",
       "estrutura-campanha-cbo-abo-quando-usar",
       "spending-limit-meta-como-subir-degraus",
+      "case-ecommerce-suplementos-escalou-1mi-mes-bm-verificada",
+      "case-agencia-trafego-zerou-bloqueios-3-camadas-bm",
     ],
   },
   {
@@ -172,6 +184,7 @@ export const pillars: Pillar[] = [
       "catalogo-meta-commerce-como-criar",
       "cartao-credito-facebook-ads-boas-praticas",
       "consultoria-meta-ads-vs-curso-quando-contratar",
+      "quanto-cobrar-cliente-gestao-trafego-com-contingencia",
     ],
   },
 ];
