@@ -521,7 +521,7 @@ const BlogPost = () => {
             </a>
           </div>
 
-          <NewsletterCTA pillarLabel={pillar?.shortTitle} />
+          <NewsletterCTA pillarLabel={pillar?.shortTitle} pillarSlug={pillar?.slug} />
 
           <RelatedPosts currentSlug={post.slug} category={post.category} />
 
