@@ -7,6 +7,8 @@ import SEO from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
 import MidArticleCTA from "@/components/MidArticleCTA";
+import ShareButtons from "@/components/ShareButtons";
+import NewsletterCTA from "@/components/NewsletterCTA";
 import TableOfContents, { extractTocFromMarkdown } from "@/components/TableOfContents";
 import { getPostBySlug } from "@/data/blogPosts";
 import { blogSeoTitles } from "@/data/blogSeoTitles";
@@ -292,9 +294,10 @@ const BlogPost = () => {
 
   const toc = extractTocFromMarkdown(post.content);
   const faqEntities = extractFaqs(post.content);
-  const dateModified = post.publishedAt; // future: editable per post
+  const dateModified = post.updatedAt ?? post.publishedAt;
   const formattedPublished = new Date(post.publishedAt).toLocaleDateString("pt-BR");
   const formattedModified = new Date(dateModified).toLocaleDateString("pt-BR");
+  const wasUpdated = post.updatedAt && post.updatedAt !== post.publishedAt;
 
   const pillar = getPillarForPost(post.slug);
 
@@ -404,10 +407,12 @@ const BlogPost = () => {
                 <Calendar className="w-3 h-3" />
                 Publicado em {formattedPublished}
               </span>
-              <span className="flex items-center gap-1 text-muted-foreground">
-                <RefreshCw className="w-3 h-3" />
-                Atualizado em {formattedModified}
-              </span>
+              {wasUpdated && (
+                <span className="flex items-center gap-1 text-muted-foreground">
+                  <RefreshCw className="w-3 h-3" />
+                  Atualizado em {formattedModified}
+                </span>
+              )}
               <span className="flex items-center gap-1 text-muted-foreground">
                 <Clock className="w-3 h-3" />
                 {post.readingTime}
@@ -447,7 +452,10 @@ const BlogPost = () => {
             />
           </header>
 
+          <ShareButtons slug={post.slug} title={post.title} />
+
           <TableOfContents items={toc} />
+
 
           {(() => {
             const blocks = renderMarkdown(post.content, `blog_${post.slug}`);
@@ -513,7 +521,10 @@ const BlogPost = () => {
             </a>
           </div>
 
+          <NewsletterCTA pillarLabel={pillar?.shortTitle} />
+
           <RelatedPosts currentSlug={post.slug} category={post.category} />
+
         </div>
       </article>
 

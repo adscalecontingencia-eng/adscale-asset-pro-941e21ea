@@ -6,6 +6,8 @@ export type BlogPost = {
   category: "Topo de funil" | "Meio de funil" | "Fundo de funil";
   readingTime: string;
   publishedAt: string;
+  /** Optional last-update date (ISO). Falls back to publishedAt. */
+  updatedAt?: string;
   /** OG/social share image path under /og */
   ogImage: string;
   /** Markdown-like content rendered by BlogPost page */
