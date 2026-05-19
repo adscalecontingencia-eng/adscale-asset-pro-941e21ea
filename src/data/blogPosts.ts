@@ -3767,6 +3767,1195 @@ Em até 48h:
 > Bloqueio é evento esperado. Pânico é evitável. Quem tem [3 camadas](/blog/estrategia-3-camadas-bm-meta-ads-contingencia) + reserva pronta resolve no mesmo dia. Quem não tem aprende caro.
 `,
   },
+  {
+    slug: "comparativo-bm-verificada-vs-ilimitada-qual-escolher",
+    title: "BM Verificada vs BM Ilimitada: qual escolher em 2026 (comparativo completo)",
+    description: "Comparativo direto entre BM Verificada e BM Ilimitada: preço, spending limit, risco de bloqueio, casos de uso e qual escolher conforme seu volume de gasto.",
+    keywords: ['bm verificada vs ilimitada', 'diferença bm verificada ilimitada', 'qual bm comprar', 'bm ilimitada vale a pena', 'comparativo bm meta'],
+    category: "Fundo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-26",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Não sabe qual BM cabe na sua operação?",
+    ctaDescription: "Conta seu gasto/dia e nicho no WhatsApp. Em 10 minutos indicamos se faz mais sentido Verificada, Ilimitada ou um combo — e você sai com orçamento na mão.",
+    ctaWhatsappMessage: "Vim do comparativo BM Verificada vs Ilimitada e quero indicação para minha operação.",
+    ctaLabel: "Receber indicação no WhatsApp",
+    content: `
+:::tldr
+**BM Verificada** é o padrão para 90% das operações até R$ 30 mil/dia. **BM Ilimitada** vale para quem gasta R$ 50 mil/dia ou mais e já valida produto. Misturar as duas em camadas é o setup que escala sem dor.
+:::
+
+A confusão é comum: "Verificada" e "Ilimitada" não são a mesma coisa, e escolher errado custa caro — em dinheiro e em bloqueio.
+
+## O que cada uma é
+
+**BM Verificada** é uma Business Manager que passou pelo processo oficial de Business Verification do Meta (CNPJ, documentos, domínio). Spending limit inicial entre R$ 250 e R$ 3 mil/dia, escala em degraus.
+
+**BM Ilimitada** é uma BM com flag interno do Meta que **remove o teto de gasto** por conta de anúncio. Normalmente já vem verificada por trás, mas o diferencial é o limite. Mais cara, mais escassa.
+
+## Comparativo direto
+
+| Critério | BM Verificada | BM Ilimitada |
+|---|---|---|
+| Spending limit inicial | R$ 250 - R$ 3 mil/dia | Sem teto |
+| Preço médio (mercado BR) | R$ 1,5k - R$ 4k | R$ 8k - R$ 25k |
+| Tempo até gastar 10k/dia | 30-60 dias warm-up | Mesmo dia |
+| Risco de review | Médio | Baixo-médio |
+| Disponibilidade | Alta | Baixa (estoque) |
+| Ideal para | Até R$ 30 mil/dia | R$ 50 mil/dia+ |
+
+## Quando escolher Verificada
+
+- Operação até R$ 30 mil/dia.
+- Tem tempo de fazer warm-up correto.
+- Quer **3 camadas** (principal, secundária, reserva) por preço acessível.
+- Nicho whitehat ou cinza leve.
+
+[Quero BM Verificada com warm-up pronto](wa:Vim%20do%20comparativo%20Verificada%20vs%20Ilimitada%20e%20quero%20BM%20Verificada%20pronta.)
+
+## Quando escolher Ilimitada
+
+- Gasto consistente acima de R$ 50 mil/dia.
+- Lançamento agressivo (precisa do volume **hoje**).
+- Já validou criativo e oferta — sem teste.
+- Operação tem caixa para o ticket maior.
+
+[Quero ver BMs Ilimitadas em estoque](wa:Vim%20do%20comparativo%20Verificada%20vs%20Ilimitada%20e%20quero%20BM%20Ilimitada%20dispon%C3%ADvel.)
+
+## A jogada que ninguém ensina: combinar as duas
+
+O setup que **realmente escala** mistura:
+
+- **1 BM Ilimitada** como principal (gasto pesado).
+- **2 BMs Verificadas** como secundária e reserva (contingência).
+- Pixel + CAPI unificados via [estrutura de 3 camadas](/blog/estrategia-3-camadas-bm-meta-ads-contingencia).
+
+Resultado: redundância real + custo controlado. Se a Ilimitada cai, você não para — sobe gasto nas Verificadas enquanto resolve.
+
+## Erros comuns
+
+:::callout type=warning
+- Comprar Ilimitada sem ter [estrutura de contingência](/blog/arquitetura-contingencia-meta-ads-operacao-alto-volume) — é R$ 25 mil em risco único.
+- Comprar Verificada e queimar warm-up em 3 dias.
+- Achar que Ilimitada "não bloqueia" — bloqueia sim, só demora mais.
+:::
+
+## ROI esperado
+
+Cliente que estava perdendo 3 dias/mês por bloqueio (≈ R$ 90 mil/mês parados em operação de R$ 30 mil/dia) recupera o investimento em BM verificada reserva no primeiro evento de contingência. [Veja o cálculo de ROI](/blog/calcular-roi-investimento-contingencia-meta-ads).
+
+> Se você gasta menos de R$ 10 mil/dia: **comece com Verificada**. Se já passa de R$ 50 mil/dia e não tem Ilimitada, está deixando dinheiro na mesa todo dia que o leilão te limita.
+`,
+  },
+  {
+    slug: "case-ecommerce-suplementos-escalou-1mi-mes-bm-verificada",
+    title: "Case: e-commerce de suplementos escalou de R$ 200k para R$ 1mi/mês com BM verificada",
+    description: "Como uma loja de suplementos saiu de R$ 200 mil para R$ 1 milhão/mês em 90 dias usando estrutura de 3 BMs verificadas, warm-up correto e CAPI server-side.",
+    keywords: ['case ecommerce meta ads', 'case bm verificada suplementos', 'escalar ecommerce facebook ads', 'case sucesso meta ads brasil'],
+    category: "Fundo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-26",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Quer rodar a mesma estrutura no seu e-commerce?",
+    ctaDescription: "Mande seu faturamento atual e ticket médio. Em 15 min montamos o setup de BMs que cabe no seu caso — com prazo, investimento e ROI estimado.",
+    ctaWhatsappMessage: "Vim do case do e-commerce de suplementos e quero rodar uma estrutura parecida.",
+    ctaLabel: "Quero o mesmo setup",
+    content: `
+:::tldr
+E-commerce de suplementos travado em R$ 200 mil/mês por bloqueios recorrentes. Após estrutura de **3 BMs verificadas + warm-up + CAPI** subiu para **R$ 1mi/mês em 90 dias**, com zero downtime de mídia.
+:::
+
+## A operação antes
+
+- **Faturamento:** R$ 200 mil/mês (estagnado havia 6 meses).
+- **Gasto em ads:** R$ 60 mil/mês.
+- **ROAS:** 3,3x.
+- **Problema:** 1-2 bloqueios de BM por mês, 3-5 dias parados a cada evento.
+- **Stack:** 1 BM nova, pixel client-side, sem CAPI, sem reserva.
+
+A loja perdia ~15-20% do mês em downtime. Cada bloqueio = R$ 30-50 mil de faturamento evaporado.
+
+## O diagnóstico
+
+Auditoria de 30 min ([este checklist](/blog/auditoria-30-minutos-conta-anuncio-meta)) achou:
+
+1. BM única (ponto único de falha).
+2. Pixel deduplicado mal — Event Match Quality em 4,2 (ideal: 7+).
+3. Spending limit subindo de 2x em 2x (sinal de risco para o Meta).
+4. Admin único, sem 2FA, login em IP diferente toda semana.
+
+## O plano de 90 dias
+
+### Dias 1-15: contingência
+
+- 2 [BMs verificadas](/blog/o-que-e-business-manager-verificada-meta) novas (secundária + reserva).
+- Domínio verificado nas três.
+- [CAPI server-side](/blog/configurar-capi-conversions-api-server-side) via stack própria.
+- 2FA + perfil aged como admin master.
+
+### Dias 15-45: warm-up + migração
+
+- Warm-up das novas BMs em degraus (R$ 100 → 500 → 2k/dia).
+- Migração gradual: 70% principal, 20% secundária, 10% reserva.
+- Event Match subiu para 8,1 com CAPI bem configurado.
+
+### Dias 45-90: escala real
+
+- Gasto total subiu de R$ 60k para R$ 300k/mês.
+- ROAS manteve em 3,1x (queda esperada com volume).
+- Faturamento: R$ 1mi/mês.
+- Bloqueios? **Dois**, ambos resolvidos no mesmo dia com migração para reserva.
+
+[Quero esse plano de 90 dias no meu e-commerce](wa:Vim%20do%20case%20suplementos%20e%20quero%20plano%20de%2090%20dias%20para%20o%20meu%20e-commerce.)
+
+## Números do antes/depois
+
+| Métrica | Antes | Depois (90 dias) |
+|---|---|---|
+| Faturamento/mês | R$ 200k | R$ 1mi |
+| Gasto em ads | R$ 60k | R$ 320k |
+| ROAS | 3,3x | 3,1x |
+| Downtime/mês | 3-5 dias | <1 dia |
+| BMs ativas | 1 | 3 |
+| Event Match | 4,2 | 8,1 |
+
+## O que custou
+
+- 2 BMs verificadas: ~R$ 6k.
+- 2 perfis aged admin: ~R$ 1,2k.
+- CAPI server-side (setup): ~R$ 3k.
+- **Total:** ~R$ 10,2k.
+
+ROI no primeiro mês: o downtime evitado já pagou tudo 4x.
+
+## Lições replicáveis
+
+:::callout type=tip
+1. **Contingência é primeiro**, escala é segundo. Sem 3 camadas, escalar amplifica risco.
+2. **CAPI muda tudo** em e-commerce — Event Match acima de 7 destrava performance.
+3. **Warm-up disciplinado** vale mais que BM cara mal usada.
+:::
+
+> Não é mágica. É infraestrutura. Quem trata mídia como linha de produção escala sem rezar.
+`,
+  },
+  {
+    slug: "case-infoproduto-recuperou-conta-bloqueada-48h",
+    title: "Case: infoprodutor recuperou conta bloqueada do Meta em 48h (sem perder lançamento)",
+    description: "Bloqueio chegou no dia 2 de um lançamento de R$ 800 mil. Veja como o infoprodutor usou BM reserva e appeal técnico para recuperar em 48h sem parar a operação.",
+    keywords: ['case infoproduto bloqueio meta', 'recuperar conta bloqueada 48h', 'case appeal facebook ads', 'lançamento infoproduto bloqueio'],
+    category: "Fundo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-27",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Em lançamento e com medo de bloqueio?",
+    ctaDescription: "Conta a data de abertura do carrinho. Em 30 min entregamos um plano de contingência específico para lançamento — para você não acordar com a conta caída no D+2.",
+    ctaWhatsappMessage: "Vim do case do infoproduto e quero plano de contingência para meu lançamento.",
+    ctaLabel: "Blindar meu lançamento",
+    content: `
+:::tldr
+Lançamento de R$ 800 mil. Dia 2: BM principal bloqueada por "atividade incomum". Em **48h** a operação voltou ao ar usando BM reserva pré-aquecida + appeal técnico bem feito. **Lançamento fechou em R$ 1,2mi**.
+:::
+
+## O setup do lançamento
+
+- Infoprodutor de nicho high-ticket (mentoria, R$ 5k/aluno).
+- Meta de R$ 800 mil em 7 dias.
+- Gasto previsto: R$ 25 mil/dia no pico.
+- Estrutura: 1 BM principal (verificada, 6 meses) + 1 BM reserva aquecida em paralelo nos 30 dias anteriores.
+
+## Dia 2: o bloqueio
+
+Às 14h, conta principal restrita. Motivo informado pelo Meta: "atividade incomum detectada". Causa real (apurada depois): pico de gasto 4x acima da média anterior em 24h disparou antifraude.
+
+### Primeiras 2h (runbook)
+
+1. **Print de tudo** — Account Quality, notificação, último anúncio rodando.
+2. **Não enviou appeal de cara.** Diagnóstico primeiro.
+3. **Ativou BM reserva** — subiu 80% do gasto da principal em <60 min.
+4. **Audiências e criativos** já estavam clonados na reserva (parte do plano).
+
+[Quero meu lançamento com BM reserva pronta](wa:Vim%20do%20case%20infoproduto%20e%20quero%20BM%20reserva%20pronta%20para%20meu%20lan%C3%A7amento.)
+
+### Hora 4-24: appeal técnico
+
+- Documentos: CNPJ, contrato social, comprovante de domínio, screenshots do produto.
+- Texto: 800 caracteres, profissional, citando o motivo exato do Meta.
+- **Um único appeal**, não 5.
+- Ticket via Business Help (privilégio de BM verificada).
+
+### Hora 24-48: recuperação
+
+Appeal aprovado em 41h. Conta voltou com restrição temporária de gasto (R$ 5k/dia). Operação seguiu na reserva (que estava em R$ 20k/dia) + R$ 5k na principal recuperada para reaquecer.
+
+## Resultado do lançamento
+
+| Métrica | Planejado | Realizado |
+|---|---|---|
+| Faturamento | R$ 800k | R$ 1,2mi |
+| Downtime | 0h | ~2h (transição) |
+| Gasto total | R$ 175k | R$ 192k |
+| ROAS | 4,5x | 6,2x |
+
+A reserva tinha histórico próprio e melhor Trust Score — performou **acima** da principal nos dias 3-7.
+
+## O que tornou isso possível
+
+:::callout type=success
+1. **BM reserva pré-aquecida** (não comprada na hora) — Trust Score já consolidado.
+2. **Audiências e criativos clonados** previamente nas duas BMs.
+3. **Runbook escrito** — ninguém pensa direito sob pânico.
+4. **Verificação de negócio** abriu o canal de ticket prioritário.
+:::
+
+## O que NÃO fizeram (e isso importa)
+
+- Não criaram BM nova "do nada" no desespero.
+- Não enviaram 5 appeals.
+- Não republicaram criativo suspeito.
+- Não trocaram cartão de crédito.
+
+[Veja o runbook completo do dia do bloqueio](/blog/dia-do-bloqueio-runbook-emergencia-meta-ads).
+
+## Custo da contingência (vs custo de NÃO ter)
+
+- BM reserva + warm-up: R$ 4k.
+- Setup técnico: R$ 2k.
+- **Total:** R$ 6k.
+
+Sem reserva, 48h paradas = ~R$ 220 mil de faturamento perdido no pico do lançamento. ROI: 36x **em um único evento**.
+
+> Lançamento sem plano B não é estratégia, é fé. Faturamento de 6-7 dígitos exige redundância de 6-7 dígitos.
+`,
+  },
+  {
+    slug: "onde-comprar-bm-verificada-com-seguranca-2026",
+    title: "Onde comprar BM verificada com segurança em 2026 (guia anti-furada)",
+    description: "Comprar BM verificada de fornecedor errado custa caro: bloqueio em 30 dias ou golpe direto. Guia para identificar fornecedor sério, contrato, garantia e handover técnico.",
+    keywords: ['onde comprar bm verificada', 'comprar bm com seguranca', 'fornecedor bm verificada confiavel', 'comprar business manager facebook'],
+    category: "Fundo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-27",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Quer ver BMs verificadas com garantia hoje?",
+    ctaDescription: "Mande seu nicho e gasto/dia. Em 5 min enviamos opções com histórico documentado, contrato de garantia e handover técnico — sem grupo de Telegram.",
+    ctaWhatsappMessage: "Vim do guia anti-furada e quero ver BMs verificadas com garantia.",
+    ctaLabel: "Ver BMs disponíveis",
+    content: `
+:::tldr
+Comprar BM verificada em grupo de Telegram é apostar R$ 2-4 mil em estranho. Fornecedor sério tem **histórico documentado, contrato, garantia de 30-90 dias e handover técnico**. Esses 4 itens separam quem vai escalar de quem vai abrir chamado em 7 dias.
+:::
+
+## Por que comprar (e não fazer)
+
+Verificação própria leva 7-60 dias, depende de documentação aceita e pode ser negada sem motivo claro. Para operações que **já estão rodando**, esperar = perder leilão. Por isso o mercado de BM pronta existe.
+
+O risco não é comprar, é comprar errado.
+
+## Os 4 critérios não negociáveis
+
+### 1. Histórico documentado
+
+A BM tem que ter **idade comprovável**: data de criação, gasto histórico, anúncios já rodados, domínio verificado antigo. Print do Business Settings + Account Quality é mínimo.
+
+### 2. Contrato
+
+Sim, contrato. Razão social do fornecedor, CNPJ ativo, escopo do que está sendo vendido, garantia explícita.
+
+:::callout type=warning
+Quem vende sem contrato vende **sem responsabilidade**. Quando bloquear (vai bloquear), você não tem para quem reclamar.
+:::
+
+### 3. Garantia mínima 30 dias
+
+Bloqueio nos primeiros 30 dias geralmente é problema **da BM**, não seu. Fornecedor sério substitui sem briga. 90 dias é o padrão de quem confia no próprio estoque.
+
+### 4. Handover técnico
+
+Você não deveria receber "login e senha" e descobrir sozinho. Handover técnico inclui:
+
+- Configuração de fingerprint correto.
+- IP residencial dedicado ou orientação para usar o seu.
+- Lista de erros comuns nos primeiros 7 dias.
+- Suporte por WhatsApp nos primeiros 30 dias.
+
+[Quero fornecedor que entrega esses 4 itens](wa:Vim%20do%20guia%20anti-furada%20e%20quero%20fornecedor%20com%20contrato%2C%20garantia%20e%20handover.)
+
+## Os 5 sinais de furada
+
+| Sinal | O que significa |
+|---|---|
+| "BM verificada por R$ 800" | Quase certo: BM clonada/roubada |
+| Só atende por Telegram | Sem rastro legal |
+| Sem CNPJ no contrato | Sem garantia real |
+| "Garantia? Não, é problema seu" | Você é o estoque dele |
+| Pressa para fechar hoje | Estoque problemático sendo escoado |
+
+## Faixa de preço justa (BR, 2026)
+
+- **BM verificada padrão:** R$ 1,5k - R$ 4k.
+- **BM verificada com histórico forte (1+ ano):** R$ 4k - R$ 8k.
+- **BM ilimitada:** R$ 8k - R$ 25k.
+- **WABA verificada (WhatsApp API):** R$ 3k - R$ 7k.
+
+Preços muito abaixo = bandeira vermelha. Veja [quanto custa BM em 2026](/blog/quanto-custa-bm-verificada-facebook-2026) com mais detalhe.
+
+## Perguntas para o fornecedor (antes de pagar)
+
+1. Qual a idade da BM e quanto já gastou?
+2. Posso ver print do Business Settings antes de fechar?
+3. Domínio verificado dentro da BM é de quem?
+4. Garantia em dias?
+5. Tem contrato com CNPJ?
+6. Como funciona o handover?
+7. Já recuperou BM bloqueada nos últimos 90 dias?
+8. Tem case de cliente que posso conversar?
+9. Trabalha com [3 camadas](/blog/estrategia-3-camadas-bm-meta-ads-contingencia)?
+10. Suporte nos primeiros 30 dias é incluso?
+
+Se travou em 2 ou mais, **não compra**.
+
+> A BM mais cara é a que bloqueia em 15 dias. A mais barata é a que dura 12 meses e te dá previsibilidade.
+`,
+  },
+  {
+    slug: "melhor-fornecedor-bm-verificada-brasil-2026",
+    title: "Como escolher o melhor fornecedor de BM verificada no Brasil em 2026",
+    description: "O que avaliar para escolher fornecedor de BM verificada no Brasil em 2026: tempo de mercado, contrato, garantia, suporte técnico e cases comprovados.",
+    keywords: ['melhor fornecedor bm verificada', 'fornecedor bm brasil', 'melhor empresa bm verificada', 'quem vende bm verificada confiavel'],
+    category: "Fundo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-28",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Quer falar com fornecedor que entrega há 3+ anos?",
+    ctaDescription: "A Adscale opera contingência em Meta Ads desde 2022, com BMs verificadas, ilimitadas, perfis aged e suporte técnico de plantão. Mande seu cenário e teste sem compromisso.",
+    ctaWhatsappMessage: "Vim do guia de fornecedor e quero conversar com a Adscale.",
+    ctaLabel: "Falar com a Adscale",
+    content: `
+:::tldr
+Escolher fornecedor de BM no Brasil em 2026 não é decisão de preço — é de **sobrevivência operacional**. Critérios: tempo de mercado, CNPJ ativo, contrato, garantia, suporte humano e cases reais comprovados.
+:::
+
+## Por que isso importa mais em 2026
+
+O Meta apertou políticas de verificação, derrubou marketplaces internacionais que vendiam BM no atacado e aumentou bloqueios automatizados. **Fornecedor amador não sobreviveu a 2024-2025**. Hoje, quem está em pé é quem investiu em estrutura.
+
+## Os 7 critérios objetivos
+
+### 1. Tempo de mercado (mínimo 2 anos)
+
+Operação de BM exige relacionamento com o Meta (canais, tickets, recuperação). Quem começou ontem não tem esse capital relacional.
+
+### 2. CNPJ ativo + razão social conhecida
+
+Pesquise no Receita Federal. Empresa fantasma = sem responsabilidade.
+
+### 3. Contrato padrão (modelo fixo)
+
+Fornecedor que improvisa contrato por cliente tem algo a esconder. Modelo padrão = processo maduro.
+
+### 4. Garantia mínima 30 dias, ideal 90
+
+E a garantia precisa estar **no contrato**, não em mensagem do WhatsApp.
+
+### 5. Suporte humano (não bot)
+
+Pergunta técnica respondida em <2h por humano que entende fingerprint, CAPI e Account Quality.
+
+### 6. Cases verificáveis
+
+Pode mostrar (com permissão) print de cliente atual rodando? Tem depoimento em vídeo?
+
+### 7. Ecossistema completo
+
+BM, perfis aged, fan pages antigas, WABA, IP residencial — fornecedor sério resolve **a operação inteira**, não vende item solto.
+
+[Quero conversar com fornecedor que cumpre esses 7](wa:Vim%20do%20guia%20melhor%20fornecedor%20BR%20e%20quero%20conversar%20sobre%20minha%20opera%C3%A7%C3%A3o.)
+
+## A diferença entre revendedor e operador
+
+**Revendedor:** compra BM de gringo, repassa, ganha margem. Sem suporte técnico, sem entendimento real.
+
+**Operador:** monta BM, aquece, opera com cliente, recupera. Conhece o produto porque vive ele. Esse é o que você quer.
+
+## Bandeiras vermelhas
+
+:::callout type=warning
+- Site sem CNPJ no rodapé.
+- Atendimento só por Telegram.
+- "Garantia? A gente vê depois."
+- Preço 50% abaixo do mercado.
+- Nenhum case verificável.
+- Trata BM como commodity ("é tudo igual").
+:::
+
+## Como testar antes de comprar
+
+1. Faça uma pergunta técnica difícil ("como vocês orientam Event Match abaixo de 6?"). Resposta rasa = revendedor.
+2. Peça para falar com cliente atual.
+3. Peça print de Business Settings real (com dados sensíveis cobertos).
+4. Avalie a primeira resposta no WhatsApp: tom, tempo, profundidade.
+
+## Por que a Adscale
+
+- Operando contingência Meta desde 2022.
+- BMs verificadas, ilimitadas, WABA, perfis aged, IP residencial, CAPI server-side — tudo sob o mesmo teto.
+- Contrato, garantia 90 dias, suporte humano de plantão.
+- Cases públicos com [e-commerces](/blog/case-ecommerce-suplementos-escalou-1mi-mes-bm-verificada) e [infoprodutos](/blog/case-infoproduto-recuperou-conta-bloqueada-48h).
+
+[Quero diagnóstico gratuito da minha operação](wa:Vim%20do%20guia%20melhor%20fornecedor%20BR%20e%20quero%20diagn%C3%B3stico%20gratuito.)
+
+> Fornecedor certo é parceiro de longo prazo. Fornecedor errado é o motivo pelo qual sua próxima campanha vai cair no dia 12.
+`,
+  },
+  {
+    slug: "quanto-cobrar-cliente-gestao-trafego-com-contingencia",
+    title: "Quanto cobrar do cliente quando você inclui contingência de BM na gestão",
+    description: "Como precificar gestão de tráfego incluindo BM verificada, contingência e CAPI: fee base, repasse, margem e modelo de cobrança que escala.",
+    keywords: ['quanto cobrar gestao trafego', 'precificar gestao meta ads', 'fee gestor trafego com bm', 'cobrar cliente contingencia'],
+    category: "Fundo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-28",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Gestor: quer revender BM com margem (e sem dor de cabeça)?",
+    ctaDescription: "Programa parceiro Adscale: você atende o cliente, a gente entrega BM, perfis e suporte. Margem cheia, sem operar estoque. Conta seu volume e te enviamos a proposta.",
+    ctaWhatsappMessage: "Sou gestor de tráfego e quero saber do programa parceiro Adscale.",
+    ctaLabel: "Quero ser parceiro",
+    content: `
+:::tldr
+Cobrar só fee de gestão em 2026 é miopia. Quem inclui contingência (BM + perfis + CAPI) no escopo cobra **+30 a +60% a mais** com cliente mais satisfeito — e ainda destrava margem de revenda.
+:::
+
+## O mercado mudou
+
+Cliente premium não quer mais "gestor que faz anúncio". Quer **operação completa** que não para. Isso significa fee de gestão **+** infra de contingência. Quem entrega só metade perde para quem entrega o pacote.
+
+## Os 3 modelos de cobrança
+
+### Modelo 1: Fee + repasse (clássico)
+
+- Fee de gestão: R$ 3-15k/mês por cliente.
+- Cliente paga BM, perfis, CAPI direto no fornecedor.
+- **Problema:** cliente vê 3 boletos, acha caro, atrasa setup.
+
+### Modelo 2: Fee único com infra inclusa (recomendado)
+
+- Fee: R$ 6-25k/mês incluindo BM verificada + perfil admin + CAPI gerenciado.
+- Você compra no atacado, repassa com margem (20-40%).
+- Cliente vê **1 número simples**.
+- Margem extra: R$ 1-3k/mês por cliente.
+
+### Modelo 3: Fee + % do gasto
+
+- Fee base + 5-10% sobre gasto em ads.
+- Funciona em contas de R$ 100k+/mês.
+- Permite escalar receita sem renegociar.
+
+## Quanto cobrar por faixa de cliente
+
+| Gasto/mês cliente | Fee gestão | Infra (BM+perfis+CAPI) | Total cobrado |
+|---|---|---|---|
+| Até R$ 30k | R$ 3-5k | R$ 1,5-2,5k | R$ 4,5-7,5k |
+| R$ 30k-100k | R$ 6-10k | R$ 2,5-5k | R$ 8,5-15k |
+| R$ 100k-500k | R$ 12-20k | R$ 5-10k | R$ 17-30k |
+| R$ 500k+ | R$ 25k+ | R$ 10-20k | R$ 35k+ |
+
+[Quero revender BM com margem para meus clientes](wa:Sou%20gestor%20de%20trafego%20e%20quero%20revender%20BM%2Fperfis%2FCAPI%20para%20meus%20clientes.)
+
+## Como justificar o aumento
+
+1. **Cálculo de downtime evitado.** Mostra cliente quanto ele perde em 1 dia bloqueado. [Tabela aqui](/blog/calcular-roi-investimento-contingencia-meta-ads).
+2. **Garantia de uptime.** "Sua operação não para por bloqueio."
+3. **Performance.** CAPI bem feito melhora Event Match → custo por resultado cai 15-30%.
+
+## O que NÃO cobrar
+
+:::callout type=warning
+- Setup de "estratégia" gratuito (cria precedente).
+- Recuperação de BM emergencial sem fee adicional (R$ 2-5k extra é justo).
+- Trocas frequentes de criativo sem teto (defina pacote de N criativos/mês).
+:::
+
+## A jogada do programa parceiro
+
+Em vez de comprar BM no varejo e revender, parceiros operam com:
+
+- Preço atacado garantido.
+- BM substituída sem custo se bloquear nos 90 dias.
+- Suporte técnico de retaguarda (você não precisa virar especialista em CAPI).
+- Material de venda pronto para apresentar ao cliente.
+
+Resultado típico: gestor sobe ticket médio em **35-50%** com a mesma carga operacional.
+
+> Quem cobra só fee compete por preço. Quem entrega operação completa cobra valor.
+`,
+  },
+  {
+    slug: "case-agencia-trafego-zerou-bloqueios-3-camadas-bm",
+    title: "Case: agência zerou bloqueios em 6 meses migrando para estrutura de 3 camadas",
+    description: "Agência com 23 clientes ativos passou de 4-6 bloqueios/mês para zero downtime em 6 meses adotando estrutura de 3 camadas de BM e protocolos padronizados.",
+    keywords: ['case agencia trafego', 'zerar bloqueio meta ads', 'case 3 camadas bm', 'agencia meta ads sem bloqueio'],
+    category: "Fundo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-29",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Agência: quer rodar o mesmo protocolo nos seus clientes?",
+    ctaDescription: "Programa enterprise Adscale para agências: BMs em quantidade, perfis aged, contingência padronizada e SLA de substituição. Conta quantos clientes você atende e enviamos a proposta.",
+    ctaWhatsappMessage: "Tenho agência e quero saber do programa enterprise Adscale.",
+    ctaLabel: "Quero proposta enterprise",
+    content: `
+:::tldr
+Agência com 23 clientes, **4-6 bloqueios/mês**, perdendo R$ 80-120k de fee por churn anual. Após migração para **estrutura padronizada de 3 camadas** e protocolos escritos: **zero downtime relevante** em 6 meses, +R$ 240k em retention.
+:::
+
+## A dor antes
+
+- **23 clientes ativos**, gasto agregado de R$ 4,2 mi/mês.
+- **4-6 BMs bloqueadas/mês**, downtime médio de 2,5 dias por evento.
+- Churn de **3 clientes/ano** atribuído diretamente a "instabilidade".
+- Operação reativa: cada bloqueio era uma corrida.
+
+Custo real estimado: R$ 380 mil/ano em fees perdidos + sócio fundador 30% do tempo apagando incêndio.
+
+## A virada — 6 meses
+
+### Mês 1: padronização
+
+- Auditoria dos 23 clientes ([modelo aqui](/blog/auditoria-30-minutos-conta-anuncio-meta)).
+- Mapeamento: 18 dos 23 estavam com BM única, sem reserva.
+- Protocolo escrito: "todo cliente entra com 3 BMs (principal + secundária + reserva) e CAPI server-side desde o dia 1".
+
+### Mês 2-3: migração
+
+- 60 BMs verificadas distribuídas (3 por cliente premium, 2 por cliente padrão).
+- Perfis aged como admin master, 2FA universal.
+- [CAPI server-side](/blog/configurar-capi-conversions-api-server-side) implementado em 100% das contas.
+
+### Mês 4-6: operação enxuta
+
+- Bloqueios não pararam de existir — mas **deixaram de impactar**.
+- Tempo médio de resposta a bloqueio: 47 min (antes: 4-6 horas).
+- Reserva subia o gasto enquanto principal era recuperada.
+- Churn por instabilidade: **zero**.
+
+[Quero esse protocolo padronizado na minha agência](wa:Tenho%20agencia%20e%20quero%20protocolo%20de%203%20camadas%20padronizado%20nos%20meus%20clientes.)
+
+## Números do antes/depois
+
+| Métrica | Antes | Depois (6 meses) |
+|---|---|---|
+| Clientes ativos | 23 | 27 (+4 por reputação) |
+| Bloqueios com downtime | 4-6/mês | <1/mês |
+| Downtime médio | 2,5 dias | <4 horas |
+| Tempo sócio em incêndio | 30% | 5% |
+| Churn por instabilidade | 3/ano | 0 |
+| MRR | R$ 198k | R$ 312k |
+
+## O investimento
+
+- 60 BMs verificadas: ~R$ 180k (cobrado dos clientes como infra).
+- 30 perfis aged: ~R$ 18k.
+- CAPI server-side (setup multi-cliente): ~R$ 25k.
+- Consultoria de implementação: ~R$ 15k.
+
+Pago em <3 meses pelo churn evitado + 4 novos clientes que entraram por reputação ("agência que não para").
+
+## O que mudou estruturalmente
+
+:::callout type=success
+1. **Contingência virou produto**, não bônus. Cliente entende e paga.
+2. **Protocolos escritos** removeram dependência do sócio.
+3. **Time júnior consegue operar** porque o playbook está documentado.
+4. **Pricing subiu** 20% com a mesma estrutura.
+:::
+
+## Lições para outras agências
+
+- Comece pelos **3 maiores clientes** (maior risco financeiro de bloqueio).
+- Cobre infra **separadamente** ou inclua no fee — não absorva.
+- Trate bloqueio como **evento esperado**, não exceção.
+- Crie [runbook escrito](/blog/dia-do-bloqueio-runbook-emergencia-meta-ads) — sob pânico, ninguém pensa direito.
+
+> Agência que escala não é a que tem mais cliente. É a que tem mais cliente sem ter mais incêndio.
+`,
+  },
+  {
+    slug: "bm-ilimitada-vale-a-pena-100k-dia",
+    title: "BM Ilimitada vale a pena para quem gasta R$ 100 mil/dia? Análise honesta",
+    description: "Análise crítica: quando R$ 100 mil/dia em Meta Ads justifica o investimento em BM ilimitada vs múltiplas BMs verificadas. Comparativo de custo, risco e operação.",
+    keywords: ['bm ilimitada vale a pena', 'bm ilimitada 100k dia', 'quando comprar bm ilimitada', 'bm ilimitada alto gasto'],
+    category: "Fundo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-29",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Gasta R$ 100k/dia? Análise gratuita do seu setup",
+    ctaDescription: "Mande seu cenário (gasto, nicho, BMs atuais). Em 20 min entregamos análise se Ilimitada vale para você — ou se múltiplas Verificadas resolvem melhor.",
+    ctaWhatsappMessage: "Gasto R$ 100k/dia e quero análise gratuita se BM Ilimitada vale para mim.",
+    ctaLabel: "Quero análise gratuita",
+    content: `
+:::tldr
+A R$ 100 mil/dia, **BM Ilimitada quase sempre vale**, mas raramente sozinha. O setup vencedor é 1 Ilimitada como principal + 2-3 Verificadas como redundância. Sem isso, R$ 25 mil em BM Ilimitada vira ponto único de falha catastrófico.
+:::
+
+## O contexto
+
+R$ 100 mil/dia = R$ 3 mi/mês. Nessa faixa:
+
+- 1 dia de downtime = R$ 100 mil parados.
+- 1 semana bloqueado = R$ 700 mil + risco de perder janela competitiva.
+- BM Verificada padrão tem teto que **trava o leilão** nas horas de pico.
+
+A pergunta certa não é "vale comprar Ilimitada?" — é **"qual o custo de não ter?"**.
+
+## Por que Verificada sozinha trava
+
+BM Verificada sobe spending limit em degraus (R$ 2,5k → 5k → 10k → 25k → 50k...). Para chegar a R$ 100k/dia em uma única conta, são 60-90 dias de warm-up disciplinado. Mesmo lá em cima, o **pacing intradiário** estrangula gasto em horários de pico.
+
+Solução amadora: dividir gasto em 3-4 contas de R$ 25k/dia cada → triplica custo operacional, fragmenta dados de Pixel.
+
+## Por que Ilimitada destrava
+
+- Sem teto de conta = gasto flui no pico real do leilão.
+- Pacing menos agressivo → leilão mais barato.
+- Pixel/CAPI consolidado em 1 conta = aprendizado melhor.
+- Menos contas para auditar.
+
+## O custo real
+
+| Item | Verificada (4x R$25k) | Ilimitada (1x R$100k) |
+|---|---|---|
+| Aquisição BM | R$ 12k | R$ 18k |
+| Warm-up | 60-90 dias | 15 dias |
+| Risco de fragmentação | Alto | Baixo |
+| Risco de bloqueio único | Diluído | Concentrado |
+| Custo operacional/mês | Alto (4 BMs) | Baixo |
+
+**Conclusão:** Ilimitada paga sozinha em 2-3 meses por economia operacional + pacing eficiente.
+
+## O erro grave: Ilimitada sozinha
+
+:::callout type=warning
+Comprar 1 BM Ilimitada e parar é a forma mais cara de aprender a lição. Quando ela bloquear (e bloqueia), R$ 100 mil/dia evaporam até subir reserva. **Sempre 1 Ilimitada + 2-3 Verificadas reservas**.
+:::
+
+## O setup recomendado a R$ 100k/dia
+
+1. **1 BM Ilimitada** — principal, 70-80% do gasto.
+2. **2 BMs Verificadas aquecidas** (R$ 30k/dia cada) — secundárias, 15-25% do gasto rotativo.
+3. **1 BM Verificada em standby** — reserva pura, 0% até precisar.
+4. **CAPI server-side único** alimentando todas.
+5. **Perfis admin aged em 2 cidades/IPs diferentes**.
+
+Investimento total: R$ 40-60k. Para operação de R$ 3mi/mês, é <2% do gasto.
+
+[Quero ver opções de Ilimitada + Verificadas combo](wa:Gasto%20R%24%20100k%2Fdia%20e%20quero%20setup%20Ilimitada%20%2B%20Verificadas%20combo.)
+
+## Quando NÃO comprar Ilimitada
+
+- Gasto inconsistente (picos isolados de R$ 100k, média de R$ 20k).
+- Produto ainda em teste de PMF.
+- Sem caixa para o ticket + redundância junta (~R$ 60k).
+- Operação sem CAPI ou com Event Match <6.
+
+Nestes casos, **3 Verificadas aquecidas** entregam o mesmo resultado por metade do preço.
+
+## Quanto se ganha de ROAS
+
+Não é placebo. Operações que migraram de 4x R$25k Verificada → 1x Ilimitada + reservas relatam:
+
+- **Custo por resultado:** -8 a -15% (pacing real do leilão).
+- **Tempo de aprendizado:** -40% (Pixel consolidado).
+- **Tempo operacional:** -50% (menos contas para auditar).
+
+> A R$ 100k/dia, contingência não é seguro — é capital de giro. Quem trata como custo bloqueia. Quem trata como investimento escala.
+`,
+  },
+  {
+    slug: "aquecimento-proprio-vs-servico-warm-up-meta-ads",
+    title: "Aquecimento próprio vs serviço de warm-up: comparativo para gestores em 2026",
+    description: "Comparativo direto entre fazer warm-up de BM internamente vs contratar serviço dedicado: tempo, custo, risco e quando cada um faz sentido.",
+    keywords: ['aquecimento conta meta proprio', 'servico warm up meta ads', 'contratar warm up bm', 'aquecimento bm vs servico'],
+    category: "Fundo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-30",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Sem tempo de fazer warm-up? A gente entrega pronta",
+    ctaDescription: "Serviço de warm-up Adscale: BM verificada entregue com 30-60 dias de aquecimento real, gasto histórico documentado e Trust Score elevado. Pronta para escalar no dia 1.",
+    ctaWhatsappMessage: "Vim do comparativo warm-up e quero BM já aquecida pronta para usar.",
+    ctaLabel: "Quero BM já aquecida",
+    content: `
+:::tldr
+Warm-up próprio custa **30-60 dias de paciência** e R$ 3-8k em gasto de aquecimento. Serviço custa R$ 2-5k a mais na BM e entrega pronta. Para quem tem urgência ou opera múltiplos clientes, serviço quase sempre vence em custo total.
+:::
+
+## O que é warm-up (rápido)
+
+Warm-up = subir gasto da BM em **degraus controlados** (R$ 50 → 200 → 500 → 2k/dia) para o algoritmo do Meta calibrar Trust Score, evitar revisão antifraude e desbloquear limites maiores. Pular degraus = bloqueio.
+
+[Guia detalhado de warm-up aqui](/blog/warm-up-conta-anuncio-meta-passo-a-passo).
+
+## Comparativo direto
+
+| Critério | Warm-up próprio | Serviço dedicado |
+|---|---|---|
+| Tempo até gastar 10k/dia | 45-60 dias | 0 dias (já entregue) |
+| Custo aquecimento | R$ 3-8k (gasto + aprendizado perdido) | Embutido (+R$ 2-5k na BM) |
+| Risco de erro | Alto (qualquer pulo derruba) | Baixo (operador especialista) |
+| Foco do time | Dividido entre warm-up e cliente | 100% no cliente |
+| Trust Score inicial | Construído do zero | Já elevado |
+| Substituição se bloquear | Perda total | Garantia inclusa |
+
+## Quando warm-up próprio faz sentido
+
+- Tem **time técnico ocioso** e quer treinar.
+- BM é **única** (não vai escalar quantidade).
+- **Sem urgência** — projeto começa em 60+ dias.
+- Já tem [protocolo escrito](/blog/warm-up-conta-anuncio-meta-passo-a-passo) e disciplina.
+
+## Quando serviço vence
+
+- **Lançamento em <30 dias** — não dá tempo.
+- Opera **múltiplos clientes** (agência) — escala impossível manual.
+- Cliente paga pela velocidade (infoproduto, e-commerce em pico sazonal).
+- Time pequeno que precisa focar em criativo/estratégia.
+
+[Quero BM aquecida para começar a gastar hoje](wa:Vim%20do%20comparativo%20warm-up%20e%20preciso%20de%20BM%20aquecida%20pronta%20hoje.)
+
+## Custo real comparado (BM para gastar R$ 10k/dia)
+
+### Warm-up próprio
+- BM verificada nova: R$ 2k
+- Gasto de aquecimento (60 dias): R$ 4,5k
+- Custo de oportunidade (sem rodar quente): difícil estimar, ~R$ 3-10k
+- **Tempo:** 60 dias
+- **Total monetário:** R$ 6,5k + tempo
+
+### Serviço de warm-up
+- BM verificada aquecida: R$ 6k
+- Gasto de aquecimento: incluso
+- **Tempo:** 1-3 dias para entrega
+- **Total monetário:** R$ 6k, pronto
+
+Mesma faixa de custo direto. O **delta de tempo** decide.
+
+## A armadilha de "fazer barato"
+
+:::callout type=warning
+Warm-up errado é a **causa #1 de bloqueio em conta nova**. Pular degraus, dobrar gasto sem padrão, mudar IP no meio = revisão automática. Você "economiza" R$ 2k e perde R$ 6k em BM bloqueada + tempo.
+:::
+
+Veja os [7 motivos de bloqueio em conta nova](/blog/bloqueio-conta-nova-facebook-ads-7-motivos).
+
+## O híbrido inteligente
+
+Para operações que crescem:
+
+- **BM principal** = comprada já aquecida (entrega em ~3 dias).
+- **BM reserva** = warm-up próprio em paralelo, sem pressão.
+- **BM standby** = mantida em gasto mínimo, sempre pronta.
+
+Combina velocidade (principal) com economia (reserva/standby).
+
+> Tempo é o ativo mais caro de uma operação de mídia. Quem terceiriza warm-up compra tempo. Quem faz interno compra aprendizado. Ambos têm valor — escolher errado é o problema.
+`,
+  },
+  {
+    slug: "case-nicho-sensivel-emagrecimento-90-dias-sem-ban",
+    title: "Case: produto de emagrecimento rodou 90 dias sem ban com setup específico",
+    description: "Como um produto de emagrecimento (nicho sensível) rodou 90 dias consecutivos no Meta Ads sem ban usando criativos compliance, BM dedicada e revisão prévia.",
+    keywords: ['case nicho sensivel meta ads', 'emagrecimento facebook ads sem ban', 'case nicho cinza meta', 'rodar nicho sensivel meta'],
+    category: "Fundo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-30",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Opera nicho sensível? Pede análise de viabilidade",
+    ctaDescription: "Mande prints da landing e 2 criativos. Em 30 min retornamos com análise de risco, setup recomendado e se faz sentido rodar com Adscale ou ajustar antes.",
+    ctaWhatsappMessage: "Opero nicho sensivel (emagrecimento/saude/etc) e quero analise de viabilidade.",
+    ctaLabel: "Pedir análise gratuita",
+    content: `
+:::tldr
+Produto de emagrecimento rodou **90 dias consecutivos sem ban** investindo R$ 18k/dia. O segredo não foi "burlar" — foi criativo dentro da política + BM dedicada + revisão prévia + Trust Score alto. Quem força jeitinho cai em 14 dias.
+:::
+
+## O contexto
+
+- Produto: cápsula natural para emagrecimento, registro Anvisa.
+- Nicho [oficialmente sensível](/blog/nichos-sensiveis-meta-ads-quais-sao) (saúde + promessas).
+- Histórico do cliente: 4 BMs queimadas em 6 meses antes da Adscale.
+- Meta: rodar 90 dias sem ban gastando R$ 15-20k/dia.
+
+## O diagnóstico das BMs queimadas
+
+Auditoria dos criativos antigos achou:
+
+1. Antes/depois explícitos (proibido).
+2. Promessa de tempo ("perca 10kg em 30 dias").
+3. Linguagem médica não autorizada.
+4. Landing com depoimentos sem disclaimer.
+5. BM usada para 3 nichos sensíveis ao mesmo tempo.
+
+Não era falta de BM boa. Era falta de **compliance criativo**.
+
+## O novo setup
+
+### Estrutura técnica
+
+- **1 BM verificada dedicada** ao produto (não compartilhada).
+- Domínio próprio verificado.
+- CAPI server-side com Event Match >8.
+- 2FA + perfil admin aged sem outros clientes.
+
+### Criativo (a parte que mais importa)
+
+- Linguagem aspiracional ("mais disposição", "se sentir melhor").
+- Sem antes/depois — só lifestyle.
+- Sem promessa de tempo ou peso específico.
+- Landing com disclaimer Anvisa visível.
+- Depoimentos genéricos ("me sinto melhor"), sem números.
+
+### Operacional
+
+- **Revisão prévia** de cada criativo por checklist de 12 pontos antes de subir.
+- Limite diário de 4 criativos novos/semana (evita pico de aprovação).
+- Pause automático se Account Quality cair de "normal".
+
+[Quero rodar nicho sensivel com setup específico](wa:Opero%20nicho%20sensivel%20e%20quero%20rodar%2090%20dias%20sem%20ban%20com%20setup%20Adscale.)
+
+## Resultado em 90 dias
+
+| Métrica | Valor |
+|---|---|
+| Dias rodando | 90 (zero downtime) |
+| Gasto total | R$ 1,52 milhão |
+| ROAS médio | 3,8x |
+| Reprovações de anúncio | 12 (todas reformuladas) |
+| Reviews de conta | 1 (resolvida em 4h) |
+| Bans | 0 |
+
+## O que NÃO funcionou no passado
+
+:::callout type=warning
+- Tentar burlar com "cloak" → ban em 7-14 dias e queima fornecedor.
+- Misturar nichos sensíveis na mesma BM → multiplica risco.
+- Subir 20 criativos novos no mesmo dia → revisão automática.
+- Operar sem [Account Quality monitorado](/blog/qualidade-conta-anuncio-meta-como-medir).
+:::
+
+## Lições replicáveis para qualquer nicho cinza
+
+1. **BM dedicada** sempre. Misturar nichos = morte garantida.
+2. **Criativo compliance** é o trabalho mais importante, não tirar foto bonita.
+3. **Domínio próprio + Anvisa/disclaimer** muda o Trust Score.
+4. **CAPI** ajuda — Meta confia em conta que entrega dados de qualidade.
+5. **Reserva sempre pronta** porque bloqueio em nicho sensível é "quando", não "se".
+
+## Custo do setup
+
+- BM dedicada verificada: R$ 4k.
+- Perfil admin aged: R$ 800.
+- CAPI server-side: R$ 3k (setup) + R$ 800/mês.
+- Consultoria de criativo compliance: R$ 5k (uma vez).
+- **Total:** R$ 13,6k.
+
+ROI: pagou-se em <8 dias de operação.
+
+> Nicho sensível não é proibido — é **regulado**. Quem aprende a regra escala. Quem tenta atalho queima fornecedor atrás de fornecedor.
+`,
+  },
+  {
+    slug: "preco-perfil-aged-facebook-vale-investimento",
+    title: "Preço de perfil aged no Facebook: vale o investimento em 2026?",
+    description: "Análise de custo-benefício do perfil aged como admin de BM: quanto custa, quanto economiza em prevenção de bloqueio e quando faz sentido investir.",
+    keywords: ['preço perfil aged', 'perfil aged vale a pena', 'comprar perfil aged facebook', 'preço perfil farmado'],
+    category: "Fundo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-31",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Quer perfil aged validado para sua BM?",
+    ctaDescription: "Perfis aged Adscale com 2+ anos, histórico orgânico, 2FA configurado e handover seguro. Conta para qual BM e enviamos opções com fingerprint compatível.",
+    ctaWhatsappMessage: "Vim do guia de preço perfil aged e quero opções validadas.",
+    ctaLabel: "Ver perfis disponíveis",
+    content: `
+:::tldr
+Perfil aged custa R$ 600-2.500 a depender de idade e histórico. Para BM que vai gastar **R$ 10k+/mês**, o investimento se paga em <30 dias só na redução de risco de bloqueio do admin. Para BM de baixo volume, perfil próprio resolve.
+:::
+
+## Por que perfil admin importa
+
+O perfil que administra a BM **carrega Trust Score próprio**. Perfil novo = BM frágil mesmo verificada. Perfil aged = BM com proteção extra contra revisões automáticas.
+
+Veja o detalhe em [por que o administrador importa](/blog/perfil-aged-facebook-por-que-administrador-importa).
+
+## Faixas de preço (mercado BR 2026)
+
+| Tipo | Idade | Histórico | Preço médio |
+|---|---|---|---|
+| Perfil semi-aged | 6-12 meses | Pouco orgânico | R$ 400-700 |
+| Perfil aged padrão | 1-2 anos | Orgânico real | R$ 800-1.500 |
+| Perfil aged premium | 3+ anos | Orgânico forte + amigos reais | R$ 1.800-3.000 |
+| Perfil farmado especialista | 5+ anos | Histórico de admin de BM | R$ 3.000-6.000 |
+
+## Quando vale (regra de bolso)
+
+**Vale** se sua BM:
+- Vai gastar **R$ 10 mil/mês ou mais**.
+- Opera nicho sensível.
+- Já teve admin pessoal bloqueado.
+- É BM verificada nova (precisa "emprestar" Trust Score).
+
+**Não vale** (use perfil próprio) se:
+- Gasto <R$ 3k/mês.
+- BM antiga (5+ anos) com admin estável.
+- Operação de teste/aprendizado.
+
+[Quero perfil aged para minha BM](wa:Vim%20do%20guia%20pre%C3%A7o%20perfil%20aged%20e%20quero%20op%C3%A7%C3%A3o%20validada%20para%20minha%20BM.)
+
+## ROI prático
+
+Cenário: BM verificada nova, gasto R$ 15k/mês. Admin pessoal de 6 meses.
+
+**Sem perfil aged:**
+- Risco de bloqueio do admin nos primeiros 90 dias: ~25%.
+- Custo médio de bloqueio (downtime + perda de aprendizado): ~R$ 8-15k.
+- Expectativa: R$ 2-4k de perda anualizada.
+
+**Com perfil aged premium (R$ 2k):**
+- Risco cai para ~5%.
+- Expectativa de perda: <R$ 800/ano.
+- **Economia anual:** R$ 1,2-3k.
+
+Perfil aged premium se paga em <12 meses, com proteção a partir do dia 1.
+
+## Como evitar furada na compra
+
+:::callout type=warning
+- Não compre perfil "novo verificado por celular" passando-se por aged.
+- Exija prints: data de criação, número de amigos reais, histórico de posts.
+- Confirme 2FA configurável antes de fechar.
+- Login deve ser feito **uma vez**, com handover de senha + e-mail.
+- Mude o e-mail e telefone imediatamente.
+:::
+
+## Configuração nos primeiros 7 dias
+
+1. Logar **uma vez** no IP que será permanente.
+2. Trocar e-mail e telefone para os seus.
+3. Ativar 2FA via app autenticador.
+4. **Não adicionar admin de BM** nas primeiras 48h.
+5. Fazer 5-10 min/dia de atividade orgânica.
+
+[Veja a rotina semanal de saúde do perfil admin](/blog/saude-perfil-administrador-bm-rotina-semanal).
+
+## Erros caros
+
+- Comprar perfil aged e usar em **3 BMs diferentes ao mesmo tempo** → bandeira vermelha.
+- Logar de 4 cidades em 7 dias.
+- Adicionar como admin master no dia 1 sem warm-up de presença.
+
+> Perfil admin é fundação. BM cara em cima de admin frágil é castelo na areia. R$ 1.500 de perfil aged protege R$ 50k de operação — math fácil.
+`,
+  },
+  {
+    slug: "bm-pronta-vs-bm-do-zero-quanto-tempo-economiza",
+    title: "BM pronta vs BM do zero: quanto tempo (e dinheiro) você realmente economiza",
+    description: "Comparativo: criar BM do zero e verificar vs comprar BM pronta. Tempo total, taxa de sucesso, custo oculto e quando cada caminho faz sentido.",
+    keywords: ['bm pronta vs do zero', 'quanto tempo verificar bm', 'comprar bm vs criar', 'fazer bm do zero ou comprar'],
+    category: "Fundo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-31",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Sem tempo para criar e verificar do zero?",
+    ctaDescription: "BMs verificadas em estoque, prontas para handover em 24-72h. Histórico documentado, contrato, garantia 90 dias. Conta seu cenário e enviamos opções.",
+    ctaWhatsappMessage: "Vim do comparativo BM pronta vs do zero e quero opções prontas em estoque.",
+    ctaLabel: "Ver BMs em estoque",
+    content: `
+:::tldr
+BM do zero: **15-90 dias** + risco real de verificação negada. BM pronta: **24-72h** + garantia. Para operação que já fatura, a economia de tempo paga a BM várias vezes. Para teste de bolso, fazer do zero ensina.
+:::
+
+## O processo do zero (passo a passo real)
+
+1. Abrir BM nova (5 min).
+2. Submeter Business Verification: CNPJ, contrato social, comprovante endereço, domínio (30 min).
+3. Aguardar análise do Meta: **7-30 dias**.
+4. Se negado, ajustar e reenviar: **+7-30 dias**.
+5. Aprovado: começar warm-up zero. **+30-60 dias** até gastar R$ 10k/dia.
+
+**Tempo total realista:** 45-120 dias do clique inicial até gastar firme.
+
+## Taxas reais de aprovação na primeira tentativa
+
+Dados de operadores em 2025-2026:
+
+- CNPJ MEI, sem domínio próprio: **~30% aprovação**.
+- CNPJ LTDA, com domínio: **~65%**.
+- CNPJ LTDA + domínio + histórico orgânico em outro ativo: **~85%**.
+
+Negação não vem com motivo claro — só "não foi possível verificar".
+
+## O caminho da BM pronta
+
+1. Briefing técnico com fornecedor (30 min).
+2. Escolha da BM com base em histórico/idade (1-2 dias).
+3. Handover técnico (1 dia): senha, 2FA, fingerprint, IP.
+4. Configuração do seu domínio + pixel + CAPI (1-2 dias).
+5. Rodando: **dia 4-7** do briefing.
+
+**Tempo total:** 5-7 dias úteis. Com warm-up se aplicável, +15-30 dias para teto alto.
+
+## Comparativo de custo total
+
+| Item | BM do zero | BM pronta |
+|---|---|---|
+| Setup | R$ 0 | R$ 1,5-4k |
+| Risco de negação | 35-70% | 0% (fornecedor entrega ou substitui) |
+| Tempo até gastar firme | 45-120 dias | 5-30 dias |
+| Custo de oportunidade (operação parada) | R$ 30-300k+ | Quase zero |
+| Garantia se bloquear | Nenhuma | 30-90 dias |
+| **Custo total real** | R$ 30k+ em maioria dos casos | R$ 3-8k |
+
+[Quero BM pronta com garantia de 90 dias](wa:Vim%20do%20comparativo%20pronta%20vs%20do%20zero%20e%20quero%20BM%20pronta%20com%20garantia.)
+
+## Quando do zero faz sentido
+
+- Você é **agência com 6+ meses de prazo** antes de subir o primeiro real.
+- Tem time técnico ocioso para acompanhar o processo.
+- Está aprendendo a operação e o **aprendizado vale mais que velocidade**.
+- Custo de oportunidade próximo de zero.
+
+## Quando pronta vence absoluto
+
+- Cliente assinou contrato — operação começa em ≤30 dias.
+- Lançamento marcado.
+- Bloqueio recente exige reserva imediata.
+- Cada dia parado custa >R$ 5k em faturamento.
+
+## O híbrido inteligente
+
+- **Comprar BM pronta** para operação principal (velocidade).
+- **Criar BM do zero em paralelo** como reserva secundária de longo prazo (custo baixo, sem pressa).
+
+Em 60-90 dias você tem 2 BMs com fontes diferentes — diversificação real de risco.
+
+## A pegadinha do "vou economizar fazendo do zero"
+
+:::callout type=warning
+"Economizei R$ 3k fazendo do zero" + 45 dias parado + verificação negada 2x = R$ 30-100k em faturamento perdido. Conta sempre o **custo total**, não só o desembolso.
+:::
+
+> Tempo no Meta Ads tem preço de mercado. Quem trata como infinito acha que economizou. Quem mede em faturamento perdido sabe quando comprar pronta vale 10x.
+`,
+  },
+  {
+    slug: "checklist-10-perguntas-antes-comprar-bm-fornecedor",
+    title: "Checklist: 10 perguntas para fazer ao fornecedor antes de comprar uma BM",
+    description: "As 10 perguntas que separam fornecedor sério de revendedor amador. Use antes de pagar qualquer BM verificada — economiza dor de cabeça e dinheiro.",
+    keywords: ['perguntas antes comprar bm', 'checklist comprar bm verificada', 'como avaliar fornecedor bm', 'perguntas para vendedor bm'],
+    category: "Fundo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-06-01",
+    ogImage: "/og/og-default.jpg",
+    ctaTitle: "Quer um fornecedor que passa nas 10 perguntas?",
+    ctaDescription: "A Adscale responde as 10 perguntas no WhatsApp em 1 mensagem. Sem rodeio, com contrato pronto e estoque verificável. Faça o teste antes de fechar com qualquer um.",
+    ctaWhatsappMessage: "Vim do checklist das 10 perguntas e quero testar a Adscale.",
+    ctaLabel: "Fazer o teste das 10 perguntas",
+    content: `
+:::tldr
+Fornecedor sério responde estas 10 perguntas **sem hesitar e por escrito**. Se travar em 2 ou mais, não compra. Lista pronta para você copiar e mandar no WhatsApp antes de pagar qualquer BM verificada.
+:::
+
+## Como usar este checklist
+
+Copie as 10 perguntas, mande no WhatsApp do fornecedor **antes** de transferir um real. Avalie:
+
+- **Tempo de resposta** (até 2h em horário comercial = bom sinal).
+- **Profundidade** (resposta de 1 linha = vendedor; resposta técnica = operador).
+- **Disposição** (irritação com pergunta = bandeira vermelha).
+
+[Quero testar com a Adscale agora](wa:Quero%20fazer%20o%20teste%20das%2010%20perguntas%20com%20a%20Adscale.)
+
+## As 10 perguntas
+
+### 1. Qual a idade real desta BM e quanto ela já gastou?
+
+**Resposta boa:** data de criação exata, histórico de gasto em screenshot do Account Quality.
+**Resposta ruim:** "É antiga, pode confiar."
+
+### 2. Posso ver print do Business Settings antes de fechar?
+
+**Resposta boa:** envia print com dados sensíveis cobertos.
+**Resposta ruim:** "Só depois do pagamento."
+
+### 3. O domínio verificado dentro da BM é de quem?
+
+**Resposta boa:** explica que o domínio será transferido/renovado para o seu nome no handover.
+**Resposta ruim:** silêncio ou "depois você muda".
+
+### 4. Qual a garantia em dias e como funciona?
+
+**Resposta boa:** 30-90 dias, substituição automática, escrito no contrato.
+**Resposta ruim:** "Garantia... a gente vê depois."
+
+### 5. Tem contrato com CNPJ ativo?
+
+**Resposta boa:** envia modelo do contrato + Razão Social pesquisável.
+**Resposta ruim:** "Trabalho na confiança."
+
+### 6. Como funciona o handover técnico?
+
+**Resposta boa:** lista o passo a passo — fingerprint, IP, 2FA, mudança de senha, primeiras 48h.
+**Resposta ruim:** "Te mando login e senha."
+
+### 7. Quantas BMs vocês recuperaram nos últimos 90 dias?
+
+**Resposta boa:** número específico + protocolo de recuperação descrito.
+**Resposta ruim:** "Quase não bloqueia."
+
+### 8. Tem cliente atual com quem eu possa conversar?
+
+**Resposta boa:** referência indicada com permissão prévia.
+**Resposta ruim:** "Por privacidade, não."
+
+### 9. Vocês trabalham com [estrutura de 3 camadas](/blog/estrategia-3-camadas-bm-meta-ads-contingencia)?
+
+**Resposta boa:** explica como secundária + reserva se integram, recomenda combo.
+**Resposta ruim:** "Compra uma só, basta."
+
+### 10. Suporte nos primeiros 30 dias está incluso?
+
+**Resposta boa:** sim, WhatsApp direto com técnico, SLA <2h em horário comercial.
+**Resposta ruim:** "Suporte é extra."
+
+## Como pontuar as respostas
+
+| Respostas claras | Decisão |
+|---|---|
+| 9-10 | Pode fechar |
+| 7-8 | Pergunte mais detalhe nas que travaram |
+| 5-6 | Procure outro fornecedor |
+| ≤4 | Saia da conversa |
+
+:::callout type=warning
+Fornecedor que **se irrita com as perguntas** é fornecedor que não está acostumado a cliente exigente — porque os clientes dele não escapam vivos para reclamar.
+:::
+
+## Bandeiras vermelhas extras
+
+- Só atende por Telegram.
+- "Hoje tem desconto" pressionando decisão.
+- Recusa nota fiscal mesmo com CNPJ.
+- Pede pagamento em cripto sem alternativa.
+- Sem site ou site recém-criado.
+
+## Próximo passo
+
+Pegue essas 10 perguntas, mande para **3 fornecedores diferentes**. Compare respostas lado a lado. A diferença vai ser óbvia.
+
+[Quero comparar a Adscale com outros 2 fornecedores](wa:Estou%20comparando%20fornecedores.%20Mande%20as%20respostas%20das%2010%20perguntas.)
+
+> BM verificada não é commodity. Comprar de quem responde 10 perguntas direito é a forma mais barata de não ter prejuízo.
+`,
+  },
 ];
 
 
