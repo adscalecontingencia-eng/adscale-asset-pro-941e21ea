@@ -41,7 +41,7 @@ const renderMarkdown = (md: string, campaign = "blog_post") => {
     return `https://wa.me/${WA_NUMBER}?${qs}`;
   };
 
-  const inline = (text: string, campaign = "blog_post") => {
+  const inline = (text: string, cmp = campaign) => {
     // First split by bold, then within each segment parse links.
     const boldParts = text.split(/(\*\*[^*]+\*\*)/g);
     const out: JSX.Element[] = [];
