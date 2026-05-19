@@ -186,12 +186,17 @@ const BlogPost = () => {
   const formattedPublished = new Date(post.publishedAt).toLocaleDateString("pt-BR");
   const formattedModified = new Date(dateModified).toLocaleDateString("pt-BR");
 
+  const pillar = getPillarForPost(post.slug);
+
   const breadcrumbItems = [
     { label: "Início", href: "/" },
     { label: "Blog", href: "/blog" },
-    { label: post.category, href: `/blog?funil=${post.category === "Topo de funil" ? "tof" : post.category === "Meio de funil" ? "mof" : "bof"}` },
+    ...(pillar ? [{ label: pillar.shortTitle, href: `/blog/pilar/${pillar.slug}` }] : []),
     { label: post.title },
   ];
+
+  const canonicalUrl = `${SITE_URL}/blog/${post.slug}/`;
+  const ogImageAbs = `${SITE_URL}${post.ogImage}`;
 
   const articleSchema: Record<string, unknown> = {
     "@type": "BlogPosting",
@@ -203,31 +208,40 @@ const BlogPost = () => {
     author: {
       "@type": "Person",
       name: "Pedro Lucas",
-      url: "https://adscalecontingencia.com/autor/pedro-lucas",
-      image: "https://adscalecontingencia.com/autores/pedro-lucas.jpg",
+      url: `${SITE_URL}/autor/pedro-lucas`,
     },
     publisher: {
       "@type": "Organization",
       name: "AD Scale",
       logo: {
         "@type": "ImageObject",
-        url: "https://adscalecontingencia.com/og/og-default.jpg",
+        url: `${SITE_URL}/og/logo-adscale.png`,
       },
     },
     keywords: post.keywords.join(", "),
     image: {
       "@type": "ImageObject",
-      url: `https://adscalecontingencia.com${post.ogImage}`,
+      url: ogImageAbs,
       width: 1200,
       height: 630,
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://adscalecontingencia.com/blog/${post.slug}`,
+      "@id": canonicalUrl,
     },
   };
 
-  const graph: Record<string, unknown>[] = [articleSchema];
+  const breadcrumbSchema = {
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbItems.map((b, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: b.label,
+      item: b.href ? `${SITE_URL}${b.href}` : undefined,
+    })),
+  };
+
+  const graph: Record<string, unknown>[] = [articleSchema, breadcrumbSchema];
   if (faqEntities.length) {
     graph.push({ "@type": "FAQPage", mainEntity: faqEntities });
   }
@@ -240,7 +254,7 @@ const BlogPost = () => {
         "@type": "HowToStep",
         position: idx + 1,
         name: t.label,
-        url: `https://adscalecontingencia.com/blog/${post.slug}#${t.id}`,
+        url: `${canonicalUrl}#${t.id}`,
       })),
     });
   }
