@@ -413,7 +413,7 @@ const AdminDashboard = () => {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    toast.success(`Exportados ${clicks.length} leads`);
+    toast.success(`Exportados ${filteredClicks.length} leads`);
   };
 
   if (loading) {
