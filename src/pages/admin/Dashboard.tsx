@@ -378,7 +378,7 @@ const AdminDashboard = () => {
       const s = v == null ? "" : String(v);
       return /[",\n;]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
     };
-    const rows = clicks.map((c) => {
+    const rows = filteredClicks.map((c) => {
       const page = c.landing_page || c.route || "";
       const top = (gscQueries[page] ?? [])
         .slice(0, 3)
