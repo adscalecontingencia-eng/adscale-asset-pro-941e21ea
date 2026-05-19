@@ -117,9 +117,17 @@ const AdminDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [authorized, setAuthorized] = useState(false);
   const [clicks, setClicks] = useState<Click[]>([]);
+  const [leads, setLeads] = useState<NewsletterLead[]>([]);
   const [gscQueries, setGscQueries] = useState<
     Record<string, { query: string; clicks: number; impressions: number }[]>
   >({});
+
+  // Filters
+  const [period, setPeriod] = useState<Period>("30d");
+  const [query, setQuery] = useState("");
+  const [device, setDevice] = useState<string>("all");
+  const [source, setSource] = useState<string>("all");
+  const [onlyWithKeyword, setOnlyWithKeyword] = useState(false);
 
   useEffect(() => {
     let mounted = true;
