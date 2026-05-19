@@ -46,6 +46,28 @@ type Click = {
   landing_page: string | null;
 };
 
+type NewsletterLead = {
+  id: string;
+  created_at: string;
+  email: string;
+  pillar_slug: string | null;
+  pillar_label: string | null;
+  source_route: string | null;
+  utm_campaign: string | null;
+  device: string | null;
+};
+
+type Period = "24h" | "7d" | "30d" | "90d" | "all";
+
+const periodMs: Record<Period, number | null> = {
+  "24h": 24 * 3600 * 1000,
+  "7d": 7 * 24 * 3600 * 1000,
+  "30d": 30 * 24 * 3600 * 1000,
+  "90d": 90 * 24 * 3600 * 1000,
+  all: null,
+};
+
+
 const Stat = ({
   icon: Icon,
   label,
