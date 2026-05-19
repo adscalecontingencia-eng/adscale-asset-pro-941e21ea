@@ -452,7 +452,10 @@ const BlogPost = () => {
             />
           </header>
 
+          <ShareButtons slug={post.slug} title={post.title} />
+
           <TableOfContents items={toc} />
+
 
           {(() => {
             const blocks = renderMarkdown(post.content, `blog_${post.slug}`);
