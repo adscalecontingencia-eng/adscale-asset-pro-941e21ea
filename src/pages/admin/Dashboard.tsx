@@ -11,8 +11,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import Logo from "@/components/Logo";
-import { LogOut, MousePointerClick, Search, TrendingUp, Globe, Download } from "lucide-react";
+import { LogOut, MousePointerClick, Search, TrendingUp, Globe, Download, Mail, X } from "lucide-react";
 import {
   ResponsiveContainer,
   AreaChart,
@@ -44,6 +45,28 @@ type Click = {
   device: string | null;
   landing_page: string | null;
 };
+
+type NewsletterLead = {
+  id: string;
+  created_at: string;
+  email: string;
+  pillar_slug: string | null;
+  pillar_label: string | null;
+  source_route: string | null;
+  utm_campaign: string | null;
+  device: string | null;
+};
+
+type Period = "24h" | "7d" | "30d" | "90d" | "all";
+
+const periodMs: Record<Period, number | null> = {
+  "24h": 24 * 3600 * 1000,
+  "7d": 7 * 24 * 3600 * 1000,
+  "30d": 30 * 24 * 3600 * 1000,
+  "90d": 90 * 24 * 3600 * 1000,
+  all: null,
+};
+
 
 const Stat = ({
   icon: Icon,
@@ -94,9 +117,17 @@ const AdminDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [authorized, setAuthorized] = useState(false);
   const [clicks, setClicks] = useState<Click[]>([]);
+  const [leads, setLeads] = useState<NewsletterLead[]>([]);
   const [gscQueries, setGscQueries] = useState<
     Record<string, { query: string; clicks: number; impressions: number }[]>
   >({});
+
+  // Filters
+  const [period, setPeriod] = useState<Period>("30d");
+  const [query, setQuery] = useState("");
+  const [device, setDevice] = useState<string>("all");
+  const [source, setSource] = useState<string>("all");
+  const [onlyWithKeyword, setOnlyWithKeyword] = useState(false);
 
   useEffect(() => {
     let mounted = true;
@@ -129,6 +160,17 @@ const AdminDashboard = () => {
       setAuthorized(true);
       setLoading(false);
 
+      // Fetch newsletter leads (admin RLS).
+      supabase
+        .from("newsletter_leads")
+        .select("id,created_at,email,pillar_slug,pillar_label,source_route,utm_campaign,device")
+        .order("created_at", { ascending: false })
+        .limit(500)
+        .then(({ data: rows, error: lerr }) => {
+          if (lerr) console.warn("[admin] newsletter_leads:", lerr.message);
+          if (mounted && rows) setLeads(rows as NewsletterLead[]);
+        });
+
       // Fetch organic keywords from Google Search Console for each unique landing page.
       const pages = Array.from(
         new Set(((data ?? []) as Click[]).map((c) => c.landing_page || c.route).filter(Boolean)),
@@ -157,26 +199,86 @@ const AdminDashboard = () => {
     };
   }, [navigate]);
 
-  const stats = useMemo(() => {
-    const total = clicks.length;
-    const last24h = clicks.filter(
-      (c) => Date.now() - new Date(c.created_at).getTime() < 24 * 3600 * 1000,
-    ).length;
-    const fromGoogle = clicks.filter(
-      (c) => c.search_engine === "google" || c.utm_source?.toLowerCase().includes("google"),
-    ).length;
-    const withKeyword = clicks.filter((c) => c.search_keyword).length;
-    return { total, last24h, fromGoogle, withKeyword };
+  // Dropdown option lists derived from full dataset.
+  const sourceOptions = useMemo(() => {
+    const s = new Set<string>();
+    clicks.forEach((c) => {
+      if (c.utm_source) s.add(c.utm_source);
+      else if (c.search_engine) s.add(c.search_engine);
+      else s.add("direto");
+    });
+    return Array.from(s).sort();
   }, [clicks]);
 
+  const deviceOptions = useMemo(() => {
+    const s = new Set<string>();
+    clicks.forEach((c) => c.device && s.add(c.device));
+    return Array.from(s).sort();
+  }, [clicks]);
+
+  const filteredClicks = useMemo(() => {
+    const cutoff = periodMs[period];
+    const now = Date.now();
+    const q = query
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim();
+    return clicks.filter((c) => {
+      if (cutoff != null && now - new Date(c.created_at).getTime() > cutoff) return false;
+      if (device !== "all" && c.device !== device) return false;
+      if (source !== "all") {
+        const eff = c.utm_source ?? c.search_engine ?? "direto";
+        if (eff !== source) return false;
+      }
+      if (onlyWithKeyword && !c.search_keyword && !c.utm_term) return false;
+      if (q.length >= 2) {
+        const hay = [
+          c.route,
+          c.landing_page,
+          c.cta_label,
+          c.utm_source,
+          c.utm_medium,
+          c.utm_campaign,
+          c.utm_term,
+          c.utm_content,
+          c.search_keyword,
+          c.referrer,
+          c.gclid,
+          c.fbclid,
+        ]
+          .join(" ")
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+  }, [clicks, period, query, device, source, onlyWithKeyword]);
+
+  const stats = useMemo(() => {
+    const total = filteredClicks.length;
+    const last24h = filteredClicks.filter(
+      (c) => Date.now() - new Date(c.created_at).getTime() < 24 * 3600 * 1000,
+    ).length;
+    const fromGoogle = filteredClicks.filter(
+      (c) => c.search_engine === "google" || c.utm_source?.toLowerCase().includes("google"),
+    ).length;
+    const withKeyword = filteredClicks.filter((c) => c.search_keyword || c.utm_term).length;
+    return { total, last24h, fromGoogle, withKeyword };
+  }, [filteredClicks]);
+
+  // Time series: bucket size adapts to selected period.
   const series = useMemo(() => {
+    const days = period === "24h" ? 1 : period === "7d" ? 7 : period === "30d" ? 30 : 90;
     const buckets = new Map<string, number>();
-    for (let i = 13; i >= 0; i--) {
+    for (let i = days - 1; i >= 0; i--) {
       const d = new Date();
       d.setDate(d.getDate() - i);
       buckets.set(d.toISOString().slice(0, 10), 0);
     }
-    for (const c of clicks) {
+    for (const c of filteredClicks) {
       const day = c.created_at.slice(0, 10);
       if (buckets.has(day)) buckets.set(day, (buckets.get(day) ?? 0) + 1);
     }
@@ -184,18 +286,74 @@ const AdminDashboard = () => {
       date: date.slice(5),
       cliques: count,
     }));
-  }, [clicks]);
+  }, [filteredClicks, period]);
 
-  const byRoute = useMemo(() => groupCount(clicks, "route").slice(0, 8), [clicks]);
-  const bySource = useMemo(() => groupCount(clicks, "utm_source").slice(0, 8), [clicks]);
+  const byRoute = useMemo(() => groupCount(filteredClicks, "route").slice(0, 10), [filteredClicks]);
+  const bySource = useMemo(() => groupCount(filteredClicks, "utm_source").slice(0, 10), [filteredClicks]);
   const byCampaign = useMemo(
-    () => groupCount(clicks, "utm_campaign").slice(0, 8),
-    [clicks],
+    () => groupCount(filteredClicks, "utm_campaign").slice(0, 10),
+    [filteredClicks],
   );
+
+  // Unified keywords: combine paid (utm_term), direct keyword and GSC organic queries
+  // for pages where a lead clicked.
+  const topKeywords = useMemo(() => {
+    const map = new Map<string, { clicks: number; impressions: number; source: string }>();
+    for (const c of filteredClicks) {
+      const k = (c.search_keyword || c.utm_term || "").trim().toLowerCase();
+      if (!k) continue;
+      const cur = map.get(k) ?? { clicks: 0, impressions: 0, source: c.utm_term ? "pago/utm" : "direto" };
+      cur.clicks += 1;
+      map.set(k, cur);
+    }
+    const pagesInScope = new Set(filteredClicks.map((c) => c.landing_page || c.route).filter(Boolean) as string[]);
+    for (const [page, qs] of Object.entries(gscQueries)) {
+      if (!pagesInScope.has(page)) continue;
+      for (const q of qs) {
+        const k = q.query.trim().toLowerCase();
+        const cur = map.get(k) ?? { clicks: 0, impressions: 0, source: "gsc orgânico" };
+        cur.clicks += q.clicks;
+        cur.impressions += q.impressions;
+        if (!cur.source.includes("gsc")) cur.source = `${cur.source} + gsc`;
+        map.set(k, cur);
+      }
+    }
+    return Array.from(map.entries())
+      .map(([keyword, v]) => ({ keyword, ...v }))
+      .sort((a, b) => b.clicks - a.clicks || b.impressions - a.impressions)
+      .slice(0, 30);
+  }, [filteredClicks, gscQueries]);
+
+  const filteredLeads = useMemo(() => {
+    const cutoff = periodMs[period];
+    const now = Date.now();
+    const q = query.toLowerCase().trim();
+    return leads.filter((l) => {
+      if (cutoff != null && now - new Date(l.created_at).getTime() > cutoff) return false;
+      if (q.length >= 2) {
+        const hay = [l.email, l.pillar_slug, l.pillar_label, l.utm_campaign, l.source_route]
+          .join(" ")
+          .toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+  }, [leads, period, query]);
+
+  const resetFilters = () => {
+    setPeriod("30d");
+    setQuery("");
+    setDevice("all");
+    setSource("all");
+    setOnlyWithKeyword(false);
+  };
+
   const handleLogout = async () => {
     await supabase.auth.signOut();
     navigate("/admin/login", { replace: true });
   };
+
+
 
   const handleExportCSV = () => {
     const headers = [
@@ -220,7 +378,7 @@ const AdminDashboard = () => {
       const s = v == null ? "" : String(v);
       return /[",\n;]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
     };
-    const rows = clicks.map((c) => {
+    const rows = filteredClicks.map((c) => {
       const page = c.landing_page || c.route || "";
       const top = (gscQueries[page] ?? [])
         .slice(0, 3)
@@ -255,7 +413,7 @@ const AdminDashboard = () => {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    toast.success(`Exportados ${clicks.length} leads`);
+    toast.success(`Exportados ${filteredClicks.length} leads`);
   };
 
   if (loading) {
@@ -288,7 +446,7 @@ const AdminDashboard = () => {
               variant="outline"
               size="sm"
               onClick={handleExportCSV}
-              disabled={clicks.length === 0}
+              disabled={filteredClicks.length === 0}
               className="gap-2"
             >
               <Download className="w-4 h-4" /> Exportar CSV
@@ -311,19 +469,104 @@ const AdminDashboard = () => {
             Cliques no WhatsApp
           </h1>
           <p className="text-muted-foreground text-sm">
-            Atribuição completa: rota, UTM, palavra-chave do Google e dispositivo.
+            Atribuição completa: rota, UTM, palavra-chave (Google + paga) e dispositivo.
           </p>
         </div>
 
+        {/* Filters */}
+        <Card className="p-4 bg-card border-border/50">
+          <div className="flex flex-wrap items-end gap-3">
+            <div className="flex flex-col gap-1">
+              <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Período</label>
+              <div className="flex rounded-md border border-border/60 overflow-hidden">
+                {(["24h", "7d", "30d", "90d", "all"] as Period[]).map((p) => (
+                  <button
+                    key={p}
+                    onClick={() => setPeriod(p)}
+                    className={`px-3 py-1.5 text-xs font-medium transition-colors ${
+                      period === p
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-transparent text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {p === "all" ? "Tudo" : p}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1 flex-1 min-w-[220px]">
+              <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Busca</label>
+              <Input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="keyword, rota, campanha, UTM..."
+                className="h-9 text-sm"
+              />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Dispositivo</label>
+              <select
+                value={device}
+                onChange={(e) => setDevice(e.target.value)}
+                className="h-9 px-3 rounded-md border border-border/60 bg-background text-sm"
+              >
+                <option value="all">Todos</option>
+                {deviceOptions.map((d) => (
+                  <option key={d} value={d}>
+                    {d}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Fonte</label>
+              <select
+                value={source}
+                onChange={(e) => setSource(e.target.value)}
+                className="h-9 px-3 rounded-md border border-border/60 bg-background text-sm max-w-[180px]"
+              >
+                <option value="all">Todas</option>
+                {sourceOptions.map((s) => (
+                  <option key={s} value={s}>
+                    {s}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <label className="flex items-center gap-2 text-xs text-muted-foreground cursor-pointer h-9">
+              <input
+                type="checkbox"
+                checked={onlyWithKeyword}
+                onChange={(e) => setOnlyWithKeyword(e.target.checked)}
+                className="accent-primary"
+              />
+              Só com keyword
+            </label>
+
+            <Button variant="ghost" size="sm" onClick={resetFilters} className="gap-1 h-9">
+              <X className="w-3 h-3" /> Limpar
+            </Button>
+          </div>
+          <p className="text-xs text-muted-foreground mt-3">
+            Mostrando <span className="text-foreground font-medium">{filteredClicks.length}</span> de {clicks.length} cliques.
+          </p>
+        </Card>
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Stat icon={MousePointerClick} label="Total" value={stats.total} />
+          <Stat icon={MousePointerClick} label="No filtro" value={stats.total} />
           <Stat icon={TrendingUp} label="Últimas 24h" value={stats.last24h} />
           <Stat icon={Globe} label="Google" value={stats.fromGoogle} />
           <Stat icon={Search} label="Com keyword" value={stats.withKeyword} />
         </div>
 
         <Card className="p-5 bg-card border-border/50">
-          <h2 className="font-display font-semibold mb-4">Cliques nos últimos 14 dias</h2>
+          <h2 className="font-display font-semibold mb-4">
+            Cliques no período ({period === "all" ? "tudo" : period})
+          </h2>
           <div className="h-64">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={series}>
@@ -359,11 +602,54 @@ const AdminDashboard = () => {
           <BreakdownCard title="Por rota (página do clique)" rows={byRoute} />
           <BreakdownCard
             title="Landing pages (página de entrada)"
-            rows={groupCountValues(clicks.map((c) => c.landing_page))}
+            rows={groupCountValues(filteredClicks.map((c) => c.landing_page))}
           />
           <BreakdownCard title="Por fonte (utm_source)" rows={bySource} />
           <BreakdownCard title="Por campanha (utm_campaign)" rows={byCampaign} />
         </div>
+
+        {/* Unified keyword tracking */}
+        <Card className="p-5 bg-card border-border/50">
+          <div className="flex items-center justify-between mb-1">
+            <h2 className="font-display font-semibold">Palavras-chave (unificado)</h2>
+            <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+              direto + utm_term + GSC orgânico
+            </span>
+          </div>
+          <p className="text-xs text-muted-foreground mb-4">
+            Combina keyword capturada no clique, utm_term (campanhas pagas) e queries do Search Console
+            das landing pages que receberam tráfego no filtro atual.
+          </p>
+          {topKeywords.length === 0 ? (
+            <p className="text-sm text-muted-foreground">Sem palavras-chave para o filtro atual.</p>
+          ) : (
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Keyword</TableHead>
+                    <TableHead className="text-right">Cliques</TableHead>
+                    <TableHead className="text-right">Impressões</TableHead>
+                    <TableHead>Origem</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {topKeywords.map((k) => (
+                    <TableRow key={k.keyword}>
+                      <TableCell className="text-sm text-primary">{k.keyword}</TableCell>
+                      <TableCell className="text-xs text-right tabular-nums">{k.clicks}</TableCell>
+                      <TableCell className="text-xs text-right tabular-nums">
+                        {k.impressions || "—"}
+                      </TableCell>
+                      <TableCell className="text-xs text-muted-foreground">{k.source}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          )}
+        </Card>
+
 
         <Card className="p-5 bg-card border-border/50">
           <h2 className="font-display font-semibold mb-1">Palavras-chave do Google (orgânico)</h2>
@@ -412,7 +698,9 @@ const AdminDashboard = () => {
         </Card>
 
         <Card className="p-5 bg-card border-border/50">
-          <h2 className="font-display font-semibold mb-4">Últimos 50 cliques</h2>
+          <h2 className="font-display font-semibold mb-4">
+            Últimos 50 cliques <span className="text-xs text-muted-foreground font-normal">(do filtro)</span>
+          </h2>
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
@@ -427,7 +715,7 @@ const AdminDashboard = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {clicks.slice(0, 50).map((c) => (
+                {filteredClicks.slice(0, 50).map((c) => (
                   <TableRow key={c.id}>
                     <TableCell className="text-xs whitespace-nowrap">
                       {new Date(c.created_at).toLocaleString("pt-BR")}
@@ -449,10 +737,60 @@ const AdminDashboard = () => {
                     <TableCell className="text-xs">{c.device ?? "—"}</TableCell>
                   </TableRow>
                 ))}
-                {clicks.length === 0 && (
+                {filteredClicks.length === 0 && (
                   <TableRow>
                     <TableCell colSpan={7} className="text-center text-muted-foreground py-8">
-                      Nenhum clique registrado ainda.
+                      Nenhum clique para o filtro atual.
+                    </TableCell>
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </div>
+        </Card>
+
+        {/* Newsletter leads */}
+        <Card className="p-5 bg-card border-border/50">
+          <div className="flex items-center justify-between mb-1">
+            <h2 className="font-display font-semibold flex items-center gap-2">
+              <Mail className="w-4 h-4 text-primary" /> Inscrições · Contingência Semanal
+            </h2>
+            <span className="text-xs text-muted-foreground">
+              {filteredLeads.length} de {leads.length}
+            </span>
+          </div>
+          <p className="text-xs text-muted-foreground mb-4">
+            Leads capturados pelo formulário do blog (sujeitos ao filtro de período e busca).
+          </p>
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Data</TableHead>
+                  <TableHead>E-mail</TableHead>
+                  <TableHead>Pilar</TableHead>
+                  <TableHead>Campanha</TableHead>
+                  <TableHead>Origem</TableHead>
+                  <TableHead>Device</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {filteredLeads.slice(0, 100).map((l) => (
+                  <TableRow key={l.id}>
+                    <TableCell className="text-xs whitespace-nowrap">
+                      {new Date(l.created_at).toLocaleString("pt-BR")}
+                    </TableCell>
+                    <TableCell className="text-xs text-primary">{l.email}</TableCell>
+                    <TableCell className="text-xs">{l.pillar_label ?? l.pillar_slug ?? "—"}</TableCell>
+                    <TableCell className="text-xs">{l.utm_campaign ?? "—"}</TableCell>
+                    <TableCell className="text-xs">{l.source_route ?? "—"}</TableCell>
+                    <TableCell className="text-xs">{l.device ?? "—"}</TableCell>
+                  </TableRow>
+                ))}
+                {filteredLeads.length === 0 && (
+                  <TableRow>
+                    <TableCell colSpan={6} className="text-center text-muted-foreground py-8">
+                      Nenhuma inscrição para o filtro atual.
                     </TableCell>
                   </TableRow>
                 )}
@@ -464,6 +802,7 @@ const AdminDashboard = () => {
     </div>
   );
 };
+
 
 const BreakdownCard = ({
   title,

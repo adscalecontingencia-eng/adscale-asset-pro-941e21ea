@@ -6,6 +6,7 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 import SEO from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import MidArticleCTA from "@/components/MidArticleCTA";
+import NewsletterCTA from "@/components/NewsletterCTA";
 import { getPillarBySlug, getPostsForPillar, pillars } from "@/data/blogPillars";
 
 const SITE = "https://www.adscalecontingencia.com";
@@ -160,6 +161,9 @@ const BlogPillar = () => {
             whatsappMessage={`Olá! Vim do pilar "${pillar.shortTitle}" no blog da AD Scale e quero um diagnóstico.`}
             ctaLabel="Quero o diagnóstico no WhatsApp"
           />
+
+          <NewsletterCTA pillarLabel={pillar.shortTitle} pillarSlug={pillar.slug} />
+
 
           <section aria-labelledby="outros-pilares" className="mt-16">
             <h2 id="outros-pilares" className="font-display text-2xl font-bold mb-6">

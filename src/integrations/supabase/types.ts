@@ -14,6 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
+      newsletter_leads: {
+        Row: {
+          created_at: string
+          device: string | null
+          email: string
+          id: string
+          landing_page: string | null
+          pillar_label: string | null
+          pillar_slug: string | null
+          referrer: string | null
+          session_id: string | null
+          source_route: string | null
+          user_agent: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
+        }
+        Insert: {
+          created_at?: string
+          device?: string | null
+          email: string
+          id?: string
+          landing_page?: string | null
+          pillar_label?: string | null
+          pillar_slug?: string | null
+          referrer?: string | null
+          session_id?: string | null
+          source_route?: string | null
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+        }
+        Update: {
+          created_at?: string
+          device?: string | null
+          email?: string
+          id?: string
+          landing_page?: string | null
+          pillar_label?: string | null
+          pillar_slug?: string | null
+          referrer?: string | null
+          session_id?: string | null
+          source_route?: string | null
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
