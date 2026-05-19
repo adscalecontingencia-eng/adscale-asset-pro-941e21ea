@@ -34,9 +34,11 @@ export const pillars: Pillar[] = [
     relatedLandingLabel: "Ver BMs disponíveis",
     postSlugs: [
       "o-que-e-business-manager-verificada-meta",
+      "tipos-de-bm-meta-nova-antiga-verificada-ilimitada",
       "como-escolher-fornecedor-bm-verificada",
       "quanto-custa-bm-verificada-facebook-2026",
       "checklist-auditoria-bm-facebook-18-itens",
+      "estrutura-bm-conta-pixel-pagina-relacao",
       "arquitetura-contingencia-meta-ads-operacao-alto-volume",
     ],
   },
