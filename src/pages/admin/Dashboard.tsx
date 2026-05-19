@@ -469,19 +469,104 @@ const AdminDashboard = () => {
             Cliques no WhatsApp
           </h1>
           <p className="text-muted-foreground text-sm">
-            Atribuição completa: rota, UTM, palavra-chave do Google e dispositivo.
+            Atribuição completa: rota, UTM, palavra-chave (Google + paga) e dispositivo.
           </p>
         </div>
 
+        {/* Filters */}
+        <Card className="p-4 bg-card border-border/50">
+          <div className="flex flex-wrap items-end gap-3">
+            <div className="flex flex-col gap-1">
+              <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Período</label>
+              <div className="flex rounded-md border border-border/60 overflow-hidden">
+                {(["24h", "7d", "30d", "90d", "all"] as Period[]).map((p) => (
+                  <button
+                    key={p}
+                    onClick={() => setPeriod(p)}
+                    className={`px-3 py-1.5 text-xs font-medium transition-colors ${
+                      period === p
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-transparent text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {p === "all" ? "Tudo" : p}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1 flex-1 min-w-[220px]">
+              <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Busca</label>
+              <Input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="keyword, rota, campanha, UTM..."
+                className="h-9 text-sm"
+              />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Dispositivo</label>
+              <select
+                value={device}
+                onChange={(e) => setDevice(e.target.value)}
+                className="h-9 px-3 rounded-md border border-border/60 bg-background text-sm"
+              >
+                <option value="all">Todos</option>
+                {deviceOptions.map((d) => (
+                  <option key={d} value={d}>
+                    {d}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-[10px] uppercase tracking-wider text-muted-foreground">Fonte</label>
+              <select
+                value={source}
+                onChange={(e) => setSource(e.target.value)}
+                className="h-9 px-3 rounded-md border border-border/60 bg-background text-sm max-w-[180px]"
+              >
+                <option value="all">Todas</option>
+                {sourceOptions.map((s) => (
+                  <option key={s} value={s}>
+                    {s}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <label className="flex items-center gap-2 text-xs text-muted-foreground cursor-pointer h-9">
+              <input
+                type="checkbox"
+                checked={onlyWithKeyword}
+                onChange={(e) => setOnlyWithKeyword(e.target.checked)}
+                className="accent-primary"
+              />
+              Só com keyword
+            </label>
+
+            <Button variant="ghost" size="sm" onClick={resetFilters} className="gap-1 h-9">
+              <X className="w-3 h-3" /> Limpar
+            </Button>
+          </div>
+          <p className="text-xs text-muted-foreground mt-3">
+            Mostrando <span className="text-foreground font-medium">{filteredClicks.length}</span> de {clicks.length} cliques.
+          </p>
+        </Card>
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Stat icon={MousePointerClick} label="Total" value={stats.total} />
+          <Stat icon={MousePointerClick} label="No filtro" value={stats.total} />
           <Stat icon={TrendingUp} label="Últimas 24h" value={stats.last24h} />
           <Stat icon={Globe} label="Google" value={stats.fromGoogle} />
           <Stat icon={Search} label="Com keyword" value={stats.withKeyword} />
         </div>
 
         <Card className="p-5 bg-card border-border/50">
-          <h2 className="font-display font-semibold mb-4">Cliques nos últimos 14 dias</h2>
+          <h2 className="font-display font-semibold mb-4">
+            Cliques no período ({period === "all" ? "tudo" : period})
+          </h2>
           <div className="h-64">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={series}>
@@ -517,11 +602,54 @@ const AdminDashboard = () => {
           <BreakdownCard title="Por rota (página do clique)" rows={byRoute} />
           <BreakdownCard
             title="Landing pages (página de entrada)"
-            rows={groupCountValues(clicks.map((c) => c.landing_page))}
+            rows={groupCountValues(filteredClicks.map((c) => c.landing_page))}
           />
           <BreakdownCard title="Por fonte (utm_source)" rows={bySource} />
           <BreakdownCard title="Por campanha (utm_campaign)" rows={byCampaign} />
         </div>
+
+        {/* Unified keyword tracking */}
+        <Card className="p-5 bg-card border-border/50">
+          <div className="flex items-center justify-between mb-1">
+            <h2 className="font-display font-semibold">Palavras-chave (unificado)</h2>
+            <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+              direto + utm_term + GSC orgânico
+            </span>
+          </div>
+          <p className="text-xs text-muted-foreground mb-4">
+            Combina keyword capturada no clique, utm_term (campanhas pagas) e queries do Search Console
+            das landing pages que receberam tráfego no filtro atual.
+          </p>
+          {topKeywords.length === 0 ? (
+            <p className="text-sm text-muted-foreground">Sem palavras-chave para o filtro atual.</p>
+          ) : (
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Keyword</TableHead>
+                    <TableHead className="text-right">Cliques</TableHead>
+                    <TableHead className="text-right">Impressões</TableHead>
+                    <TableHead>Origem</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {topKeywords.map((k) => (
+                    <TableRow key={k.keyword}>
+                      <TableCell className="text-sm text-primary">{k.keyword}</TableCell>
+                      <TableCell className="text-xs text-right tabular-nums">{k.clicks}</TableCell>
+                      <TableCell className="text-xs text-right tabular-nums">
+                        {k.impressions || "—"}
+                      </TableCell>
+                      <TableCell className="text-xs text-muted-foreground">{k.source}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          )}
+        </Card>
+
 
         <Card className="p-5 bg-card border-border/50">
           <h2 className="font-display font-semibold mb-1">Palavras-chave do Google (orgânico)</h2>
