@@ -51,6 +51,57 @@ const renderMarkdown = (md: string) => {
       continue;
     }
 
+    // Fenced TL;DR / Callout blocks: :::tldr ... ::: or :::callout type=warning ... :::
+    const fence = line.match(/^:::(tldr|callout)(?:\s+type=(info|warning|success|tip))?\s*$/);
+    if (fence) {
+      const kind = fence[1];
+      const type = fence[2] || "info";
+      i++;
+      const buf: string[] = [];
+      while (i < lines.length && !lines[i].startsWith(":::")) {
+        buf.push(lines[i]);
+        i++;
+      }
+      if (i < lines.length) i++; // consume closing :::
+      const body = buf.join(" ").trim();
+      if (kind === "tldr") {
+        blocks.push(
+          <aside
+            key={`tldr-${i}`}
+            className="my-8 rounded-xl border border-primary/30 bg-gradient-to-br from-primary/10 to-primary/5 p-5 md:p-6"
+          >
+            <div className="text-xs font-bold uppercase tracking-wider text-primary mb-2">TL;DR</div>
+            <p className="text-foreground/90 leading-relaxed m-0">{inline(body)}</p>
+          </aside>,
+        );
+      } else {
+        const styleMap: Record<string, string> = {
+          info: "border-blue-500/30 bg-blue-500/5 text-foreground/90",
+          warning: "border-amber-500/40 bg-amber-500/10 text-foreground/90",
+          success: "border-emerald-500/30 bg-emerald-500/5 text-foreground/90",
+          tip: "border-primary/30 bg-primary/5 text-foreground/90",
+        };
+        const labelMap: Record<string, string> = {
+          info: "Importante",
+          warning: "Atenção",
+          success: "Boa prática",
+          tip: "Dica",
+        };
+        blocks.push(
+          <aside
+            key={`cb-${i}`}
+            className={`my-6 rounded-lg border-l-4 p-4 md:p-5 ${styleMap[type]}`}
+          >
+            <div className="text-xs font-bold uppercase tracking-wider mb-1 opacity-80">
+              {labelMap[type]}
+            </div>
+            <p className="leading-relaxed m-0">{inline(body)}</p>
+          </aside>,
+        );
+      }
+      continue;
+    }
+
     if (line.startsWith("## ")) {
       const text = line.slice(3);
       blocks.push(
