@@ -154,6 +154,10 @@ export const pillars: Pillar[] = [
     ],
     postSlugs: [
       "glossario-meta-ads-termos-essenciais-gestor-trafego",
+      "gerenciador-anuncios-meta-tour-completo-iniciantes",
+      "cnpj-mei-meta-ads-vale-pena",
+      "catalogo-meta-commerce-como-criar",
+      "cartao-credito-facebook-ads-boas-praticas",
       "consultoria-meta-ads-vs-curso-quando-contratar",
     ],
   },
