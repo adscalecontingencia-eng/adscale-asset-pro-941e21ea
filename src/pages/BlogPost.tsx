@@ -25,7 +25,7 @@ const slugify = (text: string) =>
     .replace(/\s+/g, "-");
 
 /** Markdown renderer — handles h2/h3 (with anchor IDs), lists, tables, blockquotes, paragraphs, bold. */
-const renderMarkdown = (md: string) => {
+const renderMarkdown = (md: string, campaign = "blog_post") => {
   const lines = md.trim().split("\n");
   const blocks: JSX.Element[] = [];
   let i = 0;
