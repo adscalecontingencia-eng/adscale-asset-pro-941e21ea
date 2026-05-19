@@ -1,15 +1,18 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import { ArrowLeft, Calendar, Clock, ArrowRight, RefreshCw } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, ArrowRight, RefreshCw, Layers } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import SEO from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RelatedPosts from "@/components/RelatedPosts";
+import MidArticleCTA from "@/components/MidArticleCTA";
 import TableOfContents, { extractTocFromMarkdown } from "@/components/TableOfContents";
 import { getPostBySlug } from "@/data/blogPosts";
 import { blogSeoTitles } from "@/data/blogSeoTitles";
+import { getPillarForPost } from "@/data/blogPillars";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
+import { SITE_URL } from "@/lib/site";
 import pedroPhoto from "@/assets/pedro-lucas-fundador.jpg";
 
 const slugify = (text: string) =>
