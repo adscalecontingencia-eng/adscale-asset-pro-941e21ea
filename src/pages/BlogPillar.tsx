@@ -5,6 +5,7 @@ import FooterSection from "@/components/FooterSection";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import SEO from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import MidArticleCTA from "@/components/MidArticleCTA";
 import { getPillarBySlug, getPostsForPillar, pillars } from "@/data/blogPillars";
 
 const SITE = "https://www.adscalecontingencia.com";
