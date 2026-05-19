@@ -11,8 +11,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import Logo from "@/components/Logo";
-import { LogOut, MousePointerClick, Search, TrendingUp, Globe, Download } from "lucide-react";
+import { LogOut, MousePointerClick, Search, TrendingUp, Globe, Download, Mail, X } from "lucide-react";
 import {
   ResponsiveContainer,
   AreaChart,
