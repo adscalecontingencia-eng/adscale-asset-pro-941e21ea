@@ -85,6 +85,10 @@ export const pillars: Pillar[] = [
       "bloqueio-conta-anuncio-meta-como-evitar",
       "recuperar-conta-anuncio-bloqueada-facebook-ads",
       "bloqueio-conta-nova-facebook-ads-7-motivos",
+      "qualidade-conta-anuncio-meta-como-medir",
+      "autenticacao-2-fatores-conta-facebook-ads",
+      "politicas-anuncios-meta-erros-comuns-reprovacao",
+      "nichos-sensiveis-meta-ads-quais-sao",
     ],
   },
   {
