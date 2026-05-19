@@ -1683,6 +1683,949 @@ Se você já tem a operação desenhada e precisa de uma **BM verificada compat�
 Veja também: [O que é Business Manager Verificada no Meta](/blog/o-que-e-business-manager-verificada-meta) e [como o Trust Score do Meta afeta sua operação](/blog/trust-score-meta-ads-como-funciona).
 `,
   },
+  // ============ WAVE A — Fundamentos (Topo de funil) ============
+  {
+    slug: "cnpj-mei-meta-ads-vale-pena",
+    title: "CNPJ ou MEI para anunciar no Meta Ads: o que muda em 2026",
+    description:
+      "Quando vale a pena abrir CNPJ ou MEI para rodar Meta Ads, como isso afeta verificação de BM, limites de gasto, faturamento e fiscal. Guia direto para gestores e infoprodutores.",
+    keywords: ["cnpj meta ads", "mei facebook ads", "abrir cnpj para anunciar", "cnpj para verificar bm", "mei trafego pago"],
+    category: "Topo de funil",
+    readingTime: "7 min",
+    publishedAt: "2026-05-12",
+    ogImage: "/og/og-default.jpg",
+    content: `
+:::tldr
+Anunciar como pessoa física no Meta funciona, mas trava. Para verificar BM, acessar APIs avançadas e escalar com segurança, ter CNPJ é praticamente obrigatório. MEI resolve a maioria dos casos abaixo de R$ 81 mil/ano; acima disso, ME ou LTDA.
+:::
+
+Muito gestor começa anunciando como pessoa física, descobre que está pagando IOF caro, não consegue verificar a Business Manager e trava no primeiro bloqueio. Antes de comprar BM verificada ou contratar serviço de contingência, vale entender **o que o CNPJ libera dentro do Meta Ads**.
+
+## Por que o Meta valoriza CNPJ
+
+A verificação de negócio do Meta exige documentos compatíveis: contrato social, comprovante de endereço comercial e domínio. PJ entrega tudo isso de forma natural; pessoa física quase nunca passa pelo fluxo de verificação automática.
+
+- **Trust Score mais alto** para a BM já no primeiro dia.
+- Acesso a **WhatsApp Cloud API, CAPI, catálogos e domain verification**.
+- Limites de gasto iniciais mais generosos.
+- Recuperação de conta com appeal mais aceito.
+
+## MEI x ME x LTDA: qual escolher
+
+| Regime | Faturamento/ano | Indicado para |
+|---|---|---|
+| MEI | até R$ 81 mil | Gestor solo, infoprodutor iniciante |
+| ME (Simples) | até R$ 4,8 mi | Agência pequena, e-commerce em crescimento |
+| LTDA | sem teto prático | Operações high-ticket, multi-sócio |
+
+:::callout type=warning
+MEI **não permite** atividade de "agência de publicidade". Use CNAEs compatíveis como **promoção de vendas**, **comércio varejista** ou **desenvolvimento de programas sob encomenda**. Errar o CNAE dá problema fiscal e atrasa verificação.
+:::
+
+## Como configurar dentro do Meta
+
+1. Abra o CNPJ com endereço comercial real (evite endereço residencial em coworking genérico).
+2. Compre um domínio próprio (.com.br ou .com).
+3. Crie a BM já em nome da empresa (não migre depois — perde histórico).
+4. Suba o domínio em **Configurações → Segurança da marca → Domínios** e valide via DNS.
+5. Abra o fluxo de **Verificação de negócio** com contrato social + comprovante de endereço.
+
+## Quando o CNPJ não basta
+
+Em nichos sensíveis (saúde, finanças, apostas, suplementos), ter CNPJ é só o começo. Mesmo verificada, a conta passa por revisão manual mais agressiva — é aí que estrutura de contingência (BM secundária + perfis aged) protege o faturamento.
+
+> Tem CNPJ ativo e quer pular o tempo de verificação? Veja [como funciona uma BM verificada pronta](/blog/o-que-e-business-manager-verificada-meta) e o impacto no [Trust Score](/blog/trust-score-meta-ads-como-funciona).
+`,
+  },
+  {
+    slug: "instalar-pixel-meta-passo-a-passo",
+    title: "Como instalar o Pixel do Meta passo a passo (2026)",
+    description:
+      "Tutorial completo de instalação do Pixel do Meta: criar dataset, conectar ao site, validar eventos com Test Events e ativar CAPI. Para WordPress, Shopify, e código próprio.",
+    keywords: ["instalar pixel meta", "como instalar pixel facebook", "pixel meta ads passo a passo", "dataset meta", "test events pixel"],
+    category: "Topo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-12",
+    ogImage: "/og/og-pixel-capi.jpg",
+    content: `
+:::tldr
+Crie o **dataset** no Events Manager, instale o Pixel base no <head> de todas as páginas, dispare eventos padrão (PageView, ViewContent, Lead, Purchase) e valide com Test Events. Sem essa base, otimização de campanha não tem sinal para aprender.
+:::
+
+O Pixel do Meta é o sensor que devolve para o algoritmo o que aconteceu no seu site depois do clique. Sem ele, a campanha vira loteria. Em 2026, o Pixel virou parte do **Dataset** (que unifica web, app e CAPI), e o fluxo de instalação mudou ligeiramente.
+
+## 1. Criar o Dataset
+
+1. Acesse **Events Manager → Conectar fonte de dados → Web**.
+2. Dê um nome ligado ao domínio (ex.: \`pixel-loja-principal\`).
+3. Anote o **ID do Dataset** (substituiu o antigo "ID do Pixel").
+
+## 2. Instalar o código base
+
+Cole o snippet abaixo dentro de \`<head>\` em **todas as páginas**:
+
+\`\`\`
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){...} // snippet oficial do Meta
+fbq('init', 'SEU_DATASET_ID');
+fbq('track', 'PageView');
+</script>
+\`\`\`
+
+Em **WordPress**, use o plugin **PixelYourSite** ou o **Site Kit**; em **Shopify**, use o campo nativo em *Online Store → Preferences*.
+
+## 3. Eventos padrão obrigatórios
+
+| Evento | Quando disparar |
+|---|---|
+| PageView | toda página |
+| ViewContent | página de produto/oferta |
+| Lead | formulário enviado |
+| InitiateCheckout | início do checkout |
+| Purchase | confirmação de compra |
+
+## 4. Validar com Test Events
+
+Em **Events Manager → Test Events**, cole a URL e navegue pelo site. Cada evento deve aparecer em tempo real. Se não aparecer:
+
+- Bloqueador de anúncios ativo.
+- Pixel duplicado disparando \`PageView\` duas vezes.
+- Erro no \`init\` (ID errado).
+
+:::callout type=warning
+Pixel duplicado é o erro mais comum em e-commerce. Ele infla métricas, polui o aprendizado e pode bloquear a conta por dados inconsistentes. Use a extensão **Meta Pixel Helper** para checar.
+:::
+
+## 5. Ativar CAPI (recomendado)
+
+Pixel sozinho perde **30-40% dos eventos** por bloqueadores e iOS. Subir **Conversions API** em paralelo recupera esses dados. Veja o comparativo em [Pixel vs CAPI](/blog/pixel-vs-capi-conversions-api-meta-ads).
+
+## Checklist final
+
+- Dataset criado e nomeado.
+- Código base no \`<head>\` global.
+- Eventos padrão disparando.
+- Test Events validado.
+- Domínio verificado em Segurança da marca.
+- CAPI configurado (ou no roadmap).
+
+> Sem Pixel saudável, qualquer otimização vira chute. Próximo passo: [verificar o domínio](/blog/dominio-verificado-facebook-como-configurar-ios14) e ativar [Trust Score](/blog/trust-score-meta-ads-como-funciona).
+`,
+  },
+  {
+    slug: "catalogo-meta-commerce-como-criar",
+    title: "Como criar e configurar Catálogo no Meta Commerce Manager",
+    description:
+      "Passo a passo para criar Catálogo no Commerce Manager, conectar ao Pixel, subir feed manual ou via plataforma (Shopify, WooCommerce) e rodar campanhas de vendas dinâmicas.",
+    keywords: ["catalogo meta", "commerce manager", "criar catalogo facebook", "dpa meta ads", "feed produtos facebook"],
+    category: "Topo de funil",
+    readingTime: "7 min",
+    publishedAt: "2026-05-13",
+    ogImage: "/og/og-default.jpg",
+    content: `
+:::tldr
+Catálogo é pré-requisito para **DPA (Dynamic Product Ads)**, Reels Shopping e WhatsApp Catalog. Cria no Commerce Manager, conecta ao Pixel via Match de eventos e mantém feed atualizado — manual, planilha, plataforma ou via API.
+:::
+
+Anunciar produto sem catálogo é como rodar campanha sem Pixel: você até consegue, mas perde a parte mais lucrativa do algoritmo. Catálogo libera **remarketing dinâmico**, **vendas em coleção** e **integração com WhatsApp e Instagram Shop**.
+
+## Quando você precisa de catálogo
+
+- E-commerce com 20+ SKUs.
+- Infoprodutor com mais de um produto.
+- Marketplace, agência imobiliária, automotivo.
+- Quem quer rodar Reels Shopping ou WhatsApp Catalog.
+
+## Passo a passo
+
+1. **Commerce Manager → Catálogos → Criar catálogo**.
+2. Escolha o tipo (e-commerce, viagens, imóveis, automotivo).
+3. Conecte à BM verificada.
+4. Adicione produtos por uma das vias:
+   - **Manual** (até 20 itens — para testar).
+   - **Feed agendado** (URL CSV/XML atualizado).
+   - **Pixel/SDK** (autopopulação por eventos ViewContent).
+   - **Parceiro de plataforma** (Shopify, WooCommerce, Nuvemshop).
+
+## Campos obrigatórios do feed
+
+| Campo | Exemplo |
+|---|---|
+| id | SKU-1234 |
+| title | Tênis Runner Pro 41 |
+| description | Tênis de corrida com amortecimento |
+| availability | in stock |
+| condition | new |
+| price | 349.90 BRL |
+| link | https://loja.com/p/runner-pro |
+| image_link | https://cdn.loja.com/runner.jpg |
+| brand | AcmeRun |
+
+:::callout type=tip
+Use **imagens 1:1 com 1024×1024**, evite watermark e fundo poluído. Catálogos com imagens limpas têm CTR até 2× maior em DPA.
+:::
+
+## Conectar ao Pixel
+
+Em **Catálogo → Eventos**, vincule o dataset do Pixel e mapeie:
+
+- \`ViewContent → content_ids\`
+- \`AddToCart → content_ids + value\`
+- \`Purchase → content_ids + value + currency\`
+
+Esse mapeamento é o que viabiliza o remarketing dinâmico ("mostre exatamente o produto que ele viu").
+
+## Erros comuns
+
+- Feed com IDs duplicados → catálogo rejeita o lote inteiro.
+- \`availability\` em português ("disponível") → use sempre o enum em inglês.
+- Pixel mandando \`content_ids\` diferentes do feed → matching cai e DPA não roda.
+
+:::callout type=warning
+Catálogo em BM não verificada tem limite de produtos e fica fora do WhatsApp Shop. Se a meta é vender pelo WhatsApp, valide a BM **antes** de subir o feed.
+:::
+
+> Próximo passo: rodar primeira campanha DPA com público de remarketing de 14 dias e comparar CPA contra tráfego frio.
+`,
+  },
+  {
+    slug: "como-funciona-leilao-meta-ads",
+    title: "Como funciona o leilão do Meta Ads (e por que seu CPM sobe)",
+    description:
+      "Entenda os 3 pilares do leilão do Meta — lance, taxa de ação estimada e qualidade — e por que dois anunciantes com o mesmo público pagam preços diferentes pelo mesmo clique.",
+    keywords: ["leilao meta ads", "como funciona leilao facebook", "cpm alto meta", "total value leilao", "qualidade anuncio meta"],
+    category: "Topo de funil",
+    readingTime: "6 min",
+    publishedAt: "2026-05-13",
+    ogImage: "/og/og-default.jpg",
+    content: `
+:::tldr
+O Meta não vende impressão pelo maior lance. Quem vence é quem entrega o **maior Total Value** = lance × taxa de ação estimada × qualidade do anúncio. Por isso, melhorar criativo derruba CPM mais rápido do que aumentar orçamento.
+:::
+
+Todo dia gestor reclama: "subi o orçamento e o CPM disparou". O motivo não é o orçamento — é como o leilão calcula o vencedor. Entender essa lógica resolve metade dos problemas de performance.
+
+## A fórmula do Total Value
+
+\`Total Value = Lance × Taxa estimada de ação × Qualidade\`
+
+O Meta escolhe o anúncio que entrega o maior valor combinado **para o usuário e para a plataforma**. Você pode pagar menos que um concorrente e ainda assim vencer o leilão — desde que seu criativo seja melhor.
+
+## Os 3 fatores
+
+### 1. Lance
+Em campanhas de **lance automático**, o Meta define dinamicamente. Em **lance manual / target cost**, você fixa o teto.
+
+### 2. Taxa de ação estimada
+Probabilidade de o usuário executar a ação otimizada (clique, compra, lead). Quanto mais o Pixel/CAPI mandar sinal de conversão real, melhor.
+
+### 3. Qualidade do anúncio
+Combina:
+- Feedback negativo (ocultar, denunciar).
+- Engajamento (curtidas, comentários, shares).
+- Score de relevância e taxa de conclusão de vídeo.
+- Detecção de clickbait, sensacionalismo ou *engagement bait*.
+
+## Por que o CPM sobe
+
+- **Audiência saturada**: mesmo público, mais anunciantes competindo.
+- **Criativo cansado**: CTR cai, qualidade cai, Total Value cai → para manter entrega, precisa pagar mais.
+- **Pixel ruim**: sem sinal de conversão, taxa estimada cai.
+- **Sazonalidade**: Black Friday, eleição, datas comerciais elevam todos os leilões.
+
+:::callout type=tip
+Renove criativo a cada **5-7 dias** em campanhas de scaling. Não precisa reescrever do zero — varia hook, primeiros 2 segundos e thumb.
+:::
+
+## O que melhora seu lugar no leilão
+
+- Pixel + CAPI bem instalados (sinal forte de conversão).
+- Domínio verificado.
+- Criativos com hook nos primeiros 3 segundos.
+- Página de destino rápida (LCP < 2.5s).
+- Conta com [Trust Score](/blog/trust-score-meta-ads-como-funciona) alto.
+
+:::callout type=warning
+Aumentar orçamento em 30%+ de uma vez resetar o aprendizado. Suba em degraus de 10-20% a cada 48h para preservar o CPM.
+:::
+
+> Quer destravar leilão sem queimar conta? Veja o guia de [warm-up de conta de anúncio](/blog/warm-up-conta-anuncio-meta-passo-a-passo).
+`,
+  },
+  {
+    slug: "nichos-sensiveis-meta-ads-quais-sao",
+    title: "Nichos sensíveis no Meta Ads: lista completa e como anunciar sem bloquear",
+    description:
+      "Lista atualizada de nichos sensíveis no Meta Ads (saúde, finanças, emagrecimento, apostas, suplementos) e o que muda na criação, BM, página e criativo para evitar bloqueio.",
+    keywords: ["nichos sensiveis meta", "anunciar emagrecimento facebook", "anunciar saude meta ads", "anunciar credito facebook", "politica anuncios sensiveis"],
+    category: "Topo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-14",
+    ogImage: "/og/og-default.jpg",
+    content: `
+:::tldr
+Nichos sensíveis (saúde, emagrecimento, finanças, apostas, suplementos, relacionamento, política) não são proibidos — são **revisados com tolerância zero**. Quem opera sério usa BM verificada, página antiga, criativo livre de promessa e estrutura de contingência.
+:::
+
+A diferença entre quem anuncia há 5 anos em nicho sensível e quem é bloqueado toda semana **não é sorte**: é estrutura. O Meta tem uma lista interna de categorias que entram em **fila de revisão mais rígida**, com IA específica analisando texto, imagem, áudio e LP.
+
+## Lista atualizada (2026)
+
+- **Saúde**: clínicas, dentistas, estéticos, terapias, telemedicina.
+- **Emagrecimento e antes/depois**: dieta, cirurgia, suplemento.
+- **Finanças**: crédito, empréstimo, cartão, investimento, day trade.
+- **Criptomoedas e DeFi**.
+- **Apostas e iGaming** (mercado regulamentado, requer credenciamento).
+- **Suplementos, fitoterápicos, nootrópicos**.
+- **Relacionamento, conquista, sedução**.
+- **Político e eleitoral** (exige autorização específica).
+- **Bebidas alcoólicas, tabaco, vape**.
+- **Armas, segurança privada, escoltas**.
+
+## O que muda na operação
+
+| Área | Nicho normal | Nicho sensível |
+|---|---|---|
+| BM | nova ou aged | **verificada obrigatória** |
+| Página | qualquer | **antiga, com seguidores reais** |
+| Pixel/CAPI | bom ter | **obrigatório** |
+| Criativo | foco em conversão | **livre de promessa, antes/depois e gatilho médico** |
+| LP | leve | **com termos, privacy, autoridade visível** |
+| Estrutura | conta única | **2-3 BMs em paralelo** |
+
+## Erros que bloqueiam na hora
+
+- "Perca 10kg em 30 dias" → promessa quantificada.
+- Foto de barriga *antes/depois*.
+- Print de extrato bancário ou contracheque.
+- Linguagem em segunda pessoa apontando defeito ("você está acima do peso?").
+- Depoimento sem "*resultados podem variar*".
+- LP sem CNPJ, sem termos de uso, sem responsável técnico (saúde).
+
+:::callout type=warning
+**Antes/depois** continua proibido em emagrecimento mesmo em 2026 — o Meta usa visão computacional para detectar mesmo quando a imagem está dividida em dois posts.
+:::
+
+## Como blindar o operacional
+
+1. **BM verificada** em CNPJ com CNAE compatível.
+2. Página com **2+ anos**, seguidores orgânicos, sem histórico de denúncia.
+3. **Domínio verificado** + Pixel + CAPI.
+4. **Plano B**: 1 BM secundária pronta para subir em até 1h se a principal cair.
+5. **Criativos pré-aprovados em sandbox** (subir 5 versões, deixar 3 pausadas como backup).
+
+:::callout type=tip
+Em saúde, exiba CRM/CRO/CRP do responsável técnico tanto no criativo (rodapé) quanto na LP. Reduz reprovação em ~40%.
+:::
+
+> Vai entrar num nicho sensível? Veja [como evitar bloqueio de conta](/blog/bloqueio-conta-anuncio-meta-como-evitar) e [como funciona a BM verificada](/blog/o-que-e-business-manager-verificada-meta).
+`,
+  },
+  {
+    slug: "qualidade-conta-anuncio-meta-como-medir",
+    title: "Qualidade da conta de anúncio no Meta: como medir e melhorar",
+    description:
+      "Como o Meta calcula a qualidade da sua conta de anúncio (Account Quality), onde acompanhar, o que derruba o score e o que fazer para recuperar antes do bloqueio.",
+    keywords: ["account quality meta", "qualidade conta anuncio facebook", "score conta meta ads", "violacoes facebook ads", "ad account quality"],
+    category: "Topo de funil",
+    readingTime: "7 min",
+    publishedAt: "2026-05-14",
+    ogImage: "/og/og-default.jpg",
+    content: `
+:::tldr
+**Account Quality** é o painel onde o Meta mostra advertências, restrições e o score de cada ativo (conta, BM, página, perfil). Verificar semanalmente evita que você descubra um bloqueio quando a campanha já parou de entregar.
+
+:::
+
+Quase ninguém abre o **business.facebook.com/accountquality**. E é exatamente lá que o Meta avisa, com dias de antecedência, que sua conta está prestes a ser restringida.
+
+## Onde acessar
+
+\`Business Suite → Configurações → Qualidade da conta\`
+
+Você verá três níveis:
+
+- **Conta de anúncio**
+- **Página**
+- **Perfil pessoal administrador**
+
+Cada um tem status: **Ativo / Em revisão / Restrito / Desativado**.
+
+## O que derruba a qualidade
+
+- Anúncios reprovados repetidos (mesmo criativo, mesmo motivo).
+- Feedback negativo alto (ocultar, "não quero ver", denúncia).
+- Disputas de pagamento (chargeback).
+- Sinais de scraping ou automação.
+- Login simultâneo em IPs distantes.
+- Página com avaliações negativas e baixo CSAT.
+
+## O que melhora
+
+- Renovar criativos antes de saturar.
+- Atender pedido de verificação na hora.
+- Manter domínio + Pixel + CAPI consistentes.
+- Responder reviews da página.
+- Pagar com o mesmo método por bastante tempo.
+
+:::callout type=tip
+Após qualquer reprovação, **não republique o mesmo anúncio**. Ajuste copy, troque thumb e republique como criativo novo. Reapresentar o mesmo conteúdo conta como reincidência.
+:::
+
+## Como ler o histórico de violações
+
+Clique em cada violação para ver:
+
+- **Política violada** (ex.: produtos restritos, conteúdo enganoso).
+- **Anúncio específico** (ID).
+- **Direito de revisão** (botão "Solicitar nova análise").
+
+Use sempre o appeal — em ~30% dos casos o Meta reverte com um texto bem escrito ([guia de recuperação](/blog/recuperar-conta-anuncio-bloqueada-facebook-ads)).
+
+:::callout type=warning
+3 violações em 30 dias = restrição automática. 5 violações = desativação. Reset acontece apenas após 90 dias limpos.
+:::
+
+## Rotina recomendada
+
+| Frequência | Ação |
+|---|---|
+| Diária | Olhar notificações no Business Suite |
+| Semanal | Account Quality em todas as BMs |
+| Mensal | Revisar páginas, domínios e perfis admin |
+| Trimestral | Auditar acessos, remover ex-funcionários |
+
+> Antes do próximo bloqueio, faça o [checklist de auditoria da BM](/blog/checklist-auditoria-bm-facebook-18-itens).
+`,
+  },
+  {
+    slug: "autenticacao-2-fatores-conta-facebook-ads",
+    title: "Autenticação em 2 fatores no Facebook Ads: como configurar sem perder a conta",
+    description:
+      "Por que o 2FA é obrigatório para acessar BM, quais métodos o Meta aceita, como configurar com app autenticador e o que fazer se perder o celular sem perder a conta de anúncio.",
+    keywords: ["2fa facebook ads", "autenticacao dois fatores meta", "bm 2fa", "perdi celular facebook ads", "codigo seguranca meta"],
+    category: "Topo de funil",
+    readingTime: "6 min",
+    publishedAt: "2026-05-15",
+    ogImage: "/og/og-default.jpg",
+    content: `
+:::tldr
+2FA é obrigatório para qualquer administrador de BM. Use **app autenticador (Authy, 1Password, Google Auth)** — nunca só SMS — e guarde os **códigos de recuperação** num gerenciador de senhas. Perder 2FA = perder a conta.
+:::
+
+A maioria dos casos de "perdi minha BM" começa com SMS de 2FA num número que o gestor não tem mais acesso. Configurar 2FA do jeito certo leva 5 minutos e evita a tragédia.
+
+## Por que SMS não basta
+
+- SIM swap (clonagem de chip).
+- Operadora bloqueia número inativo.
+- Número antigo da agência que saiu da empresa.
+- Roaming internacional sem sinal.
+
+## Métodos aceitos pelo Meta
+
+| Método | Segurança | Recomendado |
+|---|---|---|
+| App autenticador (TOTP) | Alta | ✅ Padrão |
+| Chave física (YubiKey) | Máxima | ✅ Admin master |
+| SMS | Média | Apenas backup |
+| Código por e-mail | Baixa | Não usar como principal |
+
+## Passo a passo
+
+1. \`Facebook → Configurações → Senha e segurança → Autenticação em duas etapas\`.
+2. Escolha **App de autenticação**.
+3. Escaneie o QR no Authy/1Password.
+4. Confirme com o código de 6 dígitos.
+5. **Salve os 10 códigos de recuperação** no gerenciador de senhas.
+
+:::callout type=warning
+Tirar print dos códigos e mandar no WhatsApp **não é guardar**. Use 1Password, Bitwarden ou cofre da empresa. Se vazar, qualquer pessoa com login + código entra sem 2FA.
+:::
+
+## Setup para times
+
+- Todo admin master com **2FA + YubiKey**.
+- Funcionário operacional com **2FA app + sem permissão de Business Settings**.
+- E-mail de recuperação corporativo, **nunca pessoal**.
+- Acesso via [perfil aged dedicado à BM](/blog/perfil-aged-facebook-por-que-administrador-importa).
+
+## Perdi celular e códigos — e agora?
+
+1. Tente login pelo dispositivo onde já está logado (Facebook web/app).
+2. Abra **Account Center → Segurança → Resetar 2FA** (precisa estar logado em alguma sessão ativa).
+3. Sem sessão ativa: peça a outro admin da BM para te re-adicionar com novo e-mail.
+4. Sem outro admin: appeal demorado e às vezes irrecuperável.
+
+:::callout type=tip
+Toda BM séria tem **dois administradores master** com 2FA independentes. Single point of failure = single point de prejuízo.
+:::
+
+> Faça também a [auditoria de acessos da BM](/blog/checklist-auditoria-bm-facebook-18-itens) hoje mesmo.
+`,
+  },
+  {
+    slug: "estrutura-bm-conta-pixel-pagina-relacao",
+    title: "BM, conta de anúncio, página e pixel: como tudo se conecta no Meta",
+    description:
+      "Diagrama prático de como Business Manager, conta de anúncio, página, pixel, catálogo e domínio se relacionam — e por que entender essa hierarquia evita 80% dos problemas.",
+    keywords: ["hierarquia bm meta", "estrutura business manager", "como funciona bm meta", "bm conta pixel pagina", "arquitetura meta ads"],
+    category: "Topo de funil",
+    readingTime: "6 min",
+    publishedAt: "2026-05-15",
+    ogImage: "/og/og-default.jpg",
+    content: `
+:::tldr
+A **BM é o cofre**. Dentro dela ficam contas de anúncio, páginas, pixels, catálogos, domínios e pessoas. Cada ativo pode pertencer a **uma BM por vez** — entender isso evita pixel duplicado, página órfã e perda de histórico em migração.
+:::
+
+A maioria dos erros graves de operação vem de não entender a hierarquia: dono confunde página com BM, agência cria pixel em conta de cliente, freela some com domínio verificado. Vamos por partes.
+
+## Hierarquia visual
+
+\`\`\`text
+Business Manager (BM)
+├─ Pessoas (admin, employee, funcionário do parceiro)
+├─ Contas de anúncio (1..N)
+├─ Páginas (1..N)
+├─ Pixels / Datasets (1..N)
+├─ Catálogos
+├─ Domínios verificados
+├─ Apps
+├─ WhatsApp Business Accounts (WABA)
+└─ Parceiros (outras BMs com acesso)
+\`\`\`
+
+## Regras que ninguém te conta
+
+- **Pixel só pode estar em UMA BM ao mesmo tempo.** Compartilhar com agência? Use *partner access*.
+- **Página só pode ter UM proprietário (owner BM).** Outras BMs podem ter acesso, mas não posse.
+- **Domínio verificado idem.** Só uma BM "dona". Migrar = perder verificação e recomeçar DNS.
+- **Conta de anúncio** segue a regra de pixel.
+- **Catálogo** pode ser compartilhado por *Commerce Partner*.
+
+:::callout type=warning
+Quando uma agência diz "eu crio o pixel na minha BM e mando os dados", você está entregando o histórico de aprendizado da sua marca para ela. **Crie o pixel na SUA BM** e dê acesso parcial à agência.
+:::
+
+## Fluxo correto de criação
+
+1. CNPJ → cria BM no nome da empresa.
+2. Verifica negócio (CNPJ + endereço + domínio).
+3. Cria domínio + verifica DNS.
+4. Cria página (ou reivindica a existente).
+5. Cria conta de anúncio dentro da BM.
+6. Cria pixel/dataset → conecta no site + na conta de anúncio.
+7. Convida parceiros via *Partner Access* (não como administrador master).
+
+## Quando algo dá errado
+
+| Sintoma | Causa provável |
+|---|---|
+| Pixel some do site | Pixel migrado para outra BM |
+| Página fica "sem proprietário" | Owner BM foi desativada |
+| Domínio cai da Segurança da marca | Token DNS removido ou DNS trocado |
+| Catálogo não puxa eventos | Pixel desconectado do catálogo |
+
+:::callout type=tip
+Antes de qualquer migração, faça **backup dos IDs** (pixel, conta, página, catálogo) e printscreen das permissões. Migração mal feita custa anos de Trust Score.
+:::
+
+> Para operação séria, veja a [arquitetura de contingência](/blog/arquitetura-contingencia-meta-ads-operacao-alto-volume) que distribui ativos entre BM principal e secundária.
+`,
+  },
+  {
+    slug: "tipos-de-bm-meta-nova-antiga-verificada-ilimitada",
+    title: "Tipos de BM no Meta: nova, antiga, verificada e ilimitada (comparativo 2026)",
+    description:
+      "Diferenças práticas entre BM nova, BM aged, BM verificada e BM ilimitada — o que muda em limite de gasto, Trust Score, risco de bloqueio e preço de mercado.",
+    keywords: ["tipos de bm", "bm nova vs bm verificada", "bm ilimitada", "bm aged", "comprar bm comparativo"],
+    category: "Topo de funil",
+    readingTime: "7 min",
+    publishedAt: "2026-05-16",
+    ogImage: "/og/og-default.jpg",
+    content: `
+:::tldr
+BM **nova** tem limite baixo e Trust Score zero. BM **aged** ganha tempo de vida. BM **verificada** tem CNPJ aprovado e libera APIs. BM **ilimitada** soma verificada + spending cap removido — patamar para operações 6-7 dígitos/mês.
+:::
+
+Quando você lê "comprar BM" no mercado, são pelo menos quatro produtos diferentes embaixo do mesmo nome. Saber qual encaixa na sua operação evita comprar caro o que não precisa — ou barato o que vai te travar amanhã.
+
+## Comparativo direto
+
+| Tipo | Trust Score inicial | Spending cap | Verificação CNPJ | Uso ideal |
+|---|---|---|---|---|
+| BM nova | Baixo | R$ 100-1.500/dia | Não | Teste, infoprodutor iniciante |
+| BM aged | Médio | R$ 1k-10k/dia | Não | Quem precisa pular o warm-up inicial |
+| BM verificada | Alto | R$ 10k-50k/dia | **Sim** | Operação séria, nichos sensíveis, WhatsApp API |
+| BM ilimitada | Muito alto | **Sem cap** | Sim | Scaling 6-7 dígitos/mês |
+
+## BM nova
+
+Criada do zero, sem histórico. Você assume todo o warm-up: subir gasto em degraus, criar pixel, verificar domínio, evitar bloqueio na primeira semana.
+
+- **Prós**: barata (gratuita se você mesmo criar).
+- **Contras**: limite ridículo nos primeiros dias, alta chance de review.
+
+## BM aged
+
+BM criada há 6m-3 anos, com gasto pequeno mas constante. Trust Score "morno".
+
+- **Prós**: pula warm-up inicial, aceita criativo médio.
+- **Contras**: ainda não tem CNPJ aprovado → não acessa WhatsApp API.
+
+## BM verificada
+
+CNPJ aprovado no fluxo oficial. Libera tudo: domain verification automática, CAPI avançado, WhatsApp Cloud API, catálogos grandes.
+
+- **Prós**: limite alto desde o dia 1, base para [WhatsApp API](/blog/disparo-via-api-whatsapp-cloud-bm-verificada-guia-completo).
+- **Contras**: requer fornecedor sério ([como escolher](/blog/como-escolher-fornecedor-bm-verificada)).
+
+## BM ilimitada
+
+Verificada **e** com spending limit removido pelo Meta (geralmente após histórico de gasto + CNPJ robusto). Padrão para operações que rodam R$ 50 mil/dia ou mais.
+
+:::callout type=tip
+"Ilimitada" não significa "imortal". Mesmo BM sem cap pode ser bloqueada por violação. Quem opera nesse patamar mantém **2 a 3 BMs ilimitadas em paralelo** como contingência.
+:::
+
+## Como escolher
+
+Volume mensal de Meta Ads:
+
+- **Até R$ 5k/mês** → BM nova bem aquecida resolve.
+- **R$ 5k-30k/mês** → BM aged ou verificada simples.
+- **R$ 30k-200k/mês** → Verificada, com BM secundária pronta.
+- **R$ 200k+/mês** → Verificada principal + ilimitada secundária + WhatsApp API.
+
+:::callout type=warning
+Não compre verificada "barata demais". O Meta detecta padrão de origem — fornecedor que vende em massa atrai revisão. Prefira poucos fornecedores com handover técnico.
+:::
+
+> Veja também [quanto custa uma BM verificada em 2026](/blog/quanto-custa-bm-verificada-facebook-2026) e o [ROI da contingência](/blog/calcular-roi-investimento-contingencia-meta-ads).
+`,
+  },
+  {
+    slug: "cartao-credito-facebook-ads-boas-praticas",
+    title: "Cartão de crédito para Facebook Ads: boas práticas e o que derruba a conta",
+    description:
+      "Como escolher cartão para anunciar no Meta, por que evitar cartões pré-pagos virtuais, como configurar limite de gasto e o que fazer quando o pagamento é rejeitado.",
+    keywords: ["cartao facebook ads", "pagamento meta ads", "cartao pre pago facebook", "pagamento recusado meta", "metodo pagamento bm"],
+    category: "Topo de funil",
+    readingTime: "6 min",
+    publishedAt: "2026-05-16",
+    ogImage: "/og/og-default.jpg",
+    content: `
+:::tldr
+Use **cartão de crédito empresarial em nome do CNPJ da BM**, com limite alto e histórico de uso. Evite pré-pago virtual, cartão de terceiros e troca constante de método — esses são os 3 maiores motivos de bloqueio por "atividade suspeita de pagamento".
+:::
+
+Cartão é o ativo mais subestimado da operação. Pagamento bom estabiliza Trust Score; pagamento ruim derruba conta verificada em uma semana.
+
+## O que o Meta avalia no método de pagamento
+
+- **Nome do titular** vs nome da BM/empresa.
+- **País de emissão** vs país da conta de anúncio.
+- **Histórico de cobranças** (sucesso, recusa, chargeback).
+- **Tempo do método na conta** (trocas frequentes = alerta).
+
+## Boas práticas
+
+1. Cartão **PJ no CNPJ da BM**, limite ≥ 3× gasto mensal.
+2. Cadastrar **dois métodos** (principal + backup).
+3. **Pré-pagar** valor em conta para evitar recusa em pico.
+4. Manter **endereço de cobrança = endereço do CNPJ**.
+5. Avisar o banco antes de elevar muito o gasto (evita antifraude do emissor).
+
+## O que evitar
+
+- Cartão pré-pago virtual gerado a cada semana.
+- Cartão pessoal em conta empresarial (e vice-versa).
+- Trocar bandeira/banco a cada bloqueio.
+- Boleto como método principal (atraso = pausa imediata).
+- Cartão de cliente em conta da agência.
+
+:::callout type=warning
+Cartão pré-pago virtual descartável é uma das **assinaturas favoritas de operação suspeita**. O Meta cruza BIN, IP e fingerprint — e bloqueia. Se precisa de cartão isolado, use **cartão corporativo nominal** (tipo Stark, Cora) com mesmo CNPJ.
+:::
+
+## Pagamento recusado — checklist
+
+1. Verificar limite e fatura no app do banco.
+2. Conferir se o Meta cobrou em USD (algumas BMs cobram em dólar + IOF).
+3. Liberar transação internacional no banco.
+4. Atualizar CVV e validade.
+5. Cadastrar segundo método e tentar de novo.
+
+:::callout type=tip
+Defina **limite de gasto da conta** (Spending Limit) acima do orçamento, mas abaixo do limite do cartão. Isso evita que um BUG ou pixel duplicado dispare gasto que estoure o cartão e bloqueie a conta.
+:::
+
+## Cobrança e fiscal
+
+- Solicite a **fatura mensal em PDF** no Billing.
+- Configure CNPJ para que a nota saia com retenção correta.
+- Guarde 5 anos para Receita.
+
+> Estabilidade de pagamento é parte do [Trust Score](/blog/trust-score-meta-ads-como-funciona). Pagamento sólido = leilão melhor.
+`,
+  },
+  {
+    slug: "politicas-anuncios-meta-erros-comuns-reprovacao",
+    title: "Políticas de anúncios do Meta: os 12 erros que mais reprovam criativo",
+    description:
+      "Top 12 motivos de reprovação de anúncio no Meta em 2026: gatilhos médicos, antes/depois, promessa quantificada, segunda pessoa, screenshots de chat e mais — com exemplos de correção.",
+    keywords: ["anuncio reprovado meta", "politica anuncios facebook", "porque anuncio reprovado", "erros criativos meta", "appeal anuncio meta"],
+    category: "Topo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-17",
+    ogImage: "/og/og-default.jpg",
+    content: `
+:::tldr
+80% das reprovações vêm de 12 erros recorrentes — quase todos resolvíveis com **troca de hook e ajuste de copy**. Saber quais são acelera o tempo de subida e protege Trust Score.
+:::
+
+A política do Meta é vaga de propósito. Mas existem padrões claros do que a moderação automática derruba. Use este checklist antes de subir qualquer criativo.
+
+## Os 12 erros mais comuns
+
+### 1. Atributos pessoais
+"Você, mulher acima de 40..." → o Meta proíbe apontar idade, peso, condição médica, orientação. Use **3ª pessoa** ou pergunta neutra.
+
+### 2. Antes e depois
+Mesmo em fitness, estética, dental, finanças. Substitua por **processo / metodologia / depoimento textual**.
+
+### 3. Promessa quantificada
+"Perca 10kg em 30 dias" / "Lucre R$ 10k/mês" → reprovado. Reescreva como **possibilidade** ("o método que ajudou X clientes a...").
+
+### 4. Screenshot de chat ou extrato
+Print do WhatsApp ou bancário viola política de prova. Substitua por **case escrito + foto profissional**.
+
+### 5. Linguagem clickbait
+"NÃO CLIQUE SE..." / "VOCÊ NÃO VAI ACREDITAR" → reduz score e reprova.
+
+### 6. Caixa alta excessiva
+Mais de 30% do texto em maiúsculo é flagged.
+
+### 7. Emojis em excesso
+🔥🔥🔥 não convertem mais — e ainda reduzem qualidade.
+
+### 8. LP inconsistente
+Anúncio promete X, LP entrega Y → reprovação por desinformação.
+
+### 9. Pixel ausente ou quebrado
+Sem Pixel, o Meta classifica como "tráfego de baixa qualidade" e restringe.
+
+### 10. Termos médicos/financeiros sem disclaimer
+"cura", "garantido", "rentabilidade certa" → reprovado.
+
+### 11. Imagem com texto em excesso
+Voltou a importar em 2026 — acima de 50% texto reduz entrega.
+
+### 12. URL encurtada
+Bit.ly e similares parecem phishing. Use **domínio verificado** próprio.
+
+## Como reescrever (exemplos)
+
+| Reprovado | Aprovado |
+|---|---|
+| "Cansada de barriga flácida?" | "Conheça o método que ajudou 800 mulheres a treinar em casa" |
+| "Ganhe R$ 10k/mês" | "Veja como meus alunos estruturam o próprio negócio" |
+| "CURE sua ansiedade" | "Terapia online com psicólogos credenciados" |
+| "Print do PIX recebido" | Depoimento em vídeo + storytelling escrito |
+
+:::callout type=tip
+Antes de subir, rode o texto no **Meta Ad Library** procurando concorrentes ativos. Se ninguém usa essa abordagem há meses, é sinal de que reprova.
+:::
+
+## Reprovou — o que fazer
+
+1. **Não republique igual.** Reincidência conta.
+2. Leia o motivo exato (Account Quality → violação).
+3. Ajuste copy + thumb e republique como **novo criativo**.
+4. Se acredita que foi engano, abra **Solicitar nova análise**. Taxa de reversão ~30%.
+5. Se repetiu 3+ vezes, troque a conta para a [BM secundária](/blog/arquitetura-contingencia-meta-ads-operacao-alto-volume).
+
+:::callout type=warning
+Insistir 5x no mesmo criativo reprovado pode levar a restrição da conta inteira. Trate cada "no" como dado: ajuste, não force.
+:::
+
+> Veja também: [como evitar bloqueio de conta](/blog/bloqueio-conta-anuncio-meta-como-evitar) e [Account Quality](/blog/qualidade-conta-anuncio-meta-como-medir).
+`,
+  },
+  {
+    slug: "metricas-essenciais-meta-ads-iniciantes",
+    title: "Métricas essenciais do Meta Ads para iniciantes: o que olhar (e o que ignorar)",
+    description:
+      "CPM, CPC, CTR, frequência, ROAS, CPA, hook rate e thumb-stop ratio: o que cada métrica significa, quando importa e quando é vaidade. Guia direto para começar a ler painel.",
+    keywords: ["metricas meta ads", "kpi facebook ads", "cpm cpc ctr roas", "hook rate", "como ler painel meta"],
+    category: "Topo de funil",
+    readingTime: "7 min",
+    publishedAt: "2026-05-17",
+    ogImage: "/og/og-default.jpg",
+    content: `
+:::tldr
+Painel do Ads Manager tem 200+ colunas. Iniciante só precisa de 8: **gasto, impressões, CPM, CTR, CPC, frequência, CPA e ROAS**. Hook rate e thumb-stop ratio entram quando você começa a otimizar criativo.
+:::
+
+Métrica demais paralisa. Métrica de menos faz você escalar no escuro. Este é o kit básico para ler campanha sem perder dia inteiro.
+
+## As 8 métricas que importam todo dia
+
+| Métrica | O que mede | Faixa saudável* |
+|---|---|---|
+| Gasto | quanto saiu hoje | depende do budget |
+| Impressões | quantas vezes apareceu | volume mínimo p/ aprendizado |
+| CPM | preço por 1.000 impressões | R$ 15-60 (BR) |
+| CTR | clique ÷ impressão | > 1% (link) |
+| CPC | preço por clique no link | < R$ 2 (varia) |
+| Frequência | impressões ÷ pessoas | < 2.5 em prospecting |
+| CPA | gasto ÷ resultado | < ticket × margem |
+| ROAS | receita ÷ gasto | > 2 para começar |
+
+*Faixas indicativas — varia muito por nicho.
+
+## Como interpretar cada uma
+
+### CPM
+Alto demais? Criativo cansado, audiência saturada ou Trust Score baixo. Veja [como funciona o leilão](/blog/como-funciona-leilao-meta-ads).
+
+### CTR
+Baixo (< 0.7%)? Hook fraco. Alto (> 3%) mas sem conversão? Promessa enganosa ou LP ruim.
+
+### Frequência
+Acima de 3 em campanha de aquisição = público pequeno ou criativo único. Renove ou expanda.
+
+### CPA
+A métrica que paga o boleto. Calcule junto com **LTV** e **margem**, não só preço do produto.
+
+### ROAS
+2x não é bom nem ruim — depende da estrutura de custos. E-commerce físico precisa de 4-6x; infoproduto digital aceita 1.8-2.5x.
+
+## Métricas de criativo (intermediário)
+
+- **Hook rate** = views de 3s ÷ impressões → mede se o início segura.
+- **Thumb-stop ratio** = views de 3s ÷ impressões da capa.
+- **Hold rate** = views de 15s ÷ views de 3s → mede meio do vídeo.
+
+:::callout type=tip
+Antes de pausar criativo, olhe **hook rate**. Se está bom mas conversão está ruim, o problema é LP ou oferta — não criativo.
+:::
+
+## O que ignorar (no início)
+
+- **Frequency por anúncio individual** quando o conjunto tem CBO.
+- **Score de relevância antigo** (descontinuado, substituído por diagnósticos).
+- **"Pessoas alcançadas"** isolado de conversão.
+- Métricas de **engajamento** em campanha de venda (curtidas não pagam boleto).
+
+:::callout type=warning
+Otimizar para CPC barato é a forma mais comum de **queimar dinheiro**. Clique barato + zero conversão = leilão te jogando para tráfego ruim.
+:::
+
+## Rotina diária
+
+1. Painel de campanhas (gasto, CPA, ROAS).
+2. Frequência e CPM dos conjuntos.
+3. CTR e hook rate dos criativos.
+4. [Account Quality](/blog/qualidade-conta-anuncio-meta-como-medir) (1× por semana).
+
+> Próximo passo: entender [warm-up de conta](/blog/warm-up-conta-anuncio-meta-passo-a-passo) para ler métricas no contexto certo.
+`,
+  },
+  {
+    slug: "gerenciador-anuncios-meta-tour-completo-iniciantes",
+    title: "Gerenciador de Anúncios do Meta: tour completo para iniciantes (2026)",
+    description:
+      "Tour por cada área do Ads Manager do Meta: estrutura de campanha/conjunto/anúncio, colunas, segmentações, testes A/B e atalhos para quem está começando.",
+    keywords: ["gerenciador anuncios meta", "ads manager tutorial", "como usar ads manager", "facebook ads manager 2026", "iniciar meta ads"],
+    category: "Topo de funil",
+    readingTime: "8 min",
+    publishedAt: "2026-05-18",
+    ogImage: "/og/og-default.jpg",
+    content: `
+:::tldr
+Ads Manager se organiza em 3 níveis: **Campanha (objetivo) → Conjunto (público, orçamento, posicionamento) → Anúncio (criativo)**. Domine esses 3 e você opera 90% do que precisa.
+:::
+
+O Ads Manager assusta na primeira vez. Mas tudo que importa cabe em três níveis e quatro telas. Este é o tour para usar com confiança.
+
+## 1. Estrutura de 3 níveis
+
+\`\`\`text
+Campanha           → Objetivo (vendas, leads, alcance, tráfego)
+ └─ Conjunto      → Público, orçamento, posicionamento, otimização
+     └─ Anúncio   → Criativo (vídeo/imagem), copy, CTA, URL
+\`\`\`
+
+Regra de ouro: **tudo que muda público ou orçamento vai no conjunto. Tudo que muda criativo vai no anúncio.**
+
+## 2. Objetivos de campanha (2026)
+
+- **Reconhecimento** → impressões/alcance.
+- **Tráfego** → cliques no link.
+- **Engajamento** → mensagem, vídeo, post.
+- **Leads** → formulário instantâneo ou CRM.
+- **Promoção do app**.
+- **Vendas** → conversão site/loja física.
+
+Para começar com venda direta, use **Vendas → Conversão** + Pixel + CAPI configurados.
+
+## 3. Conjunto de anúncios — o que decide
+
+- **Público** (salvo, lookalike, retargeting, advantage+).
+- **Posicionamentos** (deixe automático no início).
+- **Orçamento** diário ou vitalício.
+- **Otimização** (compra, lead, ViewContent).
+- **Janela de atribuição** (7 dias clique padrão).
+
+:::callout type=tip
+Em 2026, **Advantage+ Audience** entrega melhor que segmentação manual em ~70% dos casos. Comece com Advantage+ e só ajuste se ele errar.
+:::
+
+## 4. Criativos
+
+- 1 vídeo vertical 9:16 (Reels/Stories).
+- 1 imagem 1:1 (Feed).
+- 1 vídeo quadrado 1:1 backup.
+- Copy curta (1ª linha < 125 caracteres).
+- CTA alinhado ao objetivo (Comprar / Saiba mais / Enviar mensagem).
+
+## 5. Colunas — preset essencial
+
+Salve um preset com: \`Gasto | Impressões | CPM | CTR (link) | CPC | Frequência | Resultados | CPA | ROAS\`. Detalhes em [métricas essenciais](/blog/metricas-essenciais-meta-ads-iniciantes).
+
+## 6. Testes A/B
+
+Use o botão **Teste A/B** (não duplique conjunto manualmente). O Meta divide audiência sem sobreposição e mostra significância estatística.
+
+- Teste **uma variável por vez** (criativo OU público OU orçamento).
+- Duração mínima: **5-7 dias**.
+- Volume mínimo: **50 conversões por braço**.
+
+## 7. Atalhos que economizam horas
+
+- \`Ctrl + C / Ctrl + V\` em campanhas selecionadas.
+- Aba **Atividade** → vê quem mexeu em quê.
+- **Rascunhos** → monte tudo offline antes de publicar.
+- **Regras automatizadas** → pausar anúncio quando CPA > X.
+
+:::callout type=warning
+Não confie cegamente em "regra automatizada agressiva". Pausar criativo após 1 dia de dado ruim pode matar campanha boa em fase de aprendizado.
+:::
+
+## 8. Primeiros 30 dias — o que praticar
+
+1. Subir 1 campanha de tráfego para conhecer painel.
+2. Configurar [Pixel](/blog/instalar-pixel-meta-passo-a-passo) e validar Test Events.
+3. Subir 1 campanha de conversão com orçamento pequeno.
+4. Ler painel todo dia, 10 min.
+5. Não mexer nas campanhas nos primeiros **3-4 dias** (fase de aprendizado).
+
+> Quando começar a escalar, leia [como funciona o leilão](/blog/como-funciona-leilao-meta-ads) e [warm-up de conta](/blog/warm-up-conta-anuncio-meta-passo-a-passo).
+`,
+  },
 ];
 
 
