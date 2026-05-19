@@ -154,6 +154,13 @@ const BlogPillar = () => {
             )}
           </section>
 
+          <MidArticleCTA
+            title={`Quer um diagnóstico focado em ${pillar.shortTitle}?`}
+            description={`Conte rapidamente sua operação no WhatsApp — devolvemos um plano de ${pillar.shortTitle.toLowerCase()} sob medida com os próximos 3 passos, sem custo.`}
+            whatsappMessage={`Olá! Vim do pilar "${pillar.shortTitle}" no blog da AD Scale e quero um diagnóstico.`}
+            ctaLabel="Quero o diagnóstico no WhatsApp"
+          />
+
           <section aria-labelledby="outros-pilares" className="mt-16">
             <h2 id="outros-pilares" className="font-display text-2xl font-bold mb-6">
               Outros pilares do blog
