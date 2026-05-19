@@ -1693,7 +1693,7 @@ Veja também: [O que é Business Manager Verificada no Meta](/blog/o-que-e-busin
     category: "Topo de funil",
     readingTime: "7 min",
     publishedAt: "2026-05-12",
-    ogImage: "/og/og-default.jpg",
+    ogImage: "/og/og-cnpj-mei.jpg",
     content: `
 :::tldr
 Anunciar como pessoa física no Meta funciona, mas trava. Para verificar BM, acessar APIs avançadas e escalar com segurança, ter CNPJ é praticamente obrigatório. MEI resolve a maioria dos casos abaixo de R$ 81 mil/ano; acima disso, ME ou LTDA.
@@ -1746,7 +1746,7 @@ Em nichos sensíveis (saúde, finanças, apostas, suplementos), ter CNPJ é só 
     category: "Topo de funil",
     readingTime: "8 min",
     publishedAt: "2026-05-12",
-    ogImage: "/og/og-pixel-capi.jpg",
+    ogImage: "/og/og-instalar-pixel.jpg",
     content: `
 :::tldr
 Crie o **dataset** no Events Manager, instale o Pixel base no <head> de todas as páginas, dispare eventos padrão (PageView, ViewContent, Lead, Purchase) e valide com Test Events. Sem essa base, otimização de campanha não tem sinal para aprender.
@@ -1822,7 +1822,7 @@ Pixel sozinho perde **30-40% dos eventos** por bloqueadores e iOS. Subir **Conve
     category: "Topo de funil",
     readingTime: "7 min",
     publishedAt: "2026-05-13",
-    ogImage: "/og/og-default.jpg",
+    ogImage: "/og/og-catalogo-commerce.jpg",
     content: `
 :::tldr
 Catálogo é pré-requisito para **DPA (Dynamic Product Ads)**, Reels Shopping e WhatsApp Catalog. Cria no Commerce Manager, conecta ao Pixel via Match de eventos e mantém feed atualizado — manual, planilha, plataforma ou via API.
@@ -1898,7 +1898,7 @@ Catálogo em BM não verificada tem limite de produtos e fica fora do WhatsApp S
     category: "Topo de funil",
     readingTime: "6 min",
     publishedAt: "2026-05-13",
-    ogImage: "/og/og-default.jpg",
+    ogImage: "/og/og-leilao-meta.jpg",
     content: `
 :::tldr
 O Meta não vende impressão pelo maior lance. Quem vence é quem entrega o **maior Total Value** = lance × taxa de ação estimada × qualidade do anúncio. Por isso, melhorar criativo derruba CPM mais rápido do que aumentar orçamento.
@@ -1962,7 +1962,7 @@ Aumentar orçamento em 30%+ de uma vez resetar o aprendizado. Suba em degraus de
     category: "Topo de funil",
     readingTime: "8 min",
     publishedAt: "2026-05-14",
-    ogImage: "/og/og-default.jpg",
+    ogImage: "/og/og-nichos-sensiveis.jpg",
     content: `
 :::tldr
 Nichos sensíveis (saúde, emagrecimento, finanças, apostas, suplementos, relacionamento, política) não são proibidos — são **revisados com tolerância zero**. Quem opera sério usa BM verificada, página antiga, criativo livre de promessa e estrutura de contingência.
@@ -2031,7 +2031,7 @@ Em saúde, exiba CRM/CRO/CRP do responsável técnico tanto no criativo (rodapé
     category: "Topo de funil",
     readingTime: "7 min",
     publishedAt: "2026-05-14",
-    ogImage: "/og/og-default.jpg",
+    ogImage: "/og/og-account-quality.jpg",
     content: `
 :::tldr
 **Account Quality** é o painel onde o Meta mostra advertências, restrições e o score de cada ativo (conta, BM, página, perfil). Verificar semanalmente evita que você descubra um bloqueio quando a campanha já parou de entregar.
@@ -2108,7 +2108,7 @@ Use sempre o appeal — em ~30% dos casos o Meta reverte com um texto bem escrit
     category: "Topo de funil",
     readingTime: "6 min",
     publishedAt: "2026-05-15",
-    ogImage: "/og/og-default.jpg",
+    ogImage: "/og/og-2fa-facebook.jpg",
     content: `
 :::tldr
 2FA é obrigatório para qualquer administrador de BM. Use **app autenticador (Authy, 1Password, Google Auth)** — nunca só SMS — e guarde os **códigos de recuperação** num gerenciador de senhas. Perder 2FA = perder a conta.
@@ -2174,7 +2174,7 @@ Toda BM séria tem **dois administradores master** com 2FA independentes. Single
     category: "Topo de funil",
     readingTime: "6 min",
     publishedAt: "2026-05-15",
-    ogImage: "/og/og-default.jpg",
+    ogImage: "/og/og-estrutura-bm.jpg",
     content: `
 :::tldr
 A **BM é o cofre**. Dentro dela ficam contas de anúncio, páginas, pixels, catálogos, domínios e pessoas. Cada ativo pode pertencer a **uma BM por vez** — entender isso evita pixel duplicado, página órfã e perda de histórico em migração.
@@ -2244,7 +2244,7 @@ Antes de qualquer migração, faça **backup dos IDs** (pixel, conta, página, c
     category: "Topo de funil",
     readingTime: "7 min",
     publishedAt: "2026-05-16",
-    ogImage: "/og/og-default.jpg",
+    ogImage: "/og/og-tipos-bm.jpg",
     content: `
 :::tldr
 BM **nova** tem limite baixo e Trust Score zero. BM **aged** ganha tempo de vida. BM **verificada** tem CNPJ aprovado e libera APIs. BM **ilimitada** soma verificada + spending cap removido — patamar para operações 6-7 dígitos/mês.
@@ -2315,7 +2315,7 @@ Não compre verificada "barata demais". O Meta detecta padrão de origem — for
     category: "Topo de funil",
     readingTime: "6 min",
     publishedAt: "2026-05-16",
-    ogImage: "/og/og-default.jpg",
+    ogImage: "/og/og-cartao-facebook.jpg",
     content: `
 :::tldr
 Use **cartão de crédito empresarial em nome do CNPJ da BM**, com limite alto e histórico de uso. Evite pré-pago virtual, cartão de terceiros e troca constante de método — esses são os 3 maiores motivos de bloqueio por "atividade suspeita de pagamento".
@@ -2380,7 +2380,7 @@ Defina **limite de gasto da conta** (Spending Limit) acima do orçamento, mas ab
     category: "Topo de funil",
     readingTime: "8 min",
     publishedAt: "2026-05-17",
-    ogImage: "/og/og-default.jpg",
+    ogImage: "/og/og-politicas-meta.jpg",
     content: `
 :::tldr
 80% das reprovações vêm de 12 erros recorrentes — quase todos resolvíveis com **troca de hook e ajuste de copy**. Saber quais são acelera o tempo de subida e protege Trust Score.
@@ -2463,7 +2463,7 @@ Insistir 5x no mesmo criativo reprovado pode levar a restrição da conta inteir
     category: "Topo de funil",
     readingTime: "7 min",
     publishedAt: "2026-05-17",
-    ogImage: "/og/og-default.jpg",
+    ogImage: "/og/og-metricas-meta.jpg",
     content: `
 :::tldr
 Painel do Ads Manager tem 200+ colunas. Iniciante só precisa de 8: **gasto, impressões, CPM, CTR, CPC, frequência, CPA e ROAS**. Hook rate e thumb-stop ratio entram quando você começa a otimizar criativo.
@@ -2543,7 +2543,7 @@ Otimizar para CPC barato é a forma mais comum de **queimar dinheiro**. Clique b
     category: "Topo de funil",
     readingTime: "8 min",
     publishedAt: "2026-05-18",
-    ogImage: "/og/og-default.jpg",
+    ogImage: "/og/og-ads-manager-tour.jpg",
     content: `
 :::tldr
 Ads Manager se organiza em 3 níveis: **Campanha (objetivo) → Conjunto (público, orçamento, posicionamento) → Anúncio (criativo)**. Domine esses 3 e você opera 90% do que precisa.
