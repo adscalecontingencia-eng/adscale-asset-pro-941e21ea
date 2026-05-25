@@ -249,7 +249,7 @@ const staticPages = [
 ];
 
 // ---------- HTML transform ----------
-function injectMeta(template, { title, description, canonical, ogImage, keywords, ogType = "website", publishedAt, jsonLd }) {
+function injectMeta(template, { title, description, canonical, ogImage, keywords, ogType = "website", publishedAt, jsonLd, bodyHtml }) {
   const ogImageUrl = ogImage?.startsWith("http") ? ogImage : `${SITE_URL}${ogImage || "/og/og-default.jpg"}`;
   const safeTitle = title.replace(/"/g, "&quot;");
   const safeDesc = description.replace(/"/g, "&quot;");
@@ -257,29 +257,15 @@ function injectMeta(template, { title, description, canonical, ogImage, keywords
 
   let html = template;
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${safeTitle}</title>`);
-  html = html.replace(
-    /<meta name="description"[^>]*\/>/,
-    `<meta name="description" content="${safeDesc}" />`,
-  );
+  html = html.replace(/<meta name="description"[^>]*\/>/, `<meta name="description" content="${safeDesc}" />`);
   if (kw) {
-    html = html.replace(
-      /<meta name="keywords"[^>]*\/>/,
-      `<meta name="keywords" content="${kw}" />`,
-    );
+    html = html.replace(/<meta name="keywords"[^>]*\/>/, `<meta name="keywords" content="${kw}" />`);
   }
-  // Canonical was removed from index.html so each route can self-reference.
-  // If a previous run left one, replace it; otherwise inject before </head>.
   if (/<link rel="canonical"[^>]*\/>/.test(html)) {
-    html = html.replace(
-      /<link rel="canonical"[^>]*\/>/,
-      `<link rel="canonical" href="${canonical}" />`,
-    );
+    html = html.replace(/<link rel="canonical"[^>]*\/>/, `<link rel="canonical" href="${canonical}" />`);
   } else {
     html = html.replace("</head>", `    <link rel="canonical" href="${canonical}" />\n  </head>`);
   }
-  // og:* and twitter:* (title/description/url/type) and og:image were removed from index.html
-  // so social crawlers don't get the homepage's metadata for every internal route.
-  // Inject per-route values + page-specific JSON-LD before </head>.
   const extra = [
     `<meta property="og:type" content="${ogType}" />`,
     `<meta property="og:url" content="${canonical}" />`,
@@ -291,21 +277,25 @@ function injectMeta(template, { title, description, canonical, ogImage, keywords
     `<meta name="twitter:image" content="${ogImageUrl}" />`,
     publishedAt ? `<meta property="article:published_time" content="${publishedAt}" />` : "",
     jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : "",
-  ]
-    .filter(Boolean)
-    .join("\n    ");
+  ].filter(Boolean).join("\n    ");
   html = html.replace("</head>", `    ${extra}\n  </head>`);
 
-  // Inject visible H1 + description so Googlebot sees content even if JS fails to render
-  const noscriptContent = `
-    <noscript>
+  // Static, crawlable article body rendered BEFORE #root. Visible to bots and to
+  // users with JS disabled; removed by the React entrypoint as soon as it hydrates,
+  // so real users never see it duplicated alongside the SPA UI.
+  const articleHtml = bodyHtml
+    ? `<article>\n${bodyHtml}\n</article>`
+    : "";
+  const prerendered = `
+    <div id="prerendered-seo" data-prerendered="true" style="max-width:760px;margin:0 auto;padding:32px 16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:#111">
       <h1>${safeTitle}</h1>
       <p>${safeDesc}</p>
-    </noscript>`;
-  html = html.replace('<div id="root"></div>', `<div id="root"></div>${noscriptContent}`);
-
+      ${articleHtml}
+    </div>`;
+  html = html.replace('<div id="root"></div>', `${prerendered}\n    <div id="root"></div>`);
   return html;
 }
+
 
 // ---------- JSON-LD builders ----------
 const ORG_REF = { "@id": `${SITE_URL}/#organization` };
