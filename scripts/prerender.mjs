@@ -23,6 +23,67 @@ for (const m of seoTitlesSource.matchAll(/"([^"]+)":\s*\n?\s*"([^"]+)"/g)) {
 
 // Match each post object block. Each post starts with `slug: "..."` and ends at the next `},` followed by `{` or end of array.
 const postBlocks = blogSource.split(/\n\s*\{/);
+
+// Minimal markdown → HTML converter. Emits substantial unique HTML so Googlebot
+// sees full article content on first crawl (avoids "Crawled - currently not indexed").
+function mdToHtml(md) {
+  if (!md) return "";
+  let src = md.replace(/\r\n/g, "\n").trim();
+  src = src.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const lines = src.split("\n");
+  const out = [];
+  let inList = null;
+  let inQuote = false;
+  let paraBuf = [];
+  const inlineFmt = (s) =>
+    s
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/(^|[\s(])\*([^*\n]+)\*/g, "$1<em>$2</em>")
+      .replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  const flushPara = () => { if (paraBuf.length) { out.push(`<p>${inlineFmt(paraBuf.join(" "))}</p>`); paraBuf = []; } };
+  const closeList = () => { if (inList) { out.push(`</${inList}>`); inList = null; } };
+  const closeQuote = () => { if (inQuote) { out.push("</blockquote>"); inQuote = false; } };
+  for (const raw of lines) {
+    const line = raw.trimEnd();
+    if (!line.trim()) { flushPara(); closeList(); closeQuote(); continue; }
+    let m;
+    if ((m = line.match(/^(#{1,6})\s+(.*)$/))) {
+      flushPara(); closeList(); closeQuote();
+      const lvl = Math.min(m[1].length + 1, 6);
+      out.push(`<h${lvl}>${inlineFmt(m[2])}</h${lvl}>`);
+    } else if ((m = line.match(/^\s*[-*]\s+(.*)$/))) {
+      flushPara(); closeQuote();
+      if (inList !== "ul") { closeList(); out.push("<ul>"); inList = "ul"; }
+      out.push(`<li>${inlineFmt(m[1])}</li>`);
+    } else if ((m = line.match(/^\s*\d+\.\s+(.*)$/))) {
+      flushPara(); closeQuote();
+      if (inList !== "ol") { closeList(); out.push("<ol>"); inList = "ol"; }
+      out.push(`<li>${inlineFmt(m[1])}</li>`);
+    } else if ((m = line.match(/^>\s?(.*)$/))) {
+      flushPara(); closeList();
+      if (!inQuote) { out.push("<blockquote>"); inQuote = true; }
+      out.push(`<p>${inlineFmt(m[1])}</p>`);
+    } else {
+      closeList(); closeQuote();
+      paraBuf.push(line.trim());
+    }
+  }
+  flushPara(); closeList(); closeQuote();
+  return out.join("\n");
+}
+
+function extractPostBlocks(source) {
+  const results = [];
+  const re = /\{\s*slug:\s*"([^"]+)"[\s\S]*?content:\s*`([\s\S]*?)`\s*,/g;
+  let m;
+  while ((m = re.exec(source)) !== null) {
+    results.push({ slug: m[1], content: m[2] });
+  }
+  return results;
+}
+const contentBySlug = Object.fromEntries(extractPostBlocks(blogSource).map((p) => [p.slug, p.content]));
+
 const posts = [];
 for (const block of postBlocks) {
   const slug = block.match(/slug:\s*"([^"]+)"/)?.[1];
@@ -34,10 +95,10 @@ for (const block of postBlocks) {
     ?.match(/"([^"]+)"/g)
     ?.map((k) => k.slice(1, -1)) || [];
   if (slug && title && description) {
-    posts.push({ slug, title, description, ogImage, publishedAt, keywords });
+    posts.push({ slug, title, description, ogImage, publishedAt, keywords, content: contentBySlug[slug] || "" });
   }
 }
-console.log(`[prerender] Parsed ${posts.length} blog posts`);
+console.log(`[prerender] Parsed ${posts.length} blog posts (${posts.filter((p) => p.content).length} with body)`);
 
 // ---------- Static page metadata ----------
 const staticPages = [
