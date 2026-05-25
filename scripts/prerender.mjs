@@ -411,6 +411,7 @@ for (const post of posts) {
     ogType: "article",
     publishedAt: post.publishedAt,
     jsonLd,
+    bodyHtml: mdToHtml(post.content),
   });
   writeRoute(`/blog/${post.slug}`, html);
   count++;
