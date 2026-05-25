@@ -23,6 +23,67 @@ for (const m of seoTitlesSource.matchAll(/"([^"]+)":\s*\n?\s*"([^"]+)"/g)) {
 
 // Match each post object block. Each post starts with `slug: "..."` and ends at the next `},` followed by `{` or end of array.
 const postBlocks = blogSource.split(/\n\s*\{/);
+
+// Minimal markdown → HTML converter. Emits substantial unique HTML so Googlebot
+// sees full article content on first crawl (avoids "Crawled - currently not indexed").
+function mdToHtml(md) {
+  if (!md) return "";
+  let src = md.replace(/\r\n/g, "\n").trim();
+  src = src.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const lines = src.split("\n");
+  const out = [];
+  let inList = null;
+  let inQuote = false;
+  let paraBuf = [];
+  const inlineFmt = (s) =>
+    s
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/(^|[\s(])\*([^*\n]+)\*/g, "$1<em>$2</em>")
+      .replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  const flushPara = () => { if (paraBuf.length) { out.push(`<p>${inlineFmt(paraBuf.join(" "))}</p>`); paraBuf = []; } };
+  const closeList = () => { if (inList) { out.push(`</${inList}>`); inList = null; } };
+  const closeQuote = () => { if (inQuote) { out.push("</blockquote>"); inQuote = false; } };
+  for (const raw of lines) {
+    const line = raw.trimEnd();
+    if (!line.trim()) { flushPara(); closeList(); closeQuote(); continue; }
+    let m;
+    if ((m = line.match(/^(#{1,6})\s+(.*)$/))) {
+      flushPara(); closeList(); closeQuote();
+      const lvl = Math.min(m[1].length + 1, 6);
+      out.push(`<h${lvl}>${inlineFmt(m[2])}</h${lvl}>`);
+    } else if ((m = line.match(/^\s*[-*]\s+(.*)$/))) {
+      flushPara(); closeQuote();
+      if (inList !== "ul") { closeList(); out.push("<ul>"); inList = "ul"; }
+      out.push(`<li>${inlineFmt(m[1])}</li>`);
+    } else if ((m = line.match(/^\s*\d+\.\s+(.*)$/))) {
+      flushPara(); closeQuote();
+      if (inList !== "ol") { closeList(); out.push("<ol>"); inList = "ol"; }
+      out.push(`<li>${inlineFmt(m[1])}</li>`);
+    } else if ((m = line.match(/^>\s?(.*)$/))) {
+      flushPara(); closeList();
+      if (!inQuote) { out.push("<blockquote>"); inQuote = true; }
+      out.push(`<p>${inlineFmt(m[1])}</p>`);
+    } else {
+      closeList(); closeQuote();
+      paraBuf.push(line.trim());
+    }
+  }
+  flushPara(); closeList(); closeQuote();
+  return out.join("\n");
+}
+
+function extractPostBlocks(source) {
+  const results = [];
+  const re = /\{\s*slug:\s*"([^"]+)"[\s\S]*?content:\s*`([\s\S]*?)`\s*,/g;
+  let m;
+  while ((m = re.exec(source)) !== null) {
+    results.push({ slug: m[1], content: m[2] });
+  }
+  return results;
+}
+const contentBySlug = Object.fromEntries(extractPostBlocks(blogSource).map((p) => [p.slug, p.content]));
+
 const posts = [];
 for (const block of postBlocks) {
   const slug = block.match(/slug:\s*"([^"]+)"/)?.[1];
@@ -34,10 +95,10 @@ for (const block of postBlocks) {
     ?.match(/"([^"]+)"/g)
     ?.map((k) => k.slice(1, -1)) || [];
   if (slug && title && description) {
-    posts.push({ slug, title, description, ogImage, publishedAt, keywords });
+    posts.push({ slug, title, description, ogImage, publishedAt, keywords, content: contentBySlug[slug] || "" });
   }
 }
-console.log(`[prerender] Parsed ${posts.length} blog posts`);
+console.log(`[prerender] Parsed ${posts.length} blog posts (${posts.filter((p) => p.content).length} with body)`);
 
 // ---------- Static page metadata ----------
 const staticPages = [
@@ -188,7 +249,7 @@ const staticPages = [
 ];
 
 // ---------- HTML transform ----------
-function injectMeta(template, { title, description, canonical, ogImage, keywords, ogType = "website", publishedAt, jsonLd }) {
+function injectMeta(template, { title, description, canonical, ogImage, keywords, ogType = "website", publishedAt, jsonLd, bodyHtml }) {
   const ogImageUrl = ogImage?.startsWith("http") ? ogImage : `${SITE_URL}${ogImage || "/og/og-default.jpg"}`;
   const safeTitle = title.replace(/"/g, "&quot;");
   const safeDesc = description.replace(/"/g, "&quot;");
@@ -196,29 +257,15 @@ function injectMeta(template, { title, description, canonical, ogImage, keywords
 
   let html = template;
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${safeTitle}</title>`);
-  html = html.replace(
-    /<meta name="description"[^>]*\/>/,
-    `<meta name="description" content="${safeDesc}" />`,
-  );
+  html = html.replace(/<meta name="description"[^>]*\/>/, `<meta name="description" content="${safeDesc}" />`);
   if (kw) {
-    html = html.replace(
-      /<meta name="keywords"[^>]*\/>/,
-      `<meta name="keywords" content="${kw}" />`,
-    );
+    html = html.replace(/<meta name="keywords"[^>]*\/>/, `<meta name="keywords" content="${kw}" />`);
   }
-  // Canonical was removed from index.html so each route can self-reference.
-  // If a previous run left one, replace it; otherwise inject before </head>.
   if (/<link rel="canonical"[^>]*\/>/.test(html)) {
-    html = html.replace(
-      /<link rel="canonical"[^>]*\/>/,
-      `<link rel="canonical" href="${canonical}" />`,
-    );
+    html = html.replace(/<link rel="canonical"[^>]*\/>/, `<link rel="canonical" href="${canonical}" />`);
   } else {
     html = html.replace("</head>", `    <link rel="canonical" href="${canonical}" />\n  </head>`);
   }
-  // og:* and twitter:* (title/description/url/type) and og:image were removed from index.html
-  // so social crawlers don't get the homepage's metadata for every internal route.
-  // Inject per-route values + page-specific JSON-LD before </head>.
   const extra = [
     `<meta property="og:type" content="${ogType}" />`,
     `<meta property="og:url" content="${canonical}" />`,
@@ -230,21 +277,25 @@ function injectMeta(template, { title, description, canonical, ogImage, keywords
     `<meta name="twitter:image" content="${ogImageUrl}" />`,
     publishedAt ? `<meta property="article:published_time" content="${publishedAt}" />` : "",
     jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : "",
-  ]
-    .filter(Boolean)
-    .join("\n    ");
+  ].filter(Boolean).join("\n    ");
   html = html.replace("</head>", `    ${extra}\n  </head>`);
 
-  // Inject visible H1 + description so Googlebot sees content even if JS fails to render
-  const noscriptContent = `
-    <noscript>
+  // Static, crawlable article body rendered BEFORE #root. Visible to bots and to
+  // users with JS disabled; removed by the React entrypoint as soon as it hydrates,
+  // so real users never see it duplicated alongside the SPA UI.
+  const articleHtml = bodyHtml
+    ? `<article>\n${bodyHtml}\n</article>`
+    : "";
+  const prerendered = `
+    <div id="prerendered-seo" data-prerendered="true" style="max-width:760px;margin:0 auto;padding:32px 16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:#111">
       <h1>${safeTitle}</h1>
       <p>${safeDesc}</p>
-    </noscript>`;
-  html = html.replace('<div id="root"></div>', `<div id="root"></div>${noscriptContent}`);
-
+      ${articleHtml}
+    </div>`;
+  html = html.replace('<div id="root"></div>', `${prerendered}\n    <div id="root"></div>`);
   return html;
 }
+
 
 // ---------- JSON-LD builders ----------
 const ORG_REF = { "@id": `${SITE_URL}/#organization` };
@@ -360,6 +411,7 @@ for (const post of posts) {
     ogType: "article",
     publishedAt: post.publishedAt,
     jsonLd,
+    bodyHtml: mdToHtml(post.content),
   });
   writeRoute(`/blog/${post.slug}`, html);
   count++;
