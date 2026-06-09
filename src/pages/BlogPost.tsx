@@ -1,4 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
+import { useEffect } from "react";
 import { ArrowLeft, Calendar, Clock, ArrowRight, RefreshCw, Layers } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
@@ -291,6 +292,15 @@ const BlogPost = () => {
   const post = slug ? getPostBySlug(slug) : undefined;
 
   if (!post) return <Navigate to="/blog" replace />;
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("config", "AW-18226021110", {
+        page_path: `/blog/${post.slug}/`,
+        page_title: document.title,
+      });
+    }
+  }, [post.slug]);
 
   const toc = extractTocFromMarkdown(post.content);
   const faqEntities = extractFaqs(post.content);
