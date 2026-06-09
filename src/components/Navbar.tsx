@@ -49,7 +49,7 @@ const Navbar = () => {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-primary text-primary-foreground font-bold px-6 py-2.5 rounded-full text-sm transition-all hover:scale-105 hover:shadow-[0_0_20px_hsl(125_100%_45%/0.4)]"
+            className="bg-gradient-primary text-primary-foreground font-bold px-6 py-2.5 rounded-full text-sm transition-all hover:scale-105 hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)]"
           >
             Adquirir Ativos
           </a>
