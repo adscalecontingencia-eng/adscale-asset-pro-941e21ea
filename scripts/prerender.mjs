@@ -358,10 +358,18 @@ function articleLd(post, canonical, ogImageUrl) {
 
 
 function writeRoute(routePath, html) {
+  // Write BOTH dist/<route>.html (served directly at /<route> with 200, no 301)
+  // AND dist/<route>/index.html (served at /<route>/ for back-compat with any
+  // already-indexed trailing-slash URLs). Canonical points to the no-slash form,
+  // so Google consolidates to that and the redirect chain that GSC flagged as
+  // "Erro de redirecionamento" disappears.
   const cleanPath = routePath.replace(/^\//, "");
-  const outDir = resolve(DIST, cleanPath);
-  mkdirSync(outDir, { recursive: true });
-  writeFileSync(resolve(outDir, "index.html"), html);
+  const fileTarget = resolve(DIST, `${cleanPath}.html`);
+  mkdirSync(dirname(fileTarget), { recursive: true });
+  writeFileSync(fileTarget, html);
+  const dirTarget = resolve(DIST, cleanPath, "index.html");
+  mkdirSync(dirname(dirTarget), { recursive: true });
+  writeFileSync(dirTarget, html);
 }
 
 // ---------- Generate ----------
