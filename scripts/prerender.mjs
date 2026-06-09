@@ -358,10 +358,18 @@ function articleLd(post, canonical, ogImageUrl) {
 
 
 function writeRoute(routePath, html) {
+  // Write BOTH dist/<route>.html (served directly at /<route> with 200, no 301)
+  // AND dist/<route>/index.html (served at /<route>/ for back-compat with any
+  // already-indexed trailing-slash URLs). Canonical points to the no-slash form,
+  // so Google consolidates to that and the redirect chain that GSC flagged as
+  // "Erro de redirecionamento" disappears.
   const cleanPath = routePath.replace(/^\//, "");
-  const outDir = resolve(DIST, cleanPath);
-  mkdirSync(outDir, { recursive: true });
-  writeFileSync(resolve(outDir, "index.html"), html);
+  const fileTarget = resolve(DIST, `${cleanPath}.html`);
+  mkdirSync(dirname(fileTarget), { recursive: true });
+  writeFileSync(fileTarget, html);
+  const dirTarget = resolve(DIST, cleanPath, "index.html");
+  mkdirSync(dirname(dirTarget), { recursive: true });
+  writeFileSync(dirTarget, html);
 }
 
 // ---------- Generate ----------
@@ -370,7 +378,8 @@ let count = 0;
 for (const page of staticPages) {
   // Trailing slash matches what GitHub Pages serves for directory routes,
   // avoiding 301 redirects that cause "Página com redirecionamento" in GSC.
-  const canonical = `${SITE_URL}${page.path}/`;
+  // No trailing slash — served directly from dist/<route>.html with 200.
+  const canonical = `${SITE_URL}${page.path}`;
   const breadcrumbs = breadcrumbLd([
     { name: "Início", path: "/" },
     { name: page.title.split("|")[0].trim(), path: page.path },
@@ -391,7 +400,7 @@ for (const page of staticPages) {
 }
 
 for (const post of posts) {
-  const canonical = `${SITE_URL}/blog/${post.slug}/`;
+  const canonical = `${SITE_URL}/blog/${post.slug}`;
   const ogImageUrl = post.ogImage?.startsWith("http") ? post.ogImage : `${SITE_URL}${post.ogImage || "/og/og-default.jpg"}`;
   const breadcrumbs = breadcrumbLd([
     { name: "Início", path: "/" },
