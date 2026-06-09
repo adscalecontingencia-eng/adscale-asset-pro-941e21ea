@@ -63,14 +63,14 @@ const DotGlobe = ({ size = 520 }: DotGlobeProps) => {
       const rot = rotationRef.current;
 
       const glowGrad = ctx.createRadialGradient(cx, cy, R * 0.6, cx, cy, R * 1.3);
-      glowGrad.addColorStop(0, "hsla(125, 100%, 45%, 0.04)");
+      glowGrad.addColorStop(0, "hsla(217, 91%, 45%, 0.04)");
       glowGrad.addColorStop(1, "transparent");
       ctx.fillStyle = glowGrad;
       ctx.fillRect(0, 0, size, size);
 
       ctx.beginPath();
       ctx.arc(cx, cy, R, 0, Math.PI * 2);
-      ctx.strokeStyle = "hsla(125, 100%, 45%, 0.08)";
+      ctx.strokeStyle = "hsla(217, 91%, 45%, 0.08)";
       ctx.lineWidth = 1;
       ctx.stroke();
 
@@ -82,7 +82,7 @@ const DotGlobe = ({ size = 520 }: DotGlobeProps) => {
           if (lat === -90 || z < 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         }
-        ctx.strokeStyle = "hsla(125, 100%, 45%, 0.04)";
+        ctx.strokeStyle = "hsla(217, 91%, 45%, 0.04)";
         ctx.lineWidth = 0.5;
         ctx.stroke();
       }
@@ -95,7 +95,7 @@ const DotGlobe = ({ size = 520 }: DotGlobeProps) => {
           if (lon === -180) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         }
-        ctx.strokeStyle = "hsla(125, 100%, 45%, 0.04)";
+        ctx.strokeStyle = "hsla(217, 91%, 45%, 0.04)";
         ctx.lineWidth = 0.5;
         ctx.stroke();
       }
@@ -107,7 +107,7 @@ const DotGlobe = ({ size = 520 }: DotGlobeProps) => {
         const alpha = Math.max(0, z) * 0.7 + 0.1;
         ctx.beginPath();
         ctx.arc(x, y, dotSize + z * 0.8 * scale, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(125, 100%, 50%, ${alpha})`;
+        ctx.fillStyle = `hsla(217, 91%, 50%, ${alpha})`;
         ctx.fill();
       }
 
@@ -126,7 +126,7 @@ const DotGlobe = ({ size = 520 }: DotGlobeProps) => {
         ctx.beginPath();
         ctx.moveTo(x1, y1);
         ctx.quadraticCurveTo(midX, midY, x2, y2);
-        ctx.strokeStyle = `hsla(125, 100%, 55%, ${Math.min(z1, z2) > 0 ? 0.3 : 0.08})`;
+        ctx.strokeStyle = `hsla(217, 91%, 55%, ${Math.min(z1, z2) > 0 ? 0.3 : 0.08})`;
         ctx.lineWidth = 1;
         ctx.setLineDash([4, 4]);
         ctx.stroke();
@@ -140,11 +140,11 @@ const DotGlobe = ({ size = 520 }: DotGlobeProps) => {
           if (pz > 0) {
             ctx.beginPath();
             ctx.arc(px, py, 3 * scale, 0, Math.PI * 2);
-            ctx.fillStyle = "hsla(125, 100%, 60%, 0.9)";
+            ctx.fillStyle = "hsla(217, 91%, 60%, 0.9)";
             ctx.fill();
             ctx.beginPath();
             ctx.arc(px, py, 8 * scale, 0, Math.PI * 2);
-            ctx.fillStyle = "hsla(125, 100%, 50%, 0.2)";
+            ctx.fillStyle = "hsla(217, 91%, 50%, 0.2)";
             ctx.fill();
           }
         }
@@ -159,13 +159,13 @@ const DotGlobe = ({ size = 520 }: DotGlobeProps) => {
 
         ctx.beginPath();
         ctx.arc(x, y, (8 + pulse * 6) * scale, 0, Math.PI * 2);
-        ctx.strokeStyle = `hsla(125, 100%, 50%, ${0.15 * pulse})`;
+        ctx.strokeStyle = `hsla(217, 91%, 50%, ${0.15 * pulse})`;
         ctx.lineWidth = 1;
         ctx.stroke();
 
         ctx.beginPath();
         ctx.arc(x, y, 3 * scale, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(125, 100%, 55%, ${0.8 * z})`;
+        ctx.fillStyle = `hsla(217, 91%, 55%, ${0.8 * z})`;
         ctx.fill();
 
         const s = scale;
@@ -177,14 +177,14 @@ const DotGlobe = ({ size = 520 }: DotGlobeProps) => {
         ctx.lineTo(x - 3 * s, y + 2 * s);
         ctx.lineTo(x - 3 * s, y - 1 * s);
         ctx.closePath();
-        ctx.strokeStyle = `hsla(125, 100%, 60%, ${0.6 * z})`;
+        ctx.strokeStyle = `hsla(217, 91%, 60%, ${0.6 * z})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
 
       ctx.beginPath();
       ctx.ellipse(cx, cy, R + 20 * scale, R * 0.3, -0.4, 0, Math.PI * 2);
-      ctx.strokeStyle = "hsla(125, 100%, 45%, 0.06)";
+      ctx.strokeStyle = "hsla(217, 91%, 45%, 0.06)";
       ctx.lineWidth = 1;
       ctx.setLineDash([3, 6]);
       ctx.stroke();
@@ -197,7 +197,7 @@ const DotGlobe = ({ size = 520 }: DotGlobeProps) => {
       const orbY = cy + orbRx * Math.cos(orbAngle) * Math.sin(-0.4) + orbRy * Math.sin(orbAngle) * Math.cos(-0.4);
       ctx.beginPath();
       ctx.arc(orbX, orbY, 3 * scale, 0, Math.PI * 2);
-      ctx.fillStyle = "hsla(125, 100%, 55%, 0.6)";
+      ctx.fillStyle = "hsla(217, 91%, 55%, 0.6)";
       ctx.fill();
 
       animRef.current = requestAnimationFrame(draw);
