@@ -400,7 +400,7 @@ for (const page of staticPages) {
 }
 
 for (const post of posts) {
-  const canonical = `${SITE_URL}/blog/${post.slug}/`;
+  const canonical = `${SITE_URL}/blog/${post.slug}`;
   const ogImageUrl = post.ogImage?.startsWith("http") ? post.ogImage : `${SITE_URL}${post.ogImage || "/og/og-default.jpg"}`;
   const breadcrumbs = breadcrumbLd([
     { name: "Início", path: "/" },
