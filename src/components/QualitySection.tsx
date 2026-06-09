@@ -51,7 +51,7 @@ const QualitySection = () => {
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             A gente só trabalha com ativos que aguentam review automática,
-            scaling agressivo e os nichos mais pesados do Meta.
+            escala agressiva e os nichos mais sensíveis do Meta.
           </p>
         </div>
 

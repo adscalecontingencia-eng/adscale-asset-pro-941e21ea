@@ -5,7 +5,7 @@ const BmVerificada = () => (
     seo={{
       title: "Comprar BM Verificada Facebook e Meta Ads | AD Scale",
       description:
-        "BM Verificada Facebook e Meta com selo azul, histórico limpo e governança de ativos. Curadoria 1 a 1 para operações de alto volume e contingência.",
+        "BM Verificada Facebook e Meta com selo azul, histórico limpo e governança de ativos para operações de alto volume e contingência.",
       keywords: [
         "comprar bm verificada",
         "bm verificada facebook",

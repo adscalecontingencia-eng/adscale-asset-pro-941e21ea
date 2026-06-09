@@ -56,7 +56,7 @@ export interface ProductLandingData {
 const trustDefault = [
   { value: "Alto", label: "Trust Score" },
   { value: "Antigos", label: "BMs & Perfis" },
-  { value: "Verified", label: "Curadoria 1 a 1" },
+  { value: "Verified", label: "Ativos validados" },
 ];
 
 // ---------- Helpers ----------
