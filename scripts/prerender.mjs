@@ -378,7 +378,8 @@ let count = 0;
 for (const page of staticPages) {
   // Trailing slash matches what GitHub Pages serves for directory routes,
   // avoiding 301 redirects that cause "Página com redirecionamento" in GSC.
-  const canonical = `${SITE_URL}${page.path}/`;
+  // No trailing slash — served directly from dist/<route>.html with 200.
+  const canonical = `${SITE_URL}${page.path}`;
   const breadcrumbs = breadcrumbLd([
     { name: "Início", path: "/" },
     { name: page.title.split("|")[0].trim(), path: page.path },
