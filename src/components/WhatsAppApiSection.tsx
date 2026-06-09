@@ -18,11 +18,11 @@ const tiers = [
   },
   {
     icon: Zap,
-    tier: "TIER 1K",
-    title: "BM 1.000 Disparos",
+    tier: "TIER 2K",
+    title: "BM 2.000 Disparos",
     subtitle: "Padrão para operações de remarketing e nutrição em escala",
     description:
-      "BM já elevada ao tier de 1.000 conversas/24h, com qualidade de número High e histórico de templates aprovados. Estrutura para operações que disparam diariamente sem queimar o número.",
+      "BM já elevada ao tier de 2.000 conversas/24h, com qualidade de número High e histórico de templates aprovados. Estrutura para operações que disparam diariamente sem queimar o número.",
     bullets: [
       "Quality Rating High no número",
       "Templates de marketing aprovados",
@@ -67,9 +67,10 @@ const WhatsAppApiSection = () => {
           </h2>
 
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Estruturas em conformidade com a documentação do Meta para WhatsApp
-            Business Platform. Tiers de mensageria já liberados — sem warm-up
-            manual, sem risco de derrubar o número logo no primeiro envio.
+            Estruturas verificadas com a documentação do Meta para disparos no
+            WhatsApp Business via API. Limite alto de disparos liberados — sem
+            warm-up manual, sem risco de derrubar o número logo no primeiro
+            envio.🚚
           </p>
         </div>
 
@@ -127,7 +128,7 @@ const WhatsAppApiSection = () => {
 
         <div className="bg-card/40 border border-border/50 rounded-2xl p-6 md:p-8">
           <h3 className="font-display text-xl md:text-2xl font-semibold mb-3">
-            Como funcionam os tiers de mensageria do WhatsApp Cloud API
+            Como funcionam os tiers de disparos da API Oficial do Meta
           </h3>
           <p className="text-muted-foreground leading-relaxed mb-4">
             Segundo a{" "}
@@ -147,7 +148,7 @@ const WhatsAppApiSection = () => {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
             {[
               { tier: "Tier 250", desc: "Inicial / sem verificação" },
-              { tier: "Tier 1K", desc: "Pós-verificação + qualidade" },
+              { tier: "Tier 2K", desc: "Pós-verificação + qualidade" },
               { tier: "Tier 10K", desc: "Histórico positivo de envio" },
               { tier: "Tier 100K+", desc: "Operação enterprise" },
             ].map((item, i) => (

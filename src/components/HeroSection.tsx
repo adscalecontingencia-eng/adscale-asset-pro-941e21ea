@@ -36,9 +36,9 @@ const HeroSection = ({
       <span className="text-primary font-bold">ROAS</span>.
     </>
   ),
-  subheadline = "BMs Verificadas, BMs antigas, perfis e páginas antigos e Trust Score alto no Meta. A estrutura que sustenta o seu volume quando o leilão aperta.",
-  subheadlineMobile = "BMs Verificadas, BMs antigas, perfis e páginas antigos e Trust Score alto. A estrutura que sustenta seu volume.",
-  badgeText = "Ativos com Trust Score alto · Curadoria 1 a 1",
+  subheadline = "BMs Verificadas, BMs antigas, perfis, páginas antigas e Trust Score alto no Meta. A estrutura que sustenta o seu volume quando o leilão aperta.",
+  subheadlineMobile = "BMs Verificadas, BMs antigas, perfis, páginas antigas e Trust Score alto. A estrutura que sustenta seu volume.",
+  badgeText = "Ativos com Trust Score alto",
   primaryCtaLabel = "FALAR COM O TIME",
   secondaryCtaLabel = "Ver Ativos",
   secondaryCtaHref = "#ativos",

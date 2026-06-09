@@ -265,7 +265,7 @@ const CommercialLanding = ({
               Pronto para estabilizar sua operação no Meta e Facebook Ads?
             </h2>
             <p className="text-muted-foreground mb-6">
-              Curadoria 1 a 1, ativos validados e suporte direto com nosso time.
+              Ativos validados e suporte direto com nosso time.
             </p>
             <a
               href={WHATSAPP_URL}
