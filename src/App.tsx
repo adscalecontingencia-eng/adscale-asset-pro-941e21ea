@@ -16,6 +16,7 @@ import Autor from "./pages/Autor.tsx";
 import PillarFacebookAds from "./pages/PillarFacebookAds.tsx";
 import AdminLogin from "./pages/admin/Login.tsx";
 import AdminDashboard from "./pages/admin/Dashboard.tsx";
+import SeoDashboard from "./pages/admin/SeoDashboard.tsx";
 import AnalyticsTracker from "./components/AnalyticsTracker.tsx";
 import ProductLanding from "./pages/ProductLanding.tsx";
 import { productLandingSlugs } from "./data/landings";
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/guia-facebook-ads-alto-volume" element={<PillarFacebookAds />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/seo" element={<SeoDashboard />} />
           {productLandingSlugs.map((slug) => (
             <Route key={slug} path={`/${slug}`} element={<ProductLanding slug={slug} />} />
           ))}

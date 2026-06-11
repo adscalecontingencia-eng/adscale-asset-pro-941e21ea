@@ -1,137 +1,70 @@
-## Plano: tornar o blog AD Scale a maior referência do Brasil em contingência Meta Ads
+## Objetivo
 
-Hoje temos **20 posts publicados**, organizados em ToF/MoF/BoF, com SEO técnico decente (canonical, JSON-LD, sitemap, prerender). O plano abaixo eleva o blog a referência nacional em 4 frentes: **conteúdo (cobertura + profundidade)**, **arquitetura de informação (UX/navegação)**, **SEO/E-E-A-T** e **distribuição/conversão**.
+Adicionar ao admin um módulo de SEO orientado a ação, alimentado por (1) Google Search Console via connector já existente e (2) upload manual de CSV/XLSX exportados do GSC. Saída: oportunidades, quick wins, baixo CTR, páginas comerciais, blog, técnico/indexação, conversões WhatsApp, plano de ação com score 0–100, antes/depois.
 
----
+## Escopo desta entrega (Rodada 1 — fundação)
 
-### Fase 1 — Arquitetura de informação (UX do blog)
+Para caber em uma rodada útil e testável, entrego a fundação completa e 6 das 12 abas funcionais. As 6 abas restantes ficam scaffold (UI vazia + TODO) e são preenchidas na Rodada 2.
 
-Objetivo: o leitor encontra o que precisa em ≤ 2 cliques e entende a jornada.
+**Rodada 1 entrega:**
+1. Nova rota `/admin/seo` (separada do dashboard de cliques atual, que continua intacto).
+2. Tabelas no Lovable Cloud para persistir snapshots GSC, otimizações e plano de ação.
+3. Edge function `gsc-sync` (puxa Performance + Index Coverage do GSC, salva snapshot diário).
+4. Upload CSV/XLSX (Performance, Consultas, Páginas, Consultas×Página, Indexação).
+5. Classificador de intenção (comercial / problema-dor / informacional / marca / técnica / navegacional) por regex sobre keywords da AD Scale.
+6. Classificador de tipo de página (home / comercial / blog / pilar) por path.
+7. Motor de oportunidades (A–F: quick win, baixo CTR, comercial prioritária, lead informacional, nova página, canibalização).
+8. Score 0–100 (impressões + proximidade posição + gap CTR + intenção comercial + peso página comercial + problema técnico).
+9. Filtros globais (período, tipo de página, intenção, dispositivo, país, faixa de posição, status de oportunidade).
+10. Abas funcionais nesta rodada: **Visão Geral, Consultas, Páginas, Quick Wins, Baixo CTR, Plano de Ação SEO**.
+11. Cards topo com variação vs período anterior e setas verde/amarelo/vermelho.
+12. Gráficos diários (cliques, impressões, CTR, posição) com markers de otimização.
 
-1. **Hub central `/blog`** redesenhado em 3 zonas:
-   - Hero com **busca interativa** (filtro client-side por título/keyword).
-   - **Pilares temáticos** (cards grandes) que levam a páginas-índice dedicadas.
-   - Grid de posts recentes com filtro por funil (ToF/MoF/BoF) + **filtro por tema**.
-2. **Páginas-índice de pilar** (novas rotas `/blog/pilar/<slug>`):
-   - `/blog/pilar/business-manager` — tudo sobre BM (verificada, ilimitada, bloqueio, recuperação).
-   - `/blog/pilar/perfis-e-paginas` — perfis aged, fan pages, fingerprint.
-   - `/blog/pilar/seguranca-e-bloqueios` — bloqueios, recuperação, appeal, checklist.
-   - `/blog/pilar/escala-e-performance` — warm-up, trust score, limite de gasto, CAPI.
-   - `/blog/pilar/whatsapp-api` — Cloud API, BM para WhatsApp, disparo.
-   - Cada pilar agrega posts + linka para a LP comercial correspondente.
-3. **Categorias visíveis no Navbar do blog** (chips fixos no topo).
-4. **Breadcrumbs** consistentes: Início › Blog › Pilar › Post.
-5. **Paginação melhor**: já existe paginação, adicionar contador "X de Y" e prev/next SEO (`rel="prev|next"`).
+**Rodada 2 (próxima):** Consulta×Página com decisão automática, Páginas Comerciais (10 LPs), Blog e Conteúdo, SEO Técnico e Indexação detalhado, Conversões WhatsApp (cruza `whatsapp_clicks` × GSC), Antes/Depois com markers e alertas automáticos.
 
-### Fase 2 — Cobertura editorial (expandir de 20 → 60 posts em 3 ondas)
+## Modelo de dados (migration)
 
-Mapa de novos posts agrupados por pilar. Cada onda = ~13 posts.
+```text
+gsc_daily_metrics       (date, clicks, impressions, ctr, position)              -- série temporal site-wide
+gsc_query_snapshots     (snapshot_date, query, page, clicks, impressions,
+                         ctr, position, device, country, intent, opportunity,
+                         score, page_type)
+gsc_page_snapshots      (snapshot_date, page, clicks, impressions, ctr,
+                         position, query_count, top_query, page_type, status)
+gsc_index_status        (snapshot_date, page, state, reason, priority)
+seo_optimizations       (page, type, applied_at, notes, before_json, after_json)
+seo_action_items        (priority, type, page, query, metric, recommendation,
+                         status, created_at, completed_at, result_json)
+```
+Todas com GRANT para `authenticated` + `service_role`, RLS via `has_role(auth.uid(),'admin')`.
 
-**Onda A — Fundamentos e dúvidas frequentes (ToF, alto volume de busca)**
-- "Diferença entre conta pessoal, perfil de anúncio e BM no Facebook"
-- "O que é Meta Business Suite e como usar em 2026"
-- "Como criar uma BM passo a passo (e os erros que travam a verificação)"
-- "O que é fan page e por que ainda é obrigatória para anunciar"
-- "CNPJ MEI serve para verificar BM no Meta? Mitos e verdades"
-- "Glossário visual: 40 termos do Meta Ads explicados"
-- "Conta de anúncio nova: limites, restrições e como escalar do zero"
-- "O que é pixel do Facebook e como instalar corretamente em 2026"
-- "Catálogo de produtos no Meta: quando faz sentido e como configurar"
-- "Como funciona o leilão do Meta Ads (e por que sua conta importa)"
-- "Política do Meta para nichos sensíveis: o que é proibido em 2026"
-- "Account Quality: como interpretar o painel de qualidade da conta"
-- "Como verificar domínio no Facebook em 2026 (passo a passo iOS 17+)"
+## Edge functions
 
-**Onda B — Operação e técnica (MoF, intenção crescente)**
-- "Estratégia de contingência: como montar 3 camadas para operações 7 dígitos"
-- "Warm-up de BM verificada: cronograma de 14 dias"
-- "Warm-up de perfil novo para administrar BM (sem queimar)"
-- "IP residencial vs móvel vs datacenter: qual usar para Meta Ads"
-- "Antidetect browser: GoLogin, AdsPower, Multilogin comparados"
-- "Como organizar permissões em uma BM (papéis, partners, agências)"
-- "Conversions API (CAPI): tutorial completo com Google Tag Manager"
-- "CAPI Gateway vs Stape vs implementação nativa: comparativo"
-- "Como diagnosticar queda de performance em 24h"
-- "Auditoria de 30 minutos para identificar BM em risco"
-- "Como migrar pixels e domínios entre BMs sem perder histórico"
-- "Estrutura de campanhas para BM nova: CBO, ABO, Advantage+"
-- "Como funciona o Spending Limit do Meta e como elevar com segurança"
+- `gsc-sync` (novo): chama `searchAnalytics/query` (dimensions query+page, country, device) e `urlInspection`/`inspectionResult` para indexação dos 10 LPs + top 50 páginas; popula snapshots. Roda on-demand (botão "Sincronizar agora") e idealmente em cron diário.
+- Mantém `gsc-queries-for-page` atual.
 
-**Onda C — Cases, comparativos e long-tail (BoF, conversão)**
-- "Quanto custa rodar R$ 1 milhão/mês em Meta Ads: estrutura ideal"
-- "BM Verificada vs BM Antiga: qual escolher para cada cenário"
-- "Comprar BM verificada no Telegram: por que é uma armadilha"
-- "Mercado Livre, OLX, Telegram: onde NUNCA comprar ativos Meta"
-- "Estudo de caso: como uma operação de e-commerce sobreviveu a 3 bloqueios"
-- "Estudo de caso: WhatsApp Cloud API para clínica com 12k leads/mês"
-- "Comparativo: WhatsApp Cloud API oficial vs disparadores não oficiais"
-- "Comparativo: AD Scale vs alternativas (sem citar nomes — categorias)"
-- "Recuperação de BM bloqueada: nossa taxa real de sucesso"
-- "Como precificar contingência no orçamento da operação"
-- "Checklist de troca de gestor de tráfego sem perder ativos"
-- "FAQ definitivo sobre contingência (40 perguntas com resposta curta)"
-- "O futuro da contingência Meta Ads: tendências 2026-2027"
+## UI
 
-> Conteúdo gerado com **profundidade real** (mínimo 1.500 palavras nos pilares, 800+ nos demais), exemplos, tabelas, capturas anonimizadas quando possível.
+Nova página `src/pages/admin/SeoDashboard.tsx` com `Tabs` (shadcn). Componentes em `src/components/admin/seo/`:
+- `SeoFilters.tsx`, `SeoKpiCards.tsx`, `SeoTrendChart.tsx`
+- `QueriesTable.tsx`, `PagesTable.tsx`, `QuickWinsTable.tsx`, `LowCtrTable.tsx`, `ActionPlanTable.tsx`
+- `CsvImporter.tsx` (usa `xlsx` via `bun add xlsx`)
+- `lib/seo/intent.ts`, `lib/seo/opportunity.ts`, `lib/seo/score.ts`, `lib/seo/pageType.ts`
 
-### Fase 3 — Profundidade e UX de leitura
+Link no admin atual: card "Abrir Dashboard SEO".
 
-1. **Reescrever os 5 posts mais estratégicos** atuais para virarem **guias pilares** (≥ 3.000 palavras, índice expandido, FAQ rico, infográficos):
-   - Guia BM Verificada, Trust Score, Warm-up, Recuperação de BM, Arquitetura de contingência.
-2. **Componente "TL;DR"** no topo de cada post (3-5 bullets).
-3. **Caixas visuais reutilizáveis**: "Atenção", "Dica do especialista", "Resumo", "Exemplo real".
-4. **Progress bar** de leitura no topo + **tempo restante** dinâmico.
-5. **Sumário sticky** lateral em desktop (já existe TOC, melhorar UX).
-6. **Botão "copiar link da seção"** ao passar mouse sobre H2/H3.
-7. **Posts relacionados inteligentes**: por pilar + por keywords compartilhadas (já existe por categoria, refinar).
-8. **CTA contextual** no meio do post (não só no final): caixa "Precisa de [tema do post]? Fale com a AD Scale".
+## Detalhes técnicos
 
-### Fase 4 — SEO técnico e E-E-A-T
+- Score: `clamp(round(0.25*log10(impr+1)/4*100 + 25*posBonus + 20*ctrGap + 15*intentWeight + 10*pageWeight + 5*techIssue), 0, 100)` com `posBonus` em [0,1] (1 para pos 4–10, 0.6 para 11–20, 0.3 para 21–50, 0 acima).
+- Intenção: dicionário em `intent.ts` com listas exatas que o usuário forneceu.
+- CTR esperado por posição: tabela [pos→CTR base] para calcular gap.
+- Variação vs período anterior: query duas janelas iguais e compara.
+- Cores: verde ≥ +5%, amarelo entre -5 e +5%, vermelho ≤ -5%.
 
-1. **Schema enriquecido**:
-   - `Article` → `TechArticle` para guias técnicos.
-   - `HowTo` em todos os tutoriais passo-a-passo.
-   - `FAQPage` real (já parcial, expandir com respostas completas).
-   - `BreadcrumbList` em todos os posts.
-2. **Página de autor** robusta (`/autor/pedro-lucas` já existe — expandir com bio longa, credenciais, links sociais, schema `Person`).
-3. **Datas de atualização visíveis** + campo `updatedAt` por post (hoje só `publishedAt`).
-4. **Linkagem interna obrigatória**: cada post linka para 3-5 outros + 1-2 LPs comerciais (script de validação no build).
-5. **Sitemap dinâmico** por pilar (`sitemap-blog-bm.xml`, etc.) e atualização automática do `sitemap-posts.xml` ao adicionar post.
-6. **Imagens otimizadas**: WebP, lazy-load, alt descritivo, `width/height` para evitar CLS.
-7. **Core Web Vitals**: lazy-load do DotGlobe e imagens abaixo da dobra; reduzir JS no `/blog`.
-8. **OG images únicas** por post (template SVG → PNG gerado em build).
+## Pergunta antes de implementar
 
-### Fase 5 — Distribuição e conversão
+A Rodada 1 acima já é grande (≈15 arquivos novos + 1 migration + 1 edge function). Confirma que posso:
+- (a) Criar rota separada `/admin/seo` sem mexer no `/admin` atual; e
+- (b) Seguir com a Rodada 1 nesse escopo (6 abas funcionais + fundação) e deixar as outras 6 abas para a Rodada 2?
 
-1. **Newsletter** "Contingência Semanal" — captura no final de cada post + página `/newsletter`.
-2. **Lead magnets** por pilar (PDF gated):
-   - "Checklist de auditoria de BM (40 itens)" — pilar BM.
-   - "Cronograma de warm-up 14 dias" — pilar escala.
-   - "Guia de recuperação de BM bloqueada" — pilar segurança.
-3. **Banner contextual de LP** no fim de cada post (já parcial, automatizar por keyword do post).
-4. **Compartilhamento social**: botões discretos (X, LinkedIn, WhatsApp, copiar link).
-5. **Comentários/perguntas via WhatsApp**: CTA "tem dúvida sobre este post? pergunte aqui" no rodapé do artigo.
-
-### Fase 6 — Execução faseada
-
-| Sprint | Entrega |
-|---|---|
-| 1 | Fase 1 completa (hub redesenhado, pilares, navegação). |
-| 2 | Onda A de posts (13) + componentes TL;DR/Atenção/Dica. |
-| 3 | Reescrita dos 5 pilares + schema HowTo/TechArticle + autor expandido. |
-| 4 | Onda B (13 posts) + newsletter + 1 lead magnet. |
-| 5 | Onda C (13 posts) + CTAs contextuais + 2 lead magnets restantes. |
-| 6 | Polimento Core Web Vitals, OG images, validação interna de links, submissão GSC. |
-
-### Detalhes técnicos (para referência)
-
-- Estrutura de dados: adicionar campos `pillar`, `updatedAt`, `tldr: string[]`, `relatedSlugs?: string[]` em `BlogPost`.
-- Novas rotas em `src/App.tsx`: `/blog/pilar/:slug`.
-- Novo arquivo: `src/data/blogPillars.ts` (definição de pilares + agregação de posts).
-- Novos componentes: `PostTLDR`, `PostCallout` (variants: warning/tip/example/summary), `PillarHero`, `BlogSearch`.
-- `scripts/prerender.mjs`: adicionar rotas de pilares e regenerar sitemap automaticamente lendo `blogPosts.ts`.
-- Build-time check: script que falha se algum post tiver < 2 links internos.
-
----
-
-Quer que eu comece pela **Fase 1 (arquitetura/UX)** ou prefere atacar primeiro a **Fase 2 (volume de conteúdo)**? Também posso ajustar o mapa editorial — adicionar/remover temas — antes de começar.
+Se preferir outro recorte (ex.: só upload CSV + Quick Wins + Plano de Ação primeiro, sem edge function GSC), me diga e eu re-planejo.
