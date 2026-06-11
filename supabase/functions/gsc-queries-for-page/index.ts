@@ -7,7 +7,7 @@ const corsHeaders = {
 };
 
 const GATEWAY_URL = "https://connector-gateway.lovable.dev/google_search_console";
-const SITE_URL = "https://adscalecontingencia.com/";
+const SITE_URL = "sc-domain:adscalecontingencia.com";
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
