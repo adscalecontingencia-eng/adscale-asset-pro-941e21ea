@@ -37,13 +37,13 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
-              href={link.href}
+              to={link.href}
               className="text-muted-foreground hover:text-foreground transition-colors text-sm"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <a
             href={WHATSAPP_URL}
@@ -67,14 +67,14 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="md:hidden bg-card/95 backdrop-blur-xl border-t border-border/50 mt-2 mx-4 rounded-2xl p-6 space-y-4">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
-              href={link.href}
+              to={link.href}
               onClick={() => setMobileOpen(false)}
               className="block text-foreground text-lg"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <a
             href={WHATSAPP_URL}
