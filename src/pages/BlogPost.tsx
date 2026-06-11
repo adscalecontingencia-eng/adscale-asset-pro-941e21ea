@@ -268,7 +268,33 @@ const renderMarkdown = (md: string, campaign = "blog_post") => {
   return blocks;
 };
 
+/**
+ * Extrai FAQ schema reais a partir de uma seção `## Perguntas frequentes`
+ * contendo perguntas em `### Pergunta?` + parágrafo de resposta logo abaixo.
+ * Fallback: detecta H2s que parecem perguntas (comportamento antigo) e usa
+ * um texto genérico — só para posts que ainda não têm a seção dedicada.
+ */
 const extractFaqs = (content: string) => {
+  const faqSectionMatch = content.match(
+    /##\s+Perguntas frequentes\s*\n([\s\S]+?)(?:\n##\s+|\n<!--\s*seo-rodada-1:end|\s*$)/i,
+  );
+
+  if (faqSectionMatch) {
+    const body = faqSectionMatch[1];
+    const items = [...body.matchAll(/###\s+(.+?)\n+([\s\S]+?)(?=\n###\s+|\n##\s+|$)/g)];
+    if (items.length) {
+      return items.slice(0, 8).map((m) => ({
+        "@type": "Question",
+        name: m[1].trim(),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: m[2].trim().replace(/\s+/g, " "),
+        },
+      }));
+    }
+  }
+
+  // Fallback antigo: H2 com cara de pergunta
   const questions = content
     .split("\n")
     .map((line) => line.trim())
@@ -296,7 +322,7 @@ const BlogPost = () => {
   useEffect(() => {
     if (typeof window !== "undefined" && (window as any).gtag) {
       (window as any).gtag("config", "AW-18226021110", {
-        page_path: `/blog/${post.slug}/`,
+        page_path: `/blog/${post.slug}`,
         page_title: document.title,
       });
     }
@@ -318,7 +344,7 @@ const BlogPost = () => {
     { label: post.title },
   ];
 
-  const canonicalUrl = `${SITE_URL}/blog/${post.slug}/`;
+  const canonicalUrl = `${SITE_URL}/blog/${post.slug}`;
   const ogImageAbs = `${SITE_URL}${post.ogImage}`;
 
   const articleSchema: Record<string, unknown> = {

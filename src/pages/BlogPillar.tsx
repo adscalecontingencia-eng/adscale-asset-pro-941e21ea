@@ -31,8 +31,8 @@ const BlogPillar = () => {
     "@graph": [
       {
         "@type": "CollectionPage",
-        "@id": `${SITE}/blog/pilar/${pillar.slug}/#collection`,
-        url: `${SITE}/blog/pilar/${pillar.slug}/`,
+        "@id": `${SITE}/blog/pilar/${pillar.slug}#collection`,
+        url: `${SITE}/blog/pilar/${pillar.slug}`,
         name: pillar.title,
         description: pillar.description,
         inLanguage: "pt-BR",
@@ -41,7 +41,7 @@ const BlogPillar = () => {
           headline: p.title,
           description: p.description,
           datePublished: p.publishedAt,
-          url: `${SITE}/blog/${p.slug}/`,
+          url: `${SITE}/blog/${p.slug}`,
         })),
       },
       {

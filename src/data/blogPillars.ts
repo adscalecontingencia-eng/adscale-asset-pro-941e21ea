@@ -17,11 +17,11 @@ export type Pillar = {
 export const pillars: Pillar[] = [
   {
     slug: "business-manager",
-    title: "Business Manager: tudo sobre BM no Meta",
+    title: "Business Manager Meta: Guia Completo para Anunciantes e Agências",
     shortTitle: "Business Manager",
-    description: "BM verificada, BM ilimitada, preço, auditoria e fornecedores.",
+    description: "Entenda como funciona o Business Manager da Meta, como organizar ativos, permissões, contas de anúncio e estrutura de tráfego.",
     longDescription:
-      "Tudo o que você precisa saber sobre Business Manager no Meta Ads: como funciona a verificação, diferença entre BM nova, antiga, verificada e ilimitada, preços, riscos de fornecedor e checklist de auditoria. Conteúdo para quem opera ou pretende escalar com Facebook Ads em alto volume.",
+      "Guia completo de Business Manager Meta para anunciantes e agências: como funciona a verificação, diferença entre BM nova, antiga, verificada e ilimitada, organização de ativos, permissões, contas de anúncio, preços, riscos de fornecedor e checklist de auditoria. Conteúdo para quem opera ou pretende escalar com Facebook Ads em alto volume.",
     keywords: [
       "business manager",
       "bm verificada",
