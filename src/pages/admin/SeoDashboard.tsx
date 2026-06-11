@@ -284,7 +284,7 @@ const SeoDashboard = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO title="SEO Dashboard | AD Scale Admin" description="Painel de SEO Google Search Console" noindex />
+      <SEO title="SEO Dashboard | AD Scale Admin" description="Painel de SEO Google Search Console" noIndex />
       <header className="border-b border-border/50 bg-card/50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
