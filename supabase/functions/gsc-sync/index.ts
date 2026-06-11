@@ -7,7 +7,7 @@ const corsHeaders = {
 };
 
 const GATEWAY_URL = "https://connector-gateway.lovable.dev/google_search_console";
-const SITE_URL = "https://adscalecontingencia.com/";
+const SITE_URL = "sc-domain:adscalecontingencia.com";
 
 function todayISO(offsetDays = 0) {
   const d = new Date();

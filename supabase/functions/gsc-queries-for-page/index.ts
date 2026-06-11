@@ -7,7 +7,7 @@ const corsHeaders = {
 };
 
 const GATEWAY_URL = "https://connector-gateway.lovable.dev/google_search_console";
-const SITE_URL = "https://adscalecontingencia.com/";
+const SITE_URL = "sc-domain:adscalecontingencia.com";
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
@@ -59,7 +59,7 @@ Deno.serve(async (req) => {
     const result: Record<string, { query: string; clicks: number; impressions: number }[]> = {};
 
     for (const page of pages.slice(0, 25)) {
-      const fullUrl = page.startsWith("http") ? page : `${SITE_URL.replace(/\/$/, "")}${page}`;
+      const fullUrl = page.startsWith("http") ? page : `https://www.adscalecontingencia.com${page}`;
       const body = {
         startDate: start,
         endDate: end,
