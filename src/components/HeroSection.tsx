@@ -123,9 +123,9 @@ const HeroSection = ({
               {eyebrow}
             </p>
 
-            <h1 className="font-display text-2xl font-bold leading-[1.1] mb-3 animate-fade-in-up" style={{ animationDelay: "0.25s" }}>
+            <p className="font-display text-2xl font-bold leading-[1.1] mb-3 animate-fade-in-up" style={{ animationDelay: "0.25s" }}>
               {headlineMobile}
-            </h1>
+            </p>
 
             <p className="text-muted-foreground text-sm mb-4 leading-relaxed animate-fade-in-up px-2" style={{ animationDelay: "0.3s" }}>
               {subheadlineMobile}
