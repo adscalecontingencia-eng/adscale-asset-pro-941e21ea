@@ -23,23 +23,23 @@ const DEFAULT_TRUST = [
 ];
 
 const HeroSection = ({
-  eyebrow = "FEITO PARA QUEM ESCALA DE VERDADE NO META",
+  eyebrow = "ESTRUTURA PARA QUEM OPERA META ADS EM ESCALA",
   headline = (
     <>
-      Quando o leilão aperta, a <span className="text-gradient">qualidade do ativo</span> é o que mantém o{" "}
-      <span className="text-primary font-bold">ROAS</span>.
+      Contingência Meta Ads para{" "}
+      <span className="text-gradient">Operações de Alto Volume</span>
     </>
   ),
   headlineMobile = (
     <>
-      Quando o leilão aperta, a <span className="text-gradient">qualidade do ativo</span> mantém o{" "}
-      <span className="text-primary font-bold">ROAS</span>.
+      Contingência Meta Ads para{" "}
+      <span className="text-gradient">Alto Volume</span>
     </>
   ),
-  subheadline = "BMs Verificadas, BMs antigas, perfis, páginas antigas e Trust Score alto no Meta. A estrutura que sustenta o seu volume quando o leilão aperta.",
-  subheadlineMobile = "BMs Verificadas, BMs antigas, perfis, páginas antigas e Trust Score alto. A estrutura que sustenta seu volume.",
+  subheadline = "Estrutura, diagnóstico e suporte para anunciantes, agências e operações de tráfego que precisam operar com mais estabilidade no Meta Ads — BMs, perfis, páginas, domínios e ativos bem organizados.",
+  subheadlineMobile = "Estrutura, diagnóstico e suporte para operar com mais estabilidade no Meta Ads.",
   badgeText = "Ativos com Trust Score alto",
-  primaryCtaLabel = "FALAR COM O TIME",
+  primaryCtaLabel = "Falar com especialista no WhatsApp",
   secondaryCtaLabel = "Ver Ativos",
   secondaryCtaHref = "#ativos",
   trustItems = DEFAULT_TRUST,
