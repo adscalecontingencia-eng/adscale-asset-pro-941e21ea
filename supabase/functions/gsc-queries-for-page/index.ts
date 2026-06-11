@@ -59,7 +59,7 @@ Deno.serve(async (req) => {
     const result: Record<string, { query: string; clicks: number; impressions: number }[]> = {};
 
     for (const page of pages.slice(0, 25)) {
-      const fullUrl = page.startsWith("http") ? page : `${SITE_URL.replace(/\/$/, "")}${page}`;
+      const fullUrl = page.startsWith("http") ? page : `https://www.adscalecontingencia.com${page}`;
       const body = {
         startDate: start,
         endDate: end,
