@@ -1,6 +1,9 @@
 /**
- * SEO <title> overrides per blog post slug. Kept ≤60 chars (without any suffix)
- * so Google does not truncate. The visible H1 (post.title) stays long-form.
+ * SEO <title> overrides per blog post slug.
+ * A maioria mantida ≤60 chars para evitar truncamento;
+ * artigos prioritários da Rodada 1 de SEO recebem títulos
+ * solicitados pelo cliente (alguns levemente acima de 60).
+ * O H1 visível (post.title) continua independente.
  */
 export const blogSeoTitles: Record<string, string> = {
   "o-que-e-business-manager-verificada-meta":
@@ -31,10 +34,6 @@ export const blogSeoTitles: Record<string, string> = {
     "Trust Score Facebook Ads: como o Meta avalia (2026)",
   "recuperar-conta-anuncio-bloqueada-facebook-ads":
     "Recuperar conta de anúncio bloqueada no Facebook Ads",
-  "quanto-custa-bm-verificada-facebook-2026":
-    "Quanto custa uma BM Verificada Facebook em 2026",
-  "limite-de-gasto-facebook-ads-como-aumentar":
-    "Limite de gasto no Facebook Ads: como aumentar",
   "dominio-verificado-facebook-como-configurar-ios14":
     "Domínio verificado no Facebook: configurar para iOS 14+",
   "consultoria-meta-ads-vs-curso-quando-contratar":
@@ -45,4 +44,26 @@ export const blogSeoTitles: Record<string, string> = {
     "Conta nova de Facebook Ads bloqueia: 7 motivos reais",
   "disparo-via-api-whatsapp-cloud-bm-verificada-guia-completo":
     "Disparo via API no WhatsApp Cloud: guia de BM e tiers",
+
+  // ===== Rodada 1 — títulos solicitados pelo cliente =====
+  "qualidade-conta-anuncio-meta-como-medir":
+    "Qualidade da Conta Meta Ads: Como Ver, Melhorar e Evitar Restrições",
+  "cartao-credito-facebook-ads-boas-praticas":
+    "Cartão de Crédito para Facebook Ads: Boas Práticas para Evitar Bloqueios",
+  "estrutura-campanha-cbo-abo-quando-usar":
+    "CBO ou ABO no Meta Ads: Quando Usar Cada Estrutura de Campanha",
+  "autenticacao-2-fatores-conta-facebook-ads":
+    "Autenticação de 2 Fatores no Facebook Ads: Como Proteger Sua Conta",
+  "como-funciona-leilao-meta-ads":
+    "Leilão do Meta Ads: Como Funciona e O Que Afeta Seus Resultados",
+  "cnpj-mei-meta-ads-vale-pena":
+    "CNPJ ou MEI no Meta Ads: Vale a Pena para Anunciar?",
+  "limite-de-gasto-facebook-ads-como-aumentar":
+    "Limite de Gasto no Facebook Ads: Como Funciona e Como Aumentar",
+  "metricas-essenciais-meta-ads-iniciantes":
+    "Métricas do Meta Ads: Indicadores Essenciais para Analisar Campanhas",
+  "catalogo-meta-commerce-como-criar":
+    "Catálogo Meta Commerce: Como Criar e Configurar Corretamente",
+  "quanto-custa-bm-verificada-facebook-2026":
+    "Quanto Custa uma BM Verificada em 2026? Guia para Anunciantes",
 };
