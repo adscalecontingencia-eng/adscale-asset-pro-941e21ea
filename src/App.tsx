@@ -19,6 +19,9 @@ import AdminDashboard from "./pages/admin/Dashboard.tsx";
 import SeoDashboard from "./pages/admin/SeoDashboard.tsx";
 import AnalyticsTracker from "./components/AnalyticsTracker.tsx";
 import ProductLanding from "./pages/ProductLanding.tsx";
+import SolucoesMetaAds from "./pages/SolucoesMetaAds.tsx";
+import PoliticaPrivacidade from "./pages/PoliticaPrivacidade.tsx";
+import TermosDeUso from "./pages/TermosDeUso.tsx";
 import { productLandingSlugs } from "./data/landings";
 
 const queryClient = new QueryClient();
@@ -44,6 +47,9 @@ const App = () => (
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/seo" element={<SeoDashboard />} />
+          <Route path="/solucoes-meta-ads" element={<SolucoesMetaAds />} />
+          <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
+          <Route path="/termos-de-uso" element={<TermosDeUso />} />
           {productLandingSlugs.map((slug) => (
             <Route key={slug} path={`/${slug}`} element={<ProductLanding slug={slug} />} />
           ))}
