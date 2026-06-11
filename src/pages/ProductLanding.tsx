@@ -59,7 +59,7 @@ const ProductLanding = ({ slug: slugProp }: Props) => {
             "@type": "ListItem",
             position: 2,
             name: data.seo.title.split("|")[0].trim(),
-            item: `https://www.adscalecontingencia.com${data.seo.canonical}/`,
+            item: `https://www.adscalecontingencia.com${data.seo.canonical}`,
           },
         ],
       },
