@@ -27,6 +27,13 @@ import {
 } from "@/lib/seo/opportunity";
 import { priorityScore, scoreBand } from "@/lib/seo/score";
 import { normalize, parseSheet } from "@/lib/seo/csvImport";
+import QueryPageTab from "@/components/admin/seo/QueryPageTab";
+import CommercialPagesTab from "@/components/admin/seo/CommercialPagesTab";
+import BlogTab from "@/components/admin/seo/BlogTab";
+import TechnicalTab from "@/components/admin/seo/TechnicalTab";
+import WhatsAppTab from "@/components/admin/seo/WhatsAppTab";
+import BeforeAfterTab from "@/components/admin/seo/BeforeAfterTab";
+import AlertsTab from "@/components/admin/seo/AlertsTab";
 
 type Daily = { date: string; clicks: number; impressions: number; ctr: number; position: number };
 type QueryRow = {
@@ -402,11 +409,18 @@ const SeoDashboard = () => {
             <TabsTrigger value="overview">Visão Geral</TabsTrigger>
             <TabsTrigger value="queries">Consultas</TabsTrigger>
             <TabsTrigger value="pages">Páginas</TabsTrigger>
+            <TabsTrigger value="querypage">Consulta × Página</TabsTrigger>
             <TabsTrigger value="quickwins">Quick Wins</TabsTrigger>
             <TabsTrigger value="lowctr">Baixo CTR</TabsTrigger>
+            <TabsTrigger value="commercial">Páginas Comerciais</TabsTrigger>
+            <TabsTrigger value="blog">Blog</TabsTrigger>
+            <TabsTrigger value="technical">SEO Técnico</TabsTrigger>
+            <TabsTrigger value="whatsapp">WhatsApp</TabsTrigger>
             <TabsTrigger value="actions">Plano de Ação</TabsTrigger>
-            <TabsTrigger value="more" disabled>+ Em breve</TabsTrigger>
+            <TabsTrigger value="beforeafter">Antes/Depois</TabsTrigger>
+            <TabsTrigger value="alerts">Alertas</TabsTrigger>
           </TabsList>
+
 
           {/* Overview */}
           <TabsContent value="overview" className="space-y-4">
@@ -496,6 +510,26 @@ const SeoDashboard = () => {
             </Card>
           </TabsContent>
 
+          <TabsContent value="querypage">
+            <QueryPageTab rows={filteredQueries} />
+          </TabsContent>
+
+          <TabsContent value="commercial">
+            <CommercialPagesTab rows={filteredQueries} />
+          </TabsContent>
+
+          <TabsContent value="blog">
+            <BlogTab rows={filteredQueries} />
+          </TabsContent>
+
+          <TabsContent value="technical">
+            <TechnicalTab />
+          </TabsContent>
+
+          <TabsContent value="whatsapp">
+            <WhatsAppTab rows={filteredQueries} />
+          </TabsContent>
+
           <TabsContent value="actions" className="space-y-3">
             <div className="flex items-center justify-between">
               <p className="text-sm text-muted-foreground">
@@ -505,11 +539,20 @@ const SeoDashboard = () => {
             </div>
             <ActionPlanList />
           </TabsContent>
+
+          <TabsContent value="beforeafter">
+            <BeforeAfterTab />
+          </TabsContent>
+
+          <TabsContent value="alerts">
+            <AlertsTab rows={filteredQueries} daily={daily} />
+          </TabsContent>
         </Tabs>
       </main>
     </div>
   );
 };
+
 
 const intentColor: Record<Intent, string> = {
   comercial: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
