@@ -27,6 +27,13 @@ import {
 } from "@/lib/seo/opportunity";
 import { priorityScore, scoreBand } from "@/lib/seo/score";
 import { normalize, parseSheet } from "@/lib/seo/csvImport";
+import QueryPageTab from "@/components/admin/seo/QueryPageTab";
+import CommercialPagesTab from "@/components/admin/seo/CommercialPagesTab";
+import BlogTab from "@/components/admin/seo/BlogTab";
+import TechnicalTab from "@/components/admin/seo/TechnicalTab";
+import WhatsAppTab from "@/components/admin/seo/WhatsAppTab";
+import BeforeAfterTab from "@/components/admin/seo/BeforeAfterTab";
+import AlertsTab from "@/components/admin/seo/AlertsTab";
 
 type Daily = { date: string; clicks: number; impressions: number; ctr: number; position: number };
 type QueryRow = {
