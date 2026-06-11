@@ -5,7 +5,7 @@ import "./index.css";
 
 if (typeof window !== "undefined") {
   const { pathname, search, hash } = window.location;
-  const normalizedPath = pathname.replace(/\/ {2,}/g, "/");
+  const normalizedPath = pathname.replace(/\/{2,}/g, "/");
   if (normalizedPath !== pathname) {
     window.history.replaceState(window.history.state, "", `${normalizedPath}${search}${hash}`);
   }
