@@ -14,6 +14,165 @@ export type Database = {
   }
   public: {
     Tables: {
+      gsc_daily_metrics: {
+        Row: {
+          clicks: number
+          created_at: string
+          ctr: number
+          date: string
+          id: string
+          impressions: number
+          position: number
+        }
+        Insert: {
+          clicks?: number
+          created_at?: string
+          ctr?: number
+          date: string
+          id?: string
+          impressions?: number
+          position?: number
+        }
+        Update: {
+          clicks?: number
+          created_at?: string
+          ctr?: number
+          date?: string
+          id?: string
+          impressions?: number
+          position?: number
+        }
+        Relationships: []
+      }
+      gsc_index_status: {
+        Row: {
+          created_at: string
+          id: string
+          page: string
+          priority: string | null
+          reason: string | null
+          snapshot_date: string
+          state: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          page: string
+          priority?: string | null
+          reason?: string | null
+          snapshot_date: string
+          state?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          page?: string
+          priority?: string | null
+          reason?: string | null
+          snapshot_date?: string
+          state?: string | null
+        }
+        Relationships: []
+      }
+      gsc_page_snapshots: {
+        Row: {
+          clicks: number
+          created_at: string
+          ctr: number
+          id: string
+          impressions: number
+          page: string
+          page_type: string | null
+          position: number
+          query_count: number
+          snapshot_date: string
+          status: string | null
+          top_query: string | null
+        }
+        Insert: {
+          clicks?: number
+          created_at?: string
+          ctr?: number
+          id?: string
+          impressions?: number
+          page: string
+          page_type?: string | null
+          position?: number
+          query_count?: number
+          snapshot_date: string
+          status?: string | null
+          top_query?: string | null
+        }
+        Update: {
+          clicks?: number
+          created_at?: string
+          ctr?: number
+          id?: string
+          impressions?: number
+          page?: string
+          page_type?: string | null
+          position?: number
+          query_count?: number
+          snapshot_date?: string
+          status?: string | null
+          top_query?: string | null
+        }
+        Relationships: []
+      }
+      gsc_query_snapshots: {
+        Row: {
+          clicks: number
+          country: string | null
+          created_at: string
+          ctr: number
+          device: string | null
+          id: string
+          impressions: number
+          intent: string | null
+          opportunity: string | null
+          page: string | null
+          page_type: string | null
+          position: number
+          query: string
+          score: number | null
+          snapshot_date: string
+        }
+        Insert: {
+          clicks?: number
+          country?: string | null
+          created_at?: string
+          ctr?: number
+          device?: string | null
+          id?: string
+          impressions?: number
+          intent?: string | null
+          opportunity?: string | null
+          page?: string | null
+          page_type?: string | null
+          position?: number
+          query: string
+          score?: number | null
+          snapshot_date: string
+        }
+        Update: {
+          clicks?: number
+          country?: string | null
+          created_at?: string
+          ctr?: number
+          device?: string | null
+          id?: string
+          impressions?: number
+          intent?: string | null
+          opportunity?: string | null
+          page?: string | null
+          page_type?: string | null
+          position?: number
+          query?: string
+          score?: number | null
+          snapshot_date?: string
+        }
+        Relationships: []
+      }
       newsletter_leads: {
         Row: {
           created_at: string
@@ -68,6 +227,87 @@ export type Database = {
           utm_medium?: string | null
           utm_source?: string | null
           utm_term?: string | null
+        }
+        Relationships: []
+      }
+      seo_action_items: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          created_by: string | null
+          id: string
+          metric: string | null
+          page: string | null
+          priority: string
+          query: string | null
+          recommendation: string
+          result_json: Json | null
+          score: number | null
+          status: string
+          type: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          metric?: string | null
+          page?: string | null
+          priority?: string
+          query?: string | null
+          recommendation: string
+          result_json?: Json | null
+          score?: number | null
+          status?: string
+          type: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          metric?: string | null
+          page?: string | null
+          priority?: string
+          query?: string | null
+          recommendation?: string
+          result_json?: Json | null
+          score?: number | null
+          status?: string
+          type?: string
+        }
+        Relationships: []
+      }
+      seo_optimizations: {
+        Row: {
+          after_json: Json | null
+          applied_at: string
+          before_json: Json | null
+          created_by: string | null
+          id: string
+          notes: string | null
+          page: string
+          type: string
+        }
+        Insert: {
+          after_json?: Json | null
+          applied_at?: string
+          before_json?: Json | null
+          created_by?: string | null
+          id?: string
+          notes?: string | null
+          page: string
+          type: string
+        }
+        Update: {
+          after_json?: Json | null
+          applied_at?: string
+          before_json?: Json | null
+          created_by?: string | null
+          id?: string
+          notes?: string | null
+          page?: string
+          type?: string
         }
         Relationships: []
       }
