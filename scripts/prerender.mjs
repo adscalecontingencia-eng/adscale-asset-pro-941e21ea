@@ -246,7 +246,26 @@ const staticPages = [
     description: "Glossário, comparativos de formação e decisões estratégicas para gestores de tráfego que pretendem investir em contingência Meta Ads.",
     keywords: ["glossário meta ads", "consultoria meta ads", "gestor de tráfego"],
   },
+  {
+    path: "/solucoes-meta-ads",
+    title: "Soluções para Estrutura de Meta Ads | AD Scale",
+    description: "Conheça a AD Scale, empresa independente com soluções consultivas para organização e estrutura de operações profissionais de Meta Ads.",
+    keywords: ["soluções meta ads", "estrutura meta ads", "ad scale"],
+  },
+  {
+    path: "/politica-de-privacidade",
+    title: "Política de Privacidade | AD Scale",
+    description: "Política de privacidade da AD Scale: como coletamos, usamos e protegemos os dados de usuários e clientes.",
+    keywords: ["política de privacidade", "ad scale"],
+  },
+  {
+    path: "/termos-de-uso",
+    title: "Termos de Uso | AD Scale",
+    description: "Termos de uso da AD Scale: finalidade informativa, limitação de responsabilidade e independência em relação a Meta e Google.",
+    keywords: ["termos de uso", "ad scale"],
+  },
 ];
+
 
 // ---------- HTML transform ----------
 function injectMeta(template, { title, description, canonical, ogImage, keywords, ogType = "website", publishedAt, jsonLd, bodyHtml }) {
