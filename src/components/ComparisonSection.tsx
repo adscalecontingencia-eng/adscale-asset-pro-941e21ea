@@ -3,34 +3,44 @@ import { Check, X } from "lucide-react";
 const ComparisonSection = () => {
   const comparisonPoints = [
     {
-      label: "Idade do ativo",
-      common: "Perfil recém-criado",
-      adscale: "Idade real + warm-up consistente",
+      label: "Selo de verificação Meta",
+      common: "Sem selo — sujeita a revisão documental a qualquer momento",
+      adscale: "Business Verification concluída + Domain Verification ativa",
     },
     {
-      label: "Trust Score no Meta",
-      common: "Low / Médio (susceptível a revista)",
-      adscale: "Trust Score alto (resistência natural)",
+      label: "Resistência a bloqueio (BSO / 273 / 368)",
+      common: "Histórico longo, mas sem blindagem documental contra flags automáticas",
+      adscale: "Camada verificada reduz acionamento de policy review e BSO recorrente",
     },
     {
-      label: "Histórico de gasto",
-      common: "Sem histórico",
-      adscale: "Spending track D0–30 cap estendido",
+      label: "Spending limit inicial",
+      common: "Cap conservador, escalonamento lento mesmo com histórico",
+      adscale: "Cap estendido desde D0, com daily spend liberado para escala agressiva",
     },
     {
-      label: "Fingerprints e configurações",
-      common: "Genérica ou automatizada",
-      adscale: "Manual, única e criptografada",
+      label: "Prioridade no leilão (delivery)",
+      common: "Delivery padrão — sensível a CPM em horários de pico",
+      adscale: "Trust signal verificado melhora pacing e estabilidade de entrega",
     },
     {
-      label: "Suporte pós-venda",
-      common: "Inexistente ou demorado",
-      adscale: "Briefing técnico 1 a 1 incluso",
+      label: "Aproveitamento em nichos sensíveis",
+      common: "Funciona em nicho white, instável em borderline e restrito",
+      adscale: "Sustenta nichos gray/restritos com menor taxa de reprovação de criativo",
     },
     {
-      label: "Troca em caso de bloqueio",
-      common: "Sem cobertura",
-      adscale: "Avaliação caso a caso",
+      label: "Recuperação pós-review",
+      common: "Apelação genérica, ciclo longo de reanálise",
+      adscale: "Documentação verificada acelera reabertura e reduz perda de pixel",
+    },
+    {
+      label: "Vinculação de ativos (Pixel / Página / Domínio)",
+      common: "Risco de quebra em auditoria cruzada de fingerprint",
+      adscale: "Stack coerente: BM, página, pixel e domínio alinhados desde a entrega",
+    },
+    {
+      label: "Curva de aquecimento",
+      common: "Warm-up obrigatório para destravar limite e qualidade",
+      adscale: "Pronta para budget agressivo — warm-up apenas para CBO/ABO de teste",
     },
   ];
 
@@ -40,24 +50,28 @@ const ComparisonSection = () => {
         <div className="text-center mb-16">
           <div className="badge-pill mb-4 mx-auto">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            Por que profissionais confiam nos nossos ativos
+            Análise técnica de ativos para operação de alto volume
           </div>
           <h2 className="font-display text-3xl md:text-4xl font-bold">
-            Ativo comum vs. <span className="text-gradient">Ativo AdScale</span>
+            BM Antiga vs. <span className="text-gradient">BM Verificada</span>
           </h2>
+          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mt-5">
+            Idade resolve histórico. Verificação resolve bloqueio. Para escalar com previsibilidade
+            no Meta, o ativo precisa entregar as duas camadas — não só uma.
+          </p>
         </div>
 
         {/* Desktop / Tablet: Table */}
         <div className="hidden md:block overflow-hidden rounded-2xl border border-border/50 bg-card/60 backdrop-blur-sm">
           <div className="grid grid-cols-[1fr,1fr,1fr] border-b border-border/50 bg-muted/30">
             <div className="p-6 text-left font-semibold text-muted-foreground text-sm uppercase tracking-wider">
-              Característica
+              Critério técnico
             </div>
             <div className="p-6 text-center font-semibold text-muted-foreground text-sm uppercase tracking-wider border-x border-border/50">
-              Ativo Comum
+              BM Antiga
             </div>
             <div className="p-6 text-center font-semibold text-primary text-sm uppercase tracking-wider">
-              Ativo AdScale
+              BM Verificada AdScale
             </div>
           </div>
 
