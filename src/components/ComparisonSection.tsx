@@ -109,14 +109,14 @@ const ComparisonSection = () => {
               </div>
 
               <div className="divide-y divide-border/50">
-                {/* Ativo comum */}
+                {/* BM Antiga */}
                 <div className="p-5 flex items-start gap-3">
                   <div className="w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center shrink-0">
                     <X className="w-4 h-4 text-destructive" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-1">
-                      Ativo Comum
+                      BM Antiga
                     </p>
                     <p className="text-sm text-muted-foreground leading-snug">
                       {point.common}
