@@ -56,7 +56,7 @@ export interface ProductLandingData {
 const trustDefault = [
   { value: "Alto", label: "Trust Score" },
   { value: "Antigos", label: "BMs & Perfis" },
-  { value: "Verified", label: "Ativos validados" },
+  { value: "Verificado", label: "Ativos validados" },
 ];
 
 // ---------- Helpers ----------
@@ -207,7 +207,7 @@ const bmIlimitada: ProductLandingData = {
     trustItems: [
       { value: "Sem cap", label: "de gasto" },
       { value: "10k+", label: "USD/dia" },
-      { value: "Verified", label: "Profile + BM" },
+      { value: "Verificado", label: "Profile + BM" },
     ],
   },
   assets: {
@@ -332,7 +332,7 @@ const perfisFacebook: ProductLandingData = {
     trustItems: [
       { value: "Antigos", label: "2+ anos" },
       { value: "Real", label: "Atividade orgânica" },
-      { value: "Verified", label: "Selo opcional" },
+      { value: "Verificado", label: "Selo opcional" },
     ],
   },
   assets: {
@@ -699,7 +699,7 @@ const dominiosVerificados: ProductLandingData = {
     subheadlineMobile:
       "Domínios verificados no Meta, com DNS e e-mail. Pré-requisito para CAPI e iOS 14+.",
     trustItems: [
-      { value: "Verified", label: "Meta domain" },
+      { value: "Verificado", label: "Meta domain" },
       { value: "DNS", label: "Configurado" },
       { value: "Antigos", label: "do ativo" },
     ],
@@ -822,7 +822,7 @@ const whatsappCloudApi: ProductLandingData = {
     trustItems: [
       { value: "Tier 100k", label: "WhatsApp" },
       { value: "HQ", label: "Quality Rating" },
-      { value: "Verified", label: "WABA + BM" },
+      { value: "Verificado", label: "WABA + BM" },
     ],
   },
   assets: {
@@ -945,7 +945,7 @@ const pixelCapi: ProductLandingData = {
     trustItems: [
       { value: "8 eventos", label: "prioritários" },
       { value: "Server", label: "side CAPI" },
-      { value: "Verified", label: "Domínio" },
+      { value: "Verificado", label: "Domínio" },
     ],
   },
   assets: {
