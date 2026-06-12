@@ -144,7 +144,7 @@ const ComparisonSection = () => {
         </div>
 
         <p className="text-center text-muted-foreground text-sm mt-6">
-          Todos os ativos são curados individualmente para operações de alto volume.
+          Todos os ativos passam por auditoria de fingerprint, policy review e teste de spending cap antes da entrega.
         </p>
       </div>
     </section>
