@@ -124,14 +124,14 @@ const ComparisonSection = () => {
                   </div>
                 </div>
 
-                {/* Ativo AdScale */}
+                {/* BM Verificada AdScale */}
                 <div className="p-5 flex items-start gap-3 bg-primary/5">
                   <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
                     <Check className="w-4 h-4 text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-xs uppercase tracking-wider text-primary font-semibold mb-1">
-                      Ativo AdScale
+                      BM Verificada AdScale
                     </p>
                     <p className="text-sm font-medium text-foreground leading-snug">
                       {point.adscale}
