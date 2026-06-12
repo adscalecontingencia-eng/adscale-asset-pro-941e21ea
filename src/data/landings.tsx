@@ -484,7 +484,7 @@ const perfilAged: ProductLandingData = {
         "Timeline rica",
         "Pré-requisito para BM ilimitada",
       ]),
-      mk(BadgeCheck, "VERIFIED", "Perfil Antigos + Verified", "Perfis antigos que também passaram pela verificação oficial do Meta — combinação rara e poderosa.", [
+      mk(BadgeCheck, "VERIFICADO", "Perfil Antigos + Verificado", "Perfis antigos que também passaram pela verificação oficial do Meta — combinação rara e poderosa.", [
         "Idade + verificação",
         "Cap alto de BM destravado",
         "Estoque limitado",
