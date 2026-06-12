@@ -43,7 +43,7 @@ const ComparisonSection = () => {
             Por que profissionais confiam nos nossos ativos
           </div>
           <h2 className="font-display text-3xl md:text-4xl font-bold">
-            Ativo comum vs. <span className="text-gradient">Ativo Adscale</span>
+            Ativo comum vs. <span className="text-gradient">Ativo AdScale</span>
           </h2>
         </div>
 
@@ -57,7 +57,7 @@ const ComparisonSection = () => {
               Ativo Comum
             </div>
             <div className="p-6 text-center font-semibold text-primary text-sm uppercase tracking-wider">
-              Ativo Adscale
+              Ativo AdScale
             </div>
           </div>
 
@@ -110,14 +110,14 @@ const ComparisonSection = () => {
                   </div>
                 </div>
 
-                {/* Ativo Adscale */}
+                {/* Ativo AdScale */}
                 <div className="p-5 flex items-start gap-3 bg-primary/5">
                   <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
                     <Check className="w-4 h-4 text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-xs uppercase tracking-wider text-primary font-semibold mb-1">
-                      Ativo Adscale
+                      Ativo AdScale
                     </p>
                     <p className="text-sm font-medium text-foreground leading-snug">
                       {point.adscale}
