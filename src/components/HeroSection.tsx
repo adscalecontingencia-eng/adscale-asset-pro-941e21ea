@@ -26,14 +26,14 @@ const HeroSection = ({
   eyebrow = "ESTRUTURA PARA QUEM OPERA META ADS EM ESCALA",
   headline = (
     <>
-      Contingência Meta Ads para{" "}
-      <span className="text-gradient">Operações de Alto Volume</span>
+      Quando o leilão aperta, a qualidade do ativo é o que mantém o{" "}
+      <span className="text-primary font-bold">ROAS</span>
     </>
   ),
   headlineMobile = (
     <>
-      Contingência Meta Ads para{" "}
-      <span className="text-gradient">Alto Volume</span>
+      Quando o leilão aperta, a qualidade do ativo é o que mantém o{" "}
+      <span className="text-primary font-bold">ROAS</span>
     </>
   ),
   subheadline = "Estrutura, diagnóstico e suporte para anunciantes, agências e operações de tráfego que precisam operar com mais estabilidade no Meta Ads — BMs, perfis, páginas, domínios e ativos bem organizados.",
