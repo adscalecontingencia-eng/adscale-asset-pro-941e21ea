@@ -1066,7 +1066,7 @@ Se 3+ dessas respostas forem "não", o preço baixo é armadilha.
 ## Onde mora o golpe
 
 - **BM "verificada" reciclada** que cairá em dias
-- **Verificação obtida com documento de terceiros** (revertida quando descoberto)
+- **Verificação fraudulenta com documentos de terceiros** — prática ilegal, detectada pelo Meta e revertida
 - **BM clonada** vendida para múltiplos compradores
 - **Selo azul falso** (alegado mas não comprovado)
 
