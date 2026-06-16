@@ -2952,79 +2952,6 @@ Ferramentas como AdsPower, Multilogin ou Dolphin{anty} sincronizam fingerprint +
 `,
   },
   {
-    slug: "anti-detect-browser-meta-ads-quando-usar",
-    title: "Navegador anti-detect para Meta Ads: quando usar e como configurar",
-    description:
-      "Quando faz sentido usar AdsPower, Multilogin ou Dolphin Anty para operar Meta Ads, riscos de uso errado e o setup mínimo que protege a BM sem disparar revisão.",
-    keywords: ["anti detect meta ads", "adspower facebook", "multilogin bm", "dolphin anty", "navegador anti deteccao"],
-    category: "Meio de funil",
-    readingTime: "8 min",
-    publishedAt: "2026-05-20",
-    ogImage: "/og/og-anti-detect-browser.jpg",
-    ctaTitle: "Quer setup de perfil + IP + anti-detect pronto?",
-    ctaDescription: "Em vez de gastar semanas testando fingerprint, receba a BM já com perfil aged, IP residencial e configuração de browser compatível. Tudo entregue por WhatsApp em 1 dia útil.",
-    ctaWhatsappMessage: "Olá! Vim do blog (anti-detect browser) e quero setup completo de perfil + IP + browser.",
-    content: `
-:::tldr
-Anti-detect browser **não é truque**, é infraestrutura. Ele separa BMs sem cross-contamination de cookies, fingerprint e IP. Usado errado, é flag automático no Meta. Usado certo, sustenta operação multi-BM por meses.
-:::
-
-A pergunta certa não é "anti-detect é seguro?" mas "o que você está tentando evitar?". Quem opera 1 BM no notebook pessoal não precisa. Quem opera 3+ BMs em paralelo, sim — e precisa configurar como gente grande.
-
-## Quando você precisa
-
-- 2+ BMs no mesmo computador.
-- Acesso compartilhado entre time/agência.
-- Operação distribuída entre cidades/países.
-- Histórico recente de bloqueio por "atividade suspeita".
-
-## Quando não precisa
-
-- 1 BM, 1 admin, 1 máquina dedicada, IP residencial estável.
-- Operação inicial < R$ 5k/mês.
-
-## Os principais players
-
-| Ferramenta | Forte em | Preço típico |
-|---|---|---|
-| AdsPower | Custo-benefício, BR-friendly | US$ 5-50/mês |
-| Multilogin | Stealth máximo | US$ 99-300/mês |
-| Dolphin Anty | Times grandes, API | US$ 89-199/mês |
-| GoLogin | Iniciante | US$ 24-99/mês |
-
-## Setup mínimo seguro
-
-1. **1 perfil = 1 BM = 1 IP residencial fixo**.
-2. País do IP = país da BM.
-3. Fuso, idioma e resolução = padrão do mercado-alvo (BR: GMT-3, pt-BR, 1920×1080).
-4. User-agent Chrome **estável** (não trocar a cada login).
-5. Cookies persistentes do perfil (não limpar entre sessões).
-6. Login Meta + WhatsApp + e-mail recovery **dentro do mesmo perfil**.
-
-[Quero meu setup configurado por especialista](wa:Vim%20do%20blog%20%28anti-detect%29%20e%20quero%20setup%20de%20perfil%20%2B%20IP%20%2B%20browser%20pronto%20para%20minha%20BM.)
-
-## Erros que queimam tudo
-
-:::callout type=warning
-**Trocar IP por sessão** (rotating proxy) dentro de perfil anti-detect é um dos sinais mais fortes de operação suspeita. Use IP **sticky** (mesmo IP por dias).
-:::
-
-- Reusar fingerprint entre perfis.
-- Login Meta + Google + e-mail em perfis diferentes.
-- Mexer no fuso horário sem ajustar o IP no mesmo país.
-- Acessar a mesma BM ora pelo anti-detect, ora pelo Chrome normal.
-
-## Sinais de que está funcionando
-
-- Login sem pedido de verificação adicional.
-- Account Quality estável.
-- Spending cap sobe nos prazos normais ([guia](/blog/limite-de-gasto-facebook-ads-como-aumentar)).
-- Sem 2FA inesperado.
-
-> Combine com a estratégia de [3 camadas de BM](/blog/estrategia-3-camadas-bm-meta-ads-contingencia) para cobertura total.
-`,
-  },
-  {
     slug: "permissoes-equipe-bm-papeis-acesso-correto",
     title: "Permissões da BM: papéis, acessos e o erro que custou a conta de muito gestor",
     description:
@@ -4161,6 +4088,9 @@ ROI no primeiro mês: o downtime evitado já pagou tudo 4x.
 Lançamento de R$ 800 mil. Dia 2: BM principal bloqueada por "atividade incomum". Em **48h** a operação voltou ao ar usando BM reserva pré-aquecida + appeal técnico bem feito. **Lançamento fechou em R$ 1,2mi**.
 :::
 
+> ⚠️ **Case específico — não representa resultado típico.** Faturamento, ROAS e tempo de recuperação descritos referem-se a esta operação. Resultados em lançamentos dependem de lista, oferta, criativo e gestão. A AD Scale não garante reprodução destes números.
+
+
 ## O setup do lançamento
 
 - Infoprodutor de nicho high-ticket (mentoria, R$ 5k/aluno).
@@ -4511,6 +4441,9 @@ Resultado típico: gestor sobe ticket médio em **35-50%** com a mesma carga ope
 :::tldr
 Agência com 23 clientes, **4-6 bloqueios/mês**, perdendo R$ 80-120k de fee por churn anual. Após migração para **estrutura padronizada de 3 camadas** e protocolos escritos: **zero downtime relevante** em 6 meses, +R$ 240k em retention.
 :::
+
+> ⚠️ **Case específico — não representa resultado típico.** Os números (clientes, downtime, MRR) referem-se a esta agência. Resultados dependem de carteira, nicho dos clientes, equipe e gestão. A AD Scale não garante reprodução destes números.
+
 
 ## A dor antes
 

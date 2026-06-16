@@ -74,7 +74,7 @@ export const pillars: Pillar[] = [
       "pagina-antiga-facebook-impacto-na-performance",
       "fingerprint-ip-residencial-meta-ads",
       "ip-residencial-vs-datacenter-meta-ads",
-      "anti-detect-browser-meta-ads-quando-usar",
+      
       "saude-perfil-administrador-bm-rotina-semanal",
     ],
   },
