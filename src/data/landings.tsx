@@ -283,7 +283,7 @@ const bmIlimitada: ProductLandingData = {
         Pare de escalar travado em <span className="text-gradient italic">cap de gasto.</span>
       </>
     ),
-    description: "BM ilimitada com perfil verificado, BIN aprovador e curadoria 1 a 1. Para operações que precisam rodar volume sem amarras.",
+    description: "BM ilimitada com perfil verificado, domínio configurado e curadoria 1 a 1. Para operações que precisam rodar volume sem amarras.",
     ctaLabel: "QUERO BM ILIMITADA",
   },
   featuredGuideSlugs: [
