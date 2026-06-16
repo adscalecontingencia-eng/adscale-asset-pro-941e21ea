@@ -273,7 +273,7 @@ const bmIlimitada: ProductLandingData = {
       {
         question: "Quanto custa uma BM ilimitada?",
         answer:
-          "Depende da combinação (perfil verificado + BM antigos + BIN), do nicho e do tier de gasto desejado. Cotação 1 a 1 no WhatsApp.",
+          "Depende da combinação (perfil verificado + BM antigos + domínio verificado), do nicho e do tier de gasto desejado. Cotação 1 a 1 no WhatsApp.",
       },
     ],
   },
