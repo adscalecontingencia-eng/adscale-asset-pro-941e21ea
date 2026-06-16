@@ -65,5 +65,5 @@ AD Scale é fornecedora brasileira especializada em curadoria 1 a 1 de ativos pa
 - [WhatsApp Cloud API](/whatsapp-cloud-api): BM + WABA verificadas, número HQ, tier 1k/10k/100k.
 - [Pixel + CAPI](/pixel-capi): Pixel e Conversions API server-side configurados.
 - [Aquecimento de Contas](/aquecimento-contas): Warm-up profissional para BMs, perfis e WABA.
-- [Cartões e BIN Internacional](/cartoes-bin-internacional): BINs aprovadores para Meta Ads.
+
 - [Recuperação de BM](/recuperacao-bm): Desbloqueio de BM e contingência em 24h.
