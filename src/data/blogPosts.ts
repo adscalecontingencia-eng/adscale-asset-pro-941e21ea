@@ -760,6 +760,9 @@ CAPI deixou de ser opcional. É infraestrutura padrão para operação profissio
     content: `
 Toda decisão de compra grande precisa de número. Quando você apresenta investimento em estrutura de contingência para um sócio, CFO ou cliente, "porque é importante" não vence objeção — modelo financeiro vence. Este artigo monta o cálculo real de ROI da contingência no Meta Ads.
 
+> 💡 **Cenários hipotéticos:** os números deste artigo são exemplos ilustrativos para fins de cálculo. Substitua pelos seus próprios valores na planilha sugerida — resultados reais variam por nicho, oferta e operação.
+
+
 ## Os 4 componentes do custo do bloqueio
 
 ### 1. Receita parada
@@ -1082,7 +1085,7 @@ Para operações sérias, o investimento em BM Verificada premium tem retorno em
 
 ## Próximos passos
 
-Se quer evitar o risco do mercado paralelo, [conheça nossa curadoria 1 a 1 de BM Verificada](/bm-verificada) — com handover técnico real, suporte e reposição garantida.
+Se quer evitar o risco do mercado paralelo, [conheça nossa curadoria 1 a 1 de BM Verificada](/bm-verificada) — com handover técnico real, suporte e política de reposição documentada (condições e prazos definidos no briefing).
 
 Para entender a estrutura completa, veja também [como escolher fornecedor de BM verificada](/blog/como-escolher-fornecedor-bm-verificada) e [a arquitetura de contingência para alto volume](/blog/arquitetura-contingencia-meta-ads-operacao-alto-volume).
 
@@ -2859,7 +2862,7 @@ Quem opera Meta Ads em volume sabe: bloqueio não é se, é quando. A diferença
 :::
 
 - Cartões diferentes por camada (não use o mesmo BIN).
-- IPs residenciais diferentes (anti-detect ou perfis separados).
+- IPs residenciais diferentes por camada (perfis de navegador isolados por BM, com IP e fingerprint consistentes ao histórico do ativo).
 - Criativos com pequenas variações em cada camada (evita detecção de duplicidade).
 - Domínio verificado em todas — mesmo domínio pode estar em até 2 BMs como *partner*.
 
@@ -2946,79 +2949,6 @@ Ferramentas como AdsPower, Multilogin ou Dolphin{anty} sincronizam fingerprint +
 - Account Quality despencando sem motivo aparente.
 
 > Próximo passo: rever o [fingerprint e perfil administrador](/blog/fingerprint-ip-residencial-meta-ads).
-`,
-  },
-  {
-    slug: "anti-detect-browser-meta-ads-quando-usar",
-    title: "Navegador anti-detect para Meta Ads: quando usar e como configurar",
-    description:
-      "Quando faz sentido usar AdsPower, Multilogin ou Dolphin Anty para operar Meta Ads, riscos de uso errado e o setup mínimo que protege a BM sem disparar revisão.",
-    keywords: ["anti detect meta ads", "adspower facebook", "multilogin bm", "dolphin anty", "navegador anti deteccao"],
-    category: "Meio de funil",
-    readingTime: "8 min",
-    publishedAt: "2026-05-20",
-    ogImage: "/og/og-anti-detect-browser.jpg",
-    ctaTitle: "Quer setup de perfil + IP + anti-detect pronto?",
-    ctaDescription: "Em vez de gastar semanas testando fingerprint, receba a BM já com perfil aged, IP residencial e configuração de browser compatível. Tudo entregue por WhatsApp em 1 dia útil.",
-    ctaWhatsappMessage: "Olá! Vim do blog (anti-detect browser) e quero setup completo de perfil + IP + browser.",
-    content: `
-:::tldr
-Anti-detect browser **não é truque**, é infraestrutura. Ele separa BMs sem cross-contamination de cookies, fingerprint e IP. Usado errado, é flag automático no Meta. Usado certo, sustenta operação multi-BM por meses.
-:::
-
-A pergunta certa não é "anti-detect é seguro?" mas "o que você está tentando evitar?". Quem opera 1 BM no notebook pessoal não precisa. Quem opera 3+ BMs em paralelo, sim — e precisa configurar como gente grande.
-
-## Quando você precisa
-
-- 2+ BMs no mesmo computador.
-- Acesso compartilhado entre time/agência.
-- Operação distribuída entre cidades/países.
-- Histórico recente de bloqueio por "atividade suspeita".
-
-## Quando não precisa
-
-- 1 BM, 1 admin, 1 máquina dedicada, IP residencial estável.
-- Operação inicial < R$ 5k/mês.
-
-## Os principais players
-
-| Ferramenta | Forte em | Preço típico |
-|---|---|---|
-| AdsPower | Custo-benefício, BR-friendly | US$ 5-50/mês |
-| Multilogin | Stealth máximo | US$ 99-300/mês |
-| Dolphin Anty | Times grandes, API | US$ 89-199/mês |
-| GoLogin | Iniciante | US$ 24-99/mês |
-
-## Setup mínimo seguro
-
-1. **1 perfil = 1 BM = 1 IP residencial fixo**.
-2. País do IP = país da BM.
-3. Fuso, idioma e resolução = padrão do mercado-alvo (BR: GMT-3, pt-BR, 1920×1080).
-4. User-agent Chrome **estável** (não trocar a cada login).
-5. Cookies persistentes do perfil (não limpar entre sessões).
-6. Login Meta + WhatsApp + e-mail recovery **dentro do mesmo perfil**.
-
-[Quero meu setup configurado por especialista](wa:Vim%20do%20blog%20%28anti-detect%29%20e%20quero%20setup%20de%20perfil%20%2B%20IP%20%2B%20browser%20pronto%20para%20minha%20BM.)
-
-## Erros que queimam tudo
-
-:::callout type=warning
-**Trocar IP por sessão** (rotating proxy) dentro de perfil anti-detect é um dos sinais mais fortes de operação suspeita. Use IP **sticky** (mesmo IP por dias).
-:::
-
-- Reusar fingerprint entre perfis.
-- Login Meta + Google + e-mail em perfis diferentes.
-- Mexer no fuso horário sem ajustar o IP no mesmo país.
-- Acessar a mesma BM ora pelo anti-detect, ora pelo Chrome normal.
-
-## Sinais de que está funcionando
-
-- Login sem pedido de verificação adicional.
-- Account Quality estável.
-- Spending cap sobe nos prazos normais ([guia](/blog/limite-de-gasto-facebook-ads-como-aumentar)).
-- Sem 2FA inesperado.
-
-> Combine com a estratégia de [3 camadas de BM](/blog/estrategia-3-camadas-bm-meta-ads-contingencia) para cobertura total.
 `,
   },
   {
@@ -4060,8 +3990,11 @@ Cliente que estava perdendo 3 dias/mês por bloqueio (≈ R$ 90 mil/mês parados
     ctaLabel: "Quero o mesmo setup",
     content: `
 :::tldr
-E-commerce de suplementos travado em R$ 200 mil/mês por bloqueios recorrentes. Após estrutura de **3 BMs verificadas + warm-up + CAPI** subiu para **R$ 1mi/mês em 90 dias**, com zero downtime de mídia.
+E-commerce de suplementos travado em R$ 200 mil/mês por bloqueios recorrentes. Após estrutura de **3 BMs verificadas + warm-up + CAPI** subiu para **R$ 1mi/mês em 90 dias**, com menos de 1 dia total de downtime no período.
 :::
+
+> ⚠️ **Case específico — não representa resultado típico.** Dados de faturamento, ROAS, downtime e tempo são particulares a esta operação. Resultados dependem de nicho, oferta, criativo e gestão. A AD Scale não garante reprodução destes números.
+
 
 ## A operação antes
 
@@ -4154,6 +4087,9 @@ ROI no primeiro mês: o downtime evitado já pagou tudo 4x.
 :::tldr
 Lançamento de R$ 800 mil. Dia 2: BM principal bloqueada por "atividade incomum". Em **48h** a operação voltou ao ar usando BM reserva pré-aquecida + appeal técnico bem feito. **Lançamento fechou em R$ 1,2mi**.
 :::
+
+> ⚠️ **Case específico — não representa resultado típico.** Faturamento, ROAS e tempo de recuperação descritos referem-se a esta operação. Resultados em lançamentos dependem de lista, oferta, criativo e gestão. A AD Scale não garante reprodução destes números.
+
 
 ## O setup do lançamento
 
@@ -4463,7 +4399,7 @@ Cliente premium não quer mais "gestor que faz anúncio". Quer **operação comp
 ## Como justificar o aumento
 
 1. **Cálculo de downtime evitado.** Mostra cliente quanto ele perde em 1 dia bloqueado. [Tabela aqui](/blog/calcular-roi-investimento-contingencia-meta-ads).
-2. **Garantia de uptime.** "Sua operação não para por bloqueio."
+2. **Resiliência operacional.** "Com contingência estruturada, bloqueios não param a operação — a reserva entra em até 1h."
 3. **Performance.** CAPI bem feito melhora Event Match → custo por resultado cai 15-30%.
 
 ## O que NÃO cobrar
@@ -4505,6 +4441,9 @@ Resultado típico: gestor sobe ticket médio em **35-50%** com a mesma carga ope
 :::tldr
 Agência com 23 clientes, **4-6 bloqueios/mês**, perdendo R$ 80-120k de fee por churn anual. Após migração para **estrutura padronizada de 3 camadas** e protocolos escritos: **zero downtime relevante** em 6 meses, +R$ 240k em retention.
 :::
+
+> ⚠️ **Case específico — não representa resultado típico.** Os números (clientes, downtime, MRR) referem-se a esta agência. Resultados dependem de carteira, nicho dos clientes, equipe e gestão. A AD Scale não garante reprodução destes números.
+
 
 ## A dor antes
 

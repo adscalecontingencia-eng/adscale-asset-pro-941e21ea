@@ -868,8 +868,9 @@ const whatsappCloudApi: ProductLandingData = {
       {
         question: "Qual a diferença entre WhatsApp Business App e Cloud API?",
         answer:
-          "Business App é o aplicativo no celular (envio manual, limites baixos). Cloud API é a API oficial Meta para envio em massa via integração — única forma legal de disparo em escala.",
+          "Business App é o aplicativo no celular (envio manual, limites baixos). Cloud API é a API oficial Meta — o caminho recomendado para disparo em escala dentro da política do WhatsApp Business Platform.",
       },
+
       {
         question: "Como subir o tier da WABA de 1k para 10k ou 100k?",
         answer:

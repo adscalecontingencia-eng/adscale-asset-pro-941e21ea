@@ -152,9 +152,9 @@ const CommercialLanding = ({
         {testimonials && testimonials.length > 0 && (
           <section className="container max-w-6xl px-4 mt-20" aria-labelledby="depoimentos-heading">
             <div className="flex flex-col gap-2 mb-8">
-              <span className="text-sm text-primary font-semibold">Depoimentos</span>
+              <span className="text-sm text-primary font-semibold">Depoimentos · Resultados individuais variam</span>
               <h2 id="depoimentos-heading" className="font-display text-2xl md:text-3xl font-bold">
-                Operações reais que escalam com AD Scale
+                Relatos de operadores que escalam com AD Scale
               </h2>
             </div>
             <div className="grid md:grid-cols-3 gap-5">
@@ -179,8 +179,12 @@ const CommercialLanding = ({
                 </article>
               ))}
             </div>
+            <p className="text-xs text-muted-foreground mt-6 max-w-3xl">
+              * Nomes abreviados por privacidade. Os depoimentos refletem operações específicas e não representam resultado típico ou garantido. Resultados individuais variam conforme nicho, oferta, criativo e gestão.
+            </p>
           </section>
         )}
+
 
         {useCases && useCases.length > 0 && (
           <section className="container max-w-6xl px-4 mt-20" aria-labelledby="casos-heading">

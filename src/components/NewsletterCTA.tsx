@@ -160,8 +160,13 @@ const NewsletterCTA = ({ pillarLabel, pillarSlug }: Props) => {
         </form>
       )}
       <p className="text-xs text-muted-foreground mt-3">
-        Sem spam. Confirmação rápida pelo WhatsApp — saída em 1 clique.
+        Sem spam. Confirmação rápida pelo WhatsApp — saída em 1 clique. Ao cadastrar, você concorda com a nossa{" "}
+        <a href="/politica-de-privacidade" className="underline hover:text-foreground">
+          Política de Privacidade
+        </a>{" "}
+        (LGPD). Coletamos seu e-mail e dados básicos de navegação para enviar as atualizações e mensurar engajamento.
       </p>
+
     </aside>
   );
 };

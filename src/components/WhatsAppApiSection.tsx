@@ -68,10 +68,11 @@ const WhatsAppApiSection = () => {
 
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Estruturas verificadas com a documentação do Meta para disparos no
-            WhatsApp Business via API. Limite alto de disparos liberados — sem
-            warm-up manual, sem risco de derrubar o número logo no primeiro
-            envio.🚚
+            WhatsApp Business via API. Tier alto já liberado, com warm-up
+            estruturado para reduzir o risco de queda no número durante o
+            início da operação.
           </p>
+
         </div>
 
         <div className="grid md:grid-cols-3 gap-5 mb-10">
