@@ -235,10 +235,10 @@ const bmIlimitada: ProductLandingData = {
         "Sem strike",
         "Estável em auditoria",
       ]),
-      mk(CreditCard, "BIN", "BIN internacional aprovador", "Cartão e BIN que sustentam volume alto sem disparo de fraude na Meta.", [
-        "BIN testado em volume",
-        "Aprovação consistente",
-        "Sem hard decline",
+      mk(Globe, "DOMAIN", "Domínio verificado", "Domínio verificado no Meta dentro do mesmo Business para garantir entrega estável de CAPI e atribuição limpa.", [
+        "Verificação Meta ativa",
+        "CAPI estável",
+        "Atribuição confiável",
       ]),
     ],
     footerLine: "BM ilimitada de verdade só existe quando a estrutura inteira está coerente.",
