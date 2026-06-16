@@ -37,12 +37,13 @@ const TestimonialsSection = () => {
         <div className="text-center mb-16">
           <div className="badge-pill mb-4 mx-auto">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            Resultados reais de operações no Meta
+            Relatos de operadores parceiros · Resultados individuais variam
           </div>
           <h2 className="font-display text-3xl md:text-4xl font-bold">
             Gestores de tráfego que entendem <span className="text-gradient">a diferença</span>
           </h2>
         </div>
+
 
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t, index) => (
@@ -84,8 +85,13 @@ const TestimonialsSection = () => {
             </div>
           ))}
         </div>
+
+        <p className="text-xs text-muted-foreground text-center mt-8 max-w-2xl mx-auto">
+          * Nomes abreviados por privacidade. Os depoimentos refletem operações específicas e não representam resultado típico ou garantido. Resultados individuais variam conforme nicho, oferta, criativo e gestão da operação.
+        </p>
       </div>
     </section>
+
   );
 };
 

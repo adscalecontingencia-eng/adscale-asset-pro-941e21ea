@@ -25,8 +25,9 @@ const ComparisonSection = () => {
     {
       label: "Aproveitamento em nichos sensíveis",
       common: "Funciona em nicho white, instável em borderline e restrito",
-      adscale: "Sustenta nichos gray/restritos com menor taxa de reprovação de criativo",
+      adscale: "Curadoria específica para nichos gray/sensíveis — Trust Score alto e histórico sem strike no nicho",
     },
+
     {
       label: "Recuperação pós-review",
       common: "Apelação genérica, ciclo longo de reanálise",
