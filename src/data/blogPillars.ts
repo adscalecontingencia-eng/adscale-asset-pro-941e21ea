@@ -182,7 +182,7 @@ export const pillars: Pillar[] = [
       "gerenciador-anuncios-meta-tour-completo-iniciantes",
       "cnpj-mei-meta-ads-vale-pena",
       "catalogo-meta-commerce-como-criar",
-      "cartao-credito-facebook-ads-boas-praticas",
+      
       "consultoria-meta-ads-vs-curso-quando-contratar",
       "quanto-cobrar-cliente-gestao-trafego-com-contingencia",
     ],
