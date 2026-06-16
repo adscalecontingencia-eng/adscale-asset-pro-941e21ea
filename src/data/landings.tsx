@@ -7,7 +7,7 @@ import {
   Globe,
   MessageSquare,
   Activity,
-  CreditCard,
+  
   RotateCcw,
   Flame,
   Layers,
