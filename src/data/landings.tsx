@@ -1273,7 +1273,7 @@ export const productLandings: Record<string, ProductLandingData> = {
   "whatsapp-cloud-api": whatsappCloudApi,
   "pixel-capi": pixelCapi,
   "aquecimento-contas": aquecimentoContas,
-  "cartoes-bin-internacional": cartoesBin,
+  
   "recuperacao-bm": recuperacaoBm,
 };
 
