@@ -48,8 +48,6 @@ export const blogSeoTitles: Record<string, string> = {
   // ===== Rodada 1 — títulos solicitados pelo cliente =====
   "qualidade-conta-anuncio-meta-como-medir":
     "Qualidade da Conta Meta Ads: Como Ver, Melhorar e Evitar Restrições",
-  "cartao-credito-facebook-ads-boas-praticas":
-    "Cartão de Crédito para Facebook Ads: Boas Práticas para Evitar Bloqueios",
   "estrutura-campanha-cbo-abo-quando-usar":
     "CBO ou ABO no Meta Ads: Quando Usar Cada Estrutura de Campanha",
   "autenticacao-2-fatores-conta-facebook-ads":

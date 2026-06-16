@@ -7,7 +7,7 @@ import {
   Globe,
   MessageSquare,
   Activity,
-  CreditCard,
+  
   RotateCcw,
   Flame,
   Layers,
@@ -235,10 +235,10 @@ const bmIlimitada: ProductLandingData = {
         "Sem strike",
         "Estável em auditoria",
       ]),
-      mk(CreditCard, "BIN", "BIN internacional aprovador", "Cartão e BIN que sustentam volume alto sem disparo de fraude na Meta.", [
-        "BIN testado em volume",
-        "Aprovação consistente",
-        "Sem hard decline",
+      mk(Globe, "DOMAIN", "Domínio verificado", "Domínio verificado no Meta dentro do mesmo Business para garantir entrega estável de CAPI e atribuição limpa.", [
+        "Verificação Meta ativa",
+        "CAPI estável",
+        "Atribuição confiável",
       ]),
     ],
     footerLine: "BM ilimitada de verdade só existe quando a estrutura inteira está coerente.",
@@ -273,7 +273,7 @@ const bmIlimitada: ProductLandingData = {
       {
         question: "Quanto custa uma BM ilimitada?",
         answer:
-          "Depende da combinação (perfil verificado + BM antigos + BIN), do nicho e do tier de gasto desejado. Cotação 1 a 1 no WhatsApp.",
+          "Depende da combinação (perfil verificado + BM antigos + domínio verificado), do nicho e do tier de gasto desejado. Cotação 1 a 1 no WhatsApp.",
       },
     ],
   },
@@ -283,7 +283,7 @@ const bmIlimitada: ProductLandingData = {
         Pare de escalar travado em <span className="text-gradient italic">cap de gasto.</span>
       </>
     ),
-    description: "BM ilimitada com perfil verificado, BIN aprovador e curadoria 1 a 1. Para operações que precisam rodar volume sem amarras.",
+    description: "BM ilimitada com perfil verificado, domínio configurado e curadoria 1 a 1. Para operações que precisam rodar volume sem amarras.",
     ctaLabel: "QUERO BM ILIMITADA",
   },
   featuredGuideSlugs: [
@@ -1146,125 +1146,8 @@ const aquecimentoContas: ProductLandingData = {
   ],
 };
 
-// ============================================================
-// 10. Cartões / BIN Internacional
-// ============================================================
-const cartoesBin: ProductLandingData = {
-  slug: "cartoes-bin-internacional",
-  seo: {
-    title: "BIN para Facebook Ads | Cartões Internacionais",
-    description:
-      "BIN e cartões internacionais aprovadores para Meta Ads: testados em volume, com baixa taxa de hard decline e sem disparo de fraude na BM.",
-    keywords: [
-      "bin para facebook ads",
-      "cartão internacional ads",
-      "bin que aprova meta",
-      "cartão para bm",
-      "bin meta ads",
-      "cartão internacional facebook",
-    ],
-    canonical: "/cartoes-bin-internacional",
-  },
-  hero: {
-    eyebrow: "PAGAMENTO É A CAMADA QUE DERRUBA OPERAÇÃO MADURA",
-    badgeText: "BIN testado em volume · Sem hard decline",
-    headline: (
-      <>
-        <span className="text-gradient">BIN internacional</span> que aprova no Meta — sem fraude, sem decline.
-      </>
-    ),
-    headlineMobile: (
-      <>
-        <span className="text-gradient">BIN</span> que aprova no Meta.
-      </>
-    ),
-    subheadline:
-      "Cartões e BINs internacionais testados em volume real, com baixa taxa de hard decline, sem disparo de fraude na BM e compatíveis com tier alto de gasto.",
-    subheadlineMobile:
-      "BINs internacionais testados em volume, sem hard decline e sem disparo de fraude.",
-    trustItems: [
-      { value: "Aprovado", label: "Em volume" },
-      { value: "Baixo", label: "Hard decline" },
-      { value: "10k+", label: "USD/dia" },
-    ],
-  },
-  assets: {
-    badge: "🛡️ TIPOS DE BIN",
-    heading: (
-      <>
-        BIN errado derruba <span className="text-gradient">a melhor BM da operação.</span>
-      </>
-    ),
-    intro:
-      "Cartão e BIN são revisados pelo sistema antifraude da Meta a cada cobrança. Trabalhamos as quatro frentes que sustentam pagamento estável.",
-    items: [
-      mk(CreditCard, "PRIME", "BIN Prime testado", "BINs com histórico de aprovação consistente em Meta Ads, validado em milhares de transações.", [
-        "Aprovação consistente",
-        "Sem hard decline",
-        "Compatível com tier alto",
-      ]),
-      mk(Globe, "INTL", "Cartão Internacional", "Cartões emitidos fora do BR — payout estável e sem trava cambial em ticket alto.", [
-        "Sem IOF de variação",
-        "Limite alto",
-        "Aprovação USD",
-      ]),
-      mk(Activity, "VCC", "Virtual Card Card (VCC)", "Cartões virtuais dedicados por BM — isola risco e protege ativos da operação.", [
-        "1 cartão por BM",
-        "Risco isolado",
-        "Top-up controlado",
-      ]),
-      mk(BadgeCheck, "BACKUP", "BIN de Backup", "BINs reserva para troca rápida quando o cartão principal cai — zero downtime de operação.", [
-        "Troca em minutos",
-        "Sem campanha pausada",
-        "Continuidade garantida",
-      ]),
-    ],
-    footerLine: "Pagamento estável é metade da contingência. Sem cartão, não tem leilão.",
-  },
-  faq: {
-    heading: (
-      <>
-        Tudo sobre <span className="text-gradient">BIN e Cartões</span>
-      </>
-    ),
-    items: [
-      {
-        question: "Por que meu cartão BR cai no Meta toda hora?",
-        answer:
-          "Meta usa antifraude global. Cartão BR em USD passa por mais checagens (cambio, banco emissor, BIN). BINs internacionais ou VCCs reduzem fricção drasticamente.",
-      },
-      {
-        question: "VCC é seguro? Não dispara fraude?",
-        answer:
-          "VCC sério (não cartão de loja) é seguro e amplamente usado por operações grandes. Dispara fraude quando vem de provedor amador, sem KYC, ou usado em desktop sujo.",
-      },
-      {
-        question: "Vocês emitem cartão ou indicam fornecedor?",
-        answer:
-          "Indicamos provedores parceiros validados em volume real, e orientamos setup (KYC, top-up, vinculação na BM). Cada caso é avaliado.",
-      },
-      {
-        question: "Quantos BINs eu preciso ter de reserva?",
-        answer:
-          "Mínimo 2 por operação ativa. Em operação 6+ dígitos, recomendamos 3 BINs distintos (de bancos diferentes) sempre prontos para troca.",
-      },
-    ],
-  },
-  cta: {
-    heading: (
-      <>
-        Sua escala não pode parar por <span className="text-gradient italic">cartão recusado.</span>
-      </>
-    ),
-    description: "BINs Prime, cartões internacionais e VCCs testados em volume real. Indicação de provedor validado.",
-    ctaLabel: "QUERO BIN APROVADOR",
-  },
-  featuredGuideSlugs: [
-    "arquitetura-contingencia-meta-ads-operacao-alto-volume",
-    "preco-bm-verificada-2026-quanto-custa",
-    "como-escolher-fornecedor-bm-verificada-meta",
-  ],
-};
+
+
 
 // ============================================================
 // 11. Recuperação de BM
@@ -1390,7 +1273,7 @@ export const productLandings: Record<string, ProductLandingData> = {
   "whatsapp-cloud-api": whatsappCloudApi,
   "pixel-capi": pixelCapi,
   "aquecimento-contas": aquecimentoContas,
-  "cartoes-bin-internacional": cartoesBin,
+  
   "recuperacao-bm": recuperacaoBm,
 };
 

@@ -67,8 +67,6 @@ const App = () => (
           <Route path="/whatsapp-api" element={<Navigate to="/whatsapp-cloud-api" replace />} />
           <Route path="/pixel" element={<Navigate to="/pixel-capi" replace />} />
           <Route path="/aquecimento" element={<Navigate to="/aquecimento-contas" replace />} />
-          <Route path="/cartoes" element={<Navigate to="/cartoes-bin-internacional" replace />} />
-          <Route path="/bin" element={<Navigate to="/cartoes-bin-internacional" replace />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
