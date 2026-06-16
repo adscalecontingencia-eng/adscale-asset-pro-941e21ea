@@ -760,6 +760,9 @@ CAPI deixou de ser opcional. É infraestrutura padrão para operação profissio
     content: `
 Toda decisão de compra grande precisa de número. Quando você apresenta investimento em estrutura de contingência para um sócio, CFO ou cliente, "porque é importante" não vence objeção — modelo financeiro vence. Este artigo monta o cálculo real de ROI da contingência no Meta Ads.
 
+> 💡 **Cenários hipotéticos:** os números deste artigo são exemplos ilustrativos para fins de cálculo. Substitua pelos seus próprios valores na planilha sugerida — resultados reais variam por nicho, oferta e operação.
+
+
 ## Os 4 componentes do custo do bloqueio
 
 ### 1. Receita parada
@@ -1082,7 +1085,7 @@ Para operações sérias, o investimento em BM Verificada premium tem retorno em
 
 ## Próximos passos
 
-Se quer evitar o risco do mercado paralelo, [conheça nossa curadoria 1 a 1 de BM Verificada](/bm-verificada) — com handover técnico real, suporte e reposição garantida.
+Se quer evitar o risco do mercado paralelo, [conheça nossa curadoria 1 a 1 de BM Verificada](/bm-verificada) — com handover técnico real, suporte e política de reposição documentada (condições e prazos definidos no briefing).
 
 Para entender a estrutura completa, veja também [como escolher fornecedor de BM verificada](/blog/como-escolher-fornecedor-bm-verificada) e [a arquitetura de contingência para alto volume](/blog/arquitetura-contingencia-meta-ads-operacao-alto-volume).
 
@@ -2859,7 +2862,7 @@ Quem opera Meta Ads em volume sabe: bloqueio não é se, é quando. A diferença
 :::
 
 - Cartões diferentes por camada (não use o mesmo BIN).
-- IPs residenciais diferentes (anti-detect ou perfis separados).
+- IPs residenciais diferentes por camada (perfis de navegador isolados por BM, com IP e fingerprint consistentes ao histórico do ativo).
 - Criativos com pequenas variações em cada camada (evita detecção de duplicidade).
 - Domínio verificado em todas — mesmo domínio pode estar em até 2 BMs como *partner*.
 
@@ -4060,8 +4063,11 @@ Cliente que estava perdendo 3 dias/mês por bloqueio (≈ R$ 90 mil/mês parados
     ctaLabel: "Quero o mesmo setup",
     content: `
 :::tldr
-E-commerce de suplementos travado em R$ 200 mil/mês por bloqueios recorrentes. Após estrutura de **3 BMs verificadas + warm-up + CAPI** subiu para **R$ 1mi/mês em 90 dias**, com zero downtime de mídia.
+E-commerce de suplementos travado em R$ 200 mil/mês por bloqueios recorrentes. Após estrutura de **3 BMs verificadas + warm-up + CAPI** subiu para **R$ 1mi/mês em 90 dias**, com menos de 1 dia total de downtime no período.
 :::
+
+> ⚠️ **Case específico — não representa resultado típico.** Dados de faturamento, ROAS, downtime e tempo são particulares a esta operação. Resultados dependem de nicho, oferta, criativo e gestão. A AD Scale não garante reprodução destes números.
+
 
 ## A operação antes
 
@@ -4463,7 +4469,7 @@ Cliente premium não quer mais "gestor que faz anúncio". Quer **operação comp
 ## Como justificar o aumento
 
 1. **Cálculo de downtime evitado.** Mostra cliente quanto ele perde em 1 dia bloqueado. [Tabela aqui](/blog/calcular-roi-investimento-contingencia-meta-ads).
-2. **Garantia de uptime.** "Sua operação não para por bloqueio."
+2. **Resiliência operacional.** "Com contingência estruturada, bloqueios não param a operação — a reserva entra em até 1h."
 3. **Performance.** CAPI bem feito melhora Event Match → custo por resultado cai 15-30%.
 
 ## O que NÃO cobrar
