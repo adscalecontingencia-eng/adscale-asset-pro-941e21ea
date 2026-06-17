@@ -26,7 +26,25 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-18226021110');
+
+      // Google Ads conversion helper — fires on WhatsApp clicks.
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18226021110/U42jCK374rwcEPaF7PJD',
+          'value': 1.0,
+          'currency': 'BRL',
+          'event_callback': callback
+        });
+        return false;
+      }
+      window.gtag_report_conversion = gtag_report_conversion;
     </script>
+
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
