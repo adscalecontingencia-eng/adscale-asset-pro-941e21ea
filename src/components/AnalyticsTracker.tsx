@@ -37,14 +37,37 @@ const AnalyticsTracker = () => {
       trackWhatsAppClick({ ctaLabel, source: "whatsapp_button" });
 
       // Google Ads conversion ping (non-blocking — link still opens normally).
+      // transport_type: 'beacon' garante o envio mesmo se o navegador trocar de página.
       const w = window as unknown as { gtag?: (...a: unknown[]) => void };
       if (typeof w.gtag === "function") {
+        const path = window.location.pathname || "/";
+        // Rótulo legível por página para separar conversões no Google Ads.
+        let pageGroup: "presell" | "landing" | "other" = "other";
+        if (path === "/" || path === "") pageGroup = "landing";
+        else if (path.startsWith("/solucoes-meta-ads")) pageGroup = "presell";
+
         w.gtag("event", "conversion", {
           send_to: "AW-18226021110/U42jCK374rwcEPaF7PJD",
           value: 1.0,
           currency: "BRL",
+          transport_type: "beacon",
+          event_label: pageGroup,
+          page_group: pageGroup,
+          page_path: path,
+          page_location: window.location.href,
+          cta_label: ctaLabel,
+        });
+
+        // Evento secundário (GA4-style) para segmentação adicional no Google Ads / Analytics.
+        w.gtag("event", "whatsapp_click", {
+          page_group: pageGroup,
+          page_path: path,
+          page_location: window.location.href,
+          cta_label: ctaLabel,
+          transport_type: "beacon",
         });
       }
+
     };
     document.addEventListener("click", handler, { capture: true });
 
