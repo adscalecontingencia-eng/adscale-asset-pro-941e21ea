@@ -45,8 +45,9 @@ const AnalyticsTracker = () => {
           currency: "BRL",
         });
       }
-
+    };
     document.addEventListener("click", handler, { capture: true });
+
     return () => document.removeEventListener("click", handler, { capture: true } as EventListenerOptions);
   }, []);
 
