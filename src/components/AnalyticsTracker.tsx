@@ -35,7 +35,17 @@ const AnalyticsTracker = () => {
       }
 
       trackWhatsAppClick({ ctaLabel, source: "whatsapp_button" });
-    };
+
+      // Google Ads conversion ping (non-blocking — link still opens normally).
+      const w = window as unknown as { gtag?: (...a: unknown[]) => void };
+      if (typeof w.gtag === "function") {
+        w.gtag("event", "conversion", {
+          send_to: "AW-18226021110/U42jCK374rwcEPaF7PJD",
+          value: 1.0,
+          currency: "BRL",
+        });
+      }
+
     document.addEventListener("click", handler, { capture: true });
     return () => document.removeEventListener("click", handler, { capture: true } as EventListenerOptions);
   }, []);
