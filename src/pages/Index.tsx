@@ -72,7 +72,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden w-full max-w-[100vw]">
       <SEO
-        title="Contingência Meta Ads para Operações de Alto Volume | AD Scale"
+        title="Contingência Meta Ads para Alto Volume | AD Scale"
         description="Estrutura de contingência Meta Ads para anunciantes, agências e operações de tráfego que precisam de BMs, perfis, páginas, domínios e suporte estratégico."
         keywords={[
           "contingência meta ads",
