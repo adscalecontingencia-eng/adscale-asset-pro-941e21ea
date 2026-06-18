@@ -134,7 +134,7 @@ const AluguelContasMetaAds = () => {
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button asChild size="lg" data-cta="hero_consultar">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+              <a href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
                 Consultar disponibilidade <ArrowRight className="ml-1" />
               </a>
             </Button>
@@ -286,7 +286,7 @@ const AluguelContasMetaAds = () => {
 
               <div className="text-center mt-6">
                 <Button asChild size="lg" data-cta="calculadora_simulacao">
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                  <a href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
                     Receber uma simulação <ArrowRight className="ml-1" />
                   </a>
                 </Button>
@@ -349,7 +349,7 @@ const AluguelContasMetaAds = () => {
 
               <div className="text-center mt-8">
                 <Button asChild size="lg" data-cta="pricing_simulacao">
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                  <a href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
                     Receber uma simulação
                   </a>
                 </Button>
@@ -540,12 +540,12 @@ const AluguelContasMetaAds = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button asChild size="lg" data-cta="cta_final_analise">
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                  <a href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
                     Solicitar análise da operação <ArrowRight className="ml-1" />
                   </a>
                 </Button>
                 <Button asChild variant="outline" size="lg" data-cta="cta_final_whatsapp">
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                  <a href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="mr-1" /> Falar pelo WhatsApp
                   </a>
                 </Button>
