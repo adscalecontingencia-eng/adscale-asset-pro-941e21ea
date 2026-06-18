@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 const WHATSAPP_NUMBER = "553198416336";
 const SITE_ORIGIN = "https://adscalecontingencia.com";
 const DEFAULT_MESSAGE =
-  "Olá! Vim do site da AD Scale e tenho interesse nos ativos de contingência (BM Verificada / BM antiga / perfis aged).";
+  "Olá! Vim do site da AD Scale e tenho interesse nos ativos de contingência";
 
 /** Build a human-readable label for the current page. */
 function getPageContext(): { path: string; title: string; url: string } {
