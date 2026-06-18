@@ -124,50 +124,59 @@ export function captureAttribution(): Attribution {
   return attr;
 }
 
+/** Determina o canal de atribuição (organic, cpc, referral, direct, etc.). */
+function resolveChannel(attr: Attribution): string {
+  const medium = (attr.utm_medium || "").toLowerCase();
+  if (medium) {
+    if (["cpc", "ppc", "paid", "paid_social", "paidsocial"].includes(medium)) return "cpc";
+    if (medium === "organic") return "organic";
+    if (medium === "referral") return "referral";
+    if (medium === "email") return "email";
+    if (medium === "social") return "social";
+    return medium;
+  }
+  if (attr.gclid) return "cpc";
+  if (attr.fbclid) return "cpc";
+  if (attr.search_engine) return "organic";
+  if (attr.referrer) return "referral";
+  return "direct";
+}
+
 /** Resume da origem do tráfego para anexar à mensagem do WhatsApp. */
 function buildOriginSummary(): string {
   if (typeof window === "undefined") return "";
   const attr = captureAttribution();
+  const channel = resolveChannel(attr);
 
   const lines: string[] = [];
 
-  // 1) Campanha paga (UTMs explícitos)
   if (attr.utm_source || attr.utm_medium || attr.utm_campaign) {
     if (attr.utm_source) lines.push(`utm_source: ${attr.utm_source}`);
     if (attr.utm_medium) lines.push(`utm_medium: ${attr.utm_medium}`);
     if (attr.utm_campaign) lines.push(`utm_campaign: ${attr.utm_campaign}`);
   } else if (attr.gclid) {
-    lines.push("utm_source: google");
-    lines.push("utm_medium: cpc");
-    lines.push(`gclid: ${attr.gclid}`);
+    lines.push("utm_source: google", "utm_medium: cpc", `gclid: ${attr.gclid}`);
   } else if (attr.fbclid) {
-    lines.push("utm_source: facebook");
-    lines.push("utm_medium: cpc");
-    lines.push(`fbclid: ${attr.fbclid}`);
+    lines.push("utm_source: facebook", "utm_medium: cpc", `fbclid: ${attr.fbclid}`);
   } else if (attr.search_engine) {
-    // 2) Busca orgânica
-    lines.push(`utm_source: ${attr.search_engine}`);
-    lines.push("utm_medium: organic");
+    lines.push(`utm_source: ${attr.search_engine}`, "utm_medium: organic");
     if (attr.search_keyword) lines.push(`utm_campaign: ${attr.search_keyword}`);
   } else if (attr.referrer) {
-    // 3) Referral
     try {
       const host = new URL(attr.referrer).hostname.replace(/^www\./, "");
-      lines.push(`utm_source: ${host}`);
-      lines.push("utm_medium: referral");
+      lines.push(`utm_source: ${host}`, "utm_medium: referral");
     } catch {
       /* ignore */
     }
   } else {
-    // 4) Direto
-    lines.push("utm_source: direct");
-    lines.push("utm_medium: none");
+    lines.push("utm_source: direct", "utm_medium: none");
   }
 
-  return lines.length ? `\n\nOrigem:\n${lines.join("\n")}` : "";
+  lines.push(`canal: ${channel}`);
+  return `\n\nOrigem:\n${lines.join("\n")}`;
 }
 
-/** Build the wa.me URL with a context-aware pre-filled message que inclui a página de origem e os UTMs. */
+/** Build the wa.me URL com mensagem personalizada incluindo página e UTMs. */
 export function buildWhatsAppUrl(opts?: { message?: string; cta?: string }): string {
   const { url } = getPageContext();
   const base = opts?.message ?? DEFAULT_MESSAGE;
@@ -176,7 +185,7 @@ export function buildWhatsAppUrl(opts?: { message?: string; cta?: string }): str
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(base + ctx)}`;
 }
 
-/** Default URL with the default message — kept for backwards compatibility. */
+/** Default URL com mensagem padrão — mantido para compatibilidade. */
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`;
 
 /** Fire-and-forget click tracking. Never blocks navigation. */
@@ -189,9 +198,8 @@ export function trackWhatsAppClick(opts?: {
 
   const attr = captureAttribution();
   const ua = navigator.userAgent || "";
+  const channel = resolveChannel(attr);
 
-  // Normalize: route = current page path; landing_page = first-touch path,
-  // falling back to current path so it's NEVER null.
   const currentPath = window.location.pathname + window.location.search;
   const route = window.location.pathname || "/";
   const landingPage = (attr.landing_page && attr.landing_page.trim()) || currentPath || route;
@@ -214,7 +222,9 @@ export function trackWhatsAppClick(opts?: {
     user_agent: ua,
     device: detectDevice(ua),
     session_id: getSessionId(),
+    channel,
   };
+
 
   // Fire-and-forget — never block the user's WhatsApp redirect.
   void supabase

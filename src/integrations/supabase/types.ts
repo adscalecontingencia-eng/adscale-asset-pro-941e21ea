@@ -334,6 +334,7 @@ export type Database = {
       }
       whatsapp_clicks: {
         Row: {
+          channel: string | null
           created_at: string
           cta_label: string | null
           device: string | null
@@ -355,6 +356,7 @@ export type Database = {
           utm_term: string | null
         }
         Insert: {
+          channel?: string | null
           created_at?: string
           cta_label?: string | null
           device?: string | null
@@ -376,6 +378,7 @@ export type Database = {
           utm_term?: string | null
         }
         Update: {
+          channel?: string | null
           created_at?: string
           cta_label?: string | null
           device?: string | null
