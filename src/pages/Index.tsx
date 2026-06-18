@@ -146,7 +146,10 @@ const Index = () => {
         jsonLd={jsonLd}
       />
       <Navbar />
-      <HeroSection />
+      <HeroSection
+        headline="Contingência Meta Ads para Operações de Alto Volume"
+        headlineMobile="Contingência Meta Ads para Operações de Alto Volume"
+      />
       <TrustBar />
       <PainPointsSection />
       <ComparisonSection />
