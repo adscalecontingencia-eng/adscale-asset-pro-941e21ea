@@ -47,21 +47,21 @@ export const blogSeoTitles: Record<string, string> = {
 
   // ===== Rodada 1 — títulos solicitados pelo cliente =====
   "qualidade-conta-anuncio-meta-como-medir":
-    "Qualidade da Conta Meta Ads: Como Ver, Melhorar e Evitar Restrições",
+    "Qualidade da Conta Meta Ads: Como Medir e Melhorar",
   "estrutura-campanha-cbo-abo-quando-usar":
-    "CBO ou ABO no Meta Ads: Quando Usar Cada Estrutura de Campanha",
+    "CBO ou ABO no Meta Ads: Quando Usar Cada Estrutura",
   "autenticacao-2-fatores-conta-facebook-ads":
-    "Autenticação de 2 Fatores no Facebook Ads: Como Proteger Sua Conta",
+    "Autenticação 2 Fatores Facebook Ads: Proteger Conta",
   "como-funciona-leilao-meta-ads":
-    "Leilão do Meta Ads: Como Funciona e O Que Afeta Seus Resultados",
+    "Leilão do Meta Ads: Como Funciona e o Que Afeta",
   "cnpj-mei-meta-ads-vale-pena":
     "CNPJ ou MEI no Meta Ads: Vale a Pena para Anunciar?",
   "limite-de-gasto-facebook-ads-como-aumentar":
-    "Limite de Gasto no Facebook Ads: Como Funciona e Como Aumentar",
+    "Limite de Gasto Facebook Ads: Como Aumentar (2026)",
   "metricas-essenciais-meta-ads-iniciantes":
-    "Métricas do Meta Ads: Indicadores Essenciais para Analisar Campanhas",
+    "Métricas Essenciais do Meta Ads para Iniciantes",
   "catalogo-meta-commerce-como-criar":
     "Catálogo Meta Commerce: Como Criar e Configurar Corretamente",
   "quanto-custa-bm-verificada-facebook-2026":
-    "Quanto Custa uma BM Verificada em 2026? Guia para Anunciantes",
+    "Quanto Custa uma BM Verificada em 2026? Guia Real",
 };
