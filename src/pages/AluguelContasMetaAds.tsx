@@ -90,8 +90,8 @@ const AluguelContasMetaAds = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden w-full max-w-[100vw]">
       <SEO
-        title="Aluguel de Contas Meta Ads sem Mensalidade | AD Scale"
-        description="Alugue contas de agência Meta Ads sem mensalidade. Comissão inicial de 5%, crédito de US$ 240 abatido das comissões e taxa reduzida por metas."
+        title="Aluguel de Contas Meta Ads e BM de Agência | Sem Mensalidade"
+        description="Alugue contas de agência Meta Ads e BM sem mensalidade: comissão de 5% sobre investimento, crédito de US$ 240 e taxa reduzida até 1% por metas."
         keywords={[
           "aluguel de contas meta ads",
           "alugar contas de anúncio",
