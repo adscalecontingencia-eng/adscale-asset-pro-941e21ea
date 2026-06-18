@@ -2,11 +2,8 @@ import Logo from "./Logo";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 const navLinks = [
-  { href: "/bm-verificada", label: "Comprar BM Verificada" },
-  { href: "/contingencia-meta-ads", label: "Contingência Meta Ads" },
-  { href: "/consultoria-meta-ads", label: "Consultoria Meta Ads" },
   { href: "/blog", label: "Blog" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 const FooterSection = () => {

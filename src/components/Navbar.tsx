@@ -5,11 +5,8 @@ import { Link } from "react-router-dom";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 const navLinks = [
-  { href: "/bm-verificada", label: "BM Verificada" },
-  { href: "/contingencia-meta-ads", label: "Contingência" },
-  { href: "/consultoria-meta-ads", label: "Consultoria" },
   { href: "/blog", label: "Blog" },
-  { href: "/sobre", label: "Sobre" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 const Navbar = () => {
@@ -37,13 +34,13 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.label}
-              to={link.href}
+              href={link.href}
               className="text-muted-foreground hover:text-foreground transition-colors text-sm"
             >
               {link.label}
-            </Link>
+            </a>
           ))}
           <a
             href={WHATSAPP_URL}
@@ -67,14 +64,14 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="md:hidden bg-card/95 backdrop-blur-xl border-t border-border/50 mt-2 mx-4 rounded-2xl p-6 space-y-4">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.label}
-              to={link.href}
+              href={link.href}
               onClick={() => setMobileOpen(false)}
               className="block text-foreground text-lg"
             >
               {link.label}
-            </Link>
+            </a>
           ))}
           <a
             href={WHATSAPP_URL}
