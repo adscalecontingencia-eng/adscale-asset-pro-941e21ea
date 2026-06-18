@@ -126,9 +126,9 @@ export function captureAttribution(): Attribution {
 
 /** Build the wa.me URL with a context-aware pre-filled message that includes the page of origin. */
 export function buildWhatsAppUrl(opts?: { message?: string; cta?: string }): string {
-  const { title, url } = getPageContext();
+  const { url } = getPageContext();
   const base = opts?.message ?? DEFAULT_MESSAGE;
-  const ctx = `\n\n— Página: ${title}\n${url}`;
+  const ctx = `\n\n${url}`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(base + ctx)}`;
 }
 
