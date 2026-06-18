@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 const WHATSAPP_NUMBER = "553198416336";
 const SITE_ORIGIN = "https://adscalecontingencia.com";
 const DEFAULT_MESSAGE =
-  "Olá! Vim do site da AD Scale e tenho interesse nos ativos de contingência (BM Verificada / BM antiga / perfis aged).";
+  "Olá! Vim do site da AD Scale e tenho interesse nos ativos de contingência";
 
 /** Build a human-readable label for the current page. */
 function getPageContext(): { path: string; title: string; url: string } {
@@ -126,9 +126,9 @@ export function captureAttribution(): Attribution {
 
 /** Build the wa.me URL with a context-aware pre-filled message that includes the page of origin. */
 export function buildWhatsAppUrl(opts?: { message?: string; cta?: string }): string {
-  const { title, url } = getPageContext();
+  const { url } = getPageContext();
   const base = opts?.message ?? DEFAULT_MESSAGE;
-  const ctx = `\n\n— Página: ${title}\n${url}`;
+  const ctx = `\n\n${url}`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(base + ctx)}`;
 }
 
