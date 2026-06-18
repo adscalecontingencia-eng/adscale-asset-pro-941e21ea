@@ -124,11 +124,55 @@ export function captureAttribution(): Attribution {
   return attr;
 }
 
-/** Build the wa.me URL with a context-aware pre-filled message that includes the page of origin. */
+/** Resume da origem do tráfego para anexar à mensagem do WhatsApp. */
+function buildOriginSummary(): string {
+  if (typeof window === "undefined") return "";
+  const attr = captureAttribution();
+
+  const lines: string[] = [];
+
+  // 1) Campanha paga (UTMs explícitos)
+  if (attr.utm_source || attr.utm_medium || attr.utm_campaign) {
+    if (attr.utm_source) lines.push(`utm_source: ${attr.utm_source}`);
+    if (attr.utm_medium) lines.push(`utm_medium: ${attr.utm_medium}`);
+    if (attr.utm_campaign) lines.push(`utm_campaign: ${attr.utm_campaign}`);
+  } else if (attr.gclid) {
+    lines.push("utm_source: google");
+    lines.push("utm_medium: cpc");
+    lines.push(`gclid: ${attr.gclid}`);
+  } else if (attr.fbclid) {
+    lines.push("utm_source: facebook");
+    lines.push("utm_medium: cpc");
+    lines.push(`fbclid: ${attr.fbclid}`);
+  } else if (attr.search_engine) {
+    // 2) Busca orgânica
+    lines.push(`utm_source: ${attr.search_engine}`);
+    lines.push("utm_medium: organic");
+    if (attr.search_keyword) lines.push(`utm_campaign: ${attr.search_keyword}`);
+  } else if (attr.referrer) {
+    // 3) Referral
+    try {
+      const host = new URL(attr.referrer).hostname.replace(/^www\./, "");
+      lines.push(`utm_source: ${host}`);
+      lines.push("utm_medium: referral");
+    } catch {
+      /* ignore */
+    }
+  } else {
+    // 4) Direto
+    lines.push("utm_source: direct");
+    lines.push("utm_medium: none");
+  }
+
+  return lines.length ? `\n\nOrigem:\n${lines.join("\n")}` : "";
+}
+
+/** Build the wa.me URL with a context-aware pre-filled message que inclui a página de origem e os UTMs. */
 export function buildWhatsAppUrl(opts?: { message?: string; cta?: string }): string {
   const { url } = getPageContext();
   const base = opts?.message ?? DEFAULT_MESSAGE;
-  const ctx = `\n\n${url}`;
+  const origin = buildOriginSummary();
+  const ctx = `\n\n${url}${origin}`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(base + ctx)}`;
 }
 
