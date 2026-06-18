@@ -45,8 +45,8 @@ const Sobre = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
-        title="Sobre a AD Scale e Pedro Lucas, fundador | Meta Ads de alto volume"
-        description="Conheça a história da AD Scale e Pedro Lucas, fundador especialista em Meta Ads, BMs Verificadas e contingência para operações de Facebook Ads de alto volume."
+        title="Sobre a AD Scale e Pedro Lucas | Meta Ads de alto volume"
+        description="História da AD Scale e Pedro Lucas, especialista em Meta Ads, BMs Verificadas e contingência para operações de Facebook Ads de alto volume."
         keywords={["sobre AD Scale", "Pedro Lucas Meta Ads", "fundador AD Scale", "especialista Facebook Ads", "consultor Meta Ads"]}
         canonical="/sobre"
         jsonLd={jsonLd}
