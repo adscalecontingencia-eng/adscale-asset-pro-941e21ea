@@ -55,7 +55,7 @@ const PillarFacebookAds = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO
-        title="Guia completo de Facebook Ads para alto volume em 2026 | AD Scale"
+        title="Guia Facebook Ads Alto Volume 2026 | AD Scale"
         description="Aprenda como estruturar Facebook Ads e Meta Ads para alto volume: BM Verificada, Trust Score, contingência, warm-up, Pixel/CAPI e auditoria. Pillar guide da AD Scale."
         keywords={[
           "facebook ads alto volume",

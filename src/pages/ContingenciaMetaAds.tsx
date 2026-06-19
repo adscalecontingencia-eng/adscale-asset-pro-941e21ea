@@ -3,7 +3,7 @@ import CommercialLanding from "@/components/CommercialLanding";
 const ContingenciaMetaAds = () => (
   <CommercialLanding
     seo={{
-      title: "Contingência Meta Ads e Facebook Ads para Alto Volume | AD Scale",
+      title: "Contingência Meta Ads para Alto Volume | AD Scale",
       description:
         "Estrutura de contingência para Meta Ads e Facebook Ads: BMs reservas, perfis antigos, páginas antigas e fluxo de recuperação para evitar bloqueios.",
       keywords: [
