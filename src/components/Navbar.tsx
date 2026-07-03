@@ -27,9 +27,17 @@ const Navbar = () => {
           : "py-5"
       }`}
     >
-      <div className="container max-w-6xl flex items-center justify-between px-4">
-        <Link to="/" aria-label="AD Scale — início">
-          <Logo size={26} />
+      <div className="container max-w-6xl grid grid-cols-[1fr_auto_1fr] md:flex md:items-center md:justify-between items-center px-4">
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="md:hidden text-foreground justify-self-start"
+          aria-label="Menu"
+        >
+          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+
+        <Link to="/" aria-label="AD Scale — início" className="justify-self-center md:justify-self-auto">
+          <Logo size={56} className="md:h-[56px] h-[56px]" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
@@ -52,13 +60,7 @@ const Navbar = () => {
           </a>
         </div>
 
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-foreground"
-          aria-label="Menu"
-        >
-          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        <span className="md:hidden justify-self-end w-6" aria-hidden="true" />
       </div>
 
       {mobileOpen && (
