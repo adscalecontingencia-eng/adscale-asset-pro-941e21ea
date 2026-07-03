@@ -28,9 +28,9 @@ const Logo: React.FC<LogoProps> = ({
 
   const Monogram = ({ height }: { height: number }) => (
     <svg
-      width={height * 1.48}
+      width={height * 1.52}
       height={height}
-      viewBox="0 0 148 100"
+      viewBox="0 0 152 100"
       xmlns="http://www.w3.org/2000/svg"
       style={
         withGlow
@@ -50,8 +50,8 @@ const Logo: React.FC<LogoProps> = ({
       </defs>
 
       <g fill={`url(#${gradId})`}>
-        <path d="M 0 100 L 53.8 0 L 99 100 H 86.2 L 53.8 23.2 L 13.8 100 Z" />
-        <path d="M 78.5 29 H 106.5 C 131.5 29 148 44.5 148 65 C 148 86.5 131.5 100 106 100 H 99 L 88.8 77.4 C 94.8 78.6 102.6 78.5 110.2 76.8 C 123.8 73.8 132.6 63.5 132.6 51.8 C 132.6 40.9 123.2 36.1 106.2 36.1 H 85.2 Z" />
+        <path d="M 0 100 L 54 0 L 100 100 H 86 L 54 23 L 14 100 Z" />
+        <path d="M 77 29 H 107 C 134 29 152 45.5 152 65 C 152 87.5 134 100 106 100 H 100 L 89 77.5 C 95 79 103 78.8 111 77 C 126 73.5 136 64 136 52 C 136 41 125 36.5 107 36.5 H 86 Z" />
       </g>
     </svg>
   );
@@ -69,7 +69,7 @@ const Logo: React.FC<LogoProps> = ({
     );
   }
 
-  const logoWidth = size * 4.35;
+  const logoWidth = size * 4.23;
 
   return (
     <div
@@ -80,7 +80,7 @@ const Logo: React.FC<LogoProps> = ({
       <svg
         width={logoWidth}
         height={size}
-        viewBox="0 0 435 100"
+        viewBox="0 0 423 100"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
         focusable="false"
@@ -98,18 +98,18 @@ const Logo: React.FC<LogoProps> = ({
         </defs>
 
         <g filter={`url(#${gradId}-glow)`}>
-          <path d="M 0 100 L 53.8 0 L 99 100 H 86.2 L 53.8 23.2 L 13.8 100 Z" fill={`url(#${gradId})`} />
-          <path d="M 78.5 29 H 106.5 C 131.5 29 148 44.5 148 65 C 148 86.5 131.5 100 106 100 H 99 L 88.8 77.4 C 94.8 78.6 102.6 78.5 110.2 76.8 C 123.8 73.8 132.6 63.5 132.6 51.8 C 132.6 40.9 123.2 36.1 106.2 36.1 H 85.2 Z" fill={`url(#${gradId})`} />
+          <path d="M 0 100 L 54 0 L 100 100 H 86 L 54 23 L 14 100 Z" fill={`url(#${gradId})`} />
+          <path d="M 77 29 H 107 C 134 29 152 45.5 152 65 C 152 87.5 134 100 106 100 H 100 L 89 77.5 C 95 79 103 78.8 111 77 C 126 73.5 136 64 136 52 C 136 41 125 36.5 107 36.5 H 86 Z" fill={`url(#${gradId})`} />
         </g>
 
         <text
-          x="178"
+          x="169"
           y="70"
           fill="hsl(var(--logo-wordmark))"
           fontFamily="Inter, Arial, Helvetica, sans-serif"
-          fontSize="58"
+          fontSize="59"
           fontWeight="900"
-          letterSpacing="1.2"
+          letterSpacing="0.6"
         >
           SCALE
         </text>
