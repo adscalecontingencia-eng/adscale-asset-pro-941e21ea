@@ -14,11 +14,22 @@ interface LogoProps {
 /**
  * AD SCALE — brand logo.
  *
- * The monogram is a single-weight stroked mark: an open triangle "A" whose
- * right leg flows into a curved "D" bowl, drawn with a top→bottom blue
- * gradient (light cyan → deep blue), rounded caps and joins. Rendered as
- * SVG so it stays crisp at every size.
+ * Single-weight stroked monogram: an open "A" triangle whose right leg flows
+ * into a curved "D" bowl, drawn with a top→bottom blue gradient, rounded
+ * caps/joins. Pure SVG with a fixed viewBox so it stays pixel-perfect at any
+ * size (no double-scaling, no rasterization, no stroke distortion).
  */
+
+// Monogram intrinsic geometry (single source of truth).
+const MONO_VB_W = 128;
+const MONO_VB_H = 120;
+const STROKE_W = 10;
+
+// A: left-foot → apex → right-foot (open triangle, no crossbar).
+const PATH_A = "M 8 116 L 56 6 L 104 116";
+// D bowl: attaches to the right leg, curves out and returns near the foot.
+const PATH_D = "M 74 40 C 116 44, 122 108, 100 112";
+
 const Logo: React.FC<LogoProps> = ({
   className = "",
   size = 32,
@@ -26,56 +37,63 @@ const Logo: React.FC<LogoProps> = ({
   variant = "full",
   withTagline = false,
 }) => {
-  // Unique gradient id per instance so multiple logos on the page don't clash.
+  // Unique ids per instance so multiple logos on the page never clash.
   const uid = React.useId().replace(/[^a-zA-Z0-9]/g, "");
-  const gradId = `logoGrad-${uid}`;
-  const glowId = `logoGlow-${uid}`;
+  const gradId = `adscale-grad-${uid}`;
+  const glowId = `adscale-glow-${uid}`;
 
-  // Monogram intrinsic viewBox: 0 0 130 120
-  // A: left-foot (6,116) → apex (55,4) → right-foot (104,116)
-  // D bowl: top (74,40) curves right and returns to (99,111) on right leg
-  const MONO_W = 130;
-  const MONO_H = 120;
-  const STROKE = 11;
-
-  const MonoPaths = ({ stroke }: { stroke: string }) => (
-    <g
-      fill="none"
-      stroke={stroke}
-      strokeWidth={STROKE}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      {/* Open "A" triangle */}
-      <path d="M 6 116 L 55 4 L 104 116" />
-      {/* "D" bowl attached to the right leg */}
-      <path d="M 74 40 C 118 44, 126 108, 99 111" />
-    </g>
-  );
-
-  const MonoDefs = () => (
+  const Defs = () => (
     <defs>
-      <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
+      <linearGradient
+        id={gradId}
+        gradientUnits="userSpaceOnUse"
+        x1="56"
+        y1="6"
+        x2="56"
+        y2="116"
+      >
         <stop offset="0%" stopColor="hsl(var(--logo-blue-start))" />
         <stop offset="55%" stopColor="hsl(var(--logo-blue-mid))" />
         <stop offset="100%" stopColor="hsl(var(--logo-blue-end))" />
       </linearGradient>
       {withGlow && (
-        <filter id={glowId} x="-25%" y="-25%" width="150%" height="150%">
+        <filter
+          id={glowId}
+          x="-20%"
+          y="-20%"
+          width="140%"
+          height="140%"
+          filterUnits="objectBoundingBox"
+          colorInterpolationFilters="sRGB"
+        >
           <feDropShadow
             dx="0"
             dy="0"
-            stdDeviation="2.5"
+            stdDeviation="1.6"
             floodColor="hsl(var(--logo-blue-mid))"
-            floodOpacity="0.55"
+            floodOpacity="0.5"
           />
         </filter>
       )}
     </defs>
   );
 
+  const Monogram = () => (
+    <g
+      filter={withGlow ? `url(#${glowId})` : undefined}
+      fill="none"
+      stroke={`url(#${gradId})`}
+      strokeWidth={STROKE_W}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d={PATH_A} />
+      <path d={PATH_D} />
+    </g>
+  );
+
   if (variant === "mark") {
-    const width = size * (MONO_W / MONO_H);
+    const width = Math.round(size * (MONO_VB_W / MONO_VB_H) * 1000) / 1000;
     return (
       <span
         className={`inline-flex items-center ${className}`}
@@ -85,26 +103,27 @@ const Logo: React.FC<LogoProps> = ({
         <svg
           width={width}
           height={size}
-          viewBox={`0 0 ${MONO_W} ${MONO_H}`}
+          viewBox={`0 0 ${MONO_VB_W} ${MONO_VB_H}`}
+          preserveAspectRatio="xMidYMid meet"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
           focusable="false"
           shapeRendering="geometricPrecision"
+          style={{ display: "block", overflow: "visible" }}
         >
-          <MonoDefs />
-          <g filter={withGlow ? `url(#${glowId})` : undefined}>
-            <MonoPaths stroke={`url(#${gradId})`} />
-          </g>
+          <Defs />
+          <Monogram />
         </svg>
       </span>
     );
   }
 
-  // Full lockup: monogram + "SCALE" wordmark
-  // Layout width tuned to reference proportions
+  // Full lockup: monogram (viewBox 0..128) + gap + "SCALE" wordmark.
+  const GAP = 30;
+  const WORDMARK_X = MONO_VB_W + GAP; // 158
   const VB_W = 470;
-  const VB_H = 120;
-  const logoWidth = size * (VB_W / VB_H);
+  const VB_H = MONO_VB_H;
+  const width = Math.round(size * (VB_W / VB_H) * 1000) / 1000;
 
   return (
     <div
@@ -113,22 +132,21 @@ const Logo: React.FC<LogoProps> = ({
       role="img"
     >
       <svg
-        width={logoWidth}
+        width={width}
         height={size}
         viewBox={`0 0 ${VB_W} ${VB_H}`}
+        preserveAspectRatio="xMidYMid meet"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
         focusable="false"
         shapeRendering="geometricPrecision"
+        textRendering="geometricPrecision"
+        style={{ display: "block", overflow: "visible" }}
       >
-        <MonoDefs />
-
-        <g filter={withGlow ? `url(#${glowId})` : undefined}>
-          <MonoPaths stroke={`url(#${gradId})`} />
-        </g>
-
+        <Defs />
+        <Monogram />
         <text
-          x="158"
+          x={WORDMARK_X}
           y="92"
           fill="hsl(var(--logo-wordmark))"
           fontFamily="Inter, 'Helvetica Neue', Arial, sans-serif"
