@@ -22,7 +22,7 @@ const MONO_VB_H = 430;
 const FULL_VB_W = 1648;
 const FULL_VB_H = MONO_VB_H;
 
-const PATH_A = "M0 430 L120 430 L260 100 L398 430 L492 430 L260 0 Z";
+const PATH_A = "M0 430 L260 0 L492 430 L398 430 L260 100 L120 430 Z";
 const PATH_D =
   "M356 128 H470 C541 128 589 189 589 282 C589 370 541 430 470 430 H392 L356 352 H467 C500 352 522 326 522 282 C522 238 500 205 467 205 H386 Z";
 
@@ -139,9 +139,9 @@ const Logo: React.FC<LogoProps> = ({
           x={WORDMARK_X}
           y="356"
           fill="hsl(var(--logo-wordmark))"
-          fontFamily="Montserrat, Gotham, 'Avenir Next', Inter, 'Helvetica Neue', Arial, sans-serif"
-          fontSize="292"
-          fontWeight="900"
+          fontFamily="'Space Grotesk', Inter, 'Helvetica Neue', Arial, sans-serif"
+          fontSize="296"
+          fontWeight="700"
           letterSpacing="0"
         >
           SCALE
