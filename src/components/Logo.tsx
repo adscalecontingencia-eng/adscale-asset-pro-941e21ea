@@ -43,7 +43,7 @@ const Logo: React.FC<LogoProps> = ({
       shapeRendering="geometricPrecision"
     >
       <defs>
-        <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="1">
+        <linearGradient id={gradId} x1="0.15" y1="0" x2="0.85" y2="1">
           <stop offset="0%" stopColor="#5EC7FF" />
           <stop offset="55%" stopColor="#1E8FE6" />
           <stop offset="100%" stopColor="#0A5FBF" />
@@ -51,15 +51,21 @@ const Logo: React.FC<LogoProps> = ({
       </defs>
 
       {/*
-        Stylized "A" whose inner counter is shaped like a "D" — the AD wordmark.
-        Outer: slanted left edge (A's left leg) + rounded right edge (D bowl).
-        Inner cutout (evenodd): the D-shaped counter.
+        Outline "A" (open triangle, no crossbar) fused with a "D" bowl on its
+        right leg. Rendered as strokes — matches the AD SCALE reference mark.
       */}
-      <path
-        fill={`url(#${gradId})`}
-        fillRule="evenodd"
-        d="M 4 96 L 38 4 L 52 4 C 82 4, 96 42, 96 82 L 96 96 Z M 34 78 L 34 36 L 54 36 C 68 36, 76 54, 76 78 Z"
-      />
+      <g
+        fill="none"
+        stroke={`url(#${gradId})`}
+        strokeWidth={10}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {/* A outline: bottom-left up to apex, back down to bottom-right */}
+        <path d="M 8 94 L 40 8 L 60 94" />
+        {/* D bowl: attaches to the right leg near the top, curves out and returns to the bottom */}
+        <path d="M 46 38 C 82 38, 84 94, 60 94" />
+      </g>
     </svg>
   );
 
