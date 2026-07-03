@@ -50,12 +50,19 @@ const Logo: React.FC<LogoProps> = ({
         </linearGradient>
       </defs>
 
-      <g fill={`url(#${gradId})`} fillRule="evenodd">
-        {/* Stylized "A" — chunky left diagonal with inner triangular cutout */}
-        <path d="M 4 94 L 34 6 L 52 6 L 60 30 L 46 30 L 43 21 L 30 60 L 54 60 L 54 74 L 25 74 L 18 94 Z" />
-        {/* "D" bowl — fused to the A, with rounded outer + inner hole (evenodd) */}
-        <path d="M 46 6 L 72 6 C 98 6, 116 26, 116 50 C 116 74, 98 94, 72 94 L 46 94 L 46 78 L 70 78 C 86 78, 96 66, 96 50 C 96 34, 86 22, 70 22 L 46 22 Z" />
+      <g fill={`url(#${gradId})`}>
+        {/* "A" — bold slanted left leg */}
+        <path d="M 4 96 L 34 4 L 52 4 L 30 72 L 44 72 L 44 92 L 22 92 L 20 96 Z" />
+        {/* "A" crossbar / bridge into the D */}
+        <path d="M 26 60 L 60 60 L 60 74 L 30 74 Z" />
+        {/* "D" bowl with inner hole (evenodd fill-rule) */}
+        <path
+          fillRule="evenodd"
+          d="M 46 4 L 74 4 C 100 4, 118 24, 118 50 C 118 76, 100 96, 74 96 L 46 96 Z
+             M 60 22 L 72 22 C 88 22, 98 34, 98 50 C 98 66, 88 78, 72 78 L 60 78 Z"
+        />
       </g>
+
     </svg>
   );
 
