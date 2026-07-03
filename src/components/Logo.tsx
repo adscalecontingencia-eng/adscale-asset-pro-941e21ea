@@ -12,23 +12,19 @@ interface LogoProps {
 }
 
 /**
- * AD SCALE — brand logo.
- *
- * Single-weight stroked monogram: an open "A" triangle whose right leg flows
- * into a curved "D" bowl, drawn with a top→bottom blue gradient, rounded
- * caps/joins. Pure SVG with a fixed viewBox so it stays pixel-perfect at any
- * size (no double-scaling, no rasterization, no stroke distortion).
+ * AD SCALE — brand logo rebuilt as filled vector geometry.
+ * The monogram follows the reference: sharp triangular A, flat feet, angular
+ * D entry cuts, rounded D bowl, vertical cyan→blue gradient, no stroked paths.
  */
 
-// Monogram intrinsic geometry (single source of truth).
-const MONO_VB_W = 128;
-const MONO_VB_H = 120;
-const STROKE_W = 10;
+const MONO_VB_W = 590;
+const MONO_VB_H = 430;
+const FULL_VB_W = 1648;
+const FULL_VB_H = MONO_VB_H;
 
-// A: left-foot → apex → right-foot (open triangle, no crossbar).
-const PATH_A = "M 8 116 L 56 6 L 104 116";
-// D bowl: attaches to the right leg, curves out and returns near the foot.
-const PATH_D = "M 74 40 C 116 44, 122 108, 100 112";
+const PATH_A = "M0 430 L260 0 L492 430 L398 430 L260 100 L120 430 Z";
+const PATH_D =
+  "M356 128 H470 C541 128 589 189 589 282 C589 370 541 430 470 430 H392 L356 352 H467 C500 352 522 326 522 282 C522 238 500 205 467 205 H386 Z";
 
 const Logo: React.FC<LogoProps> = ({
   className = "",
@@ -47,13 +43,13 @@ const Logo: React.FC<LogoProps> = ({
       <linearGradient
         id={gradId}
         gradientUnits="userSpaceOnUse"
-        x1="56"
-        y1="6"
-        x2="56"
-        y2="116"
+        x1="260"
+        y1="0"
+        x2="260"
+        y2="430"
       >
         <stop offset="0%" stopColor="hsl(var(--logo-blue-start))" />
-        <stop offset="55%" stopColor="hsl(var(--logo-blue-mid))" />
+        <stop offset="48%" stopColor="hsl(var(--logo-blue-mid))" />
         <stop offset="100%" stopColor="hsl(var(--logo-blue-end))" />
       </linearGradient>
       {withGlow && (
@@ -69,9 +65,9 @@ const Logo: React.FC<LogoProps> = ({
           <feDropShadow
             dx="0"
             dy="0"
-            stdDeviation="1.6"
+            stdDeviation="2.4"
             floodColor="hsl(var(--logo-blue-mid))"
-            floodOpacity="0.5"
+            floodOpacity="0.28"
           />
         </filter>
       )}
@@ -81,11 +77,9 @@ const Logo: React.FC<LogoProps> = ({
   const Monogram = () => (
     <g
       filter={withGlow ? `url(#${glowId})` : undefined}
-      fill="none"
-      stroke={`url(#${gradId})`}
-      strokeWidth={STROKE_W}
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      fill={`url(#${gradId})`}
+      fillRule="evenodd"
+      clipRule="evenodd"
     >
       <path d={PATH_A} />
       <path d={PATH_D} />
@@ -118,12 +112,8 @@ const Logo: React.FC<LogoProps> = ({
     );
   }
 
-  // Full lockup: monogram (viewBox 0..128) + gap + "SCALE" wordmark.
-  const GAP = 30;
-  const WORDMARK_X = MONO_VB_W + GAP; // 158
-  const VB_W = 470;
-  const VB_H = MONO_VB_H;
-  const width = Math.round(size * (VB_W / VB_H) * 1000) / 1000;
+  const WORDMARK_X = 684;
+  const width = Math.round(size * (FULL_VB_W / FULL_VB_H) * 1000) / 1000;
 
   return (
     <div
@@ -134,7 +124,7 @@ const Logo: React.FC<LogoProps> = ({
       <svg
         width={width}
         height={size}
-        viewBox={`0 0 ${VB_W} ${VB_H}`}
+        viewBox={`0 0 ${FULL_VB_W} ${FULL_VB_H}`}
         preserveAspectRatio="xMidYMid meet"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
@@ -147,12 +137,12 @@ const Logo: React.FC<LogoProps> = ({
         <Monogram />
         <text
           x={WORDMARK_X}
-          y="92"
+          y="356"
           fill="hsl(var(--logo-wordmark))"
-          fontFamily="Inter, 'Helvetica Neue', Arial, sans-serif"
-          fontSize="86"
-          fontWeight="800"
-          letterSpacing="1"
+          fontFamily="'Space Grotesk', Inter, 'Helvetica Neue', Arial, sans-serif"
+          fontSize="296"
+          fontWeight="700"
+          letterSpacing="0"
         >
           SCALE
         </text>
