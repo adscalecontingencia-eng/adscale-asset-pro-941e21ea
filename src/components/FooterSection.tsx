@@ -61,6 +61,7 @@ const FooterSection = () => {
             © {new Date().getFullYear()} AD Scale — Premium Contingency Assets.
             Todos os direitos reservados.
           </p>
+          <SeoKeywords />
         </div>
       </div>
     </footer>
