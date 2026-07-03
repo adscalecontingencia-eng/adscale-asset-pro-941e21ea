@@ -10,6 +10,7 @@ import BlogPost from "./pages/BlogPost.tsx";
 import BlogPillar from "./pages/BlogPillar.tsx";
 import BmVerificada from "./pages/BmVerificada.tsx";
 import ContingenciaMetaAds from "./pages/ContingenciaMetaAds.tsx";
+import Contingencia from "./pages/Contingencia.tsx";
 import ConsultoriaMetaAds from "./pages/ConsultoriaMetaAds.tsx";
 import Sobre from "./pages/Sobre.tsx";
 import Autor from "./pages/Autor.tsx";
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/bm-verificada" element={<BmVerificada />} />
           <Route path="/contingencia-meta-ads" element={<ContingenciaMetaAds />} />
+          <Route path="/contingencia" element={<Contingencia />} />
           <Route path="/consultoria-meta-ads" element={<ConsultoriaMetaAds />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/autor/:slug" element={<Autor />} />
