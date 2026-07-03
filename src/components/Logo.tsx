@@ -58,7 +58,7 @@ const Logo: React.FC<LogoProps> = ({
       <path
         fill={`url(#${gradId})`}
         fillRule="evenodd"
-        d="M 4 96 L 38 4 L 52 4 C 82 4, 96 42, 96 82 L 96 96 Z M 30 78 L 46 34 L 52 34 C 66 34, 76 54, 76 78 Z"
+        d="M 4 96 L 38 4 L 52 4 C 82 4, 96 42, 96 82 L 96 96 Z M 34 78 L 34 36 L 54 36 C 68 36, 76 54, 76 78 Z"
       />
     </svg>
   );
