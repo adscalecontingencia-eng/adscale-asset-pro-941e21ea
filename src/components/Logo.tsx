@@ -13,9 +13,8 @@ interface LogoProps {
 
 /**
  * AD SCALE — brand logo.
- * Blue gradient "AD" monogram (stylized A fused with a D bowl) + bold white
- * "SCALE" wordmark. Rendered fully in SVG/CSS so it stays razor-sharp at any
- * size and any DPR. Matches the updated adscalehub identity.
+ * Filled blue gradient "AD" monogram + bold white "SCALE" wordmark. Rendered
+ * as SVG so the mark stays sharp and avoids the low-size stroke distortion.
  */
 const Logo: React.FC<LogoProps> = ({
   className = "",
@@ -27,11 +26,11 @@ const Logo: React.FC<LogoProps> = ({
   // Unique gradient id per instance so multiple logos on the page don't clash.
   const gradId = React.useId();
 
-  const Monogram = ({ px }: { px: number }) => (
+  const Monogram = ({ height }: { height: number }) => (
     <svg
-      width={px}
-      height={px}
-      viewBox="0 0 100 100"
+      width={height * 1.52}
+      height={height}
+      viewBox="0 0 152 100"
       xmlns="http://www.w3.org/2000/svg"
       style={
         withGlow
@@ -43,28 +42,16 @@ const Logo: React.FC<LogoProps> = ({
       shapeRendering="geometricPrecision"
     >
       <defs>
-        <linearGradient id={gradId} x1="0.15" y1="0" x2="0.85" y2="1">
-          <stop offset="0%" stopColor="#5EC7FF" />
-          <stop offset="55%" stopColor="#1E8FE6" />
-          <stop offset="100%" stopColor="#0A5FBF" />
+        <linearGradient id={gradId} x1="0.35" y1="0" x2="0.72" y2="1">
+          <stop offset="0%" stopColor="hsl(var(--logo-blue-start))" />
+          <stop offset="52%" stopColor="hsl(var(--logo-blue-mid))" />
+          <stop offset="100%" stopColor="hsl(var(--logo-blue-end))" />
         </linearGradient>
       </defs>
 
-      {/*
-        Outline "A" (open triangle, no crossbar) fused with a "D" bowl on its
-        right leg. Rendered as strokes — matches the AD SCALE reference mark.
-      */}
-      <g
-        fill="none"
-        stroke={`url(#${gradId})`}
-        strokeWidth={10}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        {/* A outline: bottom-left up to apex, back down to bottom-right */}
-        <path d="M 8 94 L 40 8 L 60 94" />
-        {/* D bowl: attaches to the right leg near the top, curves out and returns to the bottom */}
-        <path d="M 46 38 C 82 38, 84 94, 60 94" />
+      <g fill={`url(#${gradId})`}>
+        <path d="M 0 100 L 54 0 L 100 100 H 86 L 54 23 L 14 100 Z" />
+        <path d="M 77 29 H 107 C 134 29 152 45.5 152 65 C 152 87.5 134 100 106 100 H 100 L 89 77.5 C 95 79 103 78.8 111 77 C 126 73.5 136 64 136 52 C 136 41 125 36.5 107 36.5 H 86 Z" />
       </g>
     </svg>
   );
@@ -77,13 +64,12 @@ const Logo: React.FC<LogoProps> = ({
         aria-label="AD SCALE"
         role="img"
       >
-        <Monogram px={size} />
+        <Monogram height={size} />
       </span>
     );
   }
 
-  const markPx = size;
-  const scaleFontPx = size * 0.82;
+  const logoWidth = size * 4.23;
 
   return (
     <div
@@ -91,19 +77,43 @@ const Logo: React.FC<LogoProps> = ({
       aria-label="AD SCALE"
       role="img"
     >
-      <span className="inline-flex items-center gap-2">
-        <Monogram px={markPx} />
-        <span
-          className="text-foreground font-black uppercase leading-none"
-          style={{
-            fontFamily: "Unbounded, 'Space Grotesk', sans-serif",
-            fontSize: scaleFontPx,
-            letterSpacing: "0.02em",
-          }}
+      <svg
+        width={logoWidth}
+        height={size}
+        viewBox="0 0 423 100"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        focusable="false"
+        shapeRendering="geometricPrecision"
+      >
+        <defs>
+          <linearGradient id={gradId} x1="0.35" y1="0" x2="0.72" y2="1">
+            <stop offset="0%" stopColor="hsl(var(--logo-blue-start))" />
+            <stop offset="52%" stopColor="hsl(var(--logo-blue-mid))" />
+            <stop offset="100%" stopColor="hsl(var(--logo-blue-end))" />
+          </linearGradient>
+          <filter id={`${gradId}-glow`} x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="hsl(var(--primary))" floodOpacity={withGlow ? 0.45 : 0} />
+          </filter>
+        </defs>
+
+        <g filter={`url(#${gradId}-glow)`}>
+          <path d="M 0 100 L 54 0 L 100 100 H 86 L 54 23 L 14 100 Z" fill={`url(#${gradId})`} />
+          <path d="M 77 29 H 107 C 134 29 152 45.5 152 65 C 152 87.5 134 100 106 100 H 100 L 89 77.5 C 95 79 103 78.8 111 77 C 126 73.5 136 64 136 52 C 136 41 125 36.5 107 36.5 H 86 Z" fill={`url(#${gradId})`} />
+        </g>
+
+        <text
+          x="169"
+          y="70"
+          fill="hsl(var(--logo-wordmark))"
+          fontFamily="Inter, Arial, Helvetica, sans-serif"
+          fontSize="59"
+          fontWeight="900"
+          letterSpacing="0.6"
         >
           SCALE
-        </span>
-      </span>
+        </text>
+      </svg>
       {withTagline && (
         <span
           className="text-primary/70 mt-1 uppercase"

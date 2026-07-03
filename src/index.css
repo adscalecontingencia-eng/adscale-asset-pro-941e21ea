@@ -19,6 +19,10 @@
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
     --primary-glow: 217 100% 70%;
+    --logo-blue-start: 190 86% 55%;
+    --logo-blue-mid: 204 86% 51%;
+    --logo-blue-end: 224 86% 50%;
+    --logo-wordmark: 0 0% 98%;
 
     --secondary: 220 18% 11%;
     --secondary-foreground: 0 0% 98%;
@@ -67,6 +71,10 @@
     --primary: 217 91% 55%;
     --primary-foreground: 0 0% 100%;
     --primary-glow: 217 100% 65%;
+    --logo-blue-start: 190 86% 55%;
+    --logo-blue-mid: 204 86% 51%;
+    --logo-blue-end: 224 86% 50%;
+    --logo-wordmark: 0 0% 98%;
 
     --secondary: 220 30% 96%;
     --secondary-foreground: 220 30% 10%;
