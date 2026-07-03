@@ -13,8 +13,11 @@ interface LogoProps {
 
 /**
  * AD SCALE — brand logo.
- * Filled blue gradient "AD" monogram + bold white "SCALE" wordmark. Rendered
- * as SVG so the mark stays sharp and avoids the low-size stroke distortion.
+ *
+ * The monogram is a single-weight stroked mark: an open triangle "A" whose
+ * right leg flows into a curved "D" bowl, drawn with a top→bottom blue
+ * gradient (light cyan → deep blue), rounded caps and joins. Rendered as
+ * SVG so it stays crisp at every size.
  */
 const Logo: React.FC<LogoProps> = ({
   className = "",
@@ -24,52 +27,84 @@ const Logo: React.FC<LogoProps> = ({
   withTagline = false,
 }) => {
   // Unique gradient id per instance so multiple logos on the page don't clash.
-  const gradId = React.useId();
+  const uid = React.useId().replace(/[^a-zA-Z0-9]/g, "");
+  const gradId = `logoGrad-${uid}`;
+  const glowId = `logoGlow-${uid}`;
 
-  const Monogram = ({ height }: { height: number }) => (
-    <svg
-      width={height * 1.52}
-      height={height}
-      viewBox="0 0 152 100"
-      xmlns="http://www.w3.org/2000/svg"
-      style={
-        withGlow
-          ? { filter: "drop-shadow(0 0 12px hsl(var(--primary) / 0.45))" }
-          : undefined
-      }
-      aria-hidden="true"
-      focusable="false"
-      shapeRendering="geometricPrecision"
+  // Monogram intrinsic viewBox: 0 0 130 120
+  // A: left-foot (6,116) → apex (55,4) → right-foot (104,116)
+  // D bowl: top (74,40) curves right and returns to (99,111) on right leg
+  const MONO_W = 130;
+  const MONO_H = 120;
+  const STROKE = 11;
+
+  const MonoPaths = ({ stroke }: { stroke: string }) => (
+    <g
+      fill="none"
+      stroke={stroke}
+      strokeWidth={STROKE}
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
-      <defs>
-        <linearGradient id={gradId} x1="0.35" y1="0" x2="0.72" y2="1">
-          <stop offset="0%" stopColor="hsl(var(--logo-blue-start))" />
-          <stop offset="52%" stopColor="hsl(var(--logo-blue-mid))" />
-          <stop offset="100%" stopColor="hsl(var(--logo-blue-end))" />
-        </linearGradient>
-      </defs>
-
-      <g fill={`url(#${gradId})`}>
-        <path d="M 0 100 L 54 0 L 100 100 H 86 L 54 23 L 14 100 Z" />
-        <path d="M 77 29 H 107 C 134 29 152 45.5 152 65 C 152 87.5 134 100 106 100 H 100 L 89 77.5 C 95 79 103 78.8 111 77 C 126 73.5 136 64 136 52 C 136 41 125 36.5 107 36.5 H 86 Z" />
-      </g>
-    </svg>
+      {/* Open "A" triangle */}
+      <path d="M 6 116 L 55 4 L 104 116" />
+      {/* "D" bowl attached to the right leg */}
+      <path d="M 74 40 C 118 44, 126 108, 99 111" />
+    </g>
   );
 
+  const MonoDefs = () => (
+    <defs>
+      <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="hsl(var(--logo-blue-start))" />
+        <stop offset="55%" stopColor="hsl(var(--logo-blue-mid))" />
+        <stop offset="100%" stopColor="hsl(var(--logo-blue-end))" />
+      </linearGradient>
+      {withGlow && (
+        <filter id={glowId} x="-25%" y="-25%" width="150%" height="150%">
+          <feDropShadow
+            dx="0"
+            dy="0"
+            stdDeviation="2.5"
+            floodColor="hsl(var(--logo-blue-mid))"
+            floodOpacity="0.55"
+          />
+        </filter>
+      )}
+    </defs>
+  );
 
   if (variant === "mark") {
+    const width = size * (MONO_W / MONO_H);
     return (
       <span
         className={`inline-flex items-center ${className}`}
         aria-label="AD SCALE"
         role="img"
       >
-        <Monogram height={size} />
+        <svg
+          width={width}
+          height={size}
+          viewBox={`0 0 ${MONO_W} ${MONO_H}`}
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          focusable="false"
+          shapeRendering="geometricPrecision"
+        >
+          <MonoDefs />
+          <g filter={withGlow ? `url(#${glowId})` : undefined}>
+            <MonoPaths stroke={`url(#${gradId})`} />
+          </g>
+        </svg>
       </span>
     );
   }
 
-  const logoWidth = size * 4.23;
+  // Full lockup: monogram + "SCALE" wordmark
+  // Layout width tuned to reference proportions
+  const VB_W = 470;
+  const VB_H = 120;
+  const logoWidth = size * (VB_W / VB_H);
 
   return (
     <div
@@ -80,36 +115,26 @@ const Logo: React.FC<LogoProps> = ({
       <svg
         width={logoWidth}
         height={size}
-        viewBox="0 0 423 100"
+        viewBox={`0 0 ${VB_W} ${VB_H}`}
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
         focusable="false"
         shapeRendering="geometricPrecision"
       >
-        <defs>
-          <linearGradient id={gradId} x1="0.35" y1="0" x2="0.72" y2="1">
-            <stop offset="0%" stopColor="hsl(var(--logo-blue-start))" />
-            <stop offset="52%" stopColor="hsl(var(--logo-blue-mid))" />
-            <stop offset="100%" stopColor="hsl(var(--logo-blue-end))" />
-          </linearGradient>
-          <filter id={`${gradId}-glow`} x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="hsl(var(--primary))" floodOpacity={withGlow ? 0.45 : 0} />
-          </filter>
-        </defs>
+        <MonoDefs />
 
-        <g filter={`url(#${gradId}-glow)`}>
-          <path d="M 0 100 L 54 0 L 100 100 H 86 L 54 23 L 14 100 Z" fill={`url(#${gradId})`} />
-          <path d="M 77 29 H 107 C 134 29 152 45.5 152 65 C 152 87.5 134 100 106 100 H 100 L 89 77.5 C 95 79 103 78.8 111 77 C 126 73.5 136 64 136 52 C 136 41 125 36.5 107 36.5 H 86 Z" fill={`url(#${gradId})`} />
+        <g filter={withGlow ? `url(#${glowId})` : undefined}>
+          <MonoPaths stroke={`url(#${gradId})`} />
         </g>
 
         <text
-          x="169"
-          y="70"
+          x="158"
+          y="92"
           fill="hsl(var(--logo-wordmark))"
-          fontFamily="Inter, Arial, Helvetica, sans-serif"
-          fontSize="59"
-          fontWeight="900"
-          letterSpacing="0.6"
+          fontFamily="Inter, 'Helvetica Neue', Arial, sans-serif"
+          fontSize="86"
+          fontWeight="800"
+          letterSpacing="1"
         >
           SCALE
         </text>
