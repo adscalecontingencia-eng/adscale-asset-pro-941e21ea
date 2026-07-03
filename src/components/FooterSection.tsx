@@ -1,4 +1,5 @@
 import Logo from "./Logo";
+import SeoKeywords from "./SeoKeywords";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 const navLinks = [
@@ -60,6 +61,7 @@ const FooterSection = () => {
             © {new Date().getFullYear()} AD Scale — Premium Contingency Assets.
             Todos os direitos reservados.
           </p>
+          <SeoKeywords />
         </div>
       </div>
     </footer>
