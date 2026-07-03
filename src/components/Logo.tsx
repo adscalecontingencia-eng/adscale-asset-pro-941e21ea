@@ -31,7 +31,7 @@ const Logo: React.FC<LogoProps> = ({
     <svg
       width={px}
       height={px}
-      viewBox="0 0 120 100"
+      viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
       style={
         withGlow
@@ -50,21 +50,19 @@ const Logo: React.FC<LogoProps> = ({
         </linearGradient>
       </defs>
 
-      <g fill={`url(#${gradId})`}>
-        {/* "A" — bold slanted left leg */}
-        <path d="M 4 96 L 34 4 L 52 4 L 30 72 L 44 72 L 44 92 L 22 92 L 20 96 Z" />
-        {/* "A" crossbar / bridge into the D */}
-        <path d="M 26 60 L 60 60 L 60 74 L 30 74 Z" />
-        {/* "D" bowl with inner hole (evenodd fill-rule) */}
-        <path
-          fillRule="evenodd"
-          d="M 46 4 L 74 4 C 100 4, 118 24, 118 50 C 118 76, 100 96, 74 96 L 46 96 Z
-             M 60 22 L 72 22 C 88 22, 98 34, 98 50 C 98 66, 88 78, 72 78 L 60 78 Z"
-        />
-      </g>
-
+      {/*
+        Stylized "A" whose inner counter is shaped like a "D" — the AD wordmark.
+        Outer: slanted left edge (A's left leg) + rounded right edge (D bowl).
+        Inner cutout (evenodd): the D-shaped counter.
+      */}
+      <path
+        fill={`url(#${gradId})`}
+        fillRule="evenodd"
+        d="M 4 96 L 38 4 L 52 4 C 82 4, 96 42, 96 82 L 96 96 Z M 30 78 L 46 34 L 52 34 C 66 34, 76 54, 76 78 Z"
+      />
     </svg>
   );
+
 
   if (variant === "mark") {
     return (
