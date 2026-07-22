@@ -21,6 +21,7 @@ import SeoDashboard from "./pages/admin/SeoDashboard.tsx";
 import AnalyticsTracker from "./components/AnalyticsTracker.tsx";
 import ProductLanding from "./pages/ProductLanding.tsx";
 import SolucoesMetaAds from "./pages/SolucoesMetaAds.tsx";
+import EstruturaAds from "./pages/EstruturaAds.tsx";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade.tsx";
 import TermosDeUso from "./pages/TermosDeUso.tsx";
 import AluguelContasMetaAds from "./pages/AluguelContasMetaAds.tsx";
@@ -52,6 +53,7 @@ const App = () => (
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/seo" element={<SeoDashboard />} />
           <Route path="/solucoes-meta-ads" element={<SolucoesMetaAds />} />
+          <Route path="/estrutura-ads" element={<EstruturaAds />} />
           <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
           <Route path="/termos-de-uso" element={<TermosDeUso />} />
           <Route path="/aluguel-de-contas-meta-ads" element={<AluguelContasMetaAds />} />
