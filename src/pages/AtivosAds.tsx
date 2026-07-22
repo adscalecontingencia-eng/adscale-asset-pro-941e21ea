@@ -285,7 +285,31 @@ const AtivosAds = () => {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="border-t border-border/50 py-16">
+        <div className="container max-w-3xl mx-auto px-4">
+          <h2 className="font-display text-2xl md:text-3xl font-bold mb-8 text-center">
+            Perguntas frequentes sobre ativos Meta Ads
+          </h2>
+          <div className="space-y-4">
+            {FAQS.map((f) => (
+              <details
+                key={f.question}
+                className="group border border-border/50 rounded-xl bg-card/40 p-5 open:border-primary/40"
+              >
+                <summary className="cursor-pointer font-semibold list-none flex justify-between items-center gap-4">
+                  <span>{f.question}</span>
+                  <span className="text-primary transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-muted-foreground leading-relaxed text-sm">{f.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Final */}
+
       <section className="border-t border-border/50 py-16">
         <div className="container max-w-3xl mx-auto px-4 text-center">
           <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">
