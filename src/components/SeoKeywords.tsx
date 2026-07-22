@@ -48,6 +48,20 @@ const KEYWORDS = [
   "estrutura de campanha cbo", "estrutura de campanha abo",
   "otimização de campanha meta ads", "métricas meta ads",
   "adscale contingência",
+  // Novas palavras-chave (GSC)
+  "comprar pagina", "comprar perfil", "comprar fan page",
+  "perfil verificado", "facebook campanhas", "conta de anuncios",
+  "conta de anuncios facebook", "pagina antiga", "perfil antigo",
+  "bm conta de anuncios", "bm api", "comprar perfil antigo",
+  "anunciar no meta", "campanha meta", "conta de anuncio meta",
+  "comprar contas de anuncios", "bm meta ads", "conta de agencia",
+  "aluguel de contas", "conta de anuncios meta", "bms meta",
+  "comprar bm meta", "conta meta ads", "bm api oficial",
+  "bm de disparo", "comprar perfil verificado", "comprar bm de disparo",
+  "comprar bm via api", "BM 2k disparo", "BM 250 disparos",
+  "BM Disparo", "Disparo API Oficial", "conta para anunciar no facebook",
+  "conta para anunciar no instagram", "conta para facebook ads",
+  "conta para meta ads", "aluguar conta de anuncio", "alugar conta de anuncio",
 ];
 
 const SeoKeywords = () => {
