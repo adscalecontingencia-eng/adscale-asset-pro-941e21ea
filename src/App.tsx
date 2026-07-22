@@ -21,6 +21,7 @@ import SeoDashboard from "./pages/admin/SeoDashboard.tsx";
 import AnalyticsTracker from "./components/AnalyticsTracker.tsx";
 import ProductLanding from "./pages/ProductLanding.tsx";
 import SolucoesMetaAds from "./pages/SolucoesMetaAds.tsx";
+import EstruturaAds from "./pages/EstruturaAds.tsx";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade.tsx";
 import TermosDeUso from "./pages/TermosDeUso.tsx";
 import AluguelContasMetaAds from "./pages/AluguelContasMetaAds.tsx";
