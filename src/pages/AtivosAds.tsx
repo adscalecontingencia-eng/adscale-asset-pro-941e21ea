@@ -147,21 +147,22 @@ const AtivosAds = () => {
       <section className="border-t border-border/50 py-16">
         <div className="container max-w-4xl mx-auto px-4 space-y-10">
           <div>
-            <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">O que é a AD Scale?</h2>
+            <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">Ativos Meta Ads: BM, contas de anúncio, páginas e perfis</h2>
             <p className="text-muted-foreground leading-relaxed">
-              A AD Scale é uma empresa voltada para anunciantes e operações que utilizam Meta Ads e
-              precisam de mais organização estratégica em sua estrutura de mídia. O trabalho envolve
-              análise comercial, orientação sobre ativos, estrutura operacional e direcionamento para
-              quem deseja profissionalizar a base da operação.
+              A AD Scale atua com curadoria e handover técnico de ativos para operações que rodam
+              campanha meta em escala: BM verificada, BM API oficial, BM de disparo, conta de
+              anúncio meta, conta de agência, aluguel de contas, fan page antiga e perfis antigos
+              ou verificados. Cada ativo é validado em fingerprint, histórico de gasto, verificação
+              documental e Trust Score antes da entrega.
             </p>
           </div>
           <div>
-            <h3 className="font-display text-xl md:text-2xl font-semibold mb-3">Por que isso importa?</h3>
+            <h3 className="font-display text-xl md:text-2xl font-semibold mb-3">Por que a estrutura importa em Meta Ads?</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Em operações de tráfego pago, o resultado não depende apenas de criativos, públicos e
-              orçamento. A organização da estrutura também influencia a previsibilidade da operação,
-              incluindo contas, permissões, páginas, domínios, acessos, métodos de pagamento e
-              processos internos.
+              Em operações de tráfego pago no Meta (Facebook Ads e Instagram Ads), estabilidade
+              depende de conta de anúncio saudável, BM com verificação ativa, domínio verificado,
+              CAPI/Pixel corretos, perfil administrador antigo e política de contingência. Sem essa
+              base, criativos e verba não sustentam escala.
             </p>
           </div>
         </div>
@@ -171,17 +172,17 @@ const AtivosAds = () => {
       <section className="border-t border-border/50 py-16 bg-card/30">
         <div className="container max-w-5xl mx-auto px-4">
           <h2 className="font-display text-2xl md:text-3xl font-bold mb-8">
-            Para quem essa solução é indicada?
+            Para quem indicamos aluguel de contas e ativos Meta Ads?
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              "Agências que gerenciam campanhas no Meta Ads",
-              "Gestores de tráfego que atendem múltiplos projetos",
-              "Infoprodutores com operação de tráfego direto",
-              "E-commerces que dependem de campanhas recorrentes",
-              "Empresas que desejam organizar melhor seus ativos de anúncio",
-              "Operações que precisam de análise antes de escalar verba",
-              "Anunciantes que buscam suporte consultivo",
+              "Agências que operam múltiplas contas de anúncio Meta",
+              "Gestores de tráfego que precisam alugar conta de anúncio",
+              "Infoprodutores que rodam campanha meta em alto volume",
+              "E-commerces dependentes de Facebook Ads e Instagram Ads",
+              "Operações que precisam de BM API oficial para disparo",
+              "Times que exigem contingência antes de escalar verba",
+              "Anunciantes buscando conta para meta ads com histórico",
             ].map((item) => (
               <div key={item} className="rounded-xl border border-border/60 bg-background/60 p-5 text-sm">
                 {item}
