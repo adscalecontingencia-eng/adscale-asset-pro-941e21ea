@@ -7,14 +7,55 @@ import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 const SITE_OFICIAL = "https://www.adscalecontingencia.com/";
 
+const FAQS = [
+  {
+    question: "O que são ativos para Meta Ads?",
+    answer:
+      "Ativos são os recursos operacionais que sustentam uma conta de Meta Ads em escala: Business Manager (BM verificada, BM API oficial, BM de disparo), contas de anúncio, fan page, perfis antigos com Trust Score, domínios verificados e infraestrutura de Pixel/CAPI.",
+  },
+  {
+    question: "Qual a diferença entre BM verificada, BM API oficial e BM de disparo?",
+    answer:
+      "A BM verificada passou pela verificação documental do Meta. A BM API oficial tem a API de anúncios habilitada para integrações. A BM de disparo (250 ou 2k) é otimizada para volume alto de criação de campanhas via API oficial.",
+  },
+  {
+    question: "Perfil antigo (aged) faz diferença no Trust Score?",
+    answer:
+      "Sim. Perfis com idade real (2010+), histórico consistente e fingerprint limpo entregam Trust Score mais alto, reduzem revisão de conta e sustentam melhor escala em nichos sensíveis.",
+  },
+  {
+    question: "A AD Scale garante que a conta nunca será bloqueada?",
+    answer:
+      "Não existe garantia de imunidade a bloqueio no Meta. O que a AD Scale entrega é curadoria de ativos com histórico limpo, handover técnico, warm-up correto e política de reposição alinhada no briefing.",
+  },
+  {
+    question: "Como é feita a entrega dos ativos?",
+    answer:
+      "Handover 1 a 1 por canal seguro, com walkthrough ao vivo: vinculação de BM, conta de anúncio, fan page, Pixel/CAPI, domínio verificado e orientações de warm-up. Suporte técnico ativo nas primeiras 72h.",
+  },
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: "Ativos para Meta Ads | AD Scale",
-  description:
-    "AD Scale: soluções consultivas para ativos e estrutura de operações profissionais de Meta Ads.",
-  url: "https://www.adscalecontingencia.com/ativos-ads",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: "Ativos para Meta Ads | AD Scale",
+      description:
+        "AD Scale: soluções consultivas para ativos e estrutura de operações profissionais de Meta Ads.",
+      url: "https://www.adscalecontingencia.com/ativos-ads",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: FAQS.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer },
+      })),
+    },
+  ],
 };
+
 
 const trackEvent = (name: string, params: Record<string, unknown> = {}) => {
   if (typeof window === "undefined") return;
@@ -244,7 +285,31 @@ const AtivosAds = () => {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="border-t border-border/50 py-16">
+        <div className="container max-w-3xl mx-auto px-4">
+          <h2 className="font-display text-2xl md:text-3xl font-bold mb-8 text-center">
+            Perguntas frequentes sobre ativos Meta Ads
+          </h2>
+          <div className="space-y-4">
+            {FAQS.map((f) => (
+              <details
+                key={f.question}
+                className="group border border-border/50 rounded-xl bg-card/40 p-5 open:border-primary/40"
+              >
+                <summary className="cursor-pointer font-semibold list-none flex justify-between items-center gap-4">
+                  <span>{f.question}</span>
+                  <span className="text-primary transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-muted-foreground leading-relaxed text-sm">{f.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Final */}
+
       <section className="border-t border-border/50 py-16">
         <div className="container max-w-3xl mx-auto px-4 text-center">
           <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">
