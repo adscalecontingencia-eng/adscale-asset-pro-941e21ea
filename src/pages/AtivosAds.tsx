@@ -196,7 +196,7 @@ const AtivosAds = () => {
       <section className="border-t border-border/50 py-16">
         <div className="container max-w-4xl mx-auto px-4">
           <h2 className="font-display text-2xl md:text-3xl font-bold mb-6">
-            O que pode ser avaliado em uma operação?
+            Checklist técnico de ativos: BM, conta de anúncio, fan page e perfis
           </h2>
           <ul className="grid sm:grid-cols-2 gap-3 mb-6">
             {[
