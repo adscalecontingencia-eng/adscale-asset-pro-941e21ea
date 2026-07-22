@@ -53,6 +53,7 @@ const App = () => (
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/seo" element={<SeoDashboard />} />
           <Route path="/solucoes-meta-ads" element={<SolucoesMetaAds />} />
+          <Route path="/estrutura-ads" element={<EstruturaAds />} />
           <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
           <Route path="/termos-de-uso" element={<TermosDeUso />} />
           <Route path="/aluguel-de-contas-meta-ads" element={<AluguelContasMetaAds />} />
