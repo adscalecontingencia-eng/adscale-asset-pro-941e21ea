@@ -251,6 +251,7 @@ const staticPages = [
     title: "Soluções para Estrutura de Meta Ads | AD Scale",
     description: "Conheça a AD Scale, empresa independente com soluções consultivas para organização e estrutura de operações profissionais de Meta Ads.",
     keywords: ["soluções meta ads", "estrutura meta ads", "ad scale"],
+  },
   {
     path: "/estrutura-ads",
     title: "Estrutura para Meta Ads | AD Scale",
