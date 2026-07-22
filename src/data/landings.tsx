@@ -424,50 +424,59 @@ const perfisFacebook: ProductLandingData = {
 const perfilAged: ProductLandingData = {
   slug: "perfil-aged",
   seo: {
-    title: "Perfil Antigos | Contas Antigas Facebook",
+    title: "Comprar Perfil Antigo Facebook: Perfil Verificado 2010+ para BM | AD Scale",
     description:
-      "Perfis Facebook antigos (2 a 10+ anos) e timeline orgânica, amigos, fotos e login limpo. Base ideal para BM verificada e Meta Ads.",
+      "Comprar perfil antigo e perfil verificado Facebook (2 a 10+ anos) com timeline orgânica, histórico limpo e Trust Score alto para BM verificada, BM API e Meta Ads.",
     keywords: [
-      "perfil aged facebook",
+      "comprar perfil antigo",
+      "perfil antigo",
       "perfil antigo facebook",
+      "perfil antigo facebook ads",
+      "comprar perfil",
+      "comprar perfil verificado",
+      "perfil verificado",
+      "perfil aged facebook",
       "conta aged",
       "perfil 2010",
-      "perfil antigo",
       "conta facebook antiga",
+      "perfil administrador bm",
+      "perfil para business manager",
+      "bm conta de anuncios",
+      "conta de anuncios facebook",
     ],
     canonical: "/perfil-aged",
   },
   hero: {
-    eyebrow: "PERFIS COM ANOS DE TIMELINE REAL",
-    badgeText: "Perfis 2010+ · Atividade orgânica",
+    eyebrow: "PERFIL ANTIGO FACEBOOK · 2 A 10+ ANOS DE TIMELINE REAL",
+    badgeText: "Comprar perfil antigo · Perfil verificado 2010+",
     headline: (
       <>
-        Perfis Facebook <span className="text-gradient">antigos</span> com 2 a 10+ anos de história real.
+        Comprar <span className="text-gradient">perfil antigo</span> Facebook: perfil verificado com 2 a 10+ anos para BM e Meta Ads.
       </>
     ),
     headlineMobile: (
       <>
-        Perfis <span className="text-gradient">antigos</span> com 2 a 10+ anos.
+        <span className="text-gradient">Perfil antigo</span> Facebook 2 a 10+ anos.
       </>
     ),
     subheadline:
-      "Perfis antigos com timeline orgânica, amigos reais, fotos antigas e histórico de login limpo. O ativo que mais sustenta Trust Score alto na operação.",
-    subheadlineMobile: "Perfis com timeline orgânica, amigos e histórico real. Sustentam Trust Score.",
+      "Perfis antigos com timeline orgânica, amigos reais, fotos históricas e login limpo — ativos administradores para sustentar BM verificada, BM API oficial e contas de anúncio Meta com Trust Score elevado.",
+    subheadlineMobile: "Perfis antigos com timeline orgânica e histórico real. Sustentam BM verificada e Trust Score.",
     trustItems: [
-      { value: "2-10+", label: "anos de uso" },
-      { value: "Real", label: "Login orgânico" },
-      { value: "Limpo", label: "Sem strike" },
+      { value: "2-10+", label: "anos de uso real" },
+      { value: "Verificado", label: "selo opcional" },
+      { value: "Limpo", label: "sem strike" },
     ],
   },
   assets: {
-    badge: "🛡️ FAIXAS DE PERFIL COM ANTIGOS",
+    badge: "🛡️ FAIXAS DE PERFIL ANTIGO FACEBOOK",
     heading: (
       <>
-        Idade importa. <span className="text-gradient">Mas o que segura é o histórico.</span>
+        Perfil antigo, perfil verificado e perfil administrador — <span className="text-gradient">o que realmente sustenta a BM.</span>
       </>
     ),
     intro:
-      "Trabalhamos perfis em três faixas de idade — cada uma resolve um problema diferente da operação.",
+      "Trabalhamos perfil antigo Facebook em três faixas de idade — cada uma resolve um cenário técnico específico da operação Meta Ads.",
     items: [
       mk(UserCircle2, "2-3 ANOS", "Perfil Antigos Médio", "Perfis com 2 a 3 anos, atividade orgânica e timeline coerente. Excelente custo-benefício para BM nova.", [
         "Timeline coerente",

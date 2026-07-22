@@ -51,9 +51,20 @@ const AtivosAds = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Ativos para Meta Ads | AD Scale"
-        description="Conheça a AD Scale, empresa independente com soluções consultivas para ativos e estrutura de operações profissionais de Meta Ads."
+        title="Ativos Meta Ads: BM, Contas de Anúncio, Fan Page e Perfis | AD Scale"
+        description="Ativos para Meta Ads: BM verificada, conta de anúncio, conta de agência, aluguel de contas, fan page, perfil antigo e BM API oficial para disparo."
         canonical="/ativos-ads"
+        keywords={[
+          "conta de anuncios meta","conta de anuncios facebook","conta para anunciar no facebook",
+          "conta para anunciar no instagram","conta para meta ads","conta para facebook ads",
+          "aluguel de contas","alugar conta de anuncio","conta de agencia","conta meta ads",
+          "comprar bm","bm verificada","bm meta ads","bm api","bm api oficial","bm de disparo",
+          "bm 250 disparos","bm 2k disparo","comprar bm de disparo","comprar bm via api",
+          "comprar bm verificada","comprar bm meta","comprar pagina","comprar fan page",
+          "pagina antiga","comprar perfil","comprar perfil antigo","comprar perfil verificado",
+          "perfil antigo","perfil verificado","anunciar no meta","campanha meta","facebook campanhas",
+          "conta de anuncio meta","bms meta","disparo api oficial",
+        ]}
         jsonLd={jsonLd}
       />
 
@@ -80,22 +91,24 @@ const AtivosAds = () => {
 
       {/* Hero */}
       <section className="container max-w-5xl mx-auto px-4 py-16 md:py-24">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">AD Scale Contingência</p>
+        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">AD Scale · Ativos Meta Ads</p>
         <h1 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-5">
-          Ativos e estrutura para operações profissionais de{" "}
-          <span className="text-gradient">Meta Ads</span>
+          Ativos para <span className="text-gradient">Meta Ads</span>: BM verificada, contas de anúncio, fan page e perfis antigos
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl mb-8">
-          A AD Scale apresenta soluções para anunciantes, agências e operações que precisam organizar
-          melhor seus ativos, contas, páginas, domínios e processos antes de escalar campanhas.
+          Estrutura completa para anunciar no Meta com previsibilidade: aluguel de contas de anúncio,
+          conta de agência, BM API oficial para disparo (BM 250 disparos, BM 2k disparo), fan pages
+          antigas, perfis verificados e perfis antigos com Trust Score elevado.
         </p>
 
         <ul className="grid sm:grid-cols-2 gap-3 mb-10 max-w-3xl">
           {[
-            "Avaliação de estrutura para Meta Ads",
-            "Organização de ativos comerciais",
-            "Direcionamento para operações que anunciam de forma profissional",
-            "Suporte consultivo para entender o melhor caminho",
+            "Aluguel de contas de anúncio Meta Ads e conta de agência",
+            "BM verificada, BM meta ads e BM API oficial (disparo)",
+            "Fan page antiga, página verificada e domínio configurado",
+            "Perfil antigo, perfil verificado e perfil farmado para BM",
+            "Governança de ativos, CAPI/Pixel e handover técnico 1 a 1",
+            "Contingência operacional para campanhas Meta de alto volume",
           ].map((b) => (
             <li key={b} className="flex items-start gap-2 text-foreground/90">
               <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
@@ -134,21 +147,22 @@ const AtivosAds = () => {
       <section className="border-t border-border/50 py-16">
         <div className="container max-w-4xl mx-auto px-4 space-y-10">
           <div>
-            <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">O que é a AD Scale?</h2>
+            <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">Ativos Meta Ads: BM, contas de anúncio, páginas e perfis</h2>
             <p className="text-muted-foreground leading-relaxed">
-              A AD Scale é uma empresa voltada para anunciantes e operações que utilizam Meta Ads e
-              precisam de mais organização estratégica em sua estrutura de mídia. O trabalho envolve
-              análise comercial, orientação sobre ativos, estrutura operacional e direcionamento para
-              quem deseja profissionalizar a base da operação.
+              A AD Scale atua com curadoria e handover técnico de ativos para operações que rodam
+              campanha meta em escala: BM verificada, BM API oficial, BM de disparo, conta de
+              anúncio meta, conta de agência, aluguel de contas, fan page antiga e perfis antigos
+              ou verificados. Cada ativo é validado em fingerprint, histórico de gasto, verificação
+              documental e Trust Score antes da entrega.
             </p>
           </div>
           <div>
-            <h3 className="font-display text-xl md:text-2xl font-semibold mb-3">Por que isso importa?</h3>
+            <h3 className="font-display text-xl md:text-2xl font-semibold mb-3">Por que a estrutura importa em Meta Ads?</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Em operações de tráfego pago, o resultado não depende apenas de criativos, públicos e
-              orçamento. A organização da estrutura também influencia a previsibilidade da operação,
-              incluindo contas, permissões, páginas, domínios, acessos, métodos de pagamento e
-              processos internos.
+              Em operações de tráfego pago no Meta (Facebook Ads e Instagram Ads), estabilidade
+              depende de conta de anúncio saudável, BM com verificação ativa, domínio verificado,
+              CAPI/Pixel corretos, perfil administrador antigo e política de contingência. Sem essa
+              base, criativos e verba não sustentam escala.
             </p>
           </div>
         </div>
@@ -158,17 +172,17 @@ const AtivosAds = () => {
       <section className="border-t border-border/50 py-16 bg-card/30">
         <div className="container max-w-5xl mx-auto px-4">
           <h2 className="font-display text-2xl md:text-3xl font-bold mb-8">
-            Para quem essa solução é indicada?
+            Para quem indicamos aluguel de contas e ativos Meta Ads?
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              "Agências que gerenciam campanhas no Meta Ads",
-              "Gestores de tráfego que atendem múltiplos projetos",
-              "Infoprodutores com operação de tráfego direto",
-              "E-commerces que dependem de campanhas recorrentes",
-              "Empresas que desejam organizar melhor seus ativos de anúncio",
-              "Operações que precisam de análise antes de escalar verba",
-              "Anunciantes que buscam suporte consultivo",
+              "Agências que operam múltiplas contas de anúncio Meta",
+              "Gestores de tráfego que precisam alugar conta de anúncio",
+              "Infoprodutores que rodam campanha meta em alto volume",
+              "E-commerces dependentes de Facebook Ads e Instagram Ads",
+              "Operações que precisam de BM API oficial para disparo",
+              "Times que exigem contingência antes de escalar verba",
+              "Anunciantes buscando conta para meta ads com histórico",
             ].map((item) => (
               <div key={item} className="rounded-xl border border-border/60 bg-background/60 p-5 text-sm">
                 {item}
@@ -182,7 +196,7 @@ const AtivosAds = () => {
       <section className="border-t border-border/50 py-16">
         <div className="container max-w-4xl mx-auto px-4">
           <h2 className="font-display text-2xl md:text-3xl font-bold mb-6">
-            O que pode ser avaliado em uma operação?
+            Checklist técnico de ativos: BM, conta de anúncio, fan page e perfis
           </h2>
           <ul className="grid sm:grid-cols-2 gap-3 mb-6">
             {[

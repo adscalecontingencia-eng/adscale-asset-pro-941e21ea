@@ -3,35 +3,46 @@ import CommercialLanding from "@/components/CommercialLanding";
 const BmVerificada = () => (
   <CommercialLanding
     seo={{
-      title: "Comprar BM Verificada Facebook e Meta Ads | AD Scale",
+      title: "Comprar BM Verificada Meta Ads: BM API Oficial e BM de Disparo | AD Scale",
       description:
-        "BM Verificada Facebook e Meta com selo azul, histórico limpo e governança de ativos para operações de alto volume e contingência.",
+        "BM verificada Meta com selo azul, BM API oficial, BM de disparo (BM 250 disparos e BM 2k disparo) e governança de ativos para anunciar no meta em escala.",
       keywords: [
         "comprar bm verificada",
+        "bm verificada",
         "bm verificada facebook",
         "bm verificada meta",
         "business manager verificada",
         "selo azul business manager",
-        "bm facebook verificada com selo",
-        "comprar business manager verificada",
-        "bm verificada para tráfego pago",
-        "bm verificada com cnpj",
-        "bm antiga verificada facebook ads",
-        "fornecedor de bm verificada",
-        "bm meta com selo azul",
+        "bm meta ads",
+        "comprar bm",
+        "comprar bm meta",
+        "bm api",
+        "bm api oficial",
+        "comprar bm via api",
+        "bm de disparo",
+        "comprar bm de disparo",
+        "bm 250 disparos",
+        "bm 2k disparo",
+        "bm disparo",
+        "disparo api oficial",
+        "bms meta",
+        "bm conta de anuncios",
+        "conta de anuncios meta",
+        "conta de agencia",
+        "aluguel de contas",
       ],
       canonical: "/bm-verificada",
     }}
-    eyebrow="BM Verificada"
-    h1="BM Verificada Facebook e Meta com selo azul, prontas para escalar"
-    subheadline="Business Managers com verificação documental ativa, histórico estável de pagamento e governança configurada para receber sua operação sem ruído."
+    eyebrow="BM Verificada · BM API Oficial · BM de Disparo"
+    h1="Comprar BM Verificada Meta Ads com selo azul, BM API oficial e BM de disparo"
+    subheadline="Business Managers com verificação documental ativa, BM API oficial habilitada, faixas de disparo (BM 250 e BM 2k) e governança configurada para operação profissional de Meta Ads sem ruído."
     bullets={[
-      "Verificação documental ativa no Facebook e Meta",
-      "Histórico de pagamento limpo e consistente",
-      "Selo azul e domínio verificado quando aplicável",
-      "Governança de ativos pronta para múltiplos perfis",
-      "Compatível com Conversions API (CAPI) e Pixel",
-      "Suporte 1 a 1 para handover seguro",
+      "BM verificada Meta com selo azul e verificação documental ativa",
+      "BM API oficial habilitada para integrações e disparo API oficial",
+      "Faixas de BM de disparo: BM 250 disparos e BM 2k disparo",
+      "Domínio verificado, Pixel e Conversions API (CAPI) prontos",
+      "Governança de ativos para múltiplos perfis e contas de anúncio",
+      "Handover técnico 1 a 1 com reposição priorizada",
     ]}
     benefits={[
       {
