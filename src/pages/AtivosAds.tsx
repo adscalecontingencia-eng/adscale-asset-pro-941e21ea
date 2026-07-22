@@ -51,9 +51,20 @@ const AtivosAds = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Ativos para Meta Ads | AD Scale"
-        description="Conheça a AD Scale, empresa independente com soluções consultivas para ativos e estrutura de operações profissionais de Meta Ads."
+        title="Ativos Meta Ads: BM, Contas de Anúncio, Fan Page e Perfis | AD Scale"
+        description="Ativos para Meta Ads: BM verificada, conta de anúncio, conta de agência, aluguel de contas, fan page, perfil antigo e BM API oficial para disparo."
         canonical="/ativos-ads"
+        keywords={[
+          "conta de anuncios meta","conta de anuncios facebook","conta para anunciar no facebook",
+          "conta para anunciar no instagram","conta para meta ads","conta para facebook ads",
+          "aluguel de contas","alugar conta de anuncio","conta de agencia","conta meta ads",
+          "comprar bm","bm verificada","bm meta ads","bm api","bm api oficial","bm de disparo",
+          "bm 250 disparos","bm 2k disparo","comprar bm de disparo","comprar bm via api",
+          "comprar bm verificada","comprar bm meta","comprar pagina","comprar fan page",
+          "pagina antiga","comprar perfil","comprar perfil antigo","comprar perfil verificado",
+          "perfil antigo","perfil verificado","anunciar no meta","campanha meta","facebook campanhas",
+          "conta de anuncio meta","bms meta","disparo api oficial",
+        ]}
         jsonLd={jsonLd}
       />
 
