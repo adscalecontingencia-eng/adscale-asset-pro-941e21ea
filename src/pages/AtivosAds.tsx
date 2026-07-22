@@ -10,10 +10,10 @@ const SITE_OFICIAL = "https://www.adscalecontingencia.com/";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "Estrutura para Meta Ads | AD Scale",
+  name: "Ativos para Meta Ads | AD Scale",
   description:
-    "AD Scale: soluções consultivas para organização e estrutura de operações profissionais de Meta Ads.",
-  url: "https://www.adscalecontingencia.com/estrutura-ads",
+    "AD Scale: soluções consultivas para ativos e estrutura de operações profissionais de Meta Ads.",
+  url: "https://www.adscalecontingencia.com/ativos-ads",
 };
 
 const trackEvent = (name: string, params: Record<string, unknown> = {}) => {
@@ -24,7 +24,7 @@ const trackEvent = (name: string, params: Record<string, unknown> = {}) => {
   if (typeof w.gtag === "function") w.gtag("event", name, params);
 };
 
-const EstruturaAds = () => {
+const AtivosAds = () => {
   useEffect(() => {
     trackEvent("view_presell");
     let fired50 = false;
@@ -51,20 +51,20 @@ const EstruturaAds = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Estrutura para Meta Ads | AD Scale"
-        description="Conheça a AD Scale, empresa independente com soluções consultivas para organização e estrutura de operações profissionais de Meta Ads."
-        canonical="/estrutura-ads"
+        title="Ativos para Meta Ads | AD Scale"
+        description="Conheça a AD Scale, empresa independente com soluções consultivas para ativos e estrutura de operações profissionais de Meta Ads."
+        canonical="/ativos-ads"
         jsonLd={jsonLd}
       />
 
       {/* Header */}
       <header className="border-b border-border/50 bg-background/80 backdrop-blur-xl sticky top-0 z-40">
         <div className="container max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
-          <Link to="/estrutura-ads" aria-label="AD Scale">
+          <Link to="/ativos-ads" aria-label="AD Scale">
             <Logo size={24} />
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
-            <Link to="/estrutura-ads" className="hover:text-foreground">Início</Link>
+            <Link to="/ativos-ads" className="hover:text-foreground">Início</Link>
             <a href={SITE_OFICIAL} onClick={handleSiteClick} className="hover:text-foreground">Site oficial</a>
             <Link to="/politica-de-privacidade" className="hover:text-foreground">Política de Privacidade</Link>
           </nav>
@@ -82,7 +82,7 @@ const EstruturaAds = () => {
       <section className="container max-w-5xl mx-auto px-4 py-16 md:py-24">
         <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">AD Scale Contingência</p>
         <h1 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-5">
-          Estrutura e organização para operações profissionais de{" "}
+          Ativos e estrutura para operações profissionais de{" "}
           <span className="text-gradient">Meta Ads</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl mb-8">
@@ -297,4 +297,4 @@ const EstruturaAds = () => {
   );
 };
 
-export default EstruturaAds;
+export default AtivosAds;
