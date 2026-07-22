@@ -7,14 +7,55 @@ import { WHATSAPP_URL } from "@/lib/whatsapp";
 
 const SITE_OFICIAL = "https://www.adscalecontingencia.com/";
 
+const FAQS = [
+  {
+    question: "O que são ativos para Meta Ads?",
+    answer:
+      "Ativos são os recursos operacionais que sustentam uma conta de Meta Ads em escala: Business Manager (BM verificada, BM API oficial, BM de disparo), contas de anúncio, fan page, perfis antigos com Trust Score, domínios verificados e infraestrutura de Pixel/CAPI.",
+  },
+  {
+    question: "Qual a diferença entre BM verificada, BM API oficial e BM de disparo?",
+    answer:
+      "A BM verificada passou pela verificação documental do Meta. A BM API oficial tem a API de anúncios habilitada para integrações. A BM de disparo (250 ou 2k) é otimizada para volume alto de criação de campanhas via API oficial.",
+  },
+  {
+    question: "Perfil antigo (aged) faz diferença no Trust Score?",
+    answer:
+      "Sim. Perfis com idade real (2010+), histórico consistente e fingerprint limpo entregam Trust Score mais alto, reduzem revisão de conta e sustentam melhor escala em nichos sensíveis.",
+  },
+  {
+    question: "A AD Scale garante que a conta nunca será bloqueada?",
+    answer:
+      "Não existe garantia de imunidade a bloqueio no Meta. O que a AD Scale entrega é curadoria de ativos com histórico limpo, handover técnico, warm-up correto e política de reposição alinhada no briefing.",
+  },
+  {
+    question: "Como é feita a entrega dos ativos?",
+    answer:
+      "Handover 1 a 1 por canal seguro, com walkthrough ao vivo: vinculação de BM, conta de anúncio, fan page, Pixel/CAPI, domínio verificado e orientações de warm-up. Suporte técnico ativo nas primeiras 72h.",
+  },
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: "Ativos para Meta Ads | AD Scale",
-  description:
-    "AD Scale: soluções consultivas para ativos e estrutura de operações profissionais de Meta Ads.",
-  url: "https://www.adscalecontingencia.com/ativos-ads",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: "Ativos para Meta Ads | AD Scale",
+      description:
+        "AD Scale: soluções consultivas para ativos e estrutura de operações profissionais de Meta Ads.",
+      url: "https://www.adscalecontingencia.com/ativos-ads",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: FAQS.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer },
+      })),
+    },
+  ],
 };
+
 
 const trackEvent = (name: string, params: Record<string, unknown> = {}) => {
   if (typeof window === "undefined") return;
