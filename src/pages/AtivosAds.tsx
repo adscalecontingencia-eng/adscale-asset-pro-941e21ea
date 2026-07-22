@@ -91,22 +91,24 @@ const AtivosAds = () => {
 
       {/* Hero */}
       <section className="container max-w-5xl mx-auto px-4 py-16 md:py-24">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">AD Scale Contingência</p>
+        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">AD Scale · Ativos Meta Ads</p>
         <h1 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-5">
-          Ativos e estrutura para operações profissionais de{" "}
-          <span className="text-gradient">Meta Ads</span>
+          Ativos para <span className="text-gradient">Meta Ads</span>: BM verificada, contas de anúncio, fan page e perfis antigos
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl mb-8">
-          A AD Scale apresenta soluções para anunciantes, agências e operações que precisam organizar
-          melhor seus ativos, contas, páginas, domínios e processos antes de escalar campanhas.
+          Estrutura completa para anunciar no Meta com previsibilidade: aluguel de contas de anúncio,
+          conta de agência, BM API oficial para disparo (BM 250 disparos, BM 2k disparo), fan pages
+          antigas, perfis verificados e perfis antigos com Trust Score elevado.
         </p>
 
         <ul className="grid sm:grid-cols-2 gap-3 mb-10 max-w-3xl">
           {[
-            "Avaliação de estrutura para Meta Ads",
-            "Organização de ativos comerciais",
-            "Direcionamento para operações que anunciam de forma profissional",
-            "Suporte consultivo para entender o melhor caminho",
+            "Aluguel de contas de anúncio Meta Ads e conta de agência",
+            "BM verificada, BM meta ads e BM API oficial (disparo)",
+            "Fan page antiga, página verificada e domínio configurado",
+            "Perfil antigo, perfil verificado e perfil farmado para BM",
+            "Governança de ativos, CAPI/Pixel e handover técnico 1 a 1",
+            "Contingência operacional para campanhas Meta de alto volume",
           ].map((b) => (
             <li key={b} className="flex items-start gap-2 text-foreground/90">
               <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
