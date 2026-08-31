@@ -189,6 +189,19 @@ const businessManager: ProductLandingData = {
     "arquitetura-contingencia-meta-ads-operacao-alto-volume",
     "preco-bm-verificada-2026-quanto-custa",
   ],
+  crossLinks: {
+    heading: "Perfis Facebook e a estrutura da BM",
+    blocks: [
+      {
+        h2: "O perfil administrador dentro da Business Manager",
+        text: "A Business Manager organiza ativos e permissões, mas quem acessa a estrutura é um perfil. Operações que utilizam estruturas com histórico também podem avaliar um perfil Facebook antigo.",
+        links: [
+          { href: "/perfis-facebook", label: "opções de perfis Facebook" },
+          { href: "/perfil-facebook-antigo", label: "perfil antigo para Meta Ads" },
+        ],
+      },
+    ],
+  },
 };
 
 // ============================================================
