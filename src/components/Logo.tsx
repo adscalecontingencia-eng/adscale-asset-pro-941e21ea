@@ -126,7 +126,7 @@ const Logo: React.FC<LogoProps> = ({
     );
   }
 
-  const WORDMARK_X = 684;
+  const WORDMARK_X = 560;
   const width = Math.round(size * (FULL_VB_W / FULL_VB_H) * 1000) / 1000;
 
   return (
