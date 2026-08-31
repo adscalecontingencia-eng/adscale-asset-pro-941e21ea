@@ -51,6 +51,15 @@ export interface ProductLandingData {
   };
   /** slugs de blogPosts para a seção "Conteúdo estratégico" */
   featuredGuideSlugs: string[];
+  /** Blocos de conteúdo + links internos contextuais (SEO semântico) */
+  crossLinks?: {
+    heading: string;
+    blocks: {
+      h2: string;
+      text: string;
+      links?: { href: string; label: string }[];
+    }[];
+  };
 }
 
 const trustDefault = [
