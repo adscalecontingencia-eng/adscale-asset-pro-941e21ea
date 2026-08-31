@@ -18,7 +18,7 @@ interface LogoProps {
 
 const MONO_VB_W = 470;
 const MONO_VB_H = 430;
-const FULL_VB_W = 1560;
+const FULL_VB_W = 1660;
 const FULL_VB_H = MONO_VB_H;
 
 /** Chevron "A": ápice no topo, pernas espessas, pés retos. */
