@@ -158,9 +158,22 @@ const staticPages = [
   },
   {
     path: "/perfis-facebook",
-    title: "Perfis Facebook Farmados e Aged | AD Scale",
-    description: "Compre perfis Facebook farmados e aged com timeline real, idade comprovada e Trust Score alto. Base estável para BM, multi-conta e Meta Ads.",
-    keywords: ["perfil facebook farmado", "comprar perfil facebook", "perfil aged", "perfil verificado", "conta facebook farmada"],
+    title: "Comprar Perfil Facebook para Anúncios | AD Scale",
+    h1: "Comprar Perfil Facebook para Anúncios",
+    description: "Perfis Facebook para anúncios e estruturas de Meta Ads. Compare opções de perfis, entenda as diferenças e consulte disponibilidade na AD Scale.",
+    keywords: ["comprar perfil facebook", "comprar perfil facebook para anúncios", "perfil facebook para anúncios", "perfis facebook", "perfil facebook meta ads", "perfil administrador"],
+    bodyHtml: `
+      <p>Perfis Facebook para compor estruturas profissionais de Meta Ads, Business Managers, páginas e contas de anúncios. Consulte as opções disponíveis conforme a necessidade da sua operação. Todos os ativos permanecem sujeitos às políticas e análises da plataforma.</p>
+      <h2>Perfil Facebook antigo</h2>
+      <p>Perfis com histórico anterior de existência e utilização. Veja as <a href="${SITE_URL}/perfil-facebook-antigo">opções de perfis Facebook antigos</a>.</p>
+      <h2>Perfil Aged Facebook</h2>
+      <p>Aged é o termo técnico de mercado para perfis com histórico. Consulte o <a href="${SITE_URL}/perfil-aged">guia sobre perfil aged</a>.</p>
+      <h2>Perfil Facebook e Business Manager</h2>
+      <p>O perfil recebe permissões dentro da estrutura empresarial. Entenda como funciona uma <a href="${SITE_URL}/business-manager">Business Manager</a>, as <a href="${SITE_URL}/bm-verificada">opções de BM verificada</a> e a <a href="${SITE_URL}/bm-ilimitada">estrutura de BM ilimitada</a>.</p>
+      <h2>Perfil Facebook e Conta de Anúncios</h2>
+      <p>São ativos diferentes: o perfil é o usuário com permissões; a conta de anúncios é onde campanhas e investimentos são gerenciados.</p>
+      <h2>Como funciona uma estrutura completa de Meta Ads?</h2>
+      <p>Perfil → Business Manager → Página → Conta de anúncios → Campanhas. A estrutura pode variar conforme a operação.</p>`,
   },
   {
     path: "/perfil-aged",
@@ -293,6 +306,40 @@ const staticPages = [
       "perfil administrador",
       "perfil para business manager",
     ],
+    h1: "Perfil Facebook Antigo para Meta Ads",
+    breadcrumb: [
+      { name: "Início", path: "/" },
+      { name: "Perfis Facebook", path: "/perfis-facebook" },
+      { name: "Perfil Facebook Antigo", path: "/perfil-facebook-antigo" },
+    ],
+    bodyHtml: `
+      <p>Um perfil Facebook antigo é um perfil pessoal com histórico anterior de existência e utilização. Em operações de Meta Ads, ele costuma ser usado como perfil administrador dentro de uma estrutura empresarial: recebe permissões em uma <a href="${SITE_URL}/business-manager">Business Manager</a>, acessa páginas e contas de anúncios e participa da organização de acessos de agências, gestores de tráfego e media buyers. A AD Scale disponibiliza esses perfis mediante consulta de disponibilidade, junto de outras opções de <a href="${SITE_URL}/perfis-facebook">perfis Facebook para operações de Meta Ads</a>. Todos os ativos permanecem sujeitos às políticas, análises e sistemas da plataforma.</p>
+      <h2>O que é um Perfil Facebook Antigo?</h2>
+      <p>É um perfil com tempo de criação e atividade anteriores, que pode compor uma estrutura envolvendo Business Manager, página, conta de anúncios, permissões e usuários. O histórico de um perfil não elimina o risco de restrições e não substitui uma operação compatível com as políticas da Meta.</p>
+      <h2>Perfil Facebook Antigo vs Perfil Novo</h2>
+      <p>O perfil antigo possui histórico anterior; o novo possui histórico recente. Nenhum dos dois oferece garantia automática de estabilidade ou aprovação — a escolha depende da estrutura e das necessidades operacionais.</p>
+      <h2>Perfil Antigo e Perfil Aged são a mesma coisa?</h2>
+      <p>No mercado, o <a href="${SITE_URL}/perfil-aged">termo aged utilizado no mercado</a> normalmente descreve perfis com histórico anterior. No Brasil, "perfil antigo" é uma forma mais natural de se referir a esse tipo de perfil.</p>
+      <h2>Perfil Facebook e Conta de Anúncios são a mesma coisa?</h2>
+      <p>Não. O perfil representa o usuário com permissões; a Business Manager organiza ativos, permissões, páginas e contas; a conta de anúncios é onde campanhas e investimentos são gerenciados. Fluxo simplificado: Perfil → Business Manager → Página → Conta de anúncios → Campanhas. A estrutura pode variar conforme a operação.</p>
+      <h2>Como o Perfil Facebook se relaciona com o Business Manager?</h2>
+      <p>O perfil recebe permissões para acessar ativos empresariais. Veja as <a href="${SITE_URL}/bm-verificada">opções de BM verificada</a> e a <a href="${SITE_URL}/bm-ilimitada">estrutura de BM ilimitada</a> para entender onde cada ativo se encaixa.</p>
+      <h2>Para quem os Perfis Facebook Antigos podem fazer sentido?</h2>
+      <p>Gestores de tráfego, agências, media buyers, e-commerces, operações de geração de leads e estruturas de <a href="${SITE_URL}/contingencia">contingência</a> com múltiplos ativos. A adequação depende da estrutura e necessidade da operação.</p>
+      <h2>Consulte Perfis Facebook Antigos Disponíveis</h2>
+      <p>As características e a disponibilidade podem variar. Consulte as opções atuais para encontrar a estrutura adequada à sua operação.</p>`,
+    faqs: [
+      { q: "O que é um perfil Facebook antigo?", a: "É um perfil pessoal do Facebook com histórico anterior de existência e utilização." },
+      { q: "Perfil antigo e perfil aged são a mesma coisa?", a: "São formas de se referir ao mesmo tipo de perfil: aged é o termo de mercado, antigo é a forma mais natural em português." },
+      { q: "Perfil Facebook é a mesma coisa que conta de anúncios?", a: "Não. O perfil é o usuário com permissões; a conta de anúncios é o ativo onde campanhas e investimentos são gerenciados." },
+      { q: "Para que serve um perfil em uma estrutura de Meta Ads?", a: "Para acessar e administrar ativos empresariais como Business Manager, páginas e contas de anúncios conforme as permissões concedidas." },
+      { q: "Perfil antigo pode acessar uma Business Manager?", a: "Sim, desde que receba as permissões adequadas dentro da estrutura empresarial." },
+      { q: "Perfil Facebook antigo é garantia contra bloqueios?", a: "Não. Nenhum perfil ou estrutura elimina totalmente o risco de restrições. Todos os ativos permanecem sujeitos às políticas e análises da plataforma." },
+      { q: "Qual a diferença entre perfil antigo e perfil novo?", a: "O antigo possui histórico anterior e o novo histórico recente; a escolha depende da estrutura e das necessidades operacionais." },
+      { q: "Como consultar os perfis disponíveis?", a: "Basta falar com a equipe da AD Scale para verificar as opções e características disponíveis no momento." },
+      { q: "Posso utilizar um perfil antigo em uma estrutura de contingência?", a: "Sim, perfis podem compor estruturas de contingência junto de BMs, páginas e contas de anúncios." },
+      { q: "A AD•SCALE gerencia as campanhas?", a: "Não. A AD Scale fornece infraestrutura e ativos. A criação e gestão das campanhas permanecem sob responsabilidade do cliente ou do profissional contratado." },
+    ],
   },
   {
     path: "/politica-de-privacidade",
@@ -310,7 +357,7 @@ const staticPages = [
 
 
 // ---------- HTML transform ----------
-function injectMeta(template, { title, description, canonical, ogImage, keywords, ogType = "website", publishedAt, jsonLd, bodyHtml }) {
+function injectMeta(template, { title, h1, description, canonical, ogImage, keywords, ogType = "website", publishedAt, jsonLd, bodyHtml }) {
   const ogImageUrl = ogImage?.startsWith("http") ? ogImage : `${SITE_URL}${ogImage || "/og/og-default.jpg"}`;
   const safeTitle = title.replace(/"/g, "&quot;");
   const safeDesc = description.replace(/"/g, "&quot;");
@@ -349,7 +396,7 @@ function injectMeta(template, { title, description, canonical, ogImage, keywords
     : "";
   const prerendered = `
     <div id="prerendered-seo" data-prerendered="true" style="max-width:760px;margin:0 auto;padding:32px 16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:#111">
-      <h1>${safeTitle}</h1>
+      <h1>${(h1 || title).replace(/"/g, "&quot;")}</h1>
       <p>${safeDesc}</p>
       ${articleHtml}
     </div>`;
@@ -441,20 +488,38 @@ for (const page of staticPages) {
   // avoiding 301 redirects that cause "Página com redirecionamento" in GSC.
   // No trailing slash — served directly from dist/<route>.html with 200.
   const canonical = `${SITE_URL}${page.path}`;
-  const breadcrumbs = breadcrumbLd([
+  const crumbItems = page.breadcrumb ?? [
     { name: "Início", path: "/" },
     { name: page.title.split("|")[0].trim(), path: page.path },
-  ]);
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [webPageLd({ canonical, title: page.title, description: page.description }), breadcrumbs],
-  };
+  ];
+  const breadcrumbs = breadcrumbLd(crumbItems);
+  const graph = [webPageLd({ canonical, title: page.title, description: page.description }), breadcrumbs];
+  if (page.faqs?.length) {
+    graph.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: page.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
+  const jsonLd = { "@context": "https://schema.org", "@graph": graph };
+  const crumbNav = `<nav aria-label="Breadcrumb"><ol>${crumbItems
+    .map((c) => `<li><a href="${SITE_URL}${c.path}">${c.name}</a></li>`)
+    .join("")}</ol></nav>`;
+  const faqHtml = page.faqs?.length
+    ? `<h2>Perguntas frequentes</h2>${page.faqs.map((f) => `<h3>${f.q}</h3><p>${f.a}</p>`).join("")}`
+    : "";
   const html = injectMeta(TEMPLATE, {
     title: page.title,
+    h1: page.h1,
     description: page.description,
     canonical,
     keywords: page.keywords,
     jsonLd,
+    bodyHtml: page.bodyHtml ? `${crumbNav}${page.bodyHtml}${faqHtml}` : faqHtml || undefined,
   });
   writeRoute(page.path, html);
   count++;
