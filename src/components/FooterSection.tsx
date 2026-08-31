@@ -66,6 +66,17 @@ const FooterSection = () => {
               rel="noopener noreferrer"
               aria-label="Instagram oficial da AD•SCALE"
               className="inline-flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
+              onClick={() => {
+                // Fallback para contextos de preview/iframe onde target="_blank"
+                // pode ser bloqueado pelo sandbox; mantém <a> nativo sem preventDefault.
+                if (window.parent !== window) {
+                  window.open(
+                    "https://www.instagram.com/adscale_hub/",
+                    "_blank",
+                    "noopener,noreferrer"
+                  );
+                }
+              }}
             >
               <Instagram size={18} strokeWidth={1.5} />
               <span>Instagram oficial</span>
