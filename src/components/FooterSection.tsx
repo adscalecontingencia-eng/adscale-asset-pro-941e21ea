@@ -1,6 +1,7 @@
 import Logo from "./Logo";
 import SeoKeywords from "./SeoKeywords";
 import { WHATSAPP_URL } from "@/lib/whatsapp";
+import { Instagram } from "lucide-react";
 
 const navLinks = [
   { href: "/blog", label: "Blog" },
