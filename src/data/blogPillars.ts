@@ -12,6 +12,11 @@ export type Pillar = {
   relatedLandingLabel?: string;
   /** Post slugs that belong to this pillar (ordered by relevance). */
   postSlugs: string[];
+  /** Optional curated internal links (hub de conteúdo). */
+  resourceLinks?: {
+    heading: string;
+    links: { href: string; label: string; description?: string }[];
+  };
 };
 
 export const pillars: Pillar[] = [
