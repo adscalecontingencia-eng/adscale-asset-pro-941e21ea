@@ -413,6 +413,10 @@ function injectMeta(template, { title, h1, description, canonical, ogImage, keyw
       ${articleHtml}
     </div>`;
   html = html.replace('<div id="root"></div>', `${prerendered}\n    <div id="root"></div>`);
+  html = html.replace(
+    "</body>",
+    `    <footer style="padding:48px 16px;text-align:center;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif">\n      ${INSTAGRAM_LINK_HTML.trim()}\n    </footer>\n  </body>`
+  );
   return html;
 }
 
