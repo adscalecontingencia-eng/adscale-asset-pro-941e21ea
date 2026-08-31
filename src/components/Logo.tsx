@@ -12,19 +12,22 @@ interface LogoProps {
 }
 
 /**
- * AD SCALE — brand logo rebuilt as filled vector geometry.
- * The monogram follows the reference: sharp triangular A, flat feet, angular
- * D entry cuts, rounded D bowl, vertical cyan→blue gradient, no stroked paths.
+ * AD SCALE — monograma A/D fundido (chevron "A" cujo apoio direito é a haste
+ * do "D"), gradiente ciano→azul na horizontal, wordmark SCALE pesada.
  */
 
-const MONO_VB_W = 590;
+const MONO_VB_W = 470;
 const MONO_VB_H = 430;
-const FULL_VB_W = 1648;
+const FULL_VB_W = 1660;
 const FULL_VB_H = MONO_VB_H;
 
-const PATH_A = "M0 430 L260 0 L492 430 L398 430 L260 100 L120 430 Z";
+/** Chevron "A": ápice no topo, pernas espessas, pés retos. */
+const PATH_A =
+  "M150 14 L196 14 L330 416 L252 416 L173 168 L94 416 L16 416 Z";
+
+/** "D": haste inclinada acompanhando a perna direita do A + bojo arredondado. */
 const PATH_D =
-  "M356 128 H470 C541 128 589 189 589 282 C589 370 541 430 470 430 H392 L356 352 H467 C500 352 522 326 522 282 C522 238 500 205 467 205 H386 Z";
+  "M196 84 C352 84 442 146 442 250 C442 352 372 416 268 416 L196 416 L196 340 L262 340 C325 340 362 306 362 250 C362 192 313 160 236 160 L222 160 Z";
 
 const Logo: React.FC<LogoProps> = ({
   className = "",
@@ -36,6 +39,7 @@ const Logo: React.FC<LogoProps> = ({
   // Unique ids per instance so multiple logos on the page never clash.
   const uid = React.useId().replace(/[^a-zA-Z0-9]/g, "");
   const gradId = `adscale-grad-${uid}`;
+  const gradDId = `adscale-gradd-${uid}`;
   const glowId = `adscale-glow-${uid}`;
 
   const Defs = () => (
@@ -43,13 +47,23 @@ const Logo: React.FC<LogoProps> = ({
       <linearGradient
         id={gradId}
         gradientUnits="userSpaceOnUse"
-        x1="260"
-        y1="0"
-        x2="260"
-        y2="430"
+        x1="16"
+        y1="416"
+        x2="330"
+        y2="14"
       >
         <stop offset="0%" stopColor="hsl(var(--logo-blue-start))" />
-        <stop offset="48%" stopColor="hsl(var(--logo-blue-mid))" />
+        <stop offset="100%" stopColor="hsl(var(--logo-blue-mid))" />
+      </linearGradient>
+      <linearGradient
+        id={gradDId}
+        gradientUnits="userSpaceOnUse"
+        x1="196"
+        y1="84"
+        x2="442"
+        y2="416"
+      >
+        <stop offset="0%" stopColor="hsl(var(--logo-blue-mid))" />
         <stop offset="100%" stopColor="hsl(var(--logo-blue-end))" />
       </linearGradient>
       {withGlow && (
@@ -77,14 +91,14 @@ const Logo: React.FC<LogoProps> = ({
   const Monogram = () => (
     <g
       filter={withGlow ? `url(#${glowId})` : undefined}
-      fill={`url(#${gradId})`}
       fillRule="evenodd"
       clipRule="evenodd"
     >
-      <path d={PATH_A} />
-      <path d={PATH_D} />
+      <path d={PATH_A} fill={`url(#${gradId})`} />
+      <path d={PATH_D} fill={`url(#${gradDId})`} />
     </g>
   );
+
 
   if (variant === "mark") {
     const width = Math.round(size * (MONO_VB_W / MONO_VB_H) * 1000) / 1000;
@@ -112,7 +126,7 @@ const Logo: React.FC<LogoProps> = ({
     );
   }
 
-  const WORDMARK_X = 684;
+  const WORDMARK_X = 560;
   const width = Math.round(size * (FULL_VB_W / FULL_VB_H) * 1000) / 1000;
 
   return (
@@ -137,15 +151,16 @@ const Logo: React.FC<LogoProps> = ({
         <Monogram />
         <text
           x={WORDMARK_X}
-          y="356"
+          y="376"
           fill="hsl(var(--logo-wordmark))"
-          fontFamily="'Space Grotesk', Inter, 'Helvetica Neue', Arial, sans-serif"
-          fontSize="296"
-          fontWeight="700"
-          letterSpacing="0"
+          fontFamily="Inter, 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif"
+          fontSize="330"
+          fontWeight="800"
+          letterSpacing="-4"
         >
           SCALE
         </text>
+
       </svg>
       {withTagline && (
         <span
