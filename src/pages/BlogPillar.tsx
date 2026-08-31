@@ -101,6 +101,27 @@ const BlogPillar = () => {
             )}
           </header>
 
+          {pillar.resourceLinks && (
+            <section aria-labelledby="pilar-guias" className="mb-16">
+              <h2 id="pilar-guias" className="font-display text-2xl font-bold mb-6">
+                {pillar.resourceLinks.heading}
+              </h2>
+              <div className="grid gap-4 md:grid-cols-2">
+                {pillar.resourceLinks.links.map((l) => (
+                  <Link
+                    key={l.href}
+                    to={l.href}
+                    className="border border-border/50 bg-card/60 hover:border-primary/40 transition-colors p-5 rounded-lg"
+                  >
+                    <h3 className="font-display text-lg font-semibold mb-1">{l.label}</h3>
+                    {l.description && <p className="text-sm text-muted-foreground">{l.description}</p>}
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
+
+
           <section aria-labelledby="pilar-artigos" className="mb-16">
             <h2 id="pilar-artigos" className="font-display text-2xl font-bold mb-6">
               {posts.length} {posts.length === 1 ? "artigo neste pilar" : "artigos neste pilar"}

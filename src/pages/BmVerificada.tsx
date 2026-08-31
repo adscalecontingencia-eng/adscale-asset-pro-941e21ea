@@ -91,6 +91,8 @@ const BmVerificada = () => (
     internalLinks={[
       { href: "/contingencia-meta-ads", label: "Estrutura de contingência Meta Ads" },
       { href: "/consultoria-meta-ads", label: "Consultoria Meta Ads para alto volume" },
+      { href: "/perfis-facebook", label: "Perfis Facebook para operações de Meta Ads" },
+      { href: "/perfil-facebook-antigo", label: "Perfil Facebook antigo com histórico" },
     ]}
     testimonials={[
       {

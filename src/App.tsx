@@ -25,6 +25,7 @@ import AtivosAds from "./pages/AtivosAds.tsx";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade.tsx";
 import TermosDeUso from "./pages/TermosDeUso.tsx";
 import AluguelContasMetaAds from "./pages/AluguelContasMetaAds.tsx";
+import PerfilFacebookAntigo from "./pages/PerfilFacebookAntigo.tsx";
 import { productLandingSlugs } from "./data/landings";
 import CookieConsent from "./components/CookieConsent.tsx";
 
@@ -58,6 +59,9 @@ const App = () => (
           <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
           <Route path="/termos-de-uso" element={<TermosDeUso />} />
           <Route path="/aluguel-de-contas-meta-ads" element={<AluguelContasMetaAds />} />
+          <Route path="/perfil-facebook-antigo" element={<PerfilFacebookAntigo />} />
+          <Route path="/perfil-antigo-facebook" element={<Navigate to="/perfil-facebook-antigo" replace />} />
+          <Route path="/comprar-perfil-facebook" element={<Navigate to="/perfis-facebook" replace />} />
           {productLandingSlugs.map((slug) => (
             <Route key={slug} path={`/${slug}`} element={<ProductLanding slug={slug} />} />
           ))}

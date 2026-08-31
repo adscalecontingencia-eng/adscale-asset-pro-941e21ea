@@ -51,6 +51,15 @@ export interface ProductLandingData {
   };
   /** slugs de blogPosts para a seção "Conteúdo estratégico" */
   featuredGuideSlugs: string[];
+  /** Blocos de conteúdo + links internos contextuais (SEO semântico) */
+  crossLinks?: {
+    heading: string;
+    blocks: {
+      h2: string;
+      text: string;
+      links?: { href: string; label: string }[];
+    }[];
+  };
 }
 
 const trustDefault = [
@@ -180,6 +189,19 @@ const businessManager: ProductLandingData = {
     "arquitetura-contingencia-meta-ads-operacao-alto-volume",
     "preco-bm-verificada-2026-quanto-custa",
   ],
+  crossLinks: {
+    heading: "Perfis Facebook e a estrutura da BM",
+    blocks: [
+      {
+        h2: "O perfil administrador dentro da Business Manager",
+        text: "A Business Manager organiza ativos e permissões, mas quem acessa a estrutura é um perfil. Operações que utilizam estruturas com histórico também podem avaliar um perfil Facebook antigo.",
+        links: [
+          { href: "/perfis-facebook", label: "opções de perfis Facebook" },
+          { href: "/perfil-facebook-antigo", label: "perfil antigo para Meta Ads" },
+        ],
+      },
+    ],
+  },
 };
 
 // ============================================================
@@ -291,6 +313,19 @@ const bmIlimitada: ProductLandingData = {
     "arquitetura-contingencia-meta-ads-operacao-alto-volume",
     "trust-score-meta-ads-como-medir-aumentar",
   ],
+  crossLinks: {
+    heading: "A BM é uma parte da estrutura",
+    blocks: [
+      {
+        h2: "Perfil administrador e organização de acessos",
+        text: "A Business Manager é apenas uma parte da estrutura. O perfil administrador também exerce papel importante na organização dos acessos e ativos.",
+        links: [
+          { href: "/perfis-facebook", label: "perfis Facebook para operações de Meta Ads" },
+          { href: "/perfil-facebook-antigo", label: "perfil com histórico" },
+        ],
+      },
+    ],
+  },
 };
 
 // ============================================================
@@ -299,36 +334,38 @@ const bmIlimitada: ProductLandingData = {
 const perfisFacebook: ProductLandingData = {
   slug: "perfis-facebook",
   seo: {
-    title: "Perfis Facebook Farmados e Antigos | AD Scale",
+    title: "Comprar Perfil Facebook para Anúncios | AD Scale",
     description:
-      "Compre perfis Facebook farmados e antigos com timeline real, idade comprovada e Trust Score alto. Base estável para BM, multi-conta e Meta Ads.",
+      "Perfis Facebook para anúncios e estruturas de Meta Ads. Compare opções de perfis, entenda as diferenças e consulte disponibilidade na AD Scale.",
     keywords: [
-      "perfil facebook farmado",
       "comprar perfil facebook",
-      "perfil aged",
-      "perfil verificado",
-      "perfil para ads",
-      "conta facebook farmada",
-      "perfil antigo facebook",
+      "comprar perfil facebook para anúncios",
+      "perfil facebook para anúncios",
+      "perfis facebook",
+      "perfil facebook meta ads",
+      "perfil para business manager",
+      "perfil administrador",
+      "perfis para meta ads",
     ],
     canonical: "/perfis-facebook",
   },
   hero: {
-    eyebrow: "PERFIS QUE SEGURAM A SUA BM EM PÉ",
-    badgeText: "Perfis farmados, antigos e verificados",
+    eyebrow: "PERFIS FACEBOOK PARA ESTRUTURAS DE META ADS",
+    badgeText: "Perfis para anúncios, BM e contas de anúncio",
     headline: (
       <>
-        Perfis Facebook <span className="text-gradient">farmados de verdade</span> — não conta nova com nome bonito.
+        Comprar <span className="text-gradient">Perfil Facebook</span> para Anúncios
       </>
     ),
     headlineMobile: (
       <>
-        Perfis Facebook <span className="text-gradient">farmados de verdade</span>.
+        Comprar <span className="text-gradient">Perfil Facebook</span> para Anúncios
       </>
     ),
     subheadline:
-      "Perfis com timeline real, amigos, fotos e atividade orgânica de anos. A base que sustenta sua BM, libera multi-conta e mantém o Trust Score alto no Meta.",
-    subheadlineMobile: "Perfis com timeline, amigos e atividade orgânica de anos. Sustentam BM e multi-conta.",
+      "Perfis para compor estruturas profissionais de Meta Ads, Business Managers, páginas e contas de anúncios. Todos os ativos permanecem sujeitos às políticas e análises da plataforma.",
+    subheadlineMobile: "Perfis para compor estruturas de Meta Ads, Business Managers, páginas e contas de anúncios.",
+
     trustItems: [
       { value: "Antigos", label: "2+ anos" },
       { value: "Real", label: "Atividade orgânica" },
@@ -408,14 +445,47 @@ const perfisFacebook: ProductLandingData = {
         Sua BM só dura <span className="text-gradient italic">o que o perfil aguenta.</span>
       </>
     ),
-    description: "Perfis antigos, farmados e verificados — entregues com walkthrough técnico e suporte de 72h.",
-    ctaLabel: "QUERO MEU PERFIL",
+    description: "Perfis para compor estruturas de Meta Ads — entregues com walkthrough técnico e suporte de 72h.",
+    ctaLabel: "Ver opções disponíveis",
   },
   featuredGuideSlugs: [
     "trust-score-meta-ads-como-medir-aumentar",
     "warm-up-perfil-facebook-passo-a-passo",
     "arquitetura-contingencia-meta-ads-operacao-alto-volume",
   ],
+  crossLinks: {
+    heading: "Qual perfil Facebook escolher?",
+    blocks: [
+      {
+        h2: "Perfil Facebook antigo",
+        text: "Perfis com histórico anterior de existência e utilização, usados para compor estruturas profissionais de Meta Ads. A adequação depende da estrutura e da necessidade da operação.",
+        links: [{ href: "/perfil-facebook-antigo", label: "entenda os perfis antigos" }],
+      },
+      {
+        h2: "Perfil Aged Facebook",
+        text: "“Aged” é o termo técnico que o mercado usa para o mesmo tipo de perfil com histórico. A página específica explica características, faixas de idade e uso.",
+        links: [{ href: "/perfil-aged", label: "guia sobre perfil aged" }],
+      },
+      {
+        h2: "Perfil Facebook e Business Manager",
+        text: "O perfil pode receber permissões para acessar ativos empresariais organizados dentro de uma Business Manager: páginas, contas de anúncio, pixels e catálogos.",
+        links: [
+          { href: "/business-manager", label: "estrutura de Business Manager" },
+          { href: "/bm-verificada", label: "entenda como funciona uma Business Manager verificada" },
+          { href: "/bm-ilimitada", label: "opções de BM para operações de Meta Ads" },
+        ],
+      },
+      {
+        h2: "Perfil Facebook e Conta de Anúncios",
+        text: "Não são o mesmo ativo. O perfil representa o usuário com permissões de acesso; a conta de anúncios é onde campanhas e investimento são efetivamente gerenciados, normalmente dentro de uma BM.",
+      },
+      {
+        h2: "Como funciona uma estrutura completa de Meta Ads?",
+        text: "Perfil → Business Manager → Página → Conta de anúncios → Campanhas. A representação é simplificada e estruturas reais podem variar conforme a configuração da operação.",
+        links: [{ href: "/contingencia-meta-ads", label: "estrutura de contingência Meta Ads" }],
+      },
+    ],
+  },
 };
 
 // ============================================================
@@ -528,6 +598,11 @@ const perfilAged: ProductLandingData = {
         answer:
           "Resistência a review e cap inicial de gasto. Perfil de 2 anos serve operação média; perfil de 10 anos sustenta vertical pesada e destrava cap mais alto na BM vinculada.",
       },
+      {
+        question: "Perfil aged é a mesma coisa que perfil Facebook antigo?",
+        answer:
+          "Perfil aged é um termo utilizado no mercado para se referir a um perfil Facebook com histórico anterior. No Brasil, esse tipo de perfil também costuma ser chamado de perfil Facebook antigo.",
+      },
     ],
   },
   cta: {
@@ -537,13 +612,31 @@ const perfilAged: ProductLandingData = {
       </>
     ),
     description: "Perfis antigos validados em fingerprint, idade e histórico — com handover técnico ao vivo.",
-    ctaLabel: "QUERO PERFIL COM ANTIGOS",
+    ctaLabel: "Consultar disponibilidade",
   },
   featuredGuideSlugs: [
     "trust-score-meta-ads-como-medir-aumentar",
     "warm-up-perfil-facebook-passo-a-passo",
     "como-escolher-fornecedor-bm-verificada-meta",
   ],
+  crossLinks: {
+    heading: "Perfil aged e perfil antigo: como os termos se relacionam",
+    blocks: [
+      {
+        h2: "Aged é o termo técnico; antigo é a linguagem do mercado brasileiro",
+        text: "Perfil aged é um termo utilizado no mercado para se referir a um perfil Facebook com histórico anterior. No Brasil, esse tipo de perfil também costuma ser chamado de perfil Facebook antigo.",
+        links: [{ href: "/perfil-facebook-antigo", label: "perfil Facebook antigo" }],
+      },
+      {
+        h2: "Onde o perfil aged entra na estrutura",
+        text: "O perfil recebe permissões dentro da Business Manager, que organiza páginas e contas de anúncio. A configuração varia conforme a operação.",
+        links: [
+          { href: "/business-manager", label: "estrutura de Business Manager" },
+          { href: "/perfis-facebook", label: "opções de perfis Facebook" },
+        ],
+      },
+    ],
+  },
 };
 
 // ============================================================

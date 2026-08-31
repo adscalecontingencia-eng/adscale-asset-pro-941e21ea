@@ -5093,7 +5093,158 @@ Pegue essas 10 perguntas, mande para **3 fornecedores diferentes**. Compare resp
 > BM verificada não é commodity. Comprar de quem responde 10 perguntas direito é a forma mais barata de não ter prejuízo.
 `,
   },
+  {
+    slug: "perfil-facebook-vs-conta-de-anuncios",
+    title: "Perfil Facebook vs Conta de Anúncios: Qual a Diferença?",
+    description: "Perfil, Business Manager, página e conta de anúncios são ativos diferentes dentro do Meta Ads. Entenda o papel de cada um e como as permissões se conectam.",
+    keywords: ["perfil facebook vs conta de anuncios", "conta de anuncios facebook", "perfil facebook", "business manager", "permissões meta ads"],
+    category: "Topo de funil",
+    readingTime: "6 min",
+    publishedAt: "2026-08-31",
+    ogImage: "/og/og-estrutura-bm.jpg",
+    content: `
+Muita gente usa "perfil", "conta" e "BM" como se fossem a mesma coisa. Dentro do Meta Ads, são ativos diferentes — com funções e permissões distintas.
+
+## Perfil Facebook
+
+O perfil é o usuário. É ele que faz login e recebe permissões para acessar determinados ativos. Ele não gerencia investimento diretamente: ele acessa as estruturas onde o investimento é gerenciado.
+
+## Business Manager
+
+A Business Manager organiza ativos empresariais: páginas, contas de anúncio, pixels, catálogos, domínios e usuários. É a camada de governança — quem pode ver e fazer o quê.
+
+## Página
+
+A página é a identidade pública usada nos anúncios. Ela é um ativo da BM, não do perfil.
+
+## Conta de anúncios
+
+É onde campanhas, orçamentos e investimento em mídia são efetivamente gerenciados. Uma BM pode ter várias contas de anúncio, com permissões diferentes por usuário.
+
+## Permissões e estrutura
+
+A relação simplificada é: perfil → Business Manager → página → conta de anúncios → campanhas. Estruturas reais variam conforme a operação e o número de clientes envolvidos.
+
+## Onde isso importa na prática
+
+- Perder acesso a um perfil não é o mesmo que perder uma conta de anúncios.
+- Organizar permissões por papel reduz ruído operacional.
+- Contingência é justamente distribuir esses ativos em vez de concentrar tudo em um único ponto.
+
+Nenhuma configuração elimina o risco de restrições — todos os ativos permanecem sujeitos às políticas e análises da plataforma.
+
+Para aprofundar: veja as [opções de perfis Facebook](/perfis-facebook) e a [estrutura de Business Manager](/business-manager).
+`,
+  },
+  {
+    slug: "perfil-facebook-antigo-vs-novo",
+    title: "Perfil Facebook Antigo vs Novo: O Que Muda?",
+    description: "Comparação educacional entre perfil Facebook antigo e perfil novo: histórico, uso dentro da estrutura de Meta Ads e o que nenhum dos dois garante.",
+    keywords: ["perfil facebook antigo vs novo", "perfil antigo facebook", "perfil novo facebook", "perfil para meta ads"],
+    category: "Topo de funil",
+    readingTime: "5 min",
+    publishedAt: "2026-08-31",
+    ogImage: "/og/og-saude-perfil-admin.jpg",
+    content: `
+"Antigo" e "novo" descrevem uma coisa só: o histórico do perfil. O resto — estabilidade, aprovação, desempenho — depende de muito mais fatores.
+
+## Perfil Facebook antigo
+
+Possui histórico anterior de existência e utilização: tempo de criação, atividade e conexões acumuladas. Costuma ser usado para compor estruturas já organizadas.
+
+## Perfil novo
+
+Possui histórico recente. Também exerce funções dentro de estruturas empresariais, dependendo do papel definido na Business Manager.
+
+## O que realmente muda
+
+| Critério | Antigo | Novo |
+| --- | --- | --- |
+| Histórico | anterior | recente |
+| Uso | depende da estrutura | depende da estrutura |
+| Estabilidade | sem garantia | sem garantia |
+
+## O que não muda
+
+Nenhum perfil elimina o risco de restrições. Idade não é garantia de aprovação, e uma operação incompatível com as políticas da Meta gera problemas independentemente do ativo utilizado.
+
+## Como decidir
+
+A escolha depende da estrutura e das necessidades operacionais: quantos ativos existem, como as permissões estão organizadas e qual o papel do perfil dentro da operação.
+
+Se você quer entender o ativo comercialmente, veja [perfil Facebook antigo](/perfil-facebook-antigo) e a relação com a [estrutura de Business Manager](/business-manager).
+`,
+  },
+  {
+    slug: "perfil-aged-vs-perfil-antigo-facebook",
+    title: "Perfil Aged vs Perfil Antigo no Facebook: Existe Diferença?",
+    description: "Aged e antigo descrevem o mesmo tipo de perfil com histórico. Entenda a origem dos termos e como cada um é usado no mercado brasileiro de Meta Ads.",
+    keywords: ["perfil aged", "perfil antigo facebook", "aged vs antigo", "termo aged facebook"],
+    category: "Topo de funil",
+    readingTime: "4 min",
+    publishedAt: "2026-08-31",
+    ogImage: "/og/og-tipos-bm.jpg",
+    content: `
+Na prática, os dois termos apontam para a mesma característica: um perfil Facebook com histórico anterior.
+
+## De onde vem o termo "aged"
+
+"Aged" é um termo mais utilizado em determinados mercados e comunidades internacionais para descrever contas com tempo de existência. Ele entrou no vocabulário brasileiro por influência desses ambientes.
+
+## Por que "antigo" é mais natural no Brasil
+
+"Perfil antigo" é a forma como a maior parte dos gestores e agências brasileiras descreve o mesmo ativo. É o vocabulário natural de quem pesquisa em português.
+
+## Existe diferença técnica?
+
+Não há uma definição oficial da Meta para nenhum dos dois termos. O que existe é o histórico real do perfil — data de criação, atividade e conexões.
+
+## O que continua valendo
+
+Independentemente do nome, nenhum perfil garante estabilidade. Todos os ativos permanecem sujeitos às políticas, análises e sistemas da plataforma.
+
+Continue por aqui: [guia sobre perfil aged](/perfil-aged) e [perfil Facebook antigo para Meta Ads](/perfil-facebook-antigo).
+`,
+  },
+  {
+    slug: "estrutura-meta-ads-perfil-bm-conta-anuncios",
+    title: "Perfil, BM e Conta de Anúncios: Como a Estrutura Meta Ads Funciona",
+    description: "Entenda a arquitetura do Meta Ads do perfil até a campanha: Business Manager, página, conta de anúncios, permissões e organização de contingência.",
+    keywords: ["estrutura meta ads", "perfil bm conta de anuncios", "arquitetura meta ads", "business manager estrutura"],
+    category: "Meio de funil",
+    readingTime: "7 min",
+    publishedAt: "2026-08-31",
+    ogImage: "/og/og-permissoes-bm.jpg",
+    content: `
+Toda operação de Meta Ads roda sobre uma hierarquia de ativos. Entender essa arquitetura evita erro de permissão, retrabalho e concentração de risco.
+
+## A hierarquia simplificada
+
+1. **Perfil** — usuário que acessa a estrutura e recebe permissões.
+2. **Business Manager** — organiza ativos empresariais, usuários e acessos.
+3. **Página** — identidade pública utilizada nos anúncios.
+4. **Conta de anúncios** — onde campanhas e investimento são gerenciados.
+5. **Campanha** — entrega e distribuição da mídia.
+
+Essa representação é simplificada: estruturas reais variam conforme o tamanho da operação, o número de clientes e o modelo de acesso adotado.
+
+## Permissões: o ponto mais subestimado
+
+Papéis mal definidos criam dois problemas comuns: pessoas com acesso além do necessário e dependência de um único usuário para tarefas críticas. Revisar papéis periodicamente é rotina básica de governança.
+
+## Contingência é organização, não promessa
+
+Distribuir ativos entre estruturas diferentes reduz a concentração de risco operacional. Isso não elimina o risco de restrições — todos os ativos permanecem sujeitos às políticas e análises da plataforma.
+
+## Por onde começar
+
+Mapeie quem acessa o quê, quais páginas pertencem a quais BMs e quais contas de anúncio estão ativas. A partir desse mapa, a decisão sobre novos ativos fica objetiva.
+
+Aprofunde: [perfis Facebook para anúncios](/perfis-facebook), [perfil Facebook antigo](/perfil-facebook-antigo), [BM verificada](/bm-verificada) e [estrutura de Business Manager](/business-manager).
+`,
+  },
 ];
+
 
 
 export const getPostBySlug = (slug: string) => blogPosts.find((p) => p.slug === slug);

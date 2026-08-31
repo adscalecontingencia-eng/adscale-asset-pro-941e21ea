@@ -12,6 +12,11 @@ export type Pillar = {
   relatedLandingLabel?: string;
   /** Post slugs that belong to this pillar (ordered by relevance). */
   postSlugs: string[];
+  /** Optional curated internal links (hub de conteúdo). */
+  resourceLinks?: {
+    heading: string;
+    links: { href: string; label: string; description?: string }[];
+  };
 };
 
 export const pillars: Pillar[] = [
@@ -74,9 +79,22 @@ export const pillars: Pillar[] = [
       "pagina-antiga-facebook-impacto-na-performance",
       "fingerprint-ip-residencial-meta-ads",
       "ip-residencial-vs-datacenter-meta-ads",
-      
+      "perfil-facebook-vs-conta-de-anuncios",
+      "perfil-facebook-antigo-vs-novo",
+      "perfil-aged-vs-perfil-antigo-facebook",
+      "estrutura-meta-ads-perfil-bm-conta-anuncios",
       "saude-perfil-administrador-bm-rotina-semanal",
     ],
+    resourceLinks: {
+      heading: "Guias sobre Perfis Facebook",
+      links: [
+        { href: "/perfil-facebook-antigo", label: "Perfil Facebook Antigo", description: "O que é, quando faz sentido e onde entra na estrutura." },
+        { href: "/perfil-aged", label: "Perfil Aged Facebook", description: "O termo técnico usado no mercado e suas características." },
+        { href: "/perfis-facebook", label: "Perfil Facebook e Business Manager", description: "Como o perfil se conecta à BM e às contas de anúncio." },
+        { href: "/blog/perfil-facebook-vs-conta-de-anuncios", label: "Perfil Facebook vs Conta de Anúncios", description: "Ativos diferentes, funções diferentes." },
+        { href: "/blog/estrutura-meta-ads-perfil-bm-conta-anuncios", label: "Segurança e organização de permissões", description: "Arquitetura completa do perfil até a campanha." },
+      ],
+    },
   },
   {
     slug: "seguranca-e-bloqueios",
