@@ -49,9 +49,26 @@ const FooterSection = () => {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="WhatsApp comercial da AD•SCALE"
                 className="flex items-center gap-2 hover:text-primary transition-colors"
               >
-                📱 WhatsApp comercial
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+                  <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1Z" />
+                  <path d="M14 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1Z" />
+                  <path d="M9.5 15a3.5 3.5 0 0 0 5 0" />
+                </svg>
+                <span>WhatsApp comercial</span>
               </a>
               <a
                 href="https://www.instagram.com/adscale_hub/"
