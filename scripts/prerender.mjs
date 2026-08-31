@@ -310,7 +310,7 @@ const staticPages = [
 
 
 // ---------- HTML transform ----------
-function injectMeta(template, { title, description, canonical, ogImage, keywords, ogType = "website", publishedAt, jsonLd, bodyHtml }) {
+function injectMeta(template, { title, h1, description, canonical, ogImage, keywords, ogType = "website", publishedAt, jsonLd, bodyHtml }) {
   const ogImageUrl = ogImage?.startsWith("http") ? ogImage : `${SITE_URL}${ogImage || "/og/og-default.jpg"}`;
   const safeTitle = title.replace(/"/g, "&quot;");
   const safeDesc = description.replace(/"/g, "&quot;");
@@ -349,7 +349,7 @@ function injectMeta(template, { title, description, canonical, ogImage, keywords
     : "";
   const prerendered = `
     <div id="prerendered-seo" data-prerendered="true" style="max-width:760px;margin:0 auto;padding:32px 16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:#111">
-      <h1>${safeTitle}</h1>
+      <h1>${(h1 || title).replace(/"/g, "&quot;")}</h1>
       <p>${safeDesc}</p>
       ${articleHtml}
     </div>`;
