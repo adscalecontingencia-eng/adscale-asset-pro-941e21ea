@@ -53,6 +53,16 @@ const FooterSection = () => {
               >
                 📱 WhatsApp comercial
               </a>
+              <a
+                href="https://www.instagram.com/adscale_hub/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram oficial da AD•SCALE"
+                className="flex items-center gap-2 hover:text-primary transition-colors"
+              >
+                <Instagram size={18} strokeWidth={1.5} />
+                <span>adscale_hub</span>
+              </a>
             </div>
           </div>
         </div>
