@@ -55,6 +55,7 @@ const HomeHero = () => {
                 href={waUrl}
                 data-wa-message={WA_MESSAGES.general}
                 data-cta="homepage_whatsapp_hero"
+                data-wa-category="geral"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>

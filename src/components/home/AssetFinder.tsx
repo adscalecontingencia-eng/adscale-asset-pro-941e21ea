@@ -66,6 +66,7 @@ const AssetFinder = () => {
                 href={waHref(option.waMessage)}
                 data-wa-message={option.waMessage}
                 data-cta={option.whatsappEvent}
+                data-wa-category={option.analyticsCategory}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>

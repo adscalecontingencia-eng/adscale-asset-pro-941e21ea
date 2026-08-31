@@ -334,8 +334,10 @@ export type Database = {
       }
       whatsapp_clicks: {
         Row: {
+          asset_category: string | null
           channel: string | null
           created_at: string
+          cta_id: string | null
           cta_label: string | null
           device: string | null
           fbclid: string | null
@@ -356,8 +358,10 @@ export type Database = {
           utm_term: string | null
         }
         Insert: {
+          asset_category?: string | null
           channel?: string | null
           created_at?: string
+          cta_id?: string | null
           cta_label?: string | null
           device?: string | null
           fbclid?: string | null
@@ -378,8 +382,10 @@ export type Database = {
           utm_term?: string | null
         }
         Update: {
+          asset_category?: string | null
           channel?: string | null
           created_at?: string
+          cta_id?: string | null
           cta_label?: string | null
           device?: string | null
           fbclid?: string | null

@@ -142,6 +142,18 @@ function resolveChannel(attr: Attribution): string {
   return "direct";
 }
 
+/** Rótulos legíveis por categoria de ativo (usado na mensagem do WhatsApp). */
+export const ASSET_CATEGORY_LABELS: Record<string, string> = {
+  perfis: "Perfis Facebook",
+  business_manager: "Business Managers",
+  paginas: "Páginas Facebook",
+  estruturas: "Combos e Estruturas",
+  contas_gerenciadas: "Contas de Anúncios Gerenciadas",
+  bm_api: "BM para API Oficial",
+  indefinido: "Ainda não definido",
+  geral: "Geral",
+};
+
 /** Resume da origem do tráfego para anexar à mensagem do WhatsApp. */
 function buildOriginSummary(): string {
   if (typeof window === "undefined") return "";
@@ -177,11 +189,33 @@ function buildOriginSummary(): string {
 }
 
 /** Build the wa.me URL com mensagem personalizada incluindo página e UTMs. */
-export function buildWhatsAppUrl(opts?: { message?: string; cta?: string }): string {
+export function buildWhatsAppUrl(opts?: {
+  message?: string;
+  cta?: string;
+  category?: string;
+}): string {
   const { url } = getPageContext();
   const base = opts?.message ?? DEFAULT_MESSAGE;
   const origin = buildOriginSummary();
-  const ctx = `\n\n${url}${origin}`;
+  const category = opts?.category || "geral";
+  const cta = opts?.cta || "link_whatsapp";
+
+  // UTMs do próprio clique: qual botão e qual tipo de produto originou a conversa.
+  const clickUtm = [
+    "utm_source: site",
+    "utm_medium: whatsapp",
+    `utm_campaign: ${category}`,
+    `utm_content: ${cta}`,
+    `produto: ${ASSET_CATEGORY_LABELS[category] ?? category}`,
+    `botao: ${cta}`,
+  ].join("\n");
+
+  // A mesma informação também vai na URL da página de origem, para leitura rápida.
+  const taggedUrl = `${url}${url.includes("?") ? "&" : "?"}utm_source=site&utm_medium=whatsapp&utm_campaign=${encodeURIComponent(
+    category,
+  )}&utm_content=${encodeURIComponent(cta)}`;
+
+  const ctx = `\n\n${taggedUrl}\n\nClique:\n${clickUtm}${origin}`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(base + ctx)}`;
 }
 
@@ -202,6 +236,10 @@ export function trackWhatsAppClick(opts?: {
   ctaLabel?: string;
   source?: string;
   message?: string;
+  /** Categoria de ativo do botão clicado (perfis, business_manager, ...). */
+  category?: string;
+  /** Identificador do botão (ex.: homepage_whatsapp_hero). */
+  ctaId?: string;
 }): void {
   if (typeof window === "undefined") return;
 
@@ -232,6 +270,8 @@ export function trackWhatsAppClick(opts?: {
     device: detectDevice(ua),
     session_id: getSessionId(),
     channel,
+    asset_category: opts?.category ?? "geral",
+    cta_id: opts?.ctaId ?? opts?.ctaLabel ?? null,
   };
 
 
@@ -251,6 +291,8 @@ export function trackWhatsAppClick(opts?: {
 export function onWhatsAppClick(opts?: {
   ctaLabel?: string;
   source?: string;
+  category?: string;
+  ctaId?: string;
 }): void {
   trackWhatsAppClick(opts);
 }

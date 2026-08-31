@@ -65,6 +65,7 @@ const CategoriesSection = () => {
                       href={waHref(cat.waMessage!)}
                       data-wa-message={cat.waMessage}
                       data-cta={cat.whatsappEvent}
+                      data-wa-category={cat.analyticsCategory}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => {

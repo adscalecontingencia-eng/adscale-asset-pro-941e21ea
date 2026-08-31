@@ -9,6 +9,24 @@ import { buildWhatsAppUrl, captureAttribution, trackWhatsAppClick } from "@/lib/
  *
  * Mounted once inside the Router so useLocation works.
  */
+/**
+ * Fallback de categoria por rota: qualquer botão de WhatsApp fora da homepage
+ * (landings de produto, blog, etc.) já é classificado pelo tipo de ativo da página.
+ */
+const ROUTE_CATEGORY: { match: RegExp; category: string }[] = [
+  { match: /^\/(perfis-facebook|perfil-facebook-antigo|perfil-aged)/, category: "perfis" },
+  { match: /^\/(business-manager|bm-verificada|bm-ilimitada|recuperacao-bm)/, category: "business_manager" },
+  { match: /^\/paginas-facebook/, category: "paginas" },
+  { match: /^\/(ativos-ads|solucoes-meta-ads|contingencia)/, category: "estruturas" },
+  { match: /^\/aluguel-de-contas-meta-ads/, category: "contas_gerenciadas" },
+  { match: /^\/whatsapp-cloud-api/, category: "bm_api" },
+  { match: /^\/(blog|guia-)/, category: "conteudo" },
+];
+
+function categoryFromRoute(path: string): string {
+  return ROUTE_CATEGORY.find((r) => r.match.test(path))?.category ?? "geral";
+}
+
 const AnalyticsTracker = () => {
   const location = useLocation();
 
@@ -26,17 +44,27 @@ const AnalyticsTracker = () => {
         link.getAttribute("data-cta") ||
         (link.textContent || "").trim().slice(0, 80) ||
         "wa_link";
+      const category =
+        link.getAttribute("data-wa-category") ||
+        categoryFromRoute(window.location.pathname || "/");
+
+      const ctaId = link.getAttribute("data-cta") || ctaLabel;
 
       // Rewrite href on the fly so the WhatsApp message includes the page of origin.
       // `data-wa-message` preserva mensagens contextuais por categoria.
       try {
         const custom = link.getAttribute("data-wa-message") || undefined;
-        link.href = buildWhatsAppUrl(custom ? { message: custom } : undefined);
+        link.href = buildWhatsAppUrl({
+          ...(custom ? { message: custom } : {}),
+          cta: ctaId,
+          category,
+        });
       } catch {
         /* no-op */
       }
 
-      trackWhatsAppClick({ ctaLabel, source: "whatsapp_button" });
+      trackWhatsAppClick({ ctaLabel, source: "whatsapp_button", category, ctaId });
+
 
       // Google Ads conversion ping (non-blocking — link still opens normally).
       // transport_type: 'beacon' garante o envio mesmo se o navegador trocar de página.
@@ -58,6 +86,8 @@ const AnalyticsTracker = () => {
           page_path: path,
           page_location: window.location.href,
           cta_label: ctaLabel,
+          asset_category: category,
+          cta_id: ctaId,
         });
 
         // Evento secundário (GA4-style) para segmentação adicional no Google Ads / Analytics.
@@ -66,6 +96,8 @@ const AnalyticsTracker = () => {
           page_path: path,
           page_location: window.location.href,
           cta_label: ctaLabel,
+          asset_category: category,
+          cta_id: ctaId,
           transport_type: "beacon",
         });
       }
