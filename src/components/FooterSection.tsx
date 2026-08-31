@@ -57,8 +57,21 @@ const FooterSection = () => {
           </div>
         </div>
 
-        <div className="border-t border-border/50 pt-6 text-center">
-          <p className="text-muted-foreground text-sm">
+        <div className="border-t border-border/50 pt-6 pb-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+            <span className="text-muted-foreground text-sm">Redes sociais</span>
+            <a
+              href="https://www.instagram.com/adscale_hub/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram oficial da AD•SCALE"
+              className="inline-flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
+            >
+              <Instagram size={18} strokeWidth={1.5} />
+              <span>Instagram oficial</span>
+            </a>
+          </div>
+          <p className="text-muted-foreground text-sm text-center">
             © {new Date().getFullYear()} AD Scale — Premium Contingency Assets.
             Todos os direitos reservados.
           </p>
