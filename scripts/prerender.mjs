@@ -158,9 +158,22 @@ const staticPages = [
   },
   {
     path: "/perfis-facebook",
-    title: "Perfis Facebook Farmados e Aged | AD Scale",
-    description: "Compre perfis Facebook farmados e aged com timeline real, idade comprovada e Trust Score alto. Base estável para BM, multi-conta e Meta Ads.",
-    keywords: ["perfil facebook farmado", "comprar perfil facebook", "perfil aged", "perfil verificado", "conta facebook farmada"],
+    title: "Comprar Perfil Facebook para Anúncios | AD Scale",
+    h1: "Comprar Perfil Facebook para Anúncios",
+    description: "Perfis Facebook para anúncios e estruturas de Meta Ads. Compare opções de perfis, entenda as diferenças e consulte disponibilidade na AD Scale.",
+    keywords: ["comprar perfil facebook", "comprar perfil facebook para anúncios", "perfil facebook para anúncios", "perfis facebook", "perfil facebook meta ads", "perfil administrador"],
+    bodyHtml: `
+      <p>Perfis Facebook para compor estruturas profissionais de Meta Ads, Business Managers, páginas e contas de anúncios. Consulte as opções disponíveis conforme a necessidade da sua operação. Todos os ativos permanecem sujeitos às políticas e análises da plataforma.</p>
+      <h2>Perfil Facebook antigo</h2>
+      <p>Perfis com histórico anterior de existência e utilização. Veja as <a href="${SITE_URL}/perfil-facebook-antigo">opções de perfis Facebook antigos</a>.</p>
+      <h2>Perfil Aged Facebook</h2>
+      <p>Aged é o termo técnico de mercado para perfis com histórico. Consulte o <a href="${SITE_URL}/perfil-aged">guia sobre perfil aged</a>.</p>
+      <h2>Perfil Facebook e Business Manager</h2>
+      <p>O perfil recebe permissões dentro da estrutura empresarial. Entenda como funciona uma <a href="${SITE_URL}/business-manager">Business Manager</a>, as <a href="${SITE_URL}/bm-verificada">opções de BM verificada</a> e a <a href="${SITE_URL}/bm-ilimitada">estrutura de BM ilimitada</a>.</p>
+      <h2>Perfil Facebook e Conta de Anúncios</h2>
+      <p>São ativos diferentes: o perfil é o usuário com permissões; a conta de anúncios é onde campanhas e investimentos são gerenciados.</p>
+      <h2>Como funciona uma estrutura completa de Meta Ads?</h2>
+      <p>Perfil → Business Manager → Página → Conta de anúncios → Campanhas. A estrutura pode variar conforme a operação.</p>`,
   },
   {
     path: "/perfil-aged",
