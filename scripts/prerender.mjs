@@ -12,6 +12,18 @@ const SITE_URL = "https://www.adscalecontingencia.com";
 const DIST = resolve("dist");
 const TEMPLATE = readFileSync(resolve(DIST, "index.html"), "utf8");
 
+const INSTAGRAM_LINK_HTML = `
+<a
+  href="https://www.instagram.com/adscale_hub/"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Instagram oficial da AD•SCALE"
+  style="display:inline-flex;align-items:center;gap:8px;color:#64748b;text-decoration:none;font-size:14px"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+  <span>Instagram oficial</span>
+</a>`;
+
 // ---------- Parse blog posts from src/data/blogPosts.ts via regex ----------
 const blogSource = readFileSync(resolve("src/data/blogPosts.ts"), "utf8");
 // Per-slug short SEO titles (≤60 chars). Falls back to post.title when absent.
@@ -399,6 +411,9 @@ function injectMeta(template, { title, h1, description, canonical, ogImage, keyw
       <h1>${(h1 || title).replace(/"/g, "&quot;")}</h1>
       <p>${safeDesc}</p>
       ${articleHtml}
+      <footer style="padding:48px 16px;text-align:center;margin-top:48px;border-top:1px solid #e2e8f0">
+        ${INSTAGRAM_LINK_HTML.trim()}
+      </footer>
     </div>`;
   html = html.replace('<div id="root"></div>', `${prerendered}\n    <div id="root"></div>`);
   return html;
