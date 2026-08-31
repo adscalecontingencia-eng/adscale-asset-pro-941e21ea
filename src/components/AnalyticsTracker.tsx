@@ -28,8 +28,10 @@ const AnalyticsTracker = () => {
         "wa_link";
 
       // Rewrite href on the fly so the WhatsApp message includes the page of origin.
+      // `data-wa-message` preserva mensagens contextuais por categoria.
       try {
-        link.href = buildWhatsAppUrl();
+        const custom = link.getAttribute("data-wa-message") || undefined;
+        link.href = buildWhatsAppUrl(custom ? { message: custom } : undefined);
       } catch {
         /* no-op */
       }

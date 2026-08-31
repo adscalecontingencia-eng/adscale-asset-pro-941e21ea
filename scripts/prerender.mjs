@@ -568,6 +568,66 @@ for (const post of posts) {
 }
 
 // Refresh 404.html so SPA fallback uses the latest template (no per-route meta).
+// Done BEFORE the homepage is prerendered so the fallback stays generic.
 copyFileSync(resolve(DIST, "index.html"), resolve(DIST, "404.html"));
 
+// ---------- Homepage ----------
+{
+  const canonical = `${SITE_URL}/`;
+  const title = "Contingência Meta Ads para Alto Volume | AD Scale";
+  const description =
+    "Perfis Facebook, Business Managers, Páginas, Contas de Anúncios e estruturas para operações profissionais de Meta Ads. Consulte disponibilidade com nossa equipe.";
+  const faqs = [
+    { q: "O que a AD•SCALE oferece?", a: "Infraestrutura e contingência para operações de Meta Ads: Perfis Facebook, Business Managers, Páginas, Contas de Anúncios por acesso gerenciado, combos e estruturas, além de BMs voltadas para integrações oficiais do WhatsApp." },
+    { q: "Qual a diferença entre Perfil Facebook e Business Manager?", a: "O perfil é o usuário que administra ativos e recebe permissões. A Business Manager é o ambiente empresarial que organiza páginas, contas de anúncios, permissões e outros ativos." },
+    { q: "Perfil e Conta de Anúncios são a mesma coisa?", a: "Não. O perfil é o usuário administrador. A conta de anúncios é o ativo dentro da Business Manager onde campanhas e investimento são gerenciados." },
+    { q: "O que são Combos e Estruturas?", a: "São combinações de ativos — como perfil, BM e página — montadas para operações que precisam de uma estrutura mais completa." },
+    { q: "Como funcionam as Contas de Anúncios Gerenciadas?", a: "Funcionam por acesso gerenciado: a estrutura é disponibilizada para operações que já possuem equipe responsável pelas campanhas. A AD•SCALE não gerencia campanhas." },
+    { q: "O que significa BM para API Oficial?", a: "São Business Managers voltadas para operações que utilizam integrações oficiais do WhatsApp, como a Cloud API, conforme características e disponibilidade da estrutura." },
+    { q: "A AD•SCALE possui vínculo oficial com a Meta?", a: "A AD•SCALE é uma empresa independente e não possui vínculo oficial com a Meta." },
+  ];
+  const graph = [
+    webPageLd({ canonical, title, description }),
+    breadcrumbLd([{ name: "Início", path: "/" }]),
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ];
+  const bodyHtml = `
+    <h2>Infraestrutura para sua operação de Meta Ads</h2>
+    <p>A AD•SCALE fornece Perfis Facebook, Business Managers, Páginas, Contas de Anúncios e estruturas para operações profissionais de Meta Ads.</p>
+    <ul>
+      <li><a href="${SITE_URL}/perfis-facebook">Perfis Facebook</a> — usuários que administram ativos e compõem estruturas.</li>
+      <li><a href="${SITE_URL}/business-manager">Business Managers</a> — ambiente que organiza páginas, contas de anúncios e permissões.</li>
+      <li><a href="${SITE_URL}/paginas-facebook">Páginas Facebook</a> — ativo público vinculado às campanhas.</li>
+      <li><a href="${SITE_URL}/aluguel-de-contas-meta-ads">Contas de Anúncios gerenciadas</a> — acesso gerenciado para times que operam as próprias campanhas.</li>
+      <li><a href="${SITE_URL}/whatsapp-cloud-api">BM para API Oficial</a> — estruturas voltadas a integrações oficiais do WhatsApp.</li>
+      <li><a href="${SITE_URL}/perfil-facebook-antigo">Perfil Facebook antigo</a> e <a href="${SITE_URL}/perfil-aged">perfil aged</a> — perfis com histórico anterior na plataforma.</li>
+    </ul>
+    <h2>Como uma estrutura de Meta Ads é organizada</h2>
+    <p>Perfil, Business Manager, Página e Conta de Anúncios são ativos distintos com funções distintas. Combos e estruturas reúnem esses elementos quando a operação precisa de um conjunto mais completo.</p>
+    <h2>Como funciona</h2>
+    <p>Você explica sua operação, entendemos qual tipo de estrutura faz sentido, consultamos disponibilidade, apresentamos as opções e entregamos com orientação inicial. A operação das campanhas permanece com o seu time.</p>
+    <p>A AD•SCALE é uma empresa independente e não possui vínculo oficial com a Meta.</p>
+  `;
+  const faqHtml = `<h2>Perguntas frequentes</h2>${faqs.map((f) => `<h3>${f.q}</h3><p>${f.a}</p>`).join("")}`;
+  const homeHtml = injectMeta(TEMPLATE, {
+    title,
+    h1: "Contingência Meta Ads para Operações de Alto Volume",
+    description,
+    canonical,
+    jsonLd: { "@context": "https://schema.org", "@graph": graph },
+    bodyHtml: `${bodyHtml}${faqHtml}`,
+  });
+  writeFileSync(resolve(DIST, "index.html"), homeHtml);
+  count++;
+}
+
 console.log(`[prerender] Generated ${count} prerendered routes + 404 fallback`);
+

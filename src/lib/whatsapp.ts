@@ -188,6 +188,15 @@ export function buildWhatsAppUrl(opts?: { message?: string; cta?: string }): str
 /** Default URL com mensagem padrão — mantido para compatibilidade. */
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`;
 
+/**
+ * URL estática do WhatsApp com mensagem contextual (renderizável no HTML/SSR).
+ * O AnalyticsTracker reescreve o href no clique para anexar página de origem e UTMs,
+ * preservando a mensagem informada aqui via `data-wa-message`.
+ */
+export function waHref(message: string): string {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
 /** Fire-and-forget click tracking. Never blocks navigation. */
 export function trackWhatsAppClick(opts?: {
   ctaLabel?: string;
