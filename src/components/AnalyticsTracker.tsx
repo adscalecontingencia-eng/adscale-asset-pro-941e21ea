@@ -86,6 +86,8 @@ const AnalyticsTracker = () => {
           page_path: path,
           page_location: window.location.href,
           cta_label: ctaLabel,
+          asset_category: category,
+          cta_id: ctaId,
         });
 
         // Evento secundário (GA4-style) para segmentação adicional no Google Ads / Analytics.
@@ -94,6 +96,8 @@ const AnalyticsTracker = () => {
           page_path: path,
           page_location: window.location.href,
           cta_label: ctaLabel,
+          asset_category: category,
+          cta_id: ctaId,
           transport_type: "beacon",
         });
       }
