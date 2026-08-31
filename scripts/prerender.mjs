@@ -411,12 +411,11 @@ function injectMeta(template, { title, h1, description, canonical, ogImage, keyw
       <h1>${(h1 || title).replace(/"/g, "&quot;")}</h1>
       <p>${safeDesc}</p>
       ${articleHtml}
+      <footer style="padding:48px 16px;text-align:center;margin-top:48px;border-top:1px solid #e2e8f0">
+        ${INSTAGRAM_LINK_HTML.trim()}
+      </footer>
     </div>`;
   html = html.replace('<div id="root"></div>', `${prerendered}\n    <div id="root"></div>`);
-  html = html.replace(
-    "</body>",
-    `    <footer style="padding:48px 16px;text-align:center;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif">\n      ${INSTAGRAM_LINK_HTML.trim()}\n    </footer>\n  </body>`
-  );
   return html;
 }
 
