@@ -572,6 +572,11 @@ const perfilAged: ProductLandingData = {
         answer:
           "Resistência a review e cap inicial de gasto. Perfil de 2 anos serve operação média; perfil de 10 anos sustenta vertical pesada e destrava cap mais alto na BM vinculada.",
       },
+      {
+        question: "Perfil aged é a mesma coisa que perfil Facebook antigo?",
+        answer:
+          "Perfil aged é um termo utilizado no mercado para se referir a um perfil Facebook com histórico anterior. No Brasil, esse tipo de perfil também costuma ser chamado de perfil Facebook antigo.",
+      },
     ],
   },
   cta: {
@@ -581,13 +586,31 @@ const perfilAged: ProductLandingData = {
       </>
     ),
     description: "Perfis antigos validados em fingerprint, idade e histórico — com handover técnico ao vivo.",
-    ctaLabel: "QUERO PERFIL COM ANTIGOS",
+    ctaLabel: "Consultar disponibilidade",
   },
   featuredGuideSlugs: [
     "trust-score-meta-ads-como-medir-aumentar",
     "warm-up-perfil-facebook-passo-a-passo",
     "como-escolher-fornecedor-bm-verificada-meta",
   ],
+  crossLinks: {
+    heading: "Perfil aged e perfil antigo: como os termos se relacionam",
+    blocks: [
+      {
+        h2: "Aged é o termo técnico; antigo é a linguagem do mercado brasileiro",
+        text: "Perfil aged é um termo utilizado no mercado para se referir a um perfil Facebook com histórico anterior. No Brasil, esse tipo de perfil também costuma ser chamado de perfil Facebook antigo.",
+        links: [{ href: "/perfil-facebook-antigo", label: "perfil Facebook antigo" }],
+      },
+      {
+        h2: "Onde o perfil aged entra na estrutura",
+        text: "O perfil recebe permissões dentro da Business Manager, que organiza páginas e contas de anúncio. A configuração varia conforme a operação.",
+        links: [
+          { href: "/business-manager", label: "estrutura de Business Manager" },
+          { href: "/perfis-facebook", label: "opções de perfis Facebook" },
+        ],
+      },
+    ],
+  },
 };
 
 // ============================================================
