@@ -280,6 +280,21 @@ const staticPages = [
     ],
   },
   {
+    path: "/perfil-facebook-antigo",
+    title: "Perfil Facebook Antigo para Anúncios | AD Scale",
+    description: "Perfis Facebook antigos com histórico para operações de Meta Ads. Entenda características, diferenças e consulte opções disponíveis na AD Scale.",
+    keywords: [
+      "perfil facebook antigo",
+      "perfil antigo facebook",
+      "comprar perfil facebook antigo",
+      "perfil antigo para anúncios",
+      "perfil antigo meta ads",
+      "perfil com histórico",
+      "perfil administrador",
+      "perfil para business manager",
+    ],
+  },
+  {
     path: "/politica-de-privacidade",
     title: "Política de Privacidade | AD Scale",
     description: "Política de privacidade da AD Scale: como coletamos, usamos e protegemos os dados de usuários e clientes.",
