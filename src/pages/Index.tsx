@@ -1,20 +1,19 @@
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import TrustBar from "@/components/TrustBar";
-import PainPointsSection from "@/components/PainPointsSection";
-import ComparisonSection from "@/components/ComparisonSection";
-import AssetsSection from "@/components/AssetsSection";
-import WhatsAppApiSection from "@/components/WhatsAppApiSection";
-import QualitySection from "@/components/QualitySection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import ProcessSection from "@/components/ProcessSection";
-import FAQSection from "@/components/FAQSection";
-import CTASection from "@/components/CTASection";
 import FooterSection from "@/components/FooterSection";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import SEO from "@/components/SEO";
+import HomeHero from "@/components/home/HomeHero";
+import CategoriesSection from "@/components/home/CategoriesSection";
+import AssetFinder from "@/components/home/AssetFinder";
+import ConversionBlock from "@/components/home/ConversionBlock";
+import StructureDiagram from "@/components/home/StructureDiagram";
+import HowItWorks from "@/components/home/HowItWorks";
+import WhyAdScale from "@/components/home/WhyAdScale";
+import TechnicalContent from "@/components/home/TechnicalContent";
+import { DISCLAIMER_META, homeFaqs } from "@/components/home/homeData";
 import { blogPosts } from "@/data/blogPosts";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const Index = () => {
   const featuredGuides = [
@@ -23,32 +22,12 @@ const Index = () => {
     "arquitetura-contingencia-meta-ads-operacao-alto-volume",
   ].map((slug) => blogPosts.find((p) => p.slug === slug)).filter(Boolean);
 
-  const faqEntities = [
-    {
-      "@type": "Question",
-      name: "O que fazer quando a conta de anúncio bloqueia no Meta Ads?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Ative uma estrutura de contingência com BM verificada em standby, preserve o histórico de pagamento, evite mudanças bruscas e abra revisão com documentação completa.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "BM verificada realmente melhora a estabilidade da operação?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Sim. BMs verificadas tendem a ter maior previsibilidade operacional, melhor governança de ativos e recuperação mais rápida em cenários de revisão.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Qual a diferença entre BM antiga e BM verificada?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "BM antiga prioriza histórico e idade do ativo. BM verificada prioriza validação documental da empresa. Operações maduras combinam as duas para reduzir risco.",
-      },
-    },
-  ];
+  const faqEntities = homeFaqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  }));
+
 
   const jsonLd = {
     "@context": "https://schema.org",
