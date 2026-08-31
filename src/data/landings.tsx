@@ -419,14 +419,47 @@ const perfisFacebook: ProductLandingData = {
         Sua BM só dura <span className="text-gradient italic">o que o perfil aguenta.</span>
       </>
     ),
-    description: "Perfis antigos, farmados e verificados — entregues com walkthrough técnico e suporte de 72h.",
-    ctaLabel: "QUERO MEU PERFIL",
+    description: "Perfis para compor estruturas de Meta Ads — entregues com walkthrough técnico e suporte de 72h.",
+    ctaLabel: "Ver opções disponíveis",
   },
   featuredGuideSlugs: [
     "trust-score-meta-ads-como-medir-aumentar",
     "warm-up-perfil-facebook-passo-a-passo",
     "arquitetura-contingencia-meta-ads-operacao-alto-volume",
   ],
+  crossLinks: {
+    heading: "Qual perfil Facebook escolher?",
+    blocks: [
+      {
+        h2: "Perfil Facebook antigo",
+        text: "Perfis com histórico anterior de existência e utilização, usados para compor estruturas profissionais de Meta Ads. A adequação depende da estrutura e da necessidade da operação.",
+        links: [{ href: "/perfil-facebook-antigo", label: "entenda os perfis antigos" }],
+      },
+      {
+        h2: "Perfil Aged Facebook",
+        text: "“Aged” é o termo técnico que o mercado usa para o mesmo tipo de perfil com histórico. A página específica explica características, faixas de idade e uso.",
+        links: [{ href: "/perfil-aged", label: "guia sobre perfil aged" }],
+      },
+      {
+        h2: "Perfil Facebook e Business Manager",
+        text: "O perfil pode receber permissões para acessar ativos empresariais organizados dentro de uma Business Manager: páginas, contas de anúncio, pixels e catálogos.",
+        links: [
+          { href: "/business-manager", label: "estrutura de Business Manager" },
+          { href: "/bm-verificada", label: "entenda como funciona uma Business Manager verificada" },
+          { href: "/bm-ilimitada", label: "opções de BM para operações de Meta Ads" },
+        ],
+      },
+      {
+        h2: "Perfil Facebook e Conta de Anúncios",
+        text: "Não são o mesmo ativo. O perfil representa o usuário com permissões de acesso; a conta de anúncios é onde campanhas e investimento são efetivamente gerenciados, normalmente dentro de uma BM.",
+      },
+      {
+        h2: "Como funciona uma estrutura completa de Meta Ads?",
+        text: "Perfil → Business Manager → Página → Conta de anúncios → Campanhas. A representação é simplificada e estruturas reais podem variar conforme a configuração da operação.",
+        links: [{ href: "/contingencia-meta-ads", label: "estrutura de contingência Meta Ads" }],
+      },
+    ],
+  },
 };
 
 // ============================================================
