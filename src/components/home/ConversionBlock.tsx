@@ -18,6 +18,7 @@ export interface ConversionBlockProps {
   ctaLocation?: string;
   showBullets?: boolean;
   message?: string;
+  category?: string;
 }
 
 const ConversionBlock = ({
@@ -28,6 +29,7 @@ const ConversionBlock = ({
   ctaLocation = "bloco_conversao",
   showBullets = true,
   message = WA_MESSAGES.unsure,
+  category = "geral",
 }: ConversionBlockProps) => {
   return (
     <section className="section-padding relative overflow-hidden" aria-labelledby={`cta-${ctaLocation}`}>
@@ -42,9 +44,10 @@ const ConversionBlock = ({
           href={waHref(message)}
           data-wa-message={message}
           data-cta={event}
+          data-wa-category={category}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => trackHomeEvent(event, { category: "geral", cta_location: ctaLocation })}
+          onClick={() => trackHomeEvent(event, { category, cta_location: ctaLocation })}
           className="inline-flex items-center justify-center gap-3 bg-gradient-primary text-primary-foreground font-bold px-8 md:px-12 py-5 rounded-xl text-base md:text-lg transition-all hover:scale-[1.03]"
         >
           <MessageCircle className="w-5 h-5" />
