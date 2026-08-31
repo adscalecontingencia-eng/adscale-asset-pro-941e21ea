@@ -25,6 +25,7 @@ import AtivosAds from "./pages/AtivosAds.tsx";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade.tsx";
 import TermosDeUso from "./pages/TermosDeUso.tsx";
 import AluguelContasMetaAds from "./pages/AluguelContasMetaAds.tsx";
+import PerfilFacebookAntigo from "./pages/PerfilFacebookAntigo.tsx";
 import { productLandingSlugs } from "./data/landings";
 import CookieConsent from "./components/CookieConsent.tsx";
 
