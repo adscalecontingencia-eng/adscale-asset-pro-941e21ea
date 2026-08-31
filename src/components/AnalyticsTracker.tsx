@@ -26,17 +26,24 @@ const AnalyticsTracker = () => {
         link.getAttribute("data-cta") ||
         (link.textContent || "").trim().slice(0, 80) ||
         "wa_link";
+      const category = link.getAttribute("data-wa-category") || "geral";
+      const ctaId = link.getAttribute("data-cta") || ctaLabel;
 
       // Rewrite href on the fly so the WhatsApp message includes the page of origin.
       // `data-wa-message` preserva mensagens contextuais por categoria.
       try {
         const custom = link.getAttribute("data-wa-message") || undefined;
-        link.href = buildWhatsAppUrl(custom ? { message: custom } : undefined);
+        link.href = buildWhatsAppUrl({
+          ...(custom ? { message: custom } : {}),
+          cta: ctaId,
+          category,
+        });
       } catch {
         /* no-op */
       }
 
-      trackWhatsAppClick({ ctaLabel, source: "whatsapp_button" });
+      trackWhatsAppClick({ ctaLabel, source: "whatsapp_button", category, ctaId });
+
 
       // Google Ads conversion ping (non-blocking — link still opens normally).
       // transport_type: 'beacon' garante o envio mesmo se o navegador trocar de página.
