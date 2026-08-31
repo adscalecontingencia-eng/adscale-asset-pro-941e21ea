@@ -293,6 +293,40 @@ const staticPages = [
       "perfil administrador",
       "perfil para business manager",
     ],
+    h1: "Perfil Facebook Antigo para Meta Ads",
+    breadcrumb: [
+      { name: "Início", path: "/" },
+      { name: "Perfis Facebook", path: "/perfis-facebook" },
+      { name: "Perfil Facebook Antigo", path: "/perfil-facebook-antigo" },
+    ],
+    bodyHtml: `
+      <p>Um perfil Facebook antigo é um perfil pessoal com histórico anterior de existência e utilização. Em operações de Meta Ads, ele costuma ser usado como perfil administrador dentro de uma estrutura empresarial: recebe permissões em uma <a href="${SITE_URL}/business-manager">Business Manager</a>, acessa páginas e contas de anúncios e participa da organização de acessos de agências, gestores de tráfego e media buyers. A AD Scale disponibiliza esses perfis mediante consulta de disponibilidade, junto de outras opções de <a href="${SITE_URL}/perfis-facebook">perfis Facebook para operações de Meta Ads</a>. Todos os ativos permanecem sujeitos às políticas, análises e sistemas da plataforma.</p>
+      <h2>O que é um Perfil Facebook Antigo?</h2>
+      <p>É um perfil com tempo de criação e atividade anteriores, que pode compor uma estrutura envolvendo Business Manager, página, conta de anúncios, permissões e usuários. O histórico de um perfil não elimina o risco de restrições e não substitui uma operação compatível com as políticas da Meta.</p>
+      <h2>Perfil Facebook Antigo vs Perfil Novo</h2>
+      <p>O perfil antigo possui histórico anterior; o novo possui histórico recente. Nenhum dos dois oferece garantia automática de estabilidade ou aprovação — a escolha depende da estrutura e das necessidades operacionais.</p>
+      <h2>Perfil Antigo e Perfil Aged são a mesma coisa?</h2>
+      <p>No mercado, o <a href="${SITE_URL}/perfil-aged">termo aged utilizado no mercado</a> normalmente descreve perfis com histórico anterior. No Brasil, "perfil antigo" é uma forma mais natural de se referir a esse tipo de perfil.</p>
+      <h2>Perfil Facebook e Conta de Anúncios são a mesma coisa?</h2>
+      <p>Não. O perfil representa o usuário com permissões; a Business Manager organiza ativos, permissões, páginas e contas; a conta de anúncios é onde campanhas e investimentos são gerenciados. Fluxo simplificado: Perfil → Business Manager → Página → Conta de anúncios → Campanhas. A estrutura pode variar conforme a operação.</p>
+      <h2>Como o Perfil Facebook se relaciona com o Business Manager?</h2>
+      <p>O perfil recebe permissões para acessar ativos empresariais. Veja as <a href="${SITE_URL}/bm-verificada">opções de BM verificada</a> e a <a href="${SITE_URL}/bm-ilimitada">estrutura de BM ilimitada</a> para entender onde cada ativo se encaixa.</p>
+      <h2>Para quem os Perfis Facebook Antigos podem fazer sentido?</h2>
+      <p>Gestores de tráfego, agências, media buyers, e-commerces, operações de geração de leads e estruturas de <a href="${SITE_URL}/contingencia">contingência</a> com múltiplos ativos. A adequação depende da estrutura e necessidade da operação.</p>
+      <h2>Consulte Perfis Facebook Antigos Disponíveis</h2>
+      <p>As características e a disponibilidade podem variar. Consulte as opções atuais para encontrar a estrutura adequada à sua operação.</p>`,
+    faqs: [
+      { q: "O que é um perfil Facebook antigo?", a: "É um perfil pessoal do Facebook com histórico anterior de existência e utilização." },
+      { q: "Perfil antigo e perfil aged são a mesma coisa?", a: "São formas de se referir ao mesmo tipo de perfil: aged é o termo de mercado, antigo é a forma mais natural em português." },
+      { q: "Perfil Facebook é a mesma coisa que conta de anúncios?", a: "Não. O perfil é o usuário com permissões; a conta de anúncios é o ativo onde campanhas e investimentos são gerenciados." },
+      { q: "Para que serve um perfil em uma estrutura de Meta Ads?", a: "Para acessar e administrar ativos empresariais como Business Manager, páginas e contas de anúncios conforme as permissões concedidas." },
+      { q: "Perfil antigo pode acessar uma Business Manager?", a: "Sim, desde que receba as permissões adequadas dentro da estrutura empresarial." },
+      { q: "Perfil Facebook antigo é garantia contra bloqueios?", a: "Não. Nenhum perfil ou estrutura elimina totalmente o risco de restrições. Todos os ativos permanecem sujeitos às políticas e análises da plataforma." },
+      { q: "Qual a diferença entre perfil antigo e perfil novo?", a: "O antigo possui histórico anterior e o novo histórico recente; a escolha depende da estrutura e das necessidades operacionais." },
+      { q: "Como consultar os perfis disponíveis?", a: "Basta falar com a equipe da AD Scale para verificar as opções e características disponíveis no momento." },
+      { q: "Posso utilizar um perfil antigo em uma estrutura de contingência?", a: "Sim, perfis podem compor estruturas de contingência junto de BMs, páginas e contas de anúncios." },
+      { q: "A AD•SCALE gerencia as campanhas?", a: "Não. A AD Scale fornece infraestrutura e ativos. A criação e gestão das campanhas permanecem sob responsabilidade do cliente ou do profissional contratado." },
+    ],
   },
   {
     path: "/politica-de-privacidade",
