@@ -151,15 +151,16 @@ const Logo: React.FC<LogoProps> = ({
         <Monogram />
         <text
           x={WORDMARK_X}
-          y="356"
+          y="376"
           fill="hsl(var(--logo-wordmark))"
-          fontFamily="'Space Grotesk', Inter, 'Helvetica Neue', Arial, sans-serif"
-          fontSize="296"
-          fontWeight="700"
-          letterSpacing="0"
+          fontFamily="Inter, 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif"
+          fontSize="330"
+          fontWeight="800"
+          letterSpacing="-4"
         >
           SCALE
         </text>
+
       </svg>
       {withTagline && (
         <span
