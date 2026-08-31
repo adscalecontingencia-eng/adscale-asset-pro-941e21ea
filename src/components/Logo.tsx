@@ -61,7 +61,7 @@ const Logo: React.FC<LogoProps> = ({
       aria-label="AD SCALE"
       role="img"
     >
-      <span className="inline-flex items-center" style={{ gap: size * 0.16 }}>
+      <span className="inline-flex items-end" style={{ gap: size * 0.16 }}>
         {Mark}
         <span
           className="text-foreground"
@@ -70,7 +70,8 @@ const Logo: React.FC<LogoProps> = ({
             fontSize: size * 0.72,
             fontWeight: 800,
             letterSpacing: "-0.01em",
-            lineHeight: 1,
+            lineHeight: 0.72,
+            display: "block",
           }}
         >
           SCALE
