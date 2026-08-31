@@ -129,7 +129,37 @@ const ProductLanding = ({ slug: slugProp }: Props) => {
         </section>
       )}
 
+      {data.crossLinks && (
+        <section className="section-padding pt-0" aria-labelledby="cross-links-heading">
+          <div className="container max-w-5xl">
+            <h2 id="cross-links-heading" className="font-display text-3xl md:text-4xl font-bold mb-8">
+              {data.crossLinks.heading}
+            </h2>
+            <div className="grid gap-5 md:grid-cols-2">
+              {data.crossLinks.blocks.map((b) => (
+                <div key={b.h2} className="rounded-lg border border-border/50 bg-card/60 p-5">
+                  <h3 className="font-display text-lg font-semibold mb-2">{b.h2}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{b.text}</p>
+                  {b.links && (
+                    <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+                      {b.links.map((l) => (
+                        <li key={l.href}>
+                          <Link to={l.href} className="text-sm text-primary hover:underline">
+                            {l.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <FAQSection heading={data.faq.heading} faqs={data.faq.items} />
+
       <CTASection heading={data.cta.heading} description={data.cta.description} ctaLabel={data.cta.ctaLabel} />
       <FooterSection />
       <WhatsAppFloat />
