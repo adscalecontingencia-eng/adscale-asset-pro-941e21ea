@@ -44,6 +44,9 @@ type Click = {
   fbclid: string | null;
   device: string | null;
   landing_page: string | null;
+  session_id: string | null;
+  asset_category: string | null;
+  cta_id: string | null;
 };
 
 type NewsletterLead = {
@@ -67,6 +70,18 @@ const periodMs: Record<Period, number | null> = {
   all: null,
 };
 
+
+const CATEGORY_LABELS: Record<string, string> = {
+  perfis: "Perfis Facebook",
+  business_manager: "Business Managers",
+  paginas: "Páginas Facebook",
+  estruturas: "Combos e Estruturas",
+  contas_gerenciadas: "Contas de Anúncios Gerenciadas",
+  bm_api: "BM para API Oficial",
+  conteudo: "Blog / conteúdo",
+  indefinido: "Não sabia qual escolher",
+  geral: "Geral (hero / CTA final)",
+};
 
 const Stat = ({
   icon: Icon,
@@ -292,6 +307,34 @@ const AdminDashboard = () => {
   const bySource = useMemo(() => groupCount(filteredClicks, "utm_source").slice(0, 10), [filteredClicks]);
   const byCampaign = useMemo(
     () => groupCount(filteredClicks, "utm_campaign").slice(0, 10),
+    [filteredClicks],
+  );
+
+  // Cliques e visitantes únicos por categoria de ativo (perfis, BMs, páginas...).
+  const byCategory = useMemo(() => {
+    const map = new Map<string, { clicks: number; visitors: Set<string> }>();
+    for (const c of filteredClicks) {
+      const key = c.asset_category || "(não marcado)";
+      const cur = map.get(key) ?? { clicks: 0, visitors: new Set<string>() };
+      cur.clicks += 1;
+      cur.visitors.add(c.session_id || c.id);
+      map.set(key, cur);
+    }
+    const total = filteredClicks.length || 1;
+    return Array.from(map.entries())
+      .map(([name, v]) => ({
+        name: CATEGORY_LABELS[name] ?? name,
+        clicks: v.clicks,
+        visitors: v.visitors.size,
+        share: Math.round((v.clicks / total) * 1000) / 10,
+      }))
+      .sort((a, b) => b.clicks - a.clicks);
+  }, [filteredClicks]);
+
+  // Quais botões geram mais conversas.
+  const byCta = useMemo(
+    () =>
+      groupCountValues(filteredClicks.map((c) => c.cta_id || c.cta_label)).slice(0, 10),
     [filteredClicks],
   );
 
@@ -606,7 +649,44 @@ const AdminDashboard = () => {
           </div>
         </Card>
 
+        <Card className="p-5 bg-card border-border/50">
+          <h2 className="font-display font-semibold mb-1">
+            WhatsApp por categoria de ativo
+          </h2>
+          <p className="text-xs text-muted-foreground mb-4">
+            Quantos visitantes chegam ao WhatsApp por tipo de produto — use para decidir quais
+            ativos destacar na homepage.
+          </p>
+          {byCategory.length === 0 ? (
+            <p className="text-sm text-muted-foreground">Sem cliques no filtro atual.</p>
+          ) : (
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Categoria</TableHead>
+                  <TableHead className="text-right">Visitantes</TableHead>
+                  <TableHead className="text-right">Cliques</TableHead>
+                  <TableHead className="text-right">Share</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {byCategory.map((r) => (
+                  <TableRow key={r.name}>
+                    <TableCell className="text-sm">{r.name}</TableCell>
+                    <TableCell className="text-xs text-right tabular-nums">{r.visitors}</TableCell>
+                    <TableCell className="text-xs text-right tabular-nums">{r.clicks}</TableCell>
+                    <TableCell className="text-xs text-right tabular-nums text-muted-foreground">
+                      {r.share}%
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          )}
+        </Card>
+
         <div className="grid md:grid-cols-2 gap-6">
+          <BreakdownCard title="Por botão (cta_id)" rows={byCta} />
           <BreakdownCard title="Por rota (página do clique)" rows={byRoute} />
           <BreakdownCard
             title="Landing pages (página de entrada)"
