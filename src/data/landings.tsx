@@ -300,6 +300,19 @@ const bmIlimitada: ProductLandingData = {
     "arquitetura-contingencia-meta-ads-operacao-alto-volume",
     "trust-score-meta-ads-como-medir-aumentar",
   ],
+  crossLinks: {
+    heading: "A BM é uma parte da estrutura",
+    blocks: [
+      {
+        h2: "Perfil administrador e organização de acessos",
+        text: "A Business Manager é apenas uma parte da estrutura. O perfil administrador também exerce papel importante na organização dos acessos e ativos.",
+        links: [
+          { href: "/perfis-facebook", label: "perfis Facebook para operações de Meta Ads" },
+          { href: "/perfil-facebook-antigo", label: "perfil com histórico" },
+        ],
+      },
+    ],
+  },
 };
 
 // ============================================================
