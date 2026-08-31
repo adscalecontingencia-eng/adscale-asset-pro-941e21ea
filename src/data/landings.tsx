@@ -308,36 +308,38 @@ const bmIlimitada: ProductLandingData = {
 const perfisFacebook: ProductLandingData = {
   slug: "perfis-facebook",
   seo: {
-    title: "Perfis Facebook Farmados e Antigos | AD Scale",
+    title: "Comprar Perfil Facebook para Anúncios | AD Scale",
     description:
-      "Compre perfis Facebook farmados e antigos com timeline real, idade comprovada e Trust Score alto. Base estável para BM, multi-conta e Meta Ads.",
+      "Perfis Facebook para anúncios e estruturas de Meta Ads. Compare opções de perfis, entenda as diferenças e consulte disponibilidade na AD Scale.",
     keywords: [
-      "perfil facebook farmado",
       "comprar perfil facebook",
-      "perfil aged",
-      "perfil verificado",
-      "perfil para ads",
-      "conta facebook farmada",
-      "perfil antigo facebook",
+      "comprar perfil facebook para anúncios",
+      "perfil facebook para anúncios",
+      "perfis facebook",
+      "perfil facebook meta ads",
+      "perfil para business manager",
+      "perfil administrador",
+      "perfis para meta ads",
     ],
     canonical: "/perfis-facebook",
   },
   hero: {
-    eyebrow: "PERFIS QUE SEGURAM A SUA BM EM PÉ",
-    badgeText: "Perfis farmados, antigos e verificados",
+    eyebrow: "PERFIS FACEBOOK PARA ESTRUTURAS DE META ADS",
+    badgeText: "Perfis para anúncios, BM e contas de anúncio",
     headline: (
       <>
-        Perfis Facebook <span className="text-gradient">farmados de verdade</span> — não conta nova com nome bonito.
+        Comprar <span className="text-gradient">Perfil Facebook</span> para Anúncios
       </>
     ),
     headlineMobile: (
       <>
-        Perfis Facebook <span className="text-gradient">farmados de verdade</span>.
+        Comprar <span className="text-gradient">Perfil Facebook</span> para Anúncios
       </>
     ),
     subheadline:
-      "Perfis com timeline real, amigos, fotos e atividade orgânica de anos. A base que sustenta sua BM, libera multi-conta e mantém o Trust Score alto no Meta.",
-    subheadlineMobile: "Perfis com timeline, amigos e atividade orgânica de anos. Sustentam BM e multi-conta.",
+      "Perfis para compor estruturas profissionais de Meta Ads, Business Managers, páginas e contas de anúncios. Todos os ativos permanecem sujeitos às políticas e análises da plataforma.",
+    subheadlineMobile: "Perfis para compor estruturas de Meta Ads, Business Managers, páginas e contas de anúncios.",
+
     trustItems: [
       { value: "Antigos", label: "2+ anos" },
       { value: "Real", label: "Atividade orgânica" },
