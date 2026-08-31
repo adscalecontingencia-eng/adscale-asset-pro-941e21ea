@@ -441,20 +441,38 @@ for (const page of staticPages) {
   // avoiding 301 redirects that cause "Página com redirecionamento" in GSC.
   // No trailing slash — served directly from dist/<route>.html with 200.
   const canonical = `${SITE_URL}${page.path}`;
-  const breadcrumbs = breadcrumbLd([
+  const crumbItems = page.breadcrumb ?? [
     { name: "Início", path: "/" },
     { name: page.title.split("|")[0].trim(), path: page.path },
-  ]);
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [webPageLd({ canonical, title: page.title, description: page.description }), breadcrumbs],
-  };
+  ];
+  const breadcrumbs = breadcrumbLd(crumbItems);
+  const graph = [webPageLd({ canonical, title: page.title, description: page.description }), breadcrumbs];
+  if (page.faqs?.length) {
+    graph.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: page.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
+  const jsonLd = { "@context": "https://schema.org", "@graph": graph };
+  const crumbNav = `<nav aria-label="Breadcrumb"><ol>${crumbItems
+    .map((c) => `<li><a href="${SITE_URL}${c.path}">${c.name}</a></li>`)
+    .join("")}</ol></nav>`;
+  const faqHtml = page.faqs?.length
+    ? `<h2>Perguntas frequentes</h2>${page.faqs.map((f) => `<h3>${f.q}</h3><p>${f.a}</p>`).join("")}`
+    : "";
   const html = injectMeta(TEMPLATE, {
     title: page.title,
+    h1: page.h1,
     description: page.description,
     canonical,
     keywords: page.keywords,
     jsonLd,
+    bodyHtml: page.bodyHtml ? `${crumbNav}${page.bodyHtml}${faqHtml}` : faqHtml || undefined,
   });
   writeRoute(page.path, html);
   count++;
