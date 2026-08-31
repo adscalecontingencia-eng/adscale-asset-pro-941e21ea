@@ -1,5 +1,4 @@
 import React from "react";
-import monogram from "@/assets/ad-monogram.png.asset.json";
 
 interface LogoProps {
   className?: string;
@@ -26,7 +25,7 @@ const Logo: React.FC<LogoProps> = ({
 
   const Mark = (
     <img
-      src={monogram.url}
+      src="/ad-monogram.png"
       alt=""
       aria-hidden="true"
       width={Math.round(markHeight * (1209 / 864))}
