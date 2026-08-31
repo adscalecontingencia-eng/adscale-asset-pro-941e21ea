@@ -195,10 +195,17 @@ export function buildWhatsAppUrl(opts?: {
   category?: string;
 }): string {
   const { url } = getPageContext();
-  const base = opts?.message ?? DEFAULT_MESSAGE;
   const origin = buildOriginSummary();
   const category = opts?.category || "geral";
   const cta = opts?.cta || "link_whatsapp";
+
+  // Mensagem pronta menciona o tipo de serviço clicado na homepage.
+  const serviceLabel = ASSET_CATEGORY_LABELS[category];
+  const base =
+    opts?.message ??
+    (serviceLabel && category !== "geral"
+      ? `Olá! Vim do site da AD Scale e tenho interesse em ${serviceLabel}.`
+      : DEFAULT_MESSAGE);
 
   // UTMs do próprio clique: qual botão e qual tipo de produto originou a conversa.
   const clickUtm = [
