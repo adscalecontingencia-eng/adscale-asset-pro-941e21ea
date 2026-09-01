@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 const KEYWORDS = [
   // Principais (GSC)
   "comprar bm verificada", "contingência meta ads", "contingencia meta ads",
@@ -64,14 +66,27 @@ const KEYWORDS = [
   "conta para meta ads", "aluguar conta de anuncio", "alugar conta de anuncio",
 ];
 
-const SeoKeywords = () => {
+interface SeoKeywordsProps {
+  /** Elemento visual que abre/fecha a lista de palavras-chave (ex.: logo do rodapé). */
+  trigger?: ReactNode;
+}
+
+const SeoKeywords = ({ trigger }: SeoKeywordsProps) => {
   return (
-    <div
-      className="mt-8 text-[11px] leading-relaxed text-muted-foreground/50"
-      aria-label="Palavras-chave relacionadas"
-    >
-      {KEYWORDS.join(" · ")}
-    </div>
+    <details className="group">
+      <summary
+        className="inline-block cursor-pointer list-none [&::-webkit-details-marker]:hidden"
+        aria-label="Palavras-chave relacionadas"
+      >
+        {trigger ?? <span className="sr-only">Palavras-chave relacionadas</span>}
+      </summary>
+      <div
+        className="mt-4 text-[11px] leading-relaxed text-muted-foreground/50"
+        aria-label="Palavras-chave relacionadas"
+      >
+        {KEYWORDS.join(" · ")}
+      </div>
+    </details>
   );
 };
 
