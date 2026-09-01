@@ -66,18 +66,12 @@ const KEYWORDS = [
 
 const SeoKeywords = () => {
   return (
-    <details className="mt-8 group">
-      <summary className="inline-flex items-center gap-2 cursor-pointer list-none border border-primary/30 rounded-full px-4 py-1.5 text-xs font-medium text-primary/80 hover:text-primary hover:border-primary/60 transition-colors">
-        <span className="w-1.5 h-1.5 rounded-full bg-primary/60 group-open:bg-primary" />
-        SEO
-      </summary>
-      <div
-        className="mt-4 text-[11px] leading-relaxed text-muted-foreground/50"
-        aria-label="Palavras-chave relacionadas"
-      >
-        {KEYWORDS.join(" · ")}
-      </div>
-    </details>
+    <div
+      className="mt-8 text-[11px] leading-relaxed text-muted-foreground/50"
+      aria-label="Palavras-chave relacionadas"
+    >
+      {KEYWORDS.join(" · ")}
+    </div>
   );
 };
 
