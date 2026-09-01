@@ -26,6 +26,7 @@ import PoliticaPrivacidade from "./pages/PoliticaPrivacidade.tsx";
 import TermosDeUso from "./pages/TermosDeUso.tsx";
 import AluguelContasMetaAds from "./pages/AluguelContasMetaAds.tsx";
 import PerfilFacebookAntigo from "./pages/PerfilFacebookAntigo.tsx";
+import WhatsappCloudApi from "./pages/WhatsappCloudApi.tsx";
 import { productLandingSlugs } from "./data/landings";
 import CookieConsent from "./components/CookieConsent.tsx";
 
@@ -60,7 +61,10 @@ const App = () => (
           <Route path="/termos-de-uso" element={<TermosDeUso />} />
           <Route path="/aluguel-de-contas-meta-ads" element={<AluguelContasMetaAds />} />
           <Route path="/perfil-facebook-antigo" element={<PerfilFacebookAntigo />} />
-          {productLandingSlugs.map((slug) => (
+          <Route path="/whatsapp-cloud-api" element={<WhatsappCloudApi />} />
+          {productLandingSlugs
+            .filter((slug) => slug !== "whatsapp-cloud-api")
+            .map((slug) => (
             <Route key={slug} path={`/${slug}`} element={<ProductLanding slug={slug} />} />
           ))}
           {/* PT-BR aliases redirecting to canonical product slugs */}
