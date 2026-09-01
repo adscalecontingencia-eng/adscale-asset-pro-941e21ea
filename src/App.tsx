@@ -26,6 +26,7 @@ import PoliticaPrivacidade from "./pages/PoliticaPrivacidade.tsx";
 import TermosDeUso from "./pages/TermosDeUso.tsx";
 import AluguelContasMetaAds from "./pages/AluguelContasMetaAds.tsx";
 import PerfilFacebookAntigo from "./pages/PerfilFacebookAntigo.tsx";
+import WhatsappCloudApi from "./pages/WhatsappCloudApi.tsx";
 import { productLandingSlugs } from "./data/landings";
 import CookieConsent from "./components/CookieConsent.tsx";
 
