@@ -5,7 +5,7 @@ import FooterSection from "@/components/FooterSection";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import SEO from "@/components/SEO";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import SeoKeywords from "@/components/SeoKeywords";
+
 import {
   Accordion,
   AccordionContent,
@@ -430,7 +430,6 @@ const PerfilFacebookAntigo = () => {
             </Accordion>
           </section>
 
-          <SeoKeywords />
         </div>
       </main>
 
