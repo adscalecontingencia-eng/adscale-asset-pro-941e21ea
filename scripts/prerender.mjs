@@ -208,8 +208,58 @@ const staticPages = [
   {
     path: "/whatsapp-cloud-api",
     title: "WhatsApp Cloud API + BM Verificada | AD Scale",
-    description: "BM Verificada para WhatsApp Cloud API: WABA verificada, número high quality, templates aprovados e tier 1k/10k/100k para disparo oficial.",
-    keywords: ["whatsapp cloud api", "bm para whatsapp api", "waba verificada", "tier whatsapp api", "comprar bm whatsapp api"],
+    h1: "BM Verificada e WABA para WhatsApp Cloud API que escala.",
+    description: "Business Managers para operações que utilizam a WhatsApp Cloud API: BM 250, 2K, 10K, 100K, Ilimitada e Balão. Consulte disponibilidade e configuração.",
+    keywords: ["whatsapp cloud api", "bm para whatsapp api", "business manager whatsapp", "bm verificada", "api oficial do whatsapp", "whatsapp business platform", "waba", "integração whatsapp"],
+    breadcrumb: [
+      { name: "Início", path: "/" },
+      { name: "WhatsApp Cloud API", path: "/whatsapp-cloud-api" },
+    ],
+    bodyHtml: `
+      <p>Business Managers para operações que utilizam a API Oficial do WhatsApp, com diferentes capacidades e configurações conforme disponibilidade. Escolha entre BM 250, 2K, 10K, 100K, Ilimitada e BM Balão e consulte nossa equipe para verificar a opção disponível para sua operação.</p>
+      <p>As características de cada estrutura podem variar conforme disponibilidade. Todos os ativos permanecem sujeitos às políticas, análises e limitações das plataformas da Meta.</p>
+      <h2>O que é uma BM para WhatsApp Cloud API?</h2>
+      <p>BM é a abreviação de Business Manager. Ela faz parte da estrutura empresarial utilizada para organizar ativos e acessos dentro do ecossistema da Meta. Em operações com WhatsApp Cloud API, a estrutura empresarial é utilizada em conjunto com os recursos necessários para operar a WhatsApp Business Platform.</p>
+      <p>BM não é a mesma coisa que número de WhatsApp, template de mensagem, WABA, software de disparo ou CRM. A Business Manager é uma parte da estrutura; outros componentes podem ser necessários dependendo da operação.</p>
+      <h2>BMs disponíveis para WhatsApp Cloud API</h2>
+      <p>Trabalhamos com diferentes configurações de Business Manager. Consulte disponibilidade e características atuais antes da contratação.</p>
+      <ul>
+        <li><strong>BM 250</strong> — opção de entrada para operações que precisam de uma estrutura com capacidade inicial. Consulte a configuração disponível.</li>
+        <li><strong>BM 2K</strong> — estrutura com capacidade superior à opção inicial, indicada para operações que precisam de maior volume.</li>
+        <li><strong>BM 10K</strong> — opção voltada para operações que precisam trabalhar com uma capacidade maior dentro da estrutura.</li>
+        <li><strong>BM 100K</strong> — estrutura voltada para operações de maior volume. Consulte disponibilidade e características da estrutura atual.</li>
+        <li><strong>BM Ilimitada</strong> — categoria de BM com configuração específica para operações de maior capacidade. O nome da categoria não representa promessa de uso irrestrito ou ausência de limitações da plataforma.</li>
+        <li><strong>BM Balão</strong> — estrutura específica disponível na AD•SCALE. Consulte nossa equipe para verificar características, finalidade e disponibilidade atual.</li>
+      </ul>
+      <h2>Qual BM é mais adequada para minha operação?</h2>
+      <p>BM 250: entrada / menor capacidade. BM 2K: operação em crescimento. BM 10K: maior volume. BM 100K: alto volume. BM Ilimitada: configuração específica de maior capacidade. BM Balão: estrutura específica — consulte características. Essa comparação é apenas uma orientação inicial. A configuração e disponibilidade de cada ativo devem ser confirmadas antes da contratação.</p>
+      <h2>O que está incluído?</h2>
+      <p>As características podem variar de acordo com a BM disponível. Antes da contratação, nossa equipe informa exatamente a configuração do ativo. Confirme: tipo de BM, capacidade/configuração, situação atual da estrutura, ativos associados caso existam, condições comerciais e disponibilidade.</p>
+      <p>Não presuma que estão incluídos: número de WhatsApp, template aprovado, WABA, CRM, disparador, software externo, configuração de campanhas ou gestão da operação. A inclusão desses elementos deve ser confirmada individualmente quando aplicável.</p>
+      <h2>Como funciona?</h2>
+      <p>1) Escolha a opção ou informe sua necessidade. 2) Consulte disponibilidade com nossa equipe. 3) Confirme as características da configuração escolhida. 4) Siga o processo comercial orientado pela equipe.</p>
+      <h2>Para quem essas estruturas podem fazer sentido?</h2>
+      <p>Empresas, agências, times de atendimento, operações de CRM, empresas que utilizam a WhatsApp Business Platform, operações que precisam integrar sistemas ao WhatsApp, desenvolvedores, integradores e operações de mensageria empresarial.</p>
+      <h2>O que é WhatsApp Cloud API?</h2>
+      <p>A WhatsApp Cloud API faz parte da WhatsApp Business Platform e permite que empresas conectem o WhatsApp a sistemas, plataformas de atendimento, automações e outras integrações. Para utilizar esse ecossistema profissional, diferentes componentes podem fazer parte da estrutura: empresa → Business Manager → WhatsApp Business / WABA → número → Cloud API → sistema, CRM ou automação. Essa representação é simplificada e a configuração pode variar.</p>
+      <h2>BM e WABA são a mesma coisa?</h2>
+      <p>Não. A Business Manager é a estrutura empresarial que organiza ativos e acessos. A WABA (WhatsApp Business Account) é a conta usada dentro da WhatsApp Business Platform. Número de WhatsApp, template e Cloud API também não são a BM.</p>
+      <h2>Conteúdo técnico sobre WhatsApp Cloud API</h2>
+      <p>Veja o <a href="${SITE_URL}/blog/pilar/whatsapp-api">guia sobre WhatsApp Cloud API</a>, a página de <a href="${SITE_URL}/business-manager">Business Manager</a> e as opções de <a href="${SITE_URL}/bm-verificada">BM verificada</a>.</p>`,
+    faqs: [
+      { q: "O que é uma BM para WhatsApp Cloud API?", a: "BM é a abreviação de Business Manager: a estrutura empresarial usada para organizar ativos e acessos dentro do ecossistema da Meta. Em operações que utilizam a WhatsApp Cloud API, essa estrutura é usada em conjunto com os demais componentes necessários para operar a WhatsApp Business Platform." },
+      { q: "Quais BMs a AD•SCALE oferece?", a: "BM 250, BM 2K, BM 10K, BM 100K, BM Ilimitada e BM Balão. Características e disponibilidade devem ser confirmadas com a equipe antes da contratação." },
+      { q: "Qual a diferença entre BM 250, 2K, 10K e 100K?", a: "São categorias comerciais que indicam diferentes níveis de capacidade e configuração. Não são etapas obrigatórias: são opções distintas, e a configuração atual de cada uma deve ser confirmada com a equipe." },
+      { q: "O que é BM Ilimitada?", a: "É a denominação comercial de uma categoria de BM com configuração específica para operações de maior capacidade. O nome não representa promessa de envios ilimitados nem ausência de limitações das plataformas da Meta." },
+      { q: "O que é BM Balão?", a: "É uma estrutura específica disponível na AD•SCALE. Consulte nossa equipe para verificar características, finalidade e disponibilidade atual." },
+      { q: "A BM já vem com número de WhatsApp?", a: "Não presuma que exista um número incluído. A configuração de cada estrutura deve ser confirmada com nossa equipe antes da contratação." },
+      { q: "A BM já vem com templates aprovados?", a: "Não prometemos templates aprovados como característica padrão das BMs. Consulte a configuração disponível." },
+      { q: "BM e WABA são a mesma coisa?", a: "Não. A Business Manager é a estrutura empresarial que organiza ativos e acessos. A WABA é a conta usada dentro da WhatsApp Business Platform. São componentes diferentes." },
+      { q: "A BM já vem conectada a um CRM?", a: "Não presuma que exista CRM, disparador ou software externo configurado. Esses elementos devem ser confirmados individualmente quando aplicável." },
+      { q: "Como saber qual BM preciso?", a: "Depende do volume e da estrutura da sua operação. Nossa equipe pode ajudar a comparar as opções disponíveis." },
+      { q: "Como consultar disponibilidade?", a: "Fale com a equipe da AD•SCALE pelo WhatsApp. Verificamos quais estruturas estão disponíveis no momento e as características de cada uma." },
+      { q: "A AD•SCALE é parceira oficial da Meta?", a: "Não. A AD•SCALE é uma empresa independente e não possui vínculo oficial com a Meta." },
+    ],
   },
   {
     path: "/pixel-capi",
