@@ -15,7 +15,7 @@ const FooterSection = () => {
         <div className="grid md:grid-cols-3 gap-10 mb-10">
           <div>
             <div className="mb-4">
-              <Logo size={28} withTagline />
+              <SeoKeywords trigger={<Logo size={28} withTagline />} />
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Comercialização de ativos de contingência premium para operações
@@ -83,7 +83,6 @@ const FooterSection = () => {
             © {new Date().getFullYear()} AD Scale — Premium Contingency Assets.
             Todos os direitos reservados.
           </p>
-          <SeoKeywords />
         </div>
       </div>
     </footer>
