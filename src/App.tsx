@@ -60,7 +60,10 @@ const App = () => (
           <Route path="/termos-de-uso" element={<TermosDeUso />} />
           <Route path="/aluguel-de-contas-meta-ads" element={<AluguelContasMetaAds />} />
           <Route path="/perfil-facebook-antigo" element={<PerfilFacebookAntigo />} />
-          {productLandingSlugs.map((slug) => (
+          <Route path="/whatsapp-cloud-api" element={<WhatsappCloudApi />} />
+          {productLandingSlugs
+            .filter((slug) => slug !== "whatsapp-cloud-api")
+            .map((slug) => (
             <Route key={slug} path={`/${slug}`} element={<ProductLanding slug={slug} />} />
           ))}
           {/* PT-BR aliases redirecting to canonical product slugs */}
