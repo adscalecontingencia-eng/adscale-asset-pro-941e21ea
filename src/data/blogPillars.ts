@@ -213,6 +213,15 @@ export const pillars: Pillar[] = [
     relatedLandingSlug: "whatsapp-cloud-api",
     relatedLandingLabel: "Ver BM para WhatsApp API",
     postSlugs: ["disparo-via-api-whatsapp-cloud-bm-verificada-guia-completo"],
+    resourceLinks: {
+      heading: "Estrutura necessária para a Cloud API",
+      links: [
+        { href: "/whatsapp-cloud-api", label: "BM para WhatsApp Cloud API", description: "Configurações de BM utilizadas em integrações oficiais do WhatsApp." },
+        { href: "/bm-verificada", label: "BM Verificada", description: "A verificação de negócio é pré-requisito de parte dos recursos." },
+        { href: "/business-manager", label: "Business Manager", description: "Ambiente que organiza os ativos ligados à WABA." },
+        { href: "/blog/pilar/business-manager", label: "Pilar Business Manager", description: "Conceitos de BM que sustentam a integração." },
+      ],
+    },
   },
   {
     slug: "fundamentos-e-estrategia",
