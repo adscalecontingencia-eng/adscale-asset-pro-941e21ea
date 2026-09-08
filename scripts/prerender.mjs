@@ -300,6 +300,13 @@ const LANDING_LABEL = {
   "/aluguel-de-contas-meta-ads": "Aluguel de contas Meta Ads",
 };
 
+/** Link para o pilar de conteúdo que declara esta landing como página comercial. */
+function pillarLinkForLanding(slug) {
+  const pillar = pillars.find((x) => x.relatedLandingSlug === slug);
+  if (!pillar) return "";
+  return `<h2>Conteúdo sobre o tema</h2>\n<p>Guia completo em ${link(`/blog/pilar/${pillar.slug}`, pillar.title)}. Veja também os ${link("/blog", "demais artigos do blog")}.</p>`;
+}
+
 /** FAQ + links relacionados de uma landing (usado quando o corpo é curado à mão). */
 function landingExtrasHtml(slug) {
   const l = landings[slug];
@@ -310,6 +317,8 @@ function landingExtrasHtml(slug) {
     out.push("<h2>Estruturas relacionadas</h2>");
     out.push(`<ul>${related.map((href) => `<li>${link(href, LANDING_LABEL[href] || href)}</li>`).join("")}</ul>`);
   }
+  const pl = pillarLinkForLanding(slug);
+  if (pl) out.push(pl);
   if (l.faqs.length) {
     out.push("<h2>Perguntas frequentes</h2>");
     for (const f of l.faqs) out.push(`<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`);
@@ -339,6 +348,8 @@ function landingBodyHtml(slug) {
     out.push("<h2>Estruturas relacionadas</h2>");
     out.push(`<ul>${related.map((href) => `<li>${link(href, LANDING_LABEL[href] || href)}</li>`).join("")}</ul>`);
   }
+  const pillarLink = pillarLinkForLanding(slug);
+  if (pillarLink) out.push(pillarLink);
   if (l.faqs.length) {
     out.push("<h2>Perguntas frequentes</h2>");
     for (const f of l.faqs) out.push(`<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`);
