@@ -261,6 +261,31 @@ const SolucoesMetaAds = () => {
         </div>
       </section>
 
+      {/* Saiba mais */}
+      <section className="py-14 border-t border-border/50" aria-labelledby="saiba-mais-heading">
+        <div className="container max-w-4xl mx-auto px-4">
+          <h2 id="saiba-mais-heading" className="font-display text-2xl md:text-3xl font-bold mb-4">
+            Saiba mais sobre cada tipo de estrutura
+          </h2>
+          <p className="text-muted-foreground leading-relaxed">
+            As soluções envolvem ativos distintos:{" "}
+            <Link to="/perfis-facebook" className="text-primary hover:underline">perfis Facebook</Link>,{" "}
+            <Link to="/paginas-facebook" className="text-primary hover:underline">páginas Facebook</Link>,{" "}
+            <Link to="/business-manager" className="text-primary hover:underline">Business Managers</Link>{" "}
+            e estruturas de{" "}
+            <Link to="/contingencia" className="text-primary hover:underline">contingência</Link>. Para
+            operações de investimento elevado, o{" "}
+            <Link to="/guia-facebook-ads-alto-volume" className="text-primary hover:underline">
+              guia de alto volume
+            </Link>{" "}
+            e os{" "}
+            <Link to="/blog" className="text-primary hover:underline">guias do blog</Link>{" "}
+            aprofundam cada tema.
+          </p>
+        </div>
+      </section>
+
+
       {/* Footer */}
       <footer className="border-t border-border/50 py-10">
         <div className="container max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8">
