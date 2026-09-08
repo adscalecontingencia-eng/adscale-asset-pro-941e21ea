@@ -20,12 +20,17 @@ const TechnicalContent = () => (
             O que é contingência no contexto de Meta Ads
           </h3>
           <p>
-            Contingência é a organização de ativos para que uma operação de mídia paga não
+            <Link to="/contingencia" className="text-primary hover:underline">Contingência</Link> é a
+            organização de ativos para que uma operação de mídia paga não
             dependa de um único ponto. Envolve distribuir perfis, Business Managers, páginas e
             contas de anúncios de forma estruturada, mantendo alternativas operacionais quando
             algum ativo deixa de estar disponível. Contingência não elimina riscos: restrições
             podem envolver fatores ligados ao negócio, às campanhas, às políticas da plataforma e
-            ao comportamento operacional.
+            ao comportamento operacional. Veja também o panorama das{" "}
+            <Link to="/solucoes-meta-ads" className="text-primary hover:underline">
+              soluções para Meta Ads
+            </Link>{" "}
+            disponíveis.
           </p>
         </div>
 
