@@ -600,6 +600,23 @@ const MANUAL_BODIES = {
 <p>Não. Histórico pode ajudar em análise, mas não garante aprovação de anúncios, desempenho nem ausência de restrição.</p>
 <h3>Como verificar disponibilidade?</h3>
 <p>Fale com a equipe pelo WhatsApp. A disponibilidade e as características de cada ativo mudam com frequência e são confirmadas no momento da consulta.</p>`,
+
+  "/contingencia": `
+<p>Contingência em Meta Ads é a organização de ativos para que a operação não dependa de um único ponto. Perfis, Business Managers, páginas e contas de anúncios são distribuídos de forma estruturada, mantendo alternativas operacionais quando algum ativo deixa de estar disponível.</p>
+<h2>O que compõe uma estrutura de contingência</h2>
+<ul>
+  <li>${link("/perfis-facebook", "Perfis Facebook")} — usuários que administram os acessos.</li>
+  <li>${link("/business-manager", "Business Managers")} — ambiente que organiza contas, permissões e pixels.</li>
+  <li>${link("/paginas-facebook", "Páginas Facebook")} — ativo público vinculado às campanhas.</li>
+  <li>${link("/aluguel-de-contas-meta-ads", "Contas de anúncios por acesso gerenciado")}.</li>
+  <li>${link("/aquecimento-contas", "Aquecimento de contas")} antes de subir volume.</li>
+</ul>
+<h2>Como a entrega funciona</h2>
+<p>Você descreve a operação, verificamos disponibilidade, apresentamos as opções com as limitações de cada uma e entregamos com orientação inicial. A gestão das campanhas permanece com o seu time.</p>
+<h2>Ativos e conteúdo relacionados à contingência</h2>
+<p>Para entender as causas de restrição e como reagir, consulte ${link("/blog/pilar/seguranca-e-bloqueios", "segurança e bloqueios no Meta Ads")} e a ${link("/blog/pilar/business-manager", "estrutura de Business Manager")}. Operações com investimento elevado costumam começar pelo ${link("/guia-facebook-ads-alto-volume", "guia de alto volume")} e pelo panorama de ${link("/solucoes-meta-ads", "soluções para Meta Ads")}.</p>
+<h2>O que não prometemos</h2>
+<p>Não trabalhamos com promessas de aprovação garantida, ausência de bloqueios ou resultados financeiros. Qualquer estrutura pode ser revisada, restringida ou desativada pela Meta a qualquer momento. A AD•SCALE é uma empresa independente, sem vínculo oficial com a Meta.</p>`,
 };
 
 // ---------- Static page metadata ----------
