@@ -55,6 +55,17 @@ export const pillars: Pillar[] = [
       "permissoes-equipe-bm-papeis-acesso-correto",
       "auditoria-30-minutos-conta-anuncio-meta",
     ],
+    resourceLinks: {
+      heading: "Estruturas e guias de Business Manager",
+      links: [
+        { href: "/business-manager", label: "Business Manager", description: "Estruturas de BM disponíveis e como cada configuração é usada." },
+        { href: "/bm-verificada", label: "BM Verificada", description: "O que muda quando a verificação de negócio está concluída." },
+        { href: "/bm-ilimitada", label: "BM para maior volume", description: "Configurações voltadas a operações com investimento mais alto." },
+        { href: "/blog/permissoes-equipe-bm-papeis-acesso-correto", label: "Permissões dentro da BM", description: "Papéis de acesso e organização da equipe." },
+        { href: "/blog/estrutura-bm-conta-pixel-pagina-relacao", label: "BM, conta, pixel e página", description: "Como os ativos se conectam dentro da estrutura." },
+        { href: "/blog/pilar/seguranca-e-bloqueios", label: "Segurança e bloqueios", description: "Pilar complementar sobre restrições e recuperação." },
+      ],
+    },
   },
   {
     slug: "perfis-e-paginas",
