@@ -192,10 +192,11 @@ const Blog = () => {
 
           <section aria-labelledby="clusters-heading" className="mb-12">
             <h2 id="clusters-heading" className="font-display text-2xl md:text-3xl font-bold mb-2">
-              Pilares de conteúdo
+              Guias principais
             </h2>
             <p className="text-sm text-muted-foreground mb-6">
-              Navegue pelos grandes temas que cobrimos sobre contingência Meta Ads.
+              Cada guia reúne, em um só lugar, os artigos de um grande tema: Business Manager,
+              perfis e páginas, segurança e bloqueios, fundamentos, escala e WhatsApp API.
             </p>
             <div className="grid gap-4 md:grid-cols-3">
               {pillarCards.map((item) => (
