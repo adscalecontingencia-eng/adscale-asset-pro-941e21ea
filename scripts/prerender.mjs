@@ -112,6 +112,129 @@ for (const block of postBlocks) {
 }
 console.log(`[prerender] Parsed ${posts.length} blog posts (${posts.filter((p) => p.content).length} with body)`);
 
+const postBySlug = Object.fromEntries(posts.map((p) => [p.slug, p]));
+
+// ---------- Parse content pillars from src/data/blogPillars.ts ----------
+// Os pilares e o índice do blog passam a receber corpo completo gerado a partir
+// da MESMA fonte de dados que o React usa. Nenhuma página depende mais de um
+// `bodyHtml` escrito à mão para ter conteúdo indexável.
+const pillarSource = readFileSync(resolve("src/data/blogPillars.ts"), "utf8");
+const pillars = [];
+{
+  const arr = pillarSource.split("export const pillars: Pillar[] = [")[1]?.split("\n];")[0] ?? "";
+  for (const block of arr.split(/\n  \{\n/).slice(1)) {
+    const slug = block.match(/slug:\s*"([^"]+)"/)?.[1];
+    if (!slug) continue;
+    pillars.push({
+      slug,
+      title: block.match(/\n    title:\s*"([^"]+)"/)?.[1] ?? "",
+      shortTitle: block.match(/shortTitle:\s*"([^"]+)"/)?.[1] ?? "",
+      description: block.match(/\n    description:\s*"([^"]+)"/)?.[1] ?? "",
+      longDescription: block.match(/longDescription:\s*\n?\s*"([\s\S]*?)",\n/)?.[1] ?? "",
+      keywords: (block.match(/keywords:\s*\[([\s\S]*?)\]/)?.[1].match(/"([^"]+)"/g) ?? []).map((k) => k.slice(1, -1)),
+      relatedLandingSlug: block.match(/relatedLandingSlug:\s*"([^"]+)"/)?.[1],
+      relatedLandingLabel: block.match(/relatedLandingLabel:\s*"([^"]+)"/)?.[1],
+      postSlugs: (block.match(/postSlugs:\s*\[([\s\S]*?)\]/)?.[1].match(/"([^"]+)"/g) ?? []).map((s) => s.slice(1, -1)),
+      resourceLinks: [
+        ...(block.match(/resourceLinks:\s*\{[\s\S]*?\n    \},/)?.[0] ?? "")
+          .matchAll(/\{\s*href:\s*"([^"]+)",\s*label:\s*"([^"]+)"(?:,\s*description:\s*"([^"]+)")?\s*\}/g),
+      ].map((m) => ({ href: m[1], label: m[2], description: m[3] })),
+    });
+  }
+}
+console.log(`[prerender] Parsed ${pillars.length} pilares de conteúdo`);
+
+const pillarForPost = new Map();
+for (const pillar of pillars) {
+  for (const slug of pillar.postSlugs) if (!pillarForPost.has(slug)) pillarForPost.set(slug, pillar);
+}
+
+const esc = (s = "") => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const link = (href, label) => `<a href="${SITE_URL}${href}">${esc(label)}</a>`;
+
+/** Corpo completo de um pilar: intro, artigos, recursos e próximo passo. */
+function pillarBodyHtml(pillar) {
+  const postItems = pillar.postSlugs
+    .map((s) => postBySlug[s])
+    .filter(Boolean)
+    .map((p) => `<li>${link(`/blog/${p.slug}`, p.title)} — ${esc(p.description)}</li>`)
+    .join("\n");
+  const resources = pillar.resourceLinks?.length
+    ? `<h2>Páginas e guias relacionados</h2>\n<ul>${pillar.resourceLinks
+        .map((r) => `<li>${link(r.href, r.label)}${r.description ? ` — ${esc(r.description)}` : ""}</li>`)
+        .join("")}</ul>`
+    : "";
+  const landing = pillar.relatedLandingSlug
+    ? `<h2>Próximo passo</h2>\n<p>${esc(pillar.relatedLandingLabel || "Ver opções disponíveis")}: ${link(
+        `/${pillar.relatedLandingSlug}`,
+        pillar.relatedLandingLabel || pillar.shortTitle,
+      )}. A AD•SCALE fornece infraestrutura e ativos; a gestão das campanhas permanece com o cliente.</p>`
+    : `<h2>Próximo passo</h2>\n<p>Continue pelos demais ${link("/blog", "artigos do blog da AD Scale")}.</p>`;
+  const siblings = pillars
+    .filter((p) => p.slug !== pillar.slug)
+    .map((p) => `<li>${link(`/blog/pilar/${p.slug}`, p.shortTitle)} — ${esc(p.description)}</li>`)
+    .join("");
+  return `
+<p>${esc(pillar.longDescription)}</p>
+<h2>O que este pilar cobre</h2>
+<p>${esc(pillar.title)}. Temas centrais: ${pillar.keywords.map(esc).join(", ")}.</p>
+<h2>Artigos deste pilar</h2>
+<ul>
+${postItems}
+</ul>
+${resources}
+${landing}
+<h2>Outros pilares de conteúdo</h2>
+<ul>${siblings}</ul>`;
+}
+
+/** Corpo completo do índice do blog: pilares + inventário de artigos. */
+function blogIndexBodyHtml() {
+  const pillarList = pillars
+    .map((p) => `<li>${link(`/blog/pilar/${p.slug}`, p.shortTitle)} — ${esc(p.description)}</li>`)
+    .join("");
+  const postList = posts
+    .map((p) => `<li>${link(`/blog/${p.slug}`, p.title)}</li>`)
+    .join("");
+  return `
+<h2>Pilares de conteúdo</h2>
+<p>Os artigos estão organizados em pilares temáticos. Cada pilar reúne os guias de um mesmo assunto.</p>
+<ul>${pillarList}</ul>
+<h2>Todos os artigos</h2>
+<ul>${postList}</ul>
+<h2>Páginas de estrutura e ativos</h2>
+<ul>
+  <li>${link("/business-manager", "Business Manager")}</li>
+  <li>${link("/perfis-facebook", "Perfis Facebook")}</li>
+  <li>${link("/paginas-facebook", "Páginas Facebook")}</li>
+  <li>${link("/aluguel-de-contas-meta-ads", "Contas de anúncios por acesso gerenciado")}</li>
+</ul>`;
+}
+
+/** Bloco de navegação semântica anexado ao final de cada artigo. */
+function postClusterNavHtml(post) {
+  const pillar = pillarForPost.get(post.slug);
+  if (!pillar) {
+    return `<h2>Continue lendo</h2>\n<p>Veja os demais ${link("/blog", "artigos do blog da AD Scale")}.</p>`;
+  }
+  const idx = pillar.postSlugs.indexOf(post.slug);
+  const related = [];
+  for (let i = 1; related.length < 6 && i < pillar.postSlugs.length; i++) {
+    const p = postBySlug[pillar.postSlugs[(idx + i) % pillar.postSlugs.length]];
+    if (p && p.slug !== post.slug) related.push(p);
+  }
+  const landing = pillar.relatedLandingSlug
+    ? ` Consulte também ${link(`/${pillar.relatedLandingSlug}`, pillar.relatedLandingLabel || pillar.shortTitle)}.`
+    : "";
+  return `
+<h2>Este artigo faz parte do pilar ${esc(pillar.shortTitle)}</h2>
+<p>Veja o guia completo em ${link(`/blog/pilar/${pillar.slug}`, pillar.title)}.${landing}</p>
+<h2>Artigos relacionados</h2>
+<ul>${related.map((p) => `<li>${link(`/blog/${p.slug}`, p.title)}</li>`).join("")}</ul>`;
+}
+
+
+
 // ---------- Static page metadata ----------
 const staticPages = [
   {
