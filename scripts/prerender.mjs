@@ -458,7 +458,14 @@ const MANUAL_BODIES = {
   <li>${link("/aluguel-de-contas-meta-ads", "Aluguel de contas Meta Ads")}</li>
   <li>${link("/blog", "Blog com guias técnicos")}</li>
   <li>${link("/autor/pedro-lucas", "Pedro Lucas, fundador da AD Scale")}</li>
-</ul>`,
+</ul>
+<h2>Perguntas frequentes sobre a AD Scale</h2>
+<h3>A AD•SCALE gerencia campanhas?</h3>
+<p>Não. Fornecemos infraestrutura, ativos e orientação inicial. A criação, a otimização e a responsabilidade pelas campanhas permanecem com o cliente ou com o profissional contratado por ele.</p>
+<h3>A AD•SCALE tem vínculo com a Meta?</h3>
+<p>Não. Somos uma empresa independente, sem vínculo, patrocínio ou endosso da Meta Platforms, Inc. Todos os ativos permanecem sujeitos às políticas e análises da plataforma.</p>
+<h3>Como falo com a equipe?</h3>
+<p>O atendimento é feito por WhatsApp, a partir de qualquer página do site. Descreva a operação — verba, nicho e histórico — para receber uma leitura realista das opções disponíveis no momento.</p>`,
 
   "/autor/pedro-lucas": `
 <p>Pedro Lucas é fundador da AD•SCALE e escreve os conteúdos técnicos do blog sobre Business Manager, contingência em Meta Ads, bloqueios e escala de operações de alto volume.</p>
@@ -473,7 +480,17 @@ const MANUAL_BODIES = {
   <li>${link("/blog", "Todos os artigos do blog")}</li>
 </ul>
 <h2>Sobre a empresa</h2>
-<p>Conheça a ${link("/sobre", "história e a forma de trabalho da AD Scale")} e as ${link("/contingencia-meta-ads", "estruturas de contingência")} disponíveis. A AD•SCALE é uma empresa independente, sem vínculo oficial com a Meta.</p>`,
+<p>Conheça a ${link("/sobre", "história e a forma de trabalho da AD Scale")} e as ${link("/contingencia-meta-ads", "estruturas de contingência")} disponíveis. A AD•SCALE é uma empresa independente, sem vínculo oficial com a Meta.</p>
+<h2>Temas que ele cobre com mais frequência</h2>
+<ul>
+  <li>Diferença entre BM nova, antiga, verificada e ilimitada, e quando cada uma faz sentido.</li>
+  <li>Como montar redundância de estrutura sem multiplicar custo desnecessário.</li>
+  <li>Diagnóstico de bloqueios: o que a mensagem da Meta indica e o que fazer em seguida.</li>
+  <li>Rotina de segurança de perfis administradores e organização de permissões da equipe.</li>
+  <li>Mensuração: Pixel, Conversions API, verificação de domínio e leitura de métricas.</li>
+</ul>
+<h2>Linha editorial</h2>
+<p>Os conteúdos evitam promessas de imunidade, de aprovação garantida ou de resultado. O objetivo é explicar como a estrutura funciona, quais são os riscos reais e quais decisões cabem ao anunciante — inclusive quando a recomendação é não comprar nada.</p>`,
 
   "/guia-facebook-ads-alto-volume": `
 <p>Guia de Facebook Ads para alto volume: o que muda quando a operação passa a investir valores relevantes por dia e por que a estrutura, e não o criativo, costuma ser o gargalo nessa faixa.</p>
@@ -501,7 +518,17 @@ const MANUAL_BODIES = {
   <li>${link("/business-manager", "Business Manager")}</li>
   <li>${link("/aquecimento-contas", "Aquecimento de contas")}</li>
 </ul>
-<p>Nenhuma estrutura garante aprovação, desempenho ou ausência de restrição. A AD•SCALE é uma empresa independente, sem vínculo oficial com a Meta.</p>`,
+<p>Nenhuma estrutura garante aprovação, desempenho ou ausência de restrição. A AD•SCALE é uma empresa independente, sem vínculo oficial com a Meta.</p>
+<h2>Erros que aparecem sempre nessa faixa de verba</h2>
+<ul>
+  <li>Concentrar toda a operação em uma única Business Manager.</li>
+  <li>Subir verba alta em conta recém-criada, sem warm-up.</li>
+  <li>Compartilhar o mesmo perfil administrador entre todas as camadas.</li>
+  <li>Deixar Pixel e domínio vinculados apenas à estrutura principal.</li>
+  <li>Não ter um responsável definido para acionar o backup no dia do bloqueio.</li>
+</ul>
+<h2>Como usar este guia</h2>
+<p>Leia primeiro os pilares de escala e de segurança, aplique o checklist de estrutura e só então aumente o degrau de investimento. Cada aumento de verba deve vir acompanhado de uma camada de redundância proporcional.</p>`,
 
   "/solucoes-meta-ads": `
 <p>A AD•SCALE reúne soluções consultivas para organizar a estrutura de operações profissionais de Meta Ads: quais ativos a operação precisa, como eles se conectam e o que fazer quando um deles é restrito.</p>
@@ -525,7 +552,14 @@ const MANUAL_BODIES = {
 <p>Você descreve a operação, verificamos disponibilidade, apresentamos opções com as limitações de cada uma e entregamos com orientação inicial. A operação das campanhas permanece com o seu time.</p>
 <h2>Conteúdo técnico</h2>
 <p>Os guias do ${link("/blog", "blog da AD Scale")} explicam cada camada da estrutura, do ${link("/blog/pilar/business-manager", "pilar de Business Manager")} ao ${link("/blog/pilar/escala-e-performance", "pilar de escala e performance")}.</p>
-<p>A AD•SCALE é uma empresa independente e não possui vínculo oficial com a Meta.</p>`,
+<p>A AD•SCALE é uma empresa independente e não possui vínculo oficial com a Meta.</p>
+<h2>Limites do que oferecemos</h2>
+<p>Não vendemos garantia de aprovação, de desempenho ou de ausência de bloqueio, e não gerenciamos campanhas. Qualquer estrutura, verificada ou não, pode ser revisada, restringida ou desativada pela Meta a qualquer momento.</p>
+<h2>Perguntas frequentes</h2>
+<h3>Preciso comprar tudo de uma vez?</h3>
+<p>Não. A maioria das operações começa pela camada que resolve o gargalo atual e amplia a estrutura conforme o volume cresce.</p>
+<h3>Vocês atendem operações pequenas?</h3>
+<p>Sim, desde que já existam campanhas rodando. Para quem ainda não anuncia, a recomendação é começar pela estrutura própria antes de investir em contingência.</p>`,
 
   "/ativos-ads": `
 <p>Ativos para Meta Ads são os elementos que compõem uma operação de anúncios: perfil administrador, Business Manager, página, conta de anúncios, domínio verificado e Pixel. Cada um tem função própria e um risco próprio quando falta ou é restrito.</p>
@@ -547,7 +581,14 @@ const MANUAL_BODIES = {
   <li>${link("/blog/estrutura-bm-conta-pixel-pagina-relacao", "Como BM, conta, Pixel e página se relacionam")}</li>
   <li>${link("/blog/pilar/business-manager", "Pilar: Business Manager")}</li>
 </ul>
-<p>Todos os ativos permanecem sujeitos às políticas e análises da Meta. A AD•SCALE é uma empresa independente.</p>`,
+<p>Todos os ativos permanecem sujeitos às políticas e análises da Meta. A AD•SCALE é uma empresa independente.</p>
+<h2>Perguntas frequentes sobre ativos</h2>
+<h3>Perfil e conta de anúncios são a mesma coisa?</h3>
+<p>Não. O perfil é o usuário administrador que recebe permissões; a conta de anúncios é o ativo dentro da Business Manager onde campanhas e investimento são gerenciados.</p>
+<h3>Idade do ativo garante alguma coisa?</h3>
+<p>Não. Histórico pode ajudar em análise, mas não garante aprovação de anúncios, desempenho nem ausência de restrição.</p>
+<h3>Como verificar disponibilidade?</h3>
+<p>Fale com a equipe pelo WhatsApp. A disponibilidade e as características de cada ativo mudam com frequência e são confirmadas no momento da consulta.</p>`,
 };
 
 // ---------- Static page metadata ----------
