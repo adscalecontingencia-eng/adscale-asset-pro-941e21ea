@@ -1004,6 +1004,12 @@ Em alguns casos (perfil banido por reincidência, página com violação grave),
 Recuperação de conta no Facebook Ads é processo, não sorte. Quem trata bloqueio como incidente operacional — com fluxo, contingência e disciplina — perde horas. Quem improvisa, perde semanas e faturamento.
 
 Para entender a arquitetura completa, veja também [como evitar bloqueio de conta de anúncio no Meta](/blog/bloqueio-conta-anuncio-meta-como-evitar).
+
+
+## Leia também
+
+- [Recuperar página do Facebook restrita: passo a passo](/blog/recuperar-pagina-facebook-restrita-passo-a-passo)
+- [Políticas de anúncios do Meta: erros comuns de reprovação](/blog/politicas-anuncios-meta-erros-comuns-reprovacao)
 `,
   },
   {
@@ -1638,6 +1644,12 @@ Para a maioria das operações sérias, **ativo pronto vence warm-up**.
 Para evitar o ciclo do bloqueio recorrente, [conheça a estrutura de contingência para Meta e Facebook Ads](/contingencia-meta-ads) ou [adquira BM Verificada com histórico real](/bm-verificada).
 
 Veja também: [como recuperar conta de anúncio bloqueada](/blog/recuperar-conta-anuncio-bloqueada-facebook-ads).
+
+
+## Leia também
+
+- [Políticas de anúncios do Meta: erros comuns de reprovação](/blog/politicas-anuncios-meta-erros-comuns-reprovacao)
+- [Recuperar página do Facebook restrita](/blog/recuperar-pagina-facebook-restrita-passo-a-passo)
 `,
   },
   {
@@ -2175,6 +2187,12 @@ Em saúde, exiba CRM/CRO/CRP do responsável técnico tanto no criativo (rodapé
 :::
 
 > Vai entrar num nicho sensível? Veja [como evitar bloqueio de conta](/blog/bloqueio-conta-anuncio-meta-como-evitar) e [como funciona a BM verificada](/blog/o-que-e-business-manager-verificada-meta).
+
+
+## Leia também
+
+- [Políticas de anúncios do Meta: erros comuns de reprovação](/blog/politicas-anuncios-meta-erros-comuns-reprovacao)
+- [Como evitar bloqueio de conta de anúncios](/blog/bloqueio-conta-anuncio-meta-como-evitar)
 `,
   },
   {
@@ -2376,6 +2394,12 @@ Use os códigos de recuperação salvos no momento da configuração ou peça a 
 
 Sim. O Meta exige 2FA para administradores de BM verificada e para acessar ativos sensíveis como conta de anúncio, pixel e domínio verificado.
 <!-- seo-rodada-1:end -->
+
+
+## Leia também
+
+- [Permissões e papéis na BM: como dar acesso correto à equipe](/blog/permissoes-equipe-bm-papeis-acesso-correto)
+- [Business Manager: guia completo](/blog/pilar/business-manager)
 `,
   },
   {
@@ -2446,6 +2470,12 @@ Antes de qualquer migração, faça **backup dos IDs** (pixel, conta, página, c
 :::
 
 > Para operação séria, veja a [arquitetura de contingência](/blog/arquitetura-contingencia-meta-ads-operacao-alto-volume) que distribui ativos entre BM principal e secundária.
+
+
+## Leia também
+
+- [Permissões e papéis na BM: como dar acesso correto à equipe](/blog/permissoes-equipe-bm-papeis-acesso-correto)
+- [Business Manager: guia completo](/blog/pilar/business-manager)
 `,
   },
   {
@@ -2801,6 +2831,12 @@ Não confie cegamente em "regra automatizada agressiva". Pausar criativo após 1
 5. Não mexer nas campanhas nos primeiros **3-4 dias** (fase de aprendizado).
 
 > Quando começar a escalar, leia [como funciona o leilão](/blog/como-funciona-leilao-meta-ads) e [warm-up de conta](/blog/warm-up-conta-anuncio-meta-passo-a-passo).
+
+
+## Leia também
+
+- [Métricas essenciais do Meta Ads para iniciantes](/blog/metricas-essenciais-meta-ads-iniciantes)
+- [Como funciona o leilão do Meta Ads](/blog/como-funciona-leilao-meta-ads)
 `,
   },
   // ============ WAVE B — Operação (Meio de funil) ============
@@ -3218,6 +3254,11 @@ Nesse caso: segure ajustes, mantenha gasto, espere 5-7 dias antes de declarar pr
 6. Mensure no dia 4.
 
 > Se a queda persistir 7+ dias, é hora de considerar [migrar para BM secundária](/blog/estrategia-3-camadas-bm-meta-ads-contingencia).
+
+
+## Leia também
+
+- [Métricas essenciais do Meta Ads para iniciantes](/blog/metricas-essenciais-meta-ads-iniciantes)
 `,
   },
   {
@@ -3790,6 +3831,12 @@ A maioria das BMs que somem foi por causa do perfil admin — não da BM em si. 
 Faça com sobreposição: novo admin entra → 14 dias de operação juntos → antigo sai. Nunca de uma vez.
 
 > Veja também [permissões corretas da BM](/blog/permissoes-equipe-bm-papeis-acesso-correto) e [tipos de perfil aged](/blog/perfil-aged-facebook-por-que-administrador-importa).
+
+
+## Leia também
+
+- [Autenticação de 2 fatores na conta do Facebook Ads](/blog/autenticacao-2-fatores-conta-facebook-ads)
+- [Permissões e papéis na BM: como dar acesso correto à equipe](/blog/permissoes-equipe-bm-papeis-acesso-correto)
 `,
   },
   {
