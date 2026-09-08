@@ -562,7 +562,7 @@ const MANUAL_BODIES = {
 <h2>Como funciona o atendimento</h2>
 <p>Você descreve a operação, verificamos disponibilidade, apresentamos opções com as limitações de cada uma e entregamos com orientação inicial. A operação das campanhas permanece com o seu time.</p>
 <h2>Conteúdo técnico</h2>
-<p>Os guias do ${link("/blog", "blog da AD Scale")} explicam cada camada da estrutura, do ${link("/blog/pilar/business-manager", "pilar de Business Manager")} ao ${link("/blog/pilar/escala-e-performance", "pilar de escala e performance")}.</p>
+<p>Os guias do ${link("/blog", "blog da AD Scale")} explicam cada camada da estrutura, do ${link("/blog/pilar/business-manager", "pilar de Business Manager")} ao ${link("/blog/pilar/escala-e-performance", "pilar de escala e performance")}. Veja também a estrutura de ${link("/contingencia", "contingência")} e o ${link("/guia-facebook-ads-alto-volume", "guia de alto volume")}.</p>
 <p>A AD•SCALE é uma empresa independente e não possui vínculo oficial com a Meta.</p>
 <h2>Limites do que oferecemos</h2>
 <p>Não vendemos garantia de aprovação, de desempenho ou de ausência de bloqueio, e não gerenciamos campanhas. Qualquer estrutura, verificada ou não, pode ser revisada, restringida ou desativada pela Meta a qualquer momento.</p>
