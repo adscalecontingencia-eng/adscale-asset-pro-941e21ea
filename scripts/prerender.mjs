@@ -226,11 +226,18 @@ function postClusterNavHtml(post) {
   const landing = pillar.relatedLandingSlug
     ? ` Consulte também ${link(`/${pillar.relatedLandingSlug}`, pillar.relatedLandingLabel || pillar.shortTitle)}.`
     : "";
+  const fallback = pillars
+    .filter((x) => x.slug !== pillar.slug)
+    .slice(0, 4)
+    .map((x) => `<li>${link(`/blog/pilar/${x.slug}`, x.shortTitle)}</li>`)
+    .join("");
+  const extra = related.length < 3 ? `<h2>Outros pilares</h2><ul>${fallback}</ul>` : "";
   return `
 <h2>Este artigo faz parte do pilar ${esc(pillar.shortTitle)}</h2>
 <p>Veja o guia completo em ${link(`/blog/pilar/${pillar.slug}`, pillar.title)}.${landing}</p>
 <h2>Artigos relacionados</h2>
-<ul>${related.map((p) => `<li>${link(`/blog/${p.slug}`, p.title)}</li>`).join("")}</ul>`;
+<ul>${related.map((p) => `<li>${link(`/blog/${p.slug}`, p.title)}</li>`).join("")}</ul>
+${extra}`;
 }
 
 
@@ -293,6 +300,23 @@ const LANDING_LABEL = {
   "/aluguel-de-contas-meta-ads": "Aluguel de contas Meta Ads",
 };
 
+/** FAQ + links relacionados de uma landing (usado quando o corpo é curado à mão). */
+function landingExtrasHtml(slug) {
+  const l = landings[slug];
+  if (!l) return "";
+  const out = [];
+  const related = RELATED_LANDINGS[slug] || [];
+  if (related.length) {
+    out.push("<h2>Estruturas relacionadas</h2>");
+    out.push(`<ul>${related.map((href) => `<li>${link(href, LANDING_LABEL[href] || href)}</li>`).join("")}</ul>`);
+  }
+  if (l.faqs.length) {
+    out.push("<h2>Perguntas frequentes</h2>");
+    for (const f of l.faqs) out.push(`<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`);
+  }
+  return out.join("\n");
+}
+
 /** Corpo completo de uma landing comercial, derivado dos dados do React. */
 function landingBodyHtml(slug) {
   const l = landings[slug];
@@ -324,6 +348,207 @@ function landingBodyHtml(slug) {
   out.push(`<p>A AD•SCALE é uma empresa independente e não possui vínculo oficial com a Meta. Consulte também os ${link("/blog", "artigos do blog")}.</p>`);
   return out.join("\n");
 }
+
+
+// Páginas editoriais/institucionais que não vêm de landings.tsx nem de pilares.
+// O corpo abaixo é o equivalente semântico do que o React renderiza.
+const MANUAL_BODIES = {
+  "/bm-verificada": `
+<p>Business Manager verificada para operações de Meta Ads e WhatsApp Cloud API: estrutura com verificação de negócio concluída junto à Meta, utilizada por operações que precisam de limites maiores e de acesso a recursos que exigem verificação. Disponibilidade e características são confirmadas caso a caso.</p>
+<h2>O que é uma BM verificada</h2>
+<p>É uma Business Manager que passou pela verificação de negócio da Meta, com documentação empresarial validada. A verificação é um requisito para determinados recursos da plataforma, como parte das integrações oficiais do WhatsApp, e costuma estar associada a limites de gasto mais altos.</p>
+<h2>Quando a verificação faz diferença</h2>
+<ul>
+  <li>Operações que precisam de cap de gasto mais alto desde o início.</li>
+  <li>Estruturas que vão operar integrações oficiais do WhatsApp (WABA / Cloud API).</li>
+  <li>Times que trabalham com várias contas de anúncios e precisam de organização de permissões.</li>
+  <li>Operações que já sofreram restrições e estão reconstruindo a estrutura.</li>
+</ul>
+<h2>O que a verificação não garante</h2>
+<p>Verificação não é imunidade. Contas verificadas continuam sujeitas a revisão, restrição e desativação conforme as políticas da Meta. Nenhuma empresa independente pode garantir aprovação de anúncios ou ausência de bloqueio.</p>
+<h2>Estruturas relacionadas</h2>
+<ul>
+  <li>${link("/business-manager", "Business Manager: tipos disponíveis")}</li>
+  <li>${link("/bm-ilimitada", "BM ilimitada")}</li>
+  <li>${link("/whatsapp-cloud-api", "BM para WhatsApp Cloud API")}</li>
+  <li>${link("/dominios-verificados", "Domínios verificados")}</li>
+  <li>${link("/recuperacao-bm", "Recuperação de BM bloqueada")}</li>
+</ul>
+<h2>Conteúdo sobre BM verificada</h2>
+<ul>
+  <li>${link("/blog/o-que-e-business-manager-verificada-meta", "O que é Business Manager verificada")}</li>
+  <li>${link("/blog/quanto-custa-bm-verificada-facebook-2026", "Quanto custa uma BM verificada")}</li>
+  <li>${link("/blog/como-escolher-fornecedor-bm-verificada", "Como escolher fornecedor de BM verificada")}</li>
+  <li>${link("/blog/pilar/business-manager", "Pilar: Business Manager no Meta")}</li>
+</ul>
+<p>A AD•SCALE é uma empresa independente e não possui vínculo oficial com a Meta.</p>`,
+
+  "/contingencia-meta-ads": `
+<p>Contingência em Meta Ads é a prática de manter estrutura redundante pronta para assumir a operação quando um ativo é restrito. Em vez de depender de uma única Business Manager, a operação passa a trabalhar com camadas: perfis, BMs, páginas, domínios e contas de anúncios organizados para que um bloqueio não pare a verba.</p>
+<h2>Por que operações de alto volume precisam de contingência</h2>
+<p>Quanto maior o investimento diário, maior o custo de cada hora parada. Restrições podem ocorrer por política, por análise automática ou por comportamento da conta, e o tempo de resposta da Meta não é previsível. Contingência reduz o tempo de retomada, não a probabilidade de revisão.</p>
+<h2>Camadas de uma estrutura de contingência</h2>
+<ul>
+  <li>Perfis administradores separados por camada, com fingerprint estável.</li>
+  <li>Business Managers em camadas, cada uma com sua função na operação.</li>
+  <li>Páginas e domínios verificados coerentes com a oferta anunciada.</li>
+  <li>Pixel e Conversions API planejados para sobreviver à troca de estrutura.</li>
+  <li>Runbook definido: quem aciona o backup, quando e como medir o downtime.</li>
+</ul>
+<h2>Estruturas e ativos</h2>
+<ul>
+  <li>${link("/business-manager", "Business Manager")}</li>
+  <li>${link("/bm-verificada", "BM verificada")}</li>
+  <li>${link("/perfis-facebook", "Perfis Facebook")}</li>
+  <li>${link("/paginas-facebook", "Páginas Facebook")}</li>
+  <li>${link("/aluguel-de-contas-meta-ads", "Contas de anúncios por acesso gerenciado")}</li>
+  <li>${link("/recuperacao-bm", "Recuperação de BM bloqueada")}</li>
+</ul>
+<h2>Guias sobre contingência</h2>
+<ul>
+  <li>${link("/blog/arquitetura-contingencia-meta-ads-operacao-alto-volume", "Arquitetura de contingência para alto volume")}</li>
+  <li>${link("/blog/estrategia-3-camadas-bm-meta-ads-contingencia", "Estratégia de 3 camadas de BM")}</li>
+  <li>${link("/blog/dia-do-bloqueio-runbook-emergencia-meta-ads", "Runbook do dia do bloqueio")}</li>
+  <li>${link("/blog/pilar/seguranca-e-bloqueios", "Pilar: segurança e bloqueios")}</li>
+</ul>
+<p>A AD•SCALE fornece infraestrutura e ativos; a gestão das campanhas permanece com o cliente. Empresa independente, sem vínculo oficial com a Meta.</p>`,
+
+  "/consultoria-meta-ads": `
+<p>Consultoria técnica para operações de Meta Ads de alto volume: leitura da estrutura atual, diagnóstico de riscos e desenho da arquitetura de contingência. A consultoria não substitui a gestão de campanhas — ela organiza a infraestrutura em que as campanhas rodam.</p>
+<h2>O que a consultoria cobre</h2>
+<ul>
+  <li>Mapa dos ativos atuais: perfis, BMs, páginas, contas de anúncios, domínios e Pixel.</li>
+  <li>Diagnóstico dos pontos de falha que derrubam a operação inteira.</li>
+  <li>Desenho da estrutura em camadas e do plano de retomada em caso de bloqueio.</li>
+  <li>Organização de permissões e de rotina de segurança da equipe.</li>
+  <li>Plano de escala: warm-up, spending limit e leitura de qualidade da conta.</li>
+</ul>
+<h2>Para quem faz sentido</h2>
+<p>Para agências e operações que já investem verba recorrente, têm equipe própria de gestão e perdem faturamento quando um ativo é restrito. Não é indicada para quem está começando e ainda não roda campanhas.</p>
+<h2>O que a consultoria não é</h2>
+<p>Não é curso, não é gestão de campanhas e não é garantia de aprovação, desempenho ou ausência de bloqueio. As decisões finais sobre contas e anúncios são sempre da Meta.</p>
+<h2>Páginas e conteúdos relacionados</h2>
+<ul>
+  <li>${link("/contingencia-meta-ads", "Contingência Meta Ads")}</li>
+  <li>${link("/business-manager", "Business Manager")}</li>
+  <li>${link("/aquecimento-contas", "Aquecimento de contas")}</li>
+  <li>${link("/blog/consultoria-meta-ads-vs-curso-quando-contratar", "Consultoria vs curso: quando contratar")}</li>
+  <li>${link("/blog/quanto-cobrar-cliente-gestao-trafego-com-contingencia", "Quanto cobrar do cliente com contingência")}</li>
+  <li>${link("/blog/pilar/fundamentos-e-estrategia", "Pilar: fundamentos e estratégia")}</li>
+</ul>
+<p>A AD•SCALE é uma empresa independente e não possui vínculo oficial com a Meta.</p>`,
+
+  "/sobre": `
+<p>A AD•SCALE é uma empresa independente que fornece infraestrutura e ativos para operações profissionais de Meta Ads: perfis Facebook, Business Managers, páginas, contas de anúncios por acesso gerenciado e estruturas de contingência.</p>
+<h2>No que a AD•SCALE acredita</h2>
+<p>Operação séria de tráfego não depende de sorte com a plataforma. Depende de estrutura organizada, redundância planejada e expectativa realista sobre o que a Meta permite. Por isso trabalhamos com curadoria de ativos e orientação, e não com promessas de imunidade.</p>
+<h2>Como trabalhamos</h2>
+<ul>
+  <li>Você explica a operação: verba, nicho, número de contas e histórico de bloqueios.</li>
+  <li>Verificamos disponibilidade real dos ativos no momento da consulta.</li>
+  <li>Apresentamos as opções e as limitações de cada uma, por escrito.</li>
+  <li>Entregamos com orientação inicial de uso e de organização de permissões.</li>
+</ul>
+<h2>O que não prometemos</h2>
+<p>Não prometemos aprovação de anúncios, ausência de revisão, desempenho de campanha ou reversão garantida de bloqueio. Nenhuma empresa independente pode garantir isso.</p>
+<h2>Conheça a estrutura</h2>
+<ul>
+  <li>${link("/business-manager", "Business Manager")}</li>
+  <li>${link("/perfis-facebook", "Perfis Facebook")}</li>
+  <li>${link("/aluguel-de-contas-meta-ads", "Aluguel de contas Meta Ads")}</li>
+  <li>${link("/blog", "Blog com guias técnicos")}</li>
+  <li>${link("/autor/pedro-lucas", "Pedro Lucas, fundador da AD Scale")}</li>
+</ul>`,
+
+  "/autor/pedro-lucas": `
+<p>Pedro Lucas é fundador da AD•SCALE e escreve os conteúdos técnicos do blog sobre Business Manager, contingência em Meta Ads, bloqueios e escala de operações de alto volume.</p>
+<h2>Área de atuação</h2>
+<p>Estrutura e contingência para Meta Ads: arquitetura de Business Managers em camadas, organização de perfis administradores e páginas, diagnóstico de bloqueios, recuperação de ativos e planejamento de escala com Pixel e Conversions API.</p>
+<h2>Onde ele publica</h2>
+<ul>
+  <li>${link("/blog/pilar/business-manager", "Pilar: Business Manager no Meta")}</li>
+  <li>${link("/blog/pilar/seguranca-e-bloqueios", "Pilar: segurança e bloqueios")}</li>
+  <li>${link("/blog/pilar/escala-e-performance", "Pilar: escala e performance")}</li>
+  <li>${link("/blog/pilar/perfis-e-paginas", "Pilar: perfis e páginas")}</li>
+  <li>${link("/blog", "Todos os artigos do blog")}</li>
+</ul>
+<h2>Sobre a empresa</h2>
+<p>Conheça a ${link("/sobre", "história e a forma de trabalho da AD Scale")} e as ${link("/contingencia-meta-ads", "estruturas de contingência")} disponíveis. A AD•SCALE é uma empresa independente, sem vínculo oficial com a Meta.</p>`,
+
+  "/guia-facebook-ads-alto-volume": `
+<p>Guia de Facebook Ads para alto volume: o que muda quando a operação passa a investir valores relevantes por dia e por que a estrutura, e não o criativo, costuma ser o gargalo nessa faixa.</p>
+<h2>O que muda no alto volume</h2>
+<p>Em verba alta, cada restrição custa faturamento por hora parada. A operação precisa de redundância, de rotina de segurança e de leitura constante da qualidade das contas. Escalar é tanto trabalho de estrutura quanto de campanha.</p>
+<h2>Checklist de estrutura</h2>
+<ul>
+  <li>BMs e perfis de backup já configurados, com domínio e Pixel ativos.</li>
+  <li>Fingerprint estável (IP, navegador, dispositivo, fuso) para todos os logins.</li>
+  <li>Documentação de handover técnica pronta para qualquer membro do time.</li>
+  <li>Plano de comunicação interno: quem aciona o backup, quando e como medir o downtime.</li>
+  <li>Warm-up planejado: não subir campanha de alto valor em conta nova.</li>
+</ul>
+<h2>Aprofunde por tema</h2>
+<ul>
+  <li>${link("/blog/pilar/escala-e-performance", "Escala e performance")}</li>
+  <li>${link("/blog/pilar/seguranca-e-bloqueios", "Segurança e bloqueios")}</li>
+  <li>${link("/blog/warm-up-conta-anuncio-meta-passo-a-passo", "Warm-up de conta passo a passo")}</li>
+  <li>${link("/blog/spending-limit-meta-como-subir-degraus", "Spending limit: como subir degraus")}</li>
+  <li>${link("/blog/arquitetura-contingencia-meta-ads-operacao-alto-volume", "Arquitetura de contingência")}</li>
+</ul>
+<h2>Estrutura disponível</h2>
+<ul>
+  <li>${link("/contingencia-meta-ads", "Contingência Meta Ads")}</li>
+  <li>${link("/business-manager", "Business Manager")}</li>
+  <li>${link("/aquecimento-contas", "Aquecimento de contas")}</li>
+</ul>
+<p>Nenhuma estrutura garante aprovação, desempenho ou ausência de restrição. A AD•SCALE é uma empresa independente, sem vínculo oficial com a Meta.</p>`,
+
+  "/solucoes-meta-ads": `
+<p>A AD•SCALE reúne soluções consultivas para organizar a estrutura de operações profissionais de Meta Ads: quais ativos a operação precisa, como eles se conectam e o que fazer quando um deles é restrito.</p>
+<h2>Soluções por necessidade</h2>
+<ul>
+  <li>Estrutura inicial organizada: perfil, Business Manager, página e conta de anúncios coerentes entre si.</li>
+  <li>Redundância para operações que já investem verba recorrente.</li>
+  <li>Acesso gerenciado para times que preferem custo variável em vez de compra de ativo.</li>
+  <li>Diagnóstico e apoio quando a operação já está restrita.</li>
+</ul>
+<h2>Ativos e estruturas</h2>
+<ul>
+  <li>${link("/business-manager", "Business Manager")}</li>
+  <li>${link("/bm-verificada", "BM verificada")}</li>
+  <li>${link("/perfis-facebook", "Perfis Facebook")}</li>
+  <li>${link("/paginas-facebook", "Páginas Facebook")}</li>
+  <li>${link("/aluguel-de-contas-meta-ads", "Aluguel de contas Meta Ads")}</li>
+  <li>${link("/whatsapp-cloud-api", "BM para WhatsApp Cloud API")}</li>
+</ul>
+<h2>Como funciona o atendimento</h2>
+<p>Você descreve a operação, verificamos disponibilidade, apresentamos opções com as limitações de cada uma e entregamos com orientação inicial. A operação das campanhas permanece com o seu time.</p>
+<h2>Conteúdo técnico</h2>
+<p>Os guias do ${link("/blog", "blog da AD Scale")} explicam cada camada da estrutura, do ${link("/blog/pilar/business-manager", "pilar de Business Manager")} ao ${link("/blog/pilar/escala-e-performance", "pilar de escala e performance")}.</p>
+<p>A AD•SCALE é uma empresa independente e não possui vínculo oficial com a Meta.</p>`,
+
+  "/ativos-ads": `
+<p>Ativos para Meta Ads são os elementos que compõem uma operação de anúncios: perfil administrador, Business Manager, página, conta de anúncios, domínio verificado e Pixel. Cada um tem função própria e um risco próprio quando falta ou é restrito.</p>
+<h2>Por que a estrutura importa em Meta Ads</h2>
+<p>Campanha não roda sozinha: ela depende de uma cadeia de ativos. Um perfil administrador restrito derruba o acesso à BM; uma página com histórico ruim afeta a entrega; um domínio não verificado limita eventos. Organizar essa cadeia é o que dá previsibilidade.</p>
+<h2>Ativos disponíveis</h2>
+<ul>
+  <li>${link("/perfis-facebook", "Perfis Facebook")} — usuários que administram a estrutura.</li>
+  <li>${link("/business-manager", "Business Managers")} — ambiente que organiza ativos e permissões.</li>
+  <li>${link("/paginas-facebook", "Páginas Facebook")} — ativo público vinculado às campanhas.</li>
+  <li>${link("/aluguel-de-contas-meta-ads", "Contas de anúncios por acesso gerenciado")}.</li>
+  <li>${link("/dominios-verificados", "Domínios verificados")} e ${link("/pixel-capi", "Pixel + CAPI")} — camada de mensuração.</li>
+</ul>
+<h2>Como escolher</h2>
+<p>A escolha depende da verba diária, do nicho, do número de contas simultâneas e do histórico de bloqueios da operação. Consulte a equipe para verificar disponibilidade e características atuais antes de contratar.</p>
+<h2>Conteúdo relacionado</h2>
+<ul>
+  <li>${link("/blog/estrutura-meta-ads-perfil-bm-conta-anuncios", "Estrutura Meta Ads: perfil, BM e conta de anúncios")}</li>
+  <li>${link("/blog/estrutura-bm-conta-pixel-pagina-relacao", "Como BM, conta, Pixel e página se relacionam")}</li>
+  <li>${link("/blog/pilar/business-manager", "Pilar: Business Manager")}</li>
+</ul>
+<p>Todos os ativos permanecem sujeitos às políticas e análises da Meta. A AD•SCALE é uma empresa independente.</p>`,
+};
 
 // ---------- Static page metadata ----------
 const staticPages = [
@@ -515,12 +740,6 @@ const staticPages = [
     title: "Aquecimento de Contas Facebook Ads | Warm-up",
     description: "Serviço de aquecimento (warm-up) profissional para contas Facebook Ads, BMs e perfis. Estratégia de cap, criativo e cadência para Trust Score alto.",
     keywords: ["aquecimento conta facebook", "warm up facebook ads", "esquentar bm", "esquentar conta ads"],
-  },
-  {
-    path: "/cartoes-bin-internacional",
-    title: "BIN para Facebook Ads | Cartões Internacionais",
-    description: "BIN e cartões internacionais aprovadores para Meta Ads: testados em volume, com baixa taxa de hard decline e sem disparo de fraude na BM.",
-    keywords: ["bin para facebook ads", "cartão internacional ads", "bin que aprova meta", "cartão para bm"],
   },
   {
     path: "/recuperacao-bm",
@@ -899,10 +1118,17 @@ let count = 0;
 
 // Corpo automático: índice do blog e pilares nunca dependem de bodyHtml manual.
 for (const page of staticPages) {
-  if (page.bodyHtml) continue;
+  const slugOfPage = page.path.replace(/^\//, "");
+  if (page.bodyHtml) {
+    // Corpo curado à mão: complementa com FAQ e links da fonte de dados quando faltarem.
+    if (landings[slugOfPage] && !page.bodyHtml.includes("Perguntas frequentes")) {
+      page.bodyHtml += `\n${landingExtrasHtml(slugOfPage)}`;
+    }
+    continue;
+  }
   if (page.path === "/blog") page.bodyHtml = blogIndexBodyHtml();
-  const landingSlug = page.path.replace(/^\//, "");
-  if (landings[landingSlug]) page.bodyHtml = landingBodyHtml(landingSlug);
+  if (MANUAL_BODIES[page.path]) page.bodyHtml = MANUAL_BODIES[page.path];
+  else if (landings[slugOfPage]) page.bodyHtml = landingBodyHtml(slugOfPage);
   const pm = page.path.match(/^\/blog\/pilar\/(.+)$/);
   if (pm) {
     const pillar = pillars.find((x) => x.slug === pm[1]);
