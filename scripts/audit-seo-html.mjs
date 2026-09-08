@@ -123,12 +123,22 @@ for (const file of files) {
   const fails = [];
   const warns = [];
 
-  if (!title) fails.push("sem <title>");
-  if (!description) fails.push("sem meta description");
-  if (!canonical) fails.push("sem canonical");
-  else if (strip(canonical) !== strip(expectedCanonical)) fails.push(`canonical divergente (${canonical})`);
-  if (h1s === 0) fails.push("sem H1");
-  else if (h1s > 1) fails.push(`${h1s} H1 na mesma página`);
+  const metaRefresh = /http-equiv=["']refresh["']/i.test(head);
+
+  if (noindex) {
+    // Página deliberadamente fora do índice (stub de redirecionamento, etc.).
+    // Não exigimos estrutura de conteúdo, mas registramos a limitação técnica.
+    if (metaRefresh)
+      warns.push("redirecionamento por meta refresh / client-side — NÃO é 301 HTTP; resolver em nível de hosting/CDN");
+    else warns.push("marcada como noindex");
+  } else {
+    if (!title) fails.push("sem <title>");
+    if (!description) fails.push("sem meta description");
+    if (!canonical) fails.push("sem canonical");
+    else if (strip(canonical) !== strip(expectedCanonical)) fails.push(`canonical divergente (${canonical})`);
+    if (h1s === 0) fails.push("sem H1");
+    else if (h1s > 1) fails.push(`${h1s} H1 na mesma página`);
+  }
 
   if (!noindex && !thinOk) {
     // Falha estrutural: página indexável sem corpo real.
@@ -144,8 +154,8 @@ for (const file of files) {
     if (h2s < WARN.h2) warns.push(`poucos H2 (${h2s})`);
     if (internalLinks.size < WARN.internalLinks) warns.push(`poucos links internos (${internalLinks.size})`);
   }
-  if (title.length > WARN.titleMax) warns.push(`title com ${title.length} caracteres`);
-  if (description && (description.length > WARN.descMax || description.length < WARN.descMin))
+  if (!noindex && title.length > WARN.titleMax) warns.push(`title com ${title.length} caracteres`);
+  if (!noindex && description && (description.length > WARN.descMax || description.length < WARN.descMin))
     warns.push(`description com ${description.length} caracteres`);
 
   rows.push({
