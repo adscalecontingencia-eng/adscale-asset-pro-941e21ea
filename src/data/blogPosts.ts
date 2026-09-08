@@ -293,49 +293,50 @@ Se ele não souber responder, ele não cultivou o ativo — está revendendo.
     publishedAt: "2025-01-25",
     ogImage: "/og/og-perfil-aged.jpg",
     content: `
-A maior parte dos operadores foca obsessivamente na BM e na conta de anúncio — e esquece que **toda BM precisa de um perfil pessoal administrando**. Esse perfil é o ponto mais frágil (e mais ignorado) da arquitetura de contingência.
+Toda Business Manager é administrada por um **perfil pessoal do Facebook**. Esse perfil é o elo que sustenta (ou derruba) a estrutura inteira: contas de anúncio, páginas, pixels e permissões dependem dele. Este artigo responde a uma pergunta específica — **por que o perfil administrador importa dentro de uma estrutura de Business Manager**. Se você ainda quer entender o que caracteriza um perfil com histórico, veja o [guia sobre perfil aged](/perfil-aged) e a comparação [aged vs. perfil antigo](/blog/perfil-aged-vs-perfil-antigo-facebook).
 
-## O que é um perfil "aged"
+## O administrador é o ponto único de falha da BM
 
-Perfil aged é uma conta pessoal do Facebook com:
-- **Idade real de 2+ anos** (preferencialmente 5+).
-- Histórico de uso orgânico (posts, fotos, amigos, grupos).
-- Sem histórico de violações.
-- Verificação de identidade quando solicitada.
-- Pagamentos e logins consistentes ao longo do tempo.
+Na hierarquia do Meta, a BM não existe sozinha: ela é um objeto administrado por pessoas. Consequências práticas:
 
-## Por que o perfil é o calcanhar de Aquiles
+- Se o perfil administrador é restrito, **todas as BMs sob ele perdem acesso ao mesmo tempo** — inclusive as saudáveis.
+- Ativos (conta de anúncio, página, pixel, catálogo) continuam existindo, mas ninguém consegue pausar campanha, trocar cartão ou responder a uma revisão.
+- Um único administrador significa uma única chave: perder o celular do 2FA congela a operação. Veja [autenticação de 2 fatores na conta do Facebook Ads](/blog/autenticacao-2-fatores-conta-facebook-ads).
 
-- Se o perfil cai, **toda BM administrada por ele perde acesso simultaneamente**.
-- Perfil novo administrando BM antiga = sinal vermelho para o Meta.
-- Trocar administrador rapidamente é gatilho de revisão.
-- Perfil sem histórico orgânico não consegue passar pela checagem de identidade do Meta.
+## Por que o histórico do perfil afeta a confiança da estrutura
 
-## Como o Meta avalia um perfil
+O Meta avalia quem administra, não só o que é administrado. Sinais que costumam pesar:
 
-Segundo padrões observáveis na plataforma:
-- Tempo desde a criação.
-- Volume e qualidade de conexões (amigos reais).
-- Atividade orgânica (posts, comments, reactions).
-- Consistência de localização e dispositivo.
-- Histórico em grupos e páginas.
-- Confirmações de identidade no passado.
+- Tempo de existência e consistência de uso do perfil.
+- Coerência entre localização, dispositivo e meio de pagamento.
+- Passagens anteriores por confirmação de identidade.
+- Histórico de violações ligado àquela pessoa.
 
-## Boas práticas para perfis administradores
+Um perfil recém-criado assumindo uma BM com histórico de gasto é uma inconsistência — e inconsistência é o que dispara revisão. Por isso a troca abrupta de administrador é um evento sensível, não uma tarefa administrativa qualquer.
 
-1. **Não rode anúncios diretamente do perfil** — administre apenas a BM.
-2. **Mantenha atividade orgânica leve mas constante** (1–2 interações/semana).
-3. **Cada perfil deve ter ambiente dedicado** — fingerprint próprio, IP residencial fixo.
-4. **Não administre dezenas de BMs com o mesmo perfil** — distribua.
-5. **Confirme identidade quando solicitado** — perfil que falha em ID-check fica marcado.
+## Redundância: o erro mais caro é ter um administrador só
 
-## Quando comprar perfil aged
+A correção estrutural não é "ter um perfil forte", é **não depender de um perfil**:
 
-- Quando você precisa de um administrador limpo para uma BM nova.
-- Quando seu perfil principal sofreu restrição.
-- Quando você quer **isolar operações** (não misturar BMs do mesmo cliente sob o mesmo perfil).
+1. Mantenha no mínimo **dois administradores** ativos por BM, em ambientes separados.
+2. Nunca use o mesmo perfil como administrador de dezenas de BMs — distribua o risco.
+3. Documente quem administra o quê antes de precisar. Veja [permissões e papéis na BM](/blog/permissoes-equipe-bm-papeis-acesso-correto).
+4. Dê a cada colaborador o papel mínimo necessário; administrador não é cargo padrão.
+5. Tenha perfis de reserva já aquecidos para entrar no lugar de um administrador que caiu.
 
-Operações sérias mantêm uma reserva de **5 a 20 perfis aged** prontos pra entrar como administrador no momento em que um perfil principal falha.
+## Rotina mínima do perfil administrador
+
+- Login regular, do mesmo ambiente, sem alternância brusca de IP ou dispositivo.
+- Atividade orgânica leve e constante — o perfil não pode parecer descartável.
+- 2FA ativo com códigos de backup guardados fora do celular.
+- Não rodar anúncios diretamente pelo perfil: ele administra a BM, só isso.
+- Checagem semanal de avisos e restrições. Veja a [rotina de saúde do perfil administrador](/blog/saude-perfil-administrador-bm-rotina-semanal).
+
+## Como isso se encaixa na estrutura completa
+
+Perfil → BM → conta de anúncio → pixel → página: cada camada herda a confiança da anterior. Entender essa cadeia evita tratar o perfil como detalhe. Aprofunde em [estrutura de BM: conta, pixel e página](/blog/estrutura-bm-conta-pixel-pagina-relacao) e no [guia completo de Business Manager](/blog/pilar/business-manager).
+
+Resumo: a estabilidade de uma BM é, na prática, a estabilidade de quem a administra. Trate o perfil administrador como infraestrutura crítica — com redundância, rotina e registro — e não como um login pessoal qualquer.
 `,
   },
   {
