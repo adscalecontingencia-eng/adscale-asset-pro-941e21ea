@@ -752,7 +752,44 @@ function articleLd(post, canonical, ogImageUrl) {
 }
 
 
+// ---------- Content gate ----------
+// Toda rota indexável precisa sair do build com corpo real no HTML inicial.
+// Se uma landing/pilar futura for criada sem conteúdo, o build FALHA aqui em vez
+// de publicar uma página de ~50 palavras que o Google classifica como
+// "Rastreada, mas não indexada no momento".
+const MIN_WORDS = 250;
+const MIN_H2 = 2;
+const MIN_INTERNAL_LINKS = 3;
+// Páginas utilitárias, legítimas com pouco conteúdo (não são alvo de busca).
+const CONTENT_GATE_EXEMPT = new Set(["/politica-de-privacidade", "/termos-de-uso"]);
+const contentStats = [];
+
+function auditPrerenderedHtml(routePath, html) {
+  const block = html.split('<div id="prerendered-seo"')[1]?.split('<div id="root">')[0] ?? "";
+  const words = block.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().split(" ").filter(Boolean).length;
+  const h2 = (block.match(/<h2[\s>]/g) || []).length;
+  const links = new Set([...block.matchAll(new RegExp(`href="${SITE_URL}([^"#]*)`, "g"))].map((m) => m[1] || "/")).size;
+  contentStats.push({ routePath, words, h2, links });
+}
+
+function assertContentGate() {
+  const failures = contentStats.filter(
+    (s) => !CONTENT_GATE_EXEMPT.has(s.routePath) && (s.words < MIN_WORDS || s.h2 < MIN_H2 || s.links < MIN_INTERNAL_LINKS),
+  );
+  if (failures.length) {
+    console.error(`\n[prerender] ${failures.length} rota(s) sem conteúdo indexável suficiente no HTML inicial:`);
+    for (const f of failures) {
+      console.error(`  ✗ ${f.routePath} — ${f.words} palavras (mín. ${MIN_WORDS}), ${f.h2} H2 (mín. ${MIN_H2}), ${f.links} links internos (mín. ${MIN_INTERNAL_LINKS})`);
+    }
+    console.error("\n  → Adicione bodyHtml/faqs à rota em scripts/prerender.mjs (ou conteúdo à fonte de dados dela) antes de publicar.\n");
+    process.exit(1);
+  }
+  const worst = [...contentStats].sort((a, b) => a.words - b.words).slice(0, 3);
+  console.log(`[prerender] Content gate OK em ${contentStats.length} rotas. Menores: ${worst.map((w) => `${w.routePath} (${w.words}p/${w.h2}h2/${w.links}links)`).join(", ")}`);
+}
+
 function writeRoute(routePath, html) {
+  auditPrerenderedHtml(routePath, html);
   // Write BOTH dist/<route>.html (served directly at /<route> with 200, no 301)
   // AND dist/<route>/index.html (served at /<route>/ for back-compat with any
   // already-indexed trailing-slash URLs). Canonical points to the no-slash form,
@@ -912,5 +949,7 @@ copyFileSync(resolve(DIST, "index.html"), resolve(DIST, "404.html"));
   count++;
 }
 
+auditPrerenderedHtml("/", readFileSync(resolve(DIST, "index.html"), "utf8"));
+assertContentGate();
 console.log(`[prerender] Generated ${count} prerendered routes + 404 fallback`);
 
