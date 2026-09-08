@@ -886,7 +886,7 @@ const staticPages = [
     path: "/contingencia",
     title: "AD•SCALE Contingência | Ativos Digitais para Tráfego Pago",
     description:
-      "Marketplace de ativos digitais de contingência para operações de tráfego pago: BMs, contas de anúncio, páginas antigas, contas de agência e estruturas para Meta Ads com entrega organizada.",
+      "Ativos digitais de contingência para tráfego pago: BMs, contas de anúncio, páginas antigas e estruturas para Meta Ads com entrega organizada.",
     h1: "Ativos digitais de contingência para operações de tráfego pago",
     keywords: ["ativos de contingência meta ads", "estrutura de contingência facebook ads", "contingência para media buyers"],
   },
