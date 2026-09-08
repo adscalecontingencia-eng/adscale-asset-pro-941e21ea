@@ -671,6 +671,17 @@ function writeRoute(routePath, html) {
 // ---------- Generate ----------
 let count = 0;
 
+// Corpo automático: índice do blog e pilares nunca dependem de bodyHtml manual.
+for (const page of staticPages) {
+  if (page.bodyHtml) continue;
+  if (page.path === "/blog") page.bodyHtml = blogIndexBodyHtml();
+  const pm = page.path.match(/^\/blog\/pilar\/(.+)$/);
+  if (pm) {
+    const pillar = pillars.find((x) => x.slug === pm[1]);
+    if (pillar) page.bodyHtml = pillarBodyHtml(pillar);
+  }
+}
+
 for (const page of staticPages) {
   // Trailing slash matches what GitHub Pages serves for directory routes,
   // avoiding 301 redirects that cause "Página com redirecionamento" in GSC.
@@ -734,7 +745,7 @@ for (const post of posts) {
     ogType: "article",
     publishedAt: post.publishedAt,
     jsonLd,
-    bodyHtml: mdToHtml(post.content),
+    bodyHtml: `${mdToHtml(post.content)}\n${postClusterNavHtml(post)}`,
   });
   writeRoute(`/blog/${post.slug}`, html);
   count++;
