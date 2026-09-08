@@ -866,6 +866,14 @@ const staticPages = [
     keywords: ["glossário meta ads", "consultoria meta ads", "gestor de tráfego"],
   },
   {
+    path: "/contingencia",
+    title: "AD•SCALE Contingência | Ativos Digitais para Tráfego Pago",
+    description:
+      "Marketplace de ativos digitais de contingência para operações de tráfego pago: BMs, contas de anúncio, páginas antigas, contas de agência e estruturas para Meta Ads com entrega organizada.",
+    h1: "Ativos digitais de contingência para operações de tráfego pago",
+    keywords: ["ativos de contingência meta ads", "estrutura de contingência facebook ads", "contingência para media buyers"],
+  },
+  {
     path: "/solucoes-meta-ads",
     title: "Soluções para Estrutura de Meta Ads | AD Scale",
     description: "Conheça a AD Scale, empresa independente com soluções consultivas para organização e estrutura de operações profissionais de Meta Ads.",
