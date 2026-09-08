@@ -389,6 +389,36 @@ const staticPages = [
     title: "Pixel Facebook + CAPI | Conversions API Meta",
     description: "Pixel verificado e Conversions API (CAPI) configurada para Facebook Ads pós iOS 14+: atribuição estável, eventos prioritários e domínio verificado.",
     keywords: ["pixel facebook capi", "conversions api meta", "capi facebook ads", "pixel verificado"],
+    bodyHtml: `
+      <p>Implementação e configuração de Pixel do Meta com Conversions API (CAPI) para operações que já anunciam e precisam de rastreamento server-side estável depois do iOS 14+. Serviço executado pela equipe da AD•SCALE dentro da sua estrutura: Pixel, eventos, domínio verificado e deduplicação. As políticas e análises da Meta continuam se aplicando.</p>
+      <h2>O que é entregue na implementação de Pixel + CAPI</h2>
+      <ul>
+        <li>Criação ou revisão do Pixel dentro da Business Manager correta.</li>
+        <li>Configuração da Conversions API (server-side) e do envio duplicado de eventos com deduplicação por event_id.</li>
+        <li>Definição e priorização dos 8 eventos de mensuração agregada de eventos.</li>
+        <li>Verificação de domínio no Meta e vinculação ao Pixel.</li>
+        <li>Checagem de qualidade de correspondência de eventos e parâmetros enviados.</li>
+      </ul>
+      <h2>Quando faz sentido contratar em vez de configurar sozinho</h2>
+      <p>Se você tem equipe técnica e tempo, os guias do blog cobrem o passo a passo completo. O serviço existe para operações que precisam da configuração feita e validada por terceiros, normalmente em estruturas com várias BMs, domínios e contas de anúncios em contingência.</p>
+      <h2>Pixel e CAPI dentro de uma estrutura de contingência</h2>
+      <p>Em operações com múltiplas Business Managers, o Pixel precisa ser planejado junto da estrutura: qual BM é a proprietária, como compartilhar o ativo e o que acontece em caso de bloqueio. Veja as opções de ${link("/business-manager", "Business Manager")}, de ${link("/bm-verificada", "BM verificada")} e de ${link("/dominios-verificados", "domínios verificados")}.</p>
+      <h2>Guias técnicos sobre Pixel e Conversions API</h2>
+      <ul>
+        <li>${link("/blog/pixel-vs-capi-conversions-api-meta-ads", "Pixel vs CAPI: diferença e por que usar os dois")}</li>
+        <li>${link("/blog/instalar-pixel-meta-passo-a-passo", "Como instalar o Pixel do Meta passo a passo")}</li>
+        <li>${link("/blog/configurar-capi-conversions-api-server-side", "Como configurar a Conversions API server-side")}</li>
+        <li>${link("/blog/migrar-pixel-bm-sem-perder-aprendizado", "Migrar Pixel de BM sem perder aprendizado")}</li>
+        <li>${link("/blog/dominio-verificado-facebook-como-configurar-ios14", "Verificação de domínio e iOS 14+")}</li>
+        <li>${link("/blog/pilar/escala-e-performance", "Pilar: escala e performance no Meta Ads")}</li>
+      </ul>
+      <h2>Perguntas frequentes sobre Pixel e CAPI</h2>
+      <h3>CAPI substitui o Pixel?</h3>
+      <p>Não. A recomendação da Meta é usar os dois em paralelo, com deduplicação de eventos.</p>
+      <h3>A implementação garante melhora de resultado?</h3>
+      <p>Não. A configuração melhora a qualidade do sinal enviado; o resultado depende de oferta, criativo, verba e leilão.</p>
+      <h3>Como consultar disponibilidade?</h3>
+      <p>Fale com a equipe da AD•SCALE para verificar prazo, escopo e condições da implementação.</p>`,
   },
   {
     path: "/aquecimento-contas",
@@ -407,6 +437,36 @@ const staticPages = [
     title: "Recuperação de BM Bloqueada | Meta Ads | AD Scale",
     description: "Recuperação e desbloqueio de BM bloqueada no Meta Ads: diagnóstico, plano de defesa, contestação documental e contingência imediata.",
     keywords: ["bm bloqueada recuperar", "desbloqueio bm", "recuperar conta facebook ads", "bm restrita"],
+    bodyHtml: `
+      <p>Serviço de diagnóstico e apoio na recuperação de Business Manager bloqueada, restrita ou com ativos desativados no Meta Ads. A AD•SCALE atua no diagnóstico da causa, na organização da documentação de contestação e na contingência imediata para a operação não ficar parada. Nenhuma empresa independente pode garantir a reversão de uma decisão da Meta.</p>
+      <h2>O que o serviço de recuperação de BM inclui</h2>
+      <ul>
+        <li>Diagnóstico da restrição: qual ativo foi atingido (BM, conta de anúncios, página, perfil administrador) e qual política foi citada.</li>
+        <li>Plano de contestação: quais documentos e evidências enviar e em qual ordem.</li>
+        <li>Acompanhamento das tentativas de appeal e dos prazos de resposta.</li>
+        <li>Contingência imediata: estrutura alternativa para a operação continuar durante a análise.</li>
+        <li>Correções estruturais para reduzir a chance de reincidência.</li>
+      </ul>
+      <h2>Recuperação não é garantia de desbloqueio</h2>
+      <p>A decisão final é sempre da Meta. O trabalho aumenta a qualidade da contestação e reduz o tempo de operação parada, mas casos de violação reiterada de políticas podem não ser revertidos.</p>
+      <h2>Contingência enquanto a BM está em análise</h2>
+      <p>Enquanto o appeal corre, a operação normalmente migra para uma estrutura paralela. Veja ${link("/business-manager", "Business Manager")}, ${link("/bm-verificada", "BM verificada")} e ${link("/aluguel-de-contas-meta-ads", "contas de anúncios por acesso gerenciado")}.</p>
+      <h2>Guias sobre bloqueio e recuperação</h2>
+      <ul>
+        <li>${link("/blog/recuperar-conta-anuncio-bloqueada-facebook-ads", "Como recuperar conta de anúncios bloqueada no Facebook Ads")}</li>
+        <li>${link("/blog/dia-do-bloqueio-runbook-emergencia-meta-ads", "Runbook de emergência para o dia do bloqueio")}</li>
+        <li>${link("/blog/bloqueio-conta-anuncio-meta-como-evitar", "Como evitar bloqueio de conta de anúncios")}</li>
+        <li>${link("/blog/recuperar-pagina-facebook-restrita-passo-a-passo", "Recuperar página do Facebook restrita")}</li>
+        <li>${link("/blog/politicas-anuncios-meta-erros-comuns-reprovacao", "Políticas de anúncios: erros comuns de reprovação")}</li>
+        <li>${link("/blog/pilar/seguranca-e-bloqueios", "Pilar: segurança e bloqueios no Meta Ads")}</li>
+      </ul>
+      <h2>Perguntas frequentes sobre recuperação de BM</h2>
+      <h3>Quanto tempo demora?</h3>
+      <p>Depende exclusivamente da fila de análise da Meta. Não existe prazo garantido.</p>
+      <h3>Dá para recuperar qualquer BM?</h3>
+      <p>Não. Casos com violação grave ou reincidente costumam não ser revertidos, e a recomendação passa a ser reconstruir a estrutura.</p>
+      <h3>Como começar?</h3>
+      <p>Fale com a equipe da AD•SCALE com o print do aviso de restrição e o histórico da conta para o diagnóstico inicial.</p>`,
   },
   {
     path: "/blog/pilar/business-manager",
@@ -476,6 +536,45 @@ const staticPages = [
       "aluguel de estrutura meta ads",
       "comissão sobre investimento meta ads",
     ],
+    bodyHtml: `
+      <p>Aluguel de contas de anúncios Meta Ads por acesso gerenciado, sem mensalidade fixa: a cobrança é uma comissão inicial de 5% sobre o valor efetivamente investido em anúncios, com crédito operacional de US$ 240 para iniciar a estrutura. A AD•SCALE fornece a infraestrutura publicitária; a criação e a gestão das campanhas permanecem com o seu time.</p>
+      <h2>Como funciona o modelo de comissão</h2>
+      <ul>
+        <li>Sem mensalidade fixa pelo acesso à estrutura.</li>
+        <li>Comissão inicial de 5% sobre o investimento realizado em anúncios.</li>
+        <li>Crédito operacional de US$ 240 no início, usado para abater as primeiras comissões.</li>
+        <li>Novos pagamentos só começam depois que o crédito é totalmente utilizado.</li>
+        <li>Conforme volume, metas e histórico, a taxa pode ser reduzida e chegar a até 1%. A redução não é automática e precisa ser formalizada.</li>
+      </ul>
+      <h2>O que é acesso gerenciado</h2>
+      <p>Você recebe acesso a contas de agência dentro de uma estrutura administrada pela AD•SCALE, em vez de comprar o ativo. Isso mantém a manutenção, o suporte e a substituição da estrutura sob nossa responsabilidade, enquanto a operação de campanhas continua sendo sua.</p>
+      <h2>O que a estrutura pode incluir</h2>
+      <ul>
+        <li>Contas de agência Meta Ads e Business Manager de agência.</li>
+        <li>Páginas antigas quando aplicável ao plano contratado.</li>
+        <li>Onboarding, suporte e acompanhamento de investimento, comissão e saldo do crédito.</li>
+        <li>Possibilidade de solicitar contas adicionais conforme análise e disponibilidade.</li>
+      </ul>
+      <h2>Para quem faz sentido alugar em vez de comprar</h2>
+      <p>Faz sentido para agências e gestores que rodam verba recorrente, precisam de várias contas em paralelo e preferem custo variável atrelado ao investimento. Quem prefere ser proprietário do ativo deve consultar as opções de ${link("/business-manager", "Business Manager")}, ${link("/bm-verificada", "BM verificada")} e ${link("/bm-ilimitada", "BM ilimitada")}.</p>
+      <h2>Limites e responsabilidades</h2>
+      <p>Nenhuma estrutura garante aprovação de anúncios, ausência de revisão ou desempenho. Páginas antigas não garantem aprovação. A AD•SCALE é uma prestadora independente, sem vínculo, patrocínio ou endosso da Meta Platforms, Inc. Todas as condições de acesso, comissão, crédito, cancelamento e suporte são formalizadas em contrato.</p>
+      <h2>Conteúdo relacionado</h2>
+      <ul>
+        <li>${link("/blog/quanto-cobrar-cliente-gestao-trafego-com-contingencia", "Quanto cobrar do cliente em gestão de tráfego com contingência")}</li>
+        <li>${link("/blog/calcular-roi-investimento-contingencia-meta-ads", "Como calcular o ROI do investimento em contingência")}</li>
+        <li>${link("/blog/arquitetura-contingencia-meta-ads-operacao-alto-volume", "Arquitetura de contingência para alto volume")}</li>
+        <li>${link("/blog/pilar/business-manager", "Pilar: Business Manager no Meta")}</li>
+      </ul>
+      <h2>Perguntas frequentes sobre aluguel de contas Meta Ads</h2>
+      <h3>Existe mensalidade?</h3>
+      <p>Não. A cobrança é a comissão sobre o valor efetivamente investido em anúncios.</p>
+      <h3>O que são os US$ 240 iniciais?</h3>
+      <p>É um crédito operacional para iniciar a estrutura e abater as primeiras comissões. Não é uma taxa separada.</p>
+      <h3>Todos recebem a taxa de 1%?</h3>
+      <p>Não. A taxa reduzida depende de elegibilidade e é formalizada em proposta ou contrato.</p>
+      <h3>A conta nunca será restringida?</h3>
+      <p>Não existe essa garantia. Qualquer conta pode ser revisada, restringida ou desativada pela Meta.</p>`,
   },
   {
     path: "/perfil-facebook-antigo",
