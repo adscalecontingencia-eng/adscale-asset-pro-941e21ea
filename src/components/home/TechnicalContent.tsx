@@ -78,7 +78,12 @@ const TechnicalContent = () => (
             <Link to="/aluguel-de-contas-meta-ads" className="text-primary hover:underline">
               contas de anúncios por acesso gerenciado
             </Link>{" "}
-            para times que já conduzem as próprias campanhas.
+            para times que já conduzem as próprias campanhas. Para entender como esse cenário se
+            organiza na prática, consulte o{" "}
+            <Link to="/guia-facebook-ads-alto-volume" className="text-primary hover:underline">
+              guia de operações de maior volume
+            </Link>
+            .
           </p>
         </div>
 
