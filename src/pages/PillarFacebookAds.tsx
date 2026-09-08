@@ -342,6 +342,33 @@ const PillarFacebookAds = () => {
             </Link>
           </section>
 
+          <section className="mt-12" aria-labelledby="aprofundar-heading">
+            <h2 id="aprofundar-heading" className="font-display text-2xl md:text-3xl font-bold mb-4">
+              Aprofundar cada tema
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Este guia é o roteiro operacional de quem já investe alto. Para estudar cada assunto
+              separadamente, use os guias temáticos:{" "}
+              <Link to="/blog/pilar/escala-e-performance" className="text-primary hover:underline">
+                escala e performance
+              </Link>
+              ,{" "}
+              <Link to="/blog/pilar/business-manager" className="text-primary hover:underline">
+                Business Manager
+              </Link>
+              ,{" "}
+              <Link to="/blog/pilar/seguranca-e-bloqueios" className="text-primary hover:underline">
+                segurança e bloqueios
+              </Link>{" "}
+              e{" "}
+              <Link to="/blog/pilar/fundamentos-e-estrategia" className="text-primary hover:underline">
+                fundamentos e estratégia
+              </Link>
+              .
+            </p>
+          </section>
+
+
           <div className="mt-12 p-8 rounded-2xl border border-primary/30 bg-primary/5 text-center">
             <TrendingUp className="w-8 h-8 text-primary mx-auto mb-3" />
             <h2 className="font-display text-xl md:text-2xl font-bold mb-3">

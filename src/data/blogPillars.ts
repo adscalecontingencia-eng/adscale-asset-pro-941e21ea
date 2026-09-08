@@ -55,6 +55,17 @@ export const pillars: Pillar[] = [
       "permissoes-equipe-bm-papeis-acesso-correto",
       "auditoria-30-minutos-conta-anuncio-meta",
     ],
+    resourceLinks: {
+      heading: "Estruturas e guias de Business Manager",
+      links: [
+        { href: "/business-manager", label: "Business Manager", description: "Estruturas de BM disponíveis e como cada configuração é usada." },
+        { href: "/bm-verificada", label: "BM Verificada", description: "O que muda quando a verificação de negócio está concluída." },
+        { href: "/bm-ilimitada", label: "BM para maior volume", description: "Configurações voltadas a operações com investimento mais alto." },
+        { href: "/blog/permissoes-equipe-bm-papeis-acesso-correto", label: "Permissões dentro da BM", description: "Papéis de acesso e organização da equipe." },
+        { href: "/blog/estrutura-bm-conta-pixel-pagina-relacao", label: "BM, conta, pixel e página", description: "Como os ativos se conectam dentro da estrutura." },
+        { href: "/blog/pilar/seguranca-e-bloqueios", label: "Segurança e bloqueios", description: "Pilar complementar sobre restrições e recuperação." },
+      ],
+    },
   },
   {
     slug: "perfis-e-paginas",
@@ -110,6 +121,17 @@ export const pillars: Pillar[] = [
       "appeal facebook ads",
       "conta nova facebook",
     ],
+    resourceLinks: {
+      heading: "Segurança operacional e ativos relacionados",
+      links: [
+        { href: "/recuperacao-bm", label: "Recuperação de BM", description: "Quando a estrutura é restringida e precisa ser tratada." },
+        { href: "/blog/autenticacao-2-fatores-conta-facebook-ads", label: "Autenticação em dois fatores", description: "Camada básica de proteção do perfil administrador." },
+        { href: "/blog/politicas-anuncios-meta-erros-comuns-reprovacao", label: "Políticas de anúncio", description: "Erros comuns que levam à reprovação de criativos." },
+        { href: "/blog/recuperar-pagina-facebook-restrita-passo-a-passo", label: "Página restrita", description: "Passo a passo para tratar uma página com restrição." },
+        { href: "/blog/pilar/business-manager", label: "Pilar Business Manager", description: "Permissões e organização de contas dentro da BM." },
+        { href: "/contingencia", label: "Ativos de contingência", description: "Estruturas alternativas para reduzir dependência de um único ativo." },
+      ],
+    },
     relatedLandingSlug: "recuperacao-bm",
     relatedLandingLabel: "Falar sobre recuperação",
     postSlugs: [
@@ -141,6 +163,16 @@ export const pillars: Pillar[] = [
       "conversions api",
       "roi contingência",
     ],
+    resourceLinks: {
+      heading: "Escala, mensuração e operação de volume",
+      links: [
+        { href: "/guia-facebook-ads-alto-volume", label: "Guia de operação de alto volume", description: "Visão prática de como uma operação de maior investimento se organiza — complementa este pilar, que é o material educacional por tema." },
+        { href: "/pixel-capi", label: "Pixel e CAPI", description: "Camada de mensuração de eventos da operação." },
+        { href: "/aquecimento-contas", label: "Aquecimento de contas", description: "Warm-up de BMs, perfis e contas antes do volume." },
+        { href: "/blog/limite-de-gasto-facebook-ads-como-aumentar", label: "Limite de gasto", description: "Como os degraus de limite evoluem." },
+        { href: "/blog/metricas-essenciais-meta-ads-iniciantes", label: "Métricas essenciais", description: "Leitura básica de performance no Meta Ads." },
+      ],
+    },
     relatedLandingSlug: "aquecimento-contas",
     relatedLandingLabel: "Ver serviço de aquecimento",
     postSlugs: [
@@ -181,6 +213,15 @@ export const pillars: Pillar[] = [
     relatedLandingSlug: "whatsapp-cloud-api",
     relatedLandingLabel: "Ver BM para WhatsApp API",
     postSlugs: ["disparo-via-api-whatsapp-cloud-bm-verificada-guia-completo"],
+    resourceLinks: {
+      heading: "Estrutura necessária para a Cloud API",
+      links: [
+        { href: "/whatsapp-cloud-api", label: "BM para WhatsApp Cloud API", description: "Configurações de BM utilizadas em integrações oficiais do WhatsApp." },
+        { href: "/bm-verificada", label: "BM Verificada", description: "A verificação de negócio é pré-requisito de parte dos recursos." },
+        { href: "/business-manager", label: "Business Manager", description: "Ambiente que organiza os ativos ligados à WABA." },
+        { href: "/blog/pilar/business-manager", label: "Pilar Business Manager", description: "Conceitos de BM que sustentam a integração." },
+      ],
+    },
   },
   {
     slug: "fundamentos-e-estrategia",
@@ -204,6 +245,16 @@ export const pillars: Pillar[] = [
       "consultoria-meta-ads-vs-curso-quando-contratar",
       "quanto-cobrar-cliente-gestao-trafego-com-contingencia",
     ],
+    resourceLinks: {
+      heading: "Por onde começar",
+      links: [
+        { href: "/blog/gerenciador-anuncios-meta-tour-completo-iniciantes", label: "Tour pelo Gerenciador de Anúncios", description: "Primeiro contato com a interface de campanhas." },
+        { href: "/blog/metricas-essenciais-meta-ads-iniciantes", label: "Métricas essenciais", description: "O que olhar antes de tomar decisão de otimização." },
+        { href: "/blog/estrutura-meta-ads-perfil-bm-conta-anuncios", label: "Estrutura de Meta Ads", description: "Perfil, BM, página e conta de anúncios em uma visão só." },
+        { href: "/blog/pilar/business-manager", label: "Pilar Business Manager", description: "Aprofundamento em BM depois dos fundamentos." },
+        { href: "/blog/pilar/escala-e-performance", label: "Pilar Escala & Performance", description: "Próximo passo quando a operação começa a crescer." },
+      ],
+    },
   },
 ];
 

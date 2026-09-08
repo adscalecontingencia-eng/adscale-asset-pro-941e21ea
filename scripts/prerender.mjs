@@ -562,7 +562,7 @@ const MANUAL_BODIES = {
 <h2>Como funciona o atendimento</h2>
 <p>Você descreve a operação, verificamos disponibilidade, apresentamos opções com as limitações de cada uma e entregamos com orientação inicial. A operação das campanhas permanece com o seu time.</p>
 <h2>Conteúdo técnico</h2>
-<p>Os guias do ${link("/blog", "blog da AD Scale")} explicam cada camada da estrutura, do ${link("/blog/pilar/business-manager", "pilar de Business Manager")} ao ${link("/blog/pilar/escala-e-performance", "pilar de escala e performance")}.</p>
+<p>Os guias do ${link("/blog", "blog da AD Scale")} explicam cada camada da estrutura, do ${link("/blog/pilar/business-manager", "pilar de Business Manager")} ao ${link("/blog/pilar/escala-e-performance", "pilar de escala e performance")}. Veja também a estrutura de ${link("/contingencia", "contingência")} e o ${link("/guia-facebook-ads-alto-volume", "guia de alto volume")}.</p>
 <p>A AD•SCALE é uma empresa independente e não possui vínculo oficial com a Meta.</p>
 <h2>Limites do que oferecemos</h2>
 <p>Não vendemos garantia de aprovação, de desempenho ou de ausência de bloqueio, e não gerenciamos campanhas. Qualquer estrutura, verificada ou não, pode ser revisada, restringida ou desativada pela Meta a qualquer momento.</p>
@@ -600,6 +600,23 @@ const MANUAL_BODIES = {
 <p>Não. Histórico pode ajudar em análise, mas não garante aprovação de anúncios, desempenho nem ausência de restrição.</p>
 <h3>Como verificar disponibilidade?</h3>
 <p>Fale com a equipe pelo WhatsApp. A disponibilidade e as características de cada ativo mudam com frequência e são confirmadas no momento da consulta.</p>`,
+
+  "/contingencia": `
+<p>Contingência em Meta Ads é a organização de ativos para que a operação não dependa de um único ponto. Perfis, Business Managers, páginas e contas de anúncios são distribuídos de forma estruturada, mantendo alternativas operacionais quando algum ativo deixa de estar disponível.</p>
+<h2>O que compõe uma estrutura de contingência</h2>
+<ul>
+  <li>${link("/perfis-facebook", "Perfis Facebook")} — usuários que administram os acessos.</li>
+  <li>${link("/business-manager", "Business Managers")} — ambiente que organiza contas, permissões e pixels.</li>
+  <li>${link("/paginas-facebook", "Páginas Facebook")} — ativo público vinculado às campanhas.</li>
+  <li>${link("/aluguel-de-contas-meta-ads", "Contas de anúncios por acesso gerenciado")}.</li>
+  <li>${link("/aquecimento-contas", "Aquecimento de contas")} antes de subir volume.</li>
+</ul>
+<h2>Como a entrega funciona</h2>
+<p>Você descreve a operação, verificamos disponibilidade, apresentamos as opções com as limitações de cada uma e entregamos com orientação inicial. A gestão das campanhas permanece com o seu time.</p>
+<h2>Ativos e conteúdo relacionados à contingência</h2>
+<p>Para entender as causas de restrição e como reagir, consulte ${link("/blog/pilar/seguranca-e-bloqueios", "segurança e bloqueios no Meta Ads")} e a ${link("/blog/pilar/business-manager", "estrutura de Business Manager")}. Operações com investimento elevado costumam começar pelo ${link("/guia-facebook-ads-alto-volume", "guia de alto volume")} e pelo panorama de ${link("/solucoes-meta-ads", "soluções para Meta Ads")}.</p>
+<h2>O que não prometemos</h2>
+<p>Não trabalhamos com promessas de aprovação garantida, ausência de bloqueios ou resultados financeiros. Qualquer estrutura pode ser revisada, restringida ou desativada pela Meta a qualquer momento. A AD•SCALE é uma empresa independente, sem vínculo oficial com a Meta.</p>`,
 };
 
 // ---------- Static page metadata ----------
@@ -864,6 +881,14 @@ const staticPages = [
     title: "Fundamentos e Estratégia Meta Ads | Pilar | Blog AD Scale",
     description: "Glossário, comparativos de formação e decisões estratégicas para gestores de tráfego que pretendem investir em contingência Meta Ads.",
     keywords: ["glossário meta ads", "consultoria meta ads", "gestor de tráfego"],
+  },
+  {
+    path: "/contingencia",
+    title: "AD•SCALE Contingência | Ativos Digitais para Tráfego Pago",
+    description:
+      "Ativos digitais de contingência para tráfego pago: BMs, contas de anúncio, páginas antigas e estruturas para Meta Ads com entrega organizada.",
+    h1: "Ativos digitais de contingência para operações de tráfego pago",
+    keywords: ["ativos de contingência meta ads", "estrutura de contingência facebook ads", "contingência para media buyers"],
   },
   {
     path: "/solucoes-meta-ads",
@@ -1301,7 +1326,9 @@ copyFileSync(resolve(DIST, "index.html"), resolve(DIST, "404.html"));
       <li><a href="${SITE_URL}/perfil-facebook-antigo">Perfil Facebook antigo</a> e <a href="${SITE_URL}/perfil-aged">perfil aged</a> — perfis com histórico anterior na plataforma.</li>
     </ul>
     <h2>Como uma estrutura de Meta Ads é organizada</h2>
-    <p>Perfil, Business Manager, Página e Conta de Anúncios são ativos distintos com funções distintas. Combos e estruturas reúnem esses elementos quando a operação precisa de um conjunto mais completo.</p>
+    <p>Perfil, Business Manager, Página e Conta de Anúncios são ativos distintos com funções distintas. Combos e estruturas reúnem esses elementos quando a operação precisa de um conjunto mais completo. Veja como funciona uma estrutura de <a href="${SITE_URL}/contingencia">contingência</a> e o panorama das <a href="${SITE_URL}/solucoes-meta-ads">soluções para Meta Ads</a>.</p>
+    <h2>Operações de maior volume</h2>
+    <p>Quando o investimento diário cresce, a estrutura passa a ser o gargalo. O <a href="${SITE_URL}/guia-facebook-ads-alto-volume">guia de Facebook Ads em alto volume</a> reúne o roteiro operacional dessa faixa, e os <a href="${SITE_URL}/blog">guias do blog</a> aprofundam cada tema por pilar.</p>
     <h2>Como funciona</h2>
     <p>Você explica sua operação, entendemos qual tipo de estrutura faz sentido, consultamos disponibilidade, apresentamos as opções e entregamos com orientação inicial. A operação das campanhas permanece com o seu time.</p>
     <p>A AD•SCALE é uma empresa independente e não possui vínculo oficial com a Meta.</p>
