@@ -245,6 +245,16 @@ export const pillars: Pillar[] = [
       "consultoria-meta-ads-vs-curso-quando-contratar",
       "quanto-cobrar-cliente-gestao-trafego-com-contingencia",
     ],
+    resourceLinks: {
+      heading: "Por onde começar",
+      links: [
+        { href: "/blog/gerenciador-anuncios-meta-tour-completo-iniciantes", label: "Tour pelo Gerenciador de Anúncios", description: "Primeiro contato com a interface de campanhas." },
+        { href: "/blog/metricas-essenciais-meta-ads-iniciantes", label: "Métricas essenciais", description: "O que olhar antes de tomar decisão de otimização." },
+        { href: "/blog/estrutura-meta-ads-perfil-bm-conta-anuncios", label: "Estrutura de Meta Ads", description: "Perfil, BM, página e conta de anúncios em uma visão só." },
+        { href: "/blog/pilar/business-manager", label: "Pilar Business Manager", description: "Aprofundamento em BM depois dos fundamentos." },
+        { href: "/blog/pilar/escala-e-performance", label: "Pilar Escala & Performance", description: "Próximo passo quando a operação começa a crescer." },
+      ],
+    },
   },
 ];
 
