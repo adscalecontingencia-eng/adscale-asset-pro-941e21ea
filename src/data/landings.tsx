@@ -494,9 +494,9 @@ const perfisFacebook: ProductLandingData = {
 const perfilAged: ProductLandingData = {
   slug: "perfil-aged",
   seo: {
-    title: "Comprar Perfil Antigo Facebook: Perfil Verificado 2010+ para BM | AD Scale",
+    title: "Comprar Perfil Aged Facebook 2010+ para BM | AD Scale",
     description:
-      "Comprar perfil antigo e perfil verificado Facebook (2 a 10+ anos) com timeline orgânica, histórico limpo e Trust Score alto para BM verificada, BM API e Meta Ads.",
+      "Perfil aged do Facebook (2 a 10+ anos) com timeline orgânica, histórico limpo e Trust Score alto para administrar BM verificada e contas Meta Ads.",
     keywords: [
       "comprar perfil antigo",
       "perfil antigo",
