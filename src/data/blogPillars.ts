@@ -163,6 +163,16 @@ export const pillars: Pillar[] = [
       "conversions api",
       "roi contingência",
     ],
+    resourceLinks: {
+      heading: "Escala, mensuração e operação de volume",
+      links: [
+        { href: "/guia-facebook-ads-alto-volume", label: "Guia de operação de alto volume", description: "Visão prática de como uma operação de maior investimento se organiza — complementa este pilar, que é o material educacional por tema." },
+        { href: "/pixel-capi", label: "Pixel e CAPI", description: "Camada de mensuração de eventos da operação." },
+        { href: "/aquecimento-contas", label: "Aquecimento de contas", description: "Warm-up de BMs, perfis e contas antes do volume." },
+        { href: "/blog/limite-de-gasto-facebook-ads-como-aumentar", label: "Limite de gasto", description: "Como os degraus de limite evoluem." },
+        { href: "/blog/metricas-essenciais-meta-ads-iniciantes", label: "Métricas essenciais", description: "Leitura básica de performance no Meta Ads." },
+      ],
+    },
     relatedLandingSlug: "aquecimento-contas",
     relatedLandingLabel: "Ver serviço de aquecimento",
     postSlugs: [
