@@ -148,7 +148,12 @@ const Index = () => {
                 Guias para operar com mais previsibilidade no Meta Ads
               </h2>
               <p className="text-muted-foreground max-w-3xl">
-                Aprofunde em bloqueio, estrutura de contingência e ativos com Trust Score alto.
+                Aprofunde em bloqueio, estrutura de contingência e ativos com Trust Score alto. Se a
+                sua operação já trabalha com investimento elevado, comece pelo{" "}
+                <Link to="/guia-facebook-ads-alto-volume" className="text-primary hover:underline">
+                  guia de Facebook Ads em alto volume
+                </Link>
+                .
               </p>
             </div>
 
