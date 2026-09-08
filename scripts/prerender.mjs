@@ -272,14 +272,14 @@ for (const chunk of landingSource.split(/const \w+: ProductLandingData = \{/).sl
 console.log(`[prerender] Parsed ${Object.keys(landings).length} landings comerciais`);
 
 const RELATED_LANDINGS = {
-  "business-manager": ["/bm-verificada", "/bm-ilimitada", "/perfis-facebook", "/paginas-facebook", "/aluguel-de-contas-meta-ads"],
-  "bm-ilimitada": ["/business-manager", "/bm-verificada", "/aquecimento-contas", "/aluguel-de-contas-meta-ads"],
+  "business-manager": ["/bm-verificada", "/bm-ilimitada", "/perfis-facebook", "/paginas-facebook", "/aluguel-de-contas-meta-ads", "/pixel-capi"],
+  "bm-ilimitada": ["/business-manager", "/bm-verificada", "/aquecimento-contas", "/aluguel-de-contas-meta-ads", "/pixel-capi"],
   "perfis-facebook": ["/perfil-facebook-antigo", "/perfil-aged", "/business-manager", "/paginas-facebook"],
   "perfil-aged": ["/perfis-facebook", "/perfil-facebook-antigo", "/paginas-facebook", "/business-manager"],
   "paginas-facebook": ["/perfis-facebook", "/business-manager", "/bm-verificada", "/perfil-aged"],
   "dominios-verificados": ["/pixel-capi", "/bm-verificada", "/business-manager", "/whatsapp-cloud-api"],
   "pixel-capi": ["/dominios-verificados", "/bm-verificada", "/business-manager", "/aquecimento-contas"],
-  "aquecimento-contas": ["/business-manager", "/bm-ilimitada", "/bm-verificada", "/perfis-facebook"],
+  "aquecimento-contas": ["/business-manager", "/bm-ilimitada", "/bm-verificada", "/perfis-facebook", "/pixel-capi"],
   "recuperacao-bm": ["/business-manager", "/bm-verificada", "/aluguel-de-contas-meta-ads", "/perfis-facebook"],
   "whatsapp-cloud-api": ["/bm-verificada", "/business-manager", "/dominios-verificados"],
 };
