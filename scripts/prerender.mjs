@@ -1326,7 +1326,9 @@ copyFileSync(resolve(DIST, "index.html"), resolve(DIST, "404.html"));
       <li><a href="${SITE_URL}/perfil-facebook-antigo">Perfil Facebook antigo</a> e <a href="${SITE_URL}/perfil-aged">perfil aged</a> — perfis com histórico anterior na plataforma.</li>
     </ul>
     <h2>Como uma estrutura de Meta Ads é organizada</h2>
-    <p>Perfil, Business Manager, Página e Conta de Anúncios são ativos distintos com funções distintas. Combos e estruturas reúnem esses elementos quando a operação precisa de um conjunto mais completo.</p>
+    <p>Perfil, Business Manager, Página e Conta de Anúncios são ativos distintos com funções distintas. Combos e estruturas reúnem esses elementos quando a operação precisa de um conjunto mais completo. Veja como funciona uma estrutura de <a href="${SITE_URL}/contingencia">contingência</a> e o panorama das <a href="${SITE_URL}/solucoes-meta-ads">soluções para Meta Ads</a>.</p>
+    <h2>Operações de maior volume</h2>
+    <p>Quando o investimento diário cresce, a estrutura passa a ser o gargalo. O <a href="${SITE_URL}/guia-facebook-ads-alto-volume">guia de Facebook Ads em alto volume</a> reúne o roteiro operacional dessa faixa, e os <a href="${SITE_URL}/blog">guias do blog</a> aprofundam cada tema por pilar.</p>
     <h2>Como funciona</h2>
     <p>Você explica sua operação, entendemos qual tipo de estrutura faz sentido, consultamos disponibilidade, apresentamos as opções e entregamos com orientação inicial. A operação das campanhas permanece com o seu time.</p>
     <p>A AD•SCALE é uma empresa independente e não possui vínculo oficial com a Meta.</p>
