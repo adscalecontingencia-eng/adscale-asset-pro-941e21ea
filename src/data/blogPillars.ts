@@ -121,6 +121,17 @@ export const pillars: Pillar[] = [
       "appeal facebook ads",
       "conta nova facebook",
     ],
+    resourceLinks: {
+      heading: "Segurança operacional e ativos relacionados",
+      links: [
+        { href: "/recuperacao-bm", label: "Recuperação de BM", description: "Quando a estrutura é restringida e precisa ser tratada." },
+        { href: "/blog/autenticacao-2-fatores-conta-facebook-ads", label: "Autenticação em dois fatores", description: "Camada básica de proteção do perfil administrador." },
+        { href: "/blog/politicas-anuncios-meta-erros-comuns-reprovacao", label: "Políticas de anúncio", description: "Erros comuns que levam à reprovação de criativos." },
+        { href: "/blog/recuperar-pagina-facebook-restrita-passo-a-passo", label: "Página restrita", description: "Passo a passo para tratar uma página com restrição." },
+        { href: "/blog/pilar/business-manager", label: "Pilar Business Manager", description: "Permissões e organização de contas dentro da BM." },
+        { href: "/contingencia", label: "Ativos de contingência", description: "Estruturas alternativas para reduzir dependência de um único ativo." },
+      ],
+    },
     relatedLandingSlug: "recuperacao-bm",
     relatedLandingLabel: "Falar sobre recuperação",
     postSlugs: [
