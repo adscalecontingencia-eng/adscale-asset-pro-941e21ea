@@ -160,6 +160,46 @@ const Contingencia = () => {
         </div>
       </section>
 
+      {/* Ativos e conteúdo relacionados */}
+      <section className="section-padding bg-card/30" aria-labelledby="relacionados-heading">
+        <div className="container max-w-4xl">
+          <h2 id="relacionados-heading" className="font-display text-2xl md:text-3xl font-bold mb-4">
+            Ativos e conteúdo relacionados à contingência
+          </h2>
+          <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <p>
+              Uma estrutura de contingência combina ativos diferentes. O{" "}
+              <Link to="/perfis-facebook" className="text-primary hover:underline">perfil Facebook</Link>{" "}
+              administra os acessos, a{" "}
+              <Link to="/paginas-facebook" className="text-primary hover:underline">página Facebook</Link>{" "}
+              é o ativo público das campanhas e a{" "}
+              <Link to="/business-manager" className="text-primary hover:underline">Business Manager</Link>{" "}
+              organiza contas, permissões e pixels.
+            </p>
+            <p>
+              Para entender as causas de restrição e como reagir, consulte o conteúdo sobre{" "}
+              <Link to="/blog/pilar/seguranca-e-bloqueios" className="text-primary hover:underline">
+                segurança e bloqueios no Meta Ads
+              </Link>{" "}
+              e a{" "}
+              <Link to="/blog/pilar/business-manager" className="text-primary hover:underline">
+                estrutura de Business Manager
+              </Link>
+              . Operações com investimento elevado costumam começar pelo{" "}
+              <Link to="/guia-facebook-ads-alto-volume" className="text-primary hover:underline">
+                guia de alto volume
+              </Link>{" "}
+              e pelo panorama de{" "}
+              <Link to="/solucoes-meta-ads" className="text-primary hover:underline">
+                soluções para Meta Ads
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+      </section>
+
+
       <FAQSection />
       <CTASection />
       <FooterSection />
