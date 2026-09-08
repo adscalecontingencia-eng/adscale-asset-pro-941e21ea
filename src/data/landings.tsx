@@ -193,6 +193,15 @@ const businessManager: ProductLandingData = {
     heading: "Perfis Facebook e a estrutura da BM",
     blocks: [
       {
+        h2: "Guias educacionais sobre Business Manager",
+        text: "O pilar de Business Manager reúne os materiais sobre verificação, tipos de BM, permissões de equipe e organização das contas de anúncio dentro da estrutura.",
+        links: [
+          { href: "/blog/pilar/business-manager", label: "guia de Business Manager" },
+          { href: "/blog/permissoes-equipe-bm-papeis-acesso-correto", label: "permissões dentro da BM" },
+          { href: "/blog/estrutura-bm-conta-pixel-pagina-relacao", label: "relação entre BM, conta, pixel e página" },
+        ],
+      },
+      {
         h2: "O perfil administrador dentro da Business Manager",
         text: "A Business Manager organiza ativos e permissões, mas quem acessa a estrutura é um perfil. Operações que utilizam estruturas com histórico também podem avaliar um perfil Facebook antigo.",
         links: [
@@ -316,6 +325,15 @@ const bmIlimitada: ProductLandingData = {
   crossLinks: {
     heading: "A BM é uma parte da estrutura",
     blocks: [
+      {
+        h2: "Entenda como funciona uma BM antes de escalar",
+        text: "Antes de aumentar volume, vale entender como a Business Manager organiza contas, permissões e limites. O pilar educacional reúne esse material.",
+        links: [
+          { href: "/blog/pilar/business-manager", label: "entenda como funciona uma BM" },
+          { href: "/blog/pilar/escala-e-performance", label: "escala e performance no Meta Ads" },
+          { href: "/blog/limite-de-gasto-facebook-ads-como-aumentar", label: "limite de gasto no Facebook Ads" },
+        ],
+      },
       {
         h2: "Perfil administrador e organização de acessos",
         text: "A Business Manager é apenas uma parte da estrutura. O perfil administrador também exerce papel importante na organização dos acessos e ativos.",
@@ -456,6 +474,15 @@ const perfisFacebook: ProductLandingData = {
   crossLinks: {
     heading: "Qual perfil Facebook escolher?",
     blocks: [
+      {
+        h2: "Guias sobre perfis e páginas Facebook",
+        text: "O pilar de perfis e páginas reúne o conteúdo educacional sobre histórico de perfil, administração de ativos e o papel da página dentro da estrutura.",
+        links: [
+          { href: "/blog/pilar/perfis-e-paginas", label: "conteúdo sobre perfis e páginas" },
+          { href: "/blog/perfil-aged-facebook-por-que-administrador-importa", label: "por que o perfil administrador importa" },
+          { href: "/blog/saude-perfil-administrador-bm-rotina-semanal", label: "rotina de saúde do perfil administrador" },
+        ],
+      },
       {
         h2: "Perfil Facebook antigo",
         text: "Perfis com histórico anterior de existência e utilização, usados para compor estruturas profissionais de Meta Ads. A adequação depende da estrutura e da necessidade da operação.",
@@ -623,6 +650,14 @@ const perfilAged: ProductLandingData = {
     heading: "Perfil aged e perfil antigo: como os termos se relacionam",
     blocks: [
       {
+        h2: "Material educacional sobre perfis com histórico",
+        text: "Os artigos do pilar de perfis e páginas explicam o papel do perfil administrador, comparações entre perfis e cuidados de operação.",
+        links: [
+          { href: "/blog/pilar/perfis-e-paginas", label: "pilar de perfis e páginas" },
+          { href: "/blog/perfil-aged-vs-perfil-antigo-facebook", label: "aged e antigo: a diferença na prática" },
+        ],
+      },
+      {
         h2: "Aged é o termo técnico; antigo é a linguagem do mercado brasileiro",
         text: "Perfil aged é um termo utilizado no mercado para se referir a um perfil Facebook com histórico anterior. No Brasil, esse tipo de perfil também costuma ser chamado de perfil Facebook antigo.",
         links: [{ href: "/perfil-facebook-antigo", label: "perfil Facebook antigo" }],
@@ -758,6 +793,28 @@ const paginasFacebook: ProductLandingData = {
     description: "Páginas antigos, verificadas e por nicho, com auditoria de engajamento e handover técnico.",
     ctaLabel: "QUERO MINHA FAN PAGE",
   },
+  crossLinks: {
+    heading: "Páginas Facebook dentro da estrutura",
+    blocks: [
+      {
+        h2: "Página, perfil e Business Manager",
+        text: "A página é vinculada a uma Business Manager e administrada por um perfil. Cada ativo tem função distinta dentro da operação.",
+        links: [
+          { href: "/perfis-facebook", label: "perfis Facebook para administrar ativos" },
+          { href: "/business-manager", label: "estrutura de Business Manager" },
+        ],
+      },
+      {
+        h2: "Conteúdo sobre páginas Facebook",
+        text: "O pilar de perfis e páginas reúne os guias sobre impacto da página antiga na performance e sobre páginas restritas.",
+        links: [
+          { href: "/blog/pilar/perfis-e-paginas", label: "conteúdo sobre perfis e páginas" },
+          { href: "/blog/pagina-antiga-facebook-impacto-na-performance", label: "impacto da página antiga na performance" },
+          { href: "/blog/recuperar-pagina-facebook-restrita-passo-a-passo", label: "página restrita: o que fazer" },
+        ],
+      },
+    ],
+  },
   featuredGuideSlugs: [
     "arquitetura-contingencia-meta-ads-operacao-alto-volume",
     "como-escolher-fornecedor-bm-verificada-meta",
@@ -876,6 +933,19 @@ const dominiosVerificados: ProductLandingData = {
     ),
     description: "Domínios verificados, antigos e WABA-ready com DNS e e-mail configurados.",
     ctaLabel: "QUERO DOMÍNIO VERIFICADO",
+  },
+  crossLinks: {
+    heading: "Conteúdo sobre domínio e mensuração",
+    blocks: [
+      {
+        h2: "Domínio verificado e performance",
+        text: "A verificação de domínio faz parte da camada de mensuração e de escala da operação.",
+        links: [
+          { href: "/blog/pilar/escala-e-performance", label: "escala e performance" },
+          { href: "/blog/dominio-verificado-facebook-como-configurar-ios14", label: "como configurar o domínio verificado" },
+        ],
+      },
+    ],
   },
   featuredGuideSlugs: [
     "arquitetura-contingencia-meta-ads-operacao-alto-volume",
@@ -1122,6 +1192,20 @@ const pixelCapi: ProductLandingData = {
     description: "Pixel + CAPI server-side + domínio verificado, configurados na sua stack com walkthrough técnico.",
     ctaLabel: "CONFIGURAR PIXEL + CAPI",
   },
+  crossLinks: {
+    heading: "Conteúdo sobre mensuração e performance",
+    blocks: [
+      {
+        h2: "Guias de escala e performance",
+        text: "Pixel e CAPI fazem parte da camada de mensuração. O pilar de escala e performance reúne o material sobre métricas, limites e diagnóstico de queda.",
+        links: [
+          { href: "/blog/pilar/escala-e-performance", label: "escala e performance no Meta Ads" },
+          { href: "/blog/pixel-vs-capi-conversions-api-meta-ads", label: "Pixel e CAPI: a diferença" },
+          { href: "/blog/instalar-pixel-meta-passo-a-passo", label: "como instalar o Pixel" },
+        ],
+      },
+    ],
+  },
   featuredGuideSlugs: [
     "trust-score-meta-ads-como-medir-aumentar",
     "arquitetura-contingencia-meta-ads-operacao-alto-volume",
@@ -1242,6 +1326,20 @@ const aquecimentoContas: ProductLandingData = {
     description: "Programa de warm-up estruturado para BMs, perfis e WABA, com monitoria diária de Quality Rating.",
     ctaLabel: "QUERO AQUECIMENTO PROFISSIONAL",
   },
+  crossLinks: {
+    heading: "Conteúdo sobre aquecimento e escala",
+    blocks: [
+      {
+        h2: "Material educacional sobre warm-up",
+        text: "O pilar de escala e performance explica warm-up, Trust Score e subida de limites de gasto em operações de maior volume.",
+        links: [
+          { href: "/blog/pilar/escala-e-performance", label: "guias de escala e performance" },
+          { href: "/blog/warm-up-conta-anuncio-meta-passo-a-passo", label: "passo a passo de warm-up" },
+          { href: "/guia-facebook-ads-alto-volume", label: "operações de maior volume" },
+        ],
+      },
+    ],
+  },
   featuredGuideSlugs: [
     "warm-up-perfil-facebook-passo-a-passo",
     "trust-score-meta-ads-como-medir-aumentar",
@@ -1355,6 +1453,20 @@ const recuperacaoBm: ProductLandingData = {
     ),
     description: "Diagnóstico em horas, defesa documental, contestação Meta e BM stand-by ativada em 24h.",
     ctaLabel: "QUERO RECUPERAR MINHA BM",
+  },
+  crossLinks: {
+    heading: "Conteúdo sobre segurança e bloqueios",
+    blocks: [
+      {
+        h2: "Guias sobre bloqueios e segurança operacional",
+        text: "O pilar de segurança e bloqueios reúne o conteúdo sobre causas de bloqueio, políticas de anúncio, autenticação em dois fatores e recuperação de ativos.",
+        links: [
+          { href: "/blog/pilar/seguranca-e-bloqueios", label: "conteúdo sobre bloqueios e restrições" },
+          { href: "/blog/politicas-anuncios-meta-erros-comuns-reprovacao", label: "erros comuns de política" },
+          { href: "/blog/autenticacao-2-fatores-conta-facebook-ads", label: "autenticação em dois fatores" },
+        ],
+      },
+    ],
   },
   featuredGuideSlugs: [
     "bloqueio-conta-anuncio-meta-como-evitar",
