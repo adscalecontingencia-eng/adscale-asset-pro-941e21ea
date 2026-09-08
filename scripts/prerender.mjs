@@ -235,6 +235,96 @@ function postClusterNavHtml(post) {
 
 
 
+// ---------- Parse product landings from src/data/landings.tsx ----------
+// Mesma fonte de dados que o React renderiza: nenhuma landing precisa de um
+// bodyHtml manual para ter H2, corpo, FAQ e links internos no HTML inicial.
+const landingSource = readFileSync(resolve("src/data/landings.tsx"), "utf8");
+const landings = {};
+for (const chunk of landingSource.split(/const \w+: ProductLandingData = \{/).slice(1)) {
+  const body = chunk.split("\n};")[0];
+  const slug = body.match(/slug:\s*"([^"]+)"/)?.[1];
+  if (!slug) continue;
+  const sub = body.match(/subheadline:\s*\n?\s*"([\s\S]*?)",\n/)?.[1];
+  const intro = body.match(/assets:\s*\{[\s\S]*?intro:\s*\n?\s*"([\s\S]*?)",\n/)?.[1];
+  const footerLine = body.match(/footerLine:\s*\n?\s*"([\s\S]*?)",\n/)?.[1];
+  const items = [...body.matchAll(/mk\(\s*\w+,\s*"([^"]*)",\s*"([^"]*)",\s*"([^"]*)",\s*\[([\s\S]*?)\]\s*\)/g)].map((m) => ({
+    tag: m[1],
+    title: m[2],
+    description: m[3],
+    bullets: (m[4].match(/"([^"]+)"/g) || []).map((b) => b.slice(1, -1)),
+  }));
+  const faqs = [...body.matchAll(/question:\s*"([^"]*)",\s*\n\s*answer:\s*\n?\s*"([\s\S]*?)",\n/g)].map((m) => ({ q: m[1], a: m[2] }));
+  const crossBlocks = [...body.matchAll(/h2:\s*"([^"]*)",\s*\n\s*text:\s*\n?\s*"([\s\S]*?)",\n([\s\S]*?)\n\s{6}\}/g)].map((m) => ({
+    h2: m[1],
+    text: m[2],
+    links: [...m[3].matchAll(/href:\s*"([^"]+)",\s*label:\s*"([^"]+)"/g)].map((l) => ({ href: l[1], label: l[2] })),
+  }));
+  const ctaDescription = body.match(/cta:\s*\{[\s\S]*?description:\s*\n?\s*"([\s\S]*?)",\n/)?.[1];
+  landings[slug] = { slug, sub, intro, footerLine, items, faqs, crossBlocks, ctaDescription };
+}
+console.log(`[prerender] Parsed ${Object.keys(landings).length} landings comerciais`);
+
+const RELATED_LANDINGS = {
+  "business-manager": ["/bm-verificada", "/bm-ilimitada", "/perfis-facebook", "/paginas-facebook", "/aluguel-de-contas-meta-ads"],
+  "bm-ilimitada": ["/business-manager", "/bm-verificada", "/aquecimento-contas", "/aluguel-de-contas-meta-ads"],
+  "perfis-facebook": ["/perfil-facebook-antigo", "/perfil-aged", "/business-manager", "/paginas-facebook"],
+  "perfil-aged": ["/perfis-facebook", "/perfil-facebook-antigo", "/paginas-facebook", "/business-manager"],
+  "paginas-facebook": ["/perfis-facebook", "/business-manager", "/bm-verificada", "/perfil-aged"],
+  "dominios-verificados": ["/pixel-capi", "/bm-verificada", "/business-manager", "/whatsapp-cloud-api"],
+  "pixel-capi": ["/dominios-verificados", "/bm-verificada", "/business-manager", "/aquecimento-contas"],
+  "aquecimento-contas": ["/business-manager", "/bm-ilimitada", "/bm-verificada", "/perfis-facebook"],
+  "recuperacao-bm": ["/business-manager", "/bm-verificada", "/aluguel-de-contas-meta-ads", "/perfis-facebook"],
+  "whatsapp-cloud-api": ["/bm-verificada", "/business-manager", "/dominios-verificados"],
+};
+
+const LANDING_LABEL = {
+  "/business-manager": "Business Manager",
+  "/bm-verificada": "BM verificada",
+  "/bm-ilimitada": "BM ilimitada",
+  "/perfis-facebook": "Perfis Facebook",
+  "/perfil-facebook-antigo": "Perfil Facebook antigo",
+  "/perfil-aged": "Perfil aged",
+  "/paginas-facebook": "Páginas Facebook",
+  "/dominios-verificados": "Domínios verificados",
+  "/pixel-capi": "Pixel + CAPI",
+  "/aquecimento-contas": "Aquecimento de contas",
+  "/recuperacao-bm": "Recuperação de BM",
+  "/whatsapp-cloud-api": "WhatsApp Cloud API",
+  "/aluguel-de-contas-meta-ads": "Aluguel de contas Meta Ads",
+};
+
+/** Corpo completo de uma landing comercial, derivado dos dados do React. */
+function landingBodyHtml(slug) {
+  const l = landings[slug];
+  if (!l) return "";
+  const out = [];
+  if (l.sub) out.push(`<p>${esc(l.sub)}</p>`);
+  if (l.intro) out.push(`<p>${esc(l.intro)}</p>`);
+  for (const item of l.items) {
+    out.push(`<h2>${esc(item.title)}</h2>`);
+    out.push(`<p>${esc(item.description)}</p>`);
+    if (item.bullets.length) out.push(`<ul>${item.bullets.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>`);
+  }
+  for (const b of l.crossBlocks) {
+    out.push(`<h2>${esc(b.h2)}</h2>`);
+    out.push(`<p>${esc(b.text)}</p>`);
+    if (b.links?.length) out.push(`<ul>${b.links.map((x) => `<li>${link(x.href, x.label)}</li>`).join("")}</ul>`);
+  }
+  const related = RELATED_LANDINGS[slug] || [];
+  if (related.length) {
+    out.push("<h2>Estruturas relacionadas</h2>");
+    out.push(`<ul>${related.map((href) => `<li>${link(href, LANDING_LABEL[href] || href)}</li>`).join("")}</ul>`);
+  }
+  if (l.faqs.length) {
+    out.push("<h2>Perguntas frequentes</h2>");
+    for (const f of l.faqs) out.push(`<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`);
+  }
+  if (l.footerLine) out.push(`<p>${esc(l.footerLine)}</p>`);
+  if (l.ctaDescription) out.push(`<p>${esc(l.ctaDescription)}</p>`);
+  out.push(`<p>A AD•SCALE é uma empresa independente e não possui vínculo oficial com a Meta. Consulte também os ${link("/blog", "artigos do blog")}.</p>`);
+  return out.join("\n");
+}
+
 // ---------- Static page metadata ----------
 const staticPages = [
   {
@@ -811,6 +901,8 @@ let count = 0;
 for (const page of staticPages) {
   if (page.bodyHtml) continue;
   if (page.path === "/blog") page.bodyHtml = blogIndexBodyHtml();
+  const landingSlug = page.path.replace(/^\//, "");
+  if (landings[landingSlug]) page.bodyHtml = landingBodyHtml(landingSlug);
   const pm = page.path.match(/^\/blog\/pilar\/(.+)$/);
   if (pm) {
     const pillar = pillars.find((x) => x.slug === pm[1]);
