@@ -114,10 +114,11 @@ const renderMarkdown = (md: string, campaign = "blog_post") => {
     }
 
     // Fenced TL;DR / Callout blocks: :::tldr ... ::: or :::callout type=warning ... :::
-    const fence = line.match(/^:::(tldr|callout)(?:\s+type=(info|warning|success|tip))?\s*$/);
+    const fence = line.match(/^:::(tldr|callout|quick|flow|choices)(?:\s+type=(info|warning|success|tip))?(?:\s+title="([^"]+)")?\s*$/);
     if (fence) {
       const kind = fence[1];
       const type = fence[2] || "info";
+      const fenceTitle = fence[3];
       i++;
       const buf: string[] = [];
       while (i < lines.length && !lines[i].startsWith(":::")) {
@@ -126,6 +127,54 @@ const renderMarkdown = (md: string, campaign = "blog_post") => {
       }
       if (i < lines.length) i++; // consume closing :::
       const body = buf.join(" ").trim();
+      const nonEmpty = buf.map((l) => l.trim()).filter(Boolean);
+      if (kind === "quick") {
+        blocks.push(
+          <aside key={`quick-${i}`} className="my-8 rounded-xl border border-primary/30 bg-primary/5 p-5 md:p-6">
+            <div className="text-xs font-bold uppercase tracking-wider text-primary mb-3">{fenceTitle ?? "Resposta rápida"}</div>
+            <div className="space-y-3">
+              {nonEmpty.map((p, idx) => (
+                <p key={idx} className="text-foreground/90 leading-relaxed m-0">{inline(p)}</p>
+              ))}
+            </div>
+          </aside>,
+        );
+        continue;
+      }
+      if (kind === "flow") {
+        blocks.push(
+          <ol key={`flow-${i}`} aria-label={fenceTitle ?? "Fluxo"} className="my-8 flex flex-col items-stretch gap-0 list-none p-0 max-w-md mx-auto">
+            {nonEmpty.map((s, idx) => (
+              <li key={idx} className="flex flex-col items-center">
+                <span className="w-full rounded-lg border border-border bg-muted/30 px-4 py-3 text-center text-sm font-semibold text-foreground">
+                  {inline(s)}
+                </span>
+                {idx < nonEmpty.length - 1 && <span aria-hidden="true" className="py-1 text-primary">↓</span>}
+              </li>
+            ))}
+          </ol>,
+        );
+        continue;
+      }
+      if (kind === "choices") {
+        blocks.push(
+          <div key={`ch-${i}`} className="my-8">
+            {fenceTitle && <div className="text-xs font-bold uppercase tracking-wider text-primary mb-3">{fenceTitle}</div>}
+            <ul className="grid gap-3 list-none p-0 m-0">
+              {nonEmpty.map((row, idx) => {
+                const [q, a] = row.split("||").map((x) => x.trim());
+                return (
+                  <li key={idx} className="rounded-lg border border-border bg-card p-4">
+                    <p className="m-0 font-semibold text-foreground leading-snug">{inline(q)}</p>
+                    {a && <p className="m-0 mt-2 text-muted-foreground leading-relaxed">→ {inline(a)}</p>}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>,
+        );
+        continue;
+      }
       if (kind === "tldr") {
         blocks.push(
           <aside
@@ -276,7 +325,7 @@ const renderMarkdown = (md: string, campaign = "blog_post") => {
  */
 const extractFaqs = (content: string) => {
   const faqSectionMatch = content.match(
-    /##\s+Perguntas frequentes\s*\n([\s\S]+?)(?:\n##\s+|\n<!--\s*seo-rodada-1:end|\s*$)/i,
+    /##\s+Perguntas frequentes[^\n]*\n([\s\S]+?)(?:\n##\s+|\n<!--\s*seo-rodada-1:end|\s*$)/i,
   );
 
   if (faqSectionMatch) {
