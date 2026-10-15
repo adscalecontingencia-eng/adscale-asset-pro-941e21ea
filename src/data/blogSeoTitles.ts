@@ -59,7 +59,7 @@ export const blogSeoTitles: Record<string, string> = {
   "limite-de-gasto-facebook-ads-como-aumentar":
     "Limite de Gasto Facebook Ads: Como Aumentar (2026)",
   "metricas-essenciais-meta-ads-iniciantes":
-    "Métricas Essenciais do Meta Ads para Iniciantes",
+    "Métricas do Meta Ads: CTR, CPM, CPC, CPA e ROAS Explicados",
   "catalogo-meta-commerce-como-criar":
     "Catálogo Meta Commerce: Como Criar e Configurar Corretamente",
   "quanto-custa-bm-verificada-facebook-2026":
