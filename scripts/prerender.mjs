@@ -138,7 +138,7 @@ for (const block of postBlocks) {
     ?.match(/"([^"]+)"/g)
     ?.map((k) => k.slice(1, -1)) || [];
   if (slug && title && description) {
-    posts.push({ slug, title, description, ogImage, publishedAt, keywords, content: contentBySlug[slug] || "" });
+    posts.push({ slug, title, description, ogImage, publishedAt, updatedAt, keywords, content: contentBySlug[slug] || "" });
   }
 }
 console.log(`[prerender] Parsed ${posts.length} blog posts (${posts.filter((p) => p.content).length} with body)`);
@@ -1147,7 +1147,7 @@ function articleLd(post, canonical, ogImageUrl) {
     headline: post.title,
     description: post.description,
     datePublished: post.publishedAt,
-    dateModified: post.publishedAt,
+    dateModified: post.updatedAt ?? post.publishedAt,
     inLanguage: "pt-BR",
     keywords: (post.keywords || []).join(", "),
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
