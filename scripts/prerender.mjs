@@ -93,7 +93,7 @@ function mdToHtml(md) {
     let m;
     if ((m = line.match(/^(#{1,6})\s+(.*)$/))) {
       flushPara(); closeList(); closeQuote();
-      const lvl = Math.min(m[1].length + 1, 6);
+      const lvl = Math.max(2, Math.min(m[1].length, 6));
       out.push(`<h${lvl}>${inlineFmt(m[2])}</h${lvl}>`);
     } else if ((m = line.match(/^\s*[-*]\s+(.*)$/))) {
       flushPara(); closeQuote();
