@@ -2198,108 +2198,189 @@ Em saúde, exiba CRM/CRO/CRP do responsável técnico tanto no criativo (rodapé
   },
   {
     slug: "qualidade-conta-anuncio-meta-como-medir",
-    title: "Qualidade da conta de anúncio no Meta: como medir e melhorar",
+    title: "Qualidade da Conta no Meta Ads: como verificar problemas e restrições",
     description:
-      "Entenda como funciona a qualidade da conta no Meta Ads, quais sinais afetam restrições e como estruturar uma operação mais segura para tráfego pago.",
-    keywords: ["account quality meta", "qualidade conta anuncio facebook", "score conta meta ads", "violacoes facebook ads", "ad account quality"],
+      "Veja como verificar a qualidade da conta no Meta Ads, identificar restrições e entender alertas relacionados a contas de anúncios, páginas e ativos.",
+    keywords: ["account quality meta", "qualidade conta anuncio facebook", "qualidade da conta facebook", "qualidade da conta meta", "violacoes facebook ads", "ad account quality"],
     category: "Topo de funil",
-    readingTime: "7 min",
+    readingTime: "8 min",
     publishedAt: "2026-05-14",
+    updatedAt: "2026-10-15",
+    ctaTitle: "Infraestrutura para operações de Meta Ads",
+    ctaDescription: "A AD Scale fornece estruturas e ativos de contingência para operações de Meta Ads — não gerenciamos campanhas nem prometemos recuperar contas.",
+    ctaLabel: "Falar com a equipe sobre infraestrutura",
+    ctaWhatsappMessage: "Olá! Li o artigo sobre Qualidade da Conta no blog da AD Scale e quero entender as estruturas de contingência para Meta Ads.",
     ogImage: "/og/og-account-quality.jpg",
     content: `
-:::tldr
-**Account Quality** é o painel onde o Meta mostra advertências, restrições e o score de cada ativo (conta, BM, página, perfil). Verificar semanalmente evita que você descubra um bloqueio quando a campanha já parou de entregar.
-
+:::quick title="Resposta rápida"
+Para verificar problemas relacionados à sua conta de anúncios ou outros ativos da Meta, consulte os **alertas, restrições e informações** disponíveis nas ferramentas de suporte e gerenciamento da Meta vinculadas à sua empresa.
+O objetivo é identificar **qual ativo foi afetado**, **qual é o motivo informado** pela plataforma e se existe alguma ação disponível, como corrigir uma pendência ou solicitar revisão.
+Os nomes e caminhos das ferramentas podem mudar ao longo do tempo, por isso esta página não depende de uma única rota de interface.
 :::
 
-Quase ninguém abre o **business.facebook.com/accountquality**. E é exatamente lá que o Meta avisa, com dias de antecedência, que sua conta está prestes a ser restringida.
+## O que é Qualidade da Conta no Meta Ads?
 
-## Onde acessar
+"Qualidade da Conta" (em inglês, **Account Quality**) é como o mercado se refere à área em que a Meta mostra o **status** dos seus ativos de publicidade: alertas, restrições, anúncios reprovados e ações disponíveis.
 
-\`Business Suite → Configurações → Qualidade da conta\`
+Na prática, não se trata de uma nota. É um lugar para ver **o que está acontecendo** com cada ativo e **o que a plataforma informa** sobre isso.
 
-Você verá três níveis:
+## Como verificar a qualidade e o status da conta no Meta Ads
 
-- **Conta de anúncio**
-- **Página**
-- **Perfil pessoal administrador**
+1. Acesse a estrutura empresarial da Meta em que seus ativos estão (Business Portfolio / Gerenciador de Negócios).
+2. Localize as áreas relacionadas a suporte, status da conta, qualidade da conta ou restrições.
+3. Selecione o ativo afetado: conta de anúncios, Página, perfil ou a própria empresa.
+4. Verifique os alertas e os motivos apresentados.
+5. Abra os detalhes disponíveis para cada aviso.
+6. Caso exista a possibilidade de revisão, siga o procedimento disponibilizado pela própria Meta.
 
-Cada um tem status: **Ativo / Em revisão / Restrito / Desativado**.
+Em muitos casos, o endereço business.facebook.com/accountquality leva direto a essa área. Como a interface muda, a [Central de Ajuda para Empresas da Meta](https://www.facebook.com/business/help) é a referência mais segura para o caminho atual.
 
-## O que derruba a qualidade
+## O que verificar quando existe um problema na conta
 
-- Anúncios reprovados repetidos (mesmo criativo, mesmo motivo).
-- Feedback negativo alto (ocultar, "não quero ver", denúncia).
-- Disputas de pagamento (chargeback).
-- Sinais de scraping ou automação.
-- Login simultâneo em IPs distantes.
-- Página com avaliações negativas e baixo CSAT.
+| Situação | O que verificar | Próximo passo |
+|---|---|---|
+| Anúncio reprovado | Motivo da reprovação e política indicada | Revisar o anúncio e consultar a política relacionada |
+| Conta com restrição | Aviso apresentado pela Meta e ativo afetado | Abrir os detalhes e verificar ações disponíveis |
+| Página com problema | Status e eventual restrição relacionada à Página | Consultar os detalhes do ativo |
+| Problema de pagamento | Forma de pagamento, cobrança ou pendência exibida | Resolver a pendência indicada |
+| Solicitação de verificação | Informações ou documentos solicitados pela plataforma | Seguir o processo oficial apresentado pela Meta |
+| Pedido de revisão disponível | Motivo da decisão e informações solicitadas | Enviar a revisão somente pelos canais oficiais |
 
-## O que melhora
+## Quais ativos podem apresentar restrições?
 
-- Renovar criativos antes de saturar.
-- Atender pedido de verificação na hora.
-- Manter domínio + Pixel + CAPI consistentes.
-- Responder reviews da página.
-- Pagar com o mesmo método por bastante tempo.
+### Conta de anúncios
 
-:::callout type=tip
-Após qualquer reprovação, **não republique o mesmo anúncio**. Ajuste copy, troque thumb e republique como criativo novo. Reapresentar o mesmo conteúdo conta como reincidência.
+É onde aparecem reprovações de anúncios, limites e restrições de veiculação. Uma restrição aqui costuma interromper a entrega das campanhas daquela conta.
+
+### Business Portfolio / estrutura empresarial
+
+A empresa como um todo pode receber avisos ou pedidos de verificação, o que pode afetar os ativos ligados a ela.
+
+### Página
+
+Páginas podem ter restrições próprias, que impedem ou limitam o uso em anúncios.
+
+### Perfil ou usuário com acesso
+
+Perfis de pessoas com acesso à empresa também podem apresentar restrições, inclusive para anunciar. Vale verificar quem administra cada ativo.
+
+### Forma de pagamento
+
+Cobranças recusadas ou pendências podem pausar a veiculação até serem resolvidas.
+
+## Como interpretar uma restrição no Meta Ads
+
+Comece por três perguntas: **qual ativo** foi afetado, **qual motivo** a Meta informa e **qual ação** está disponível. O motivo informado é a principal pista; evite tirar conclusões além do que a plataforma mostra.
+
+## O que fazer quando um anúncio é reprovado?
+
+Leia o motivo e a política indicada, compare com as [Políticas de Publicidade da Meta](https://transparency.meta.com/policies/ad-standards/) e ajuste o anúncio. Como boa prática, evite republicar o mesmo conteúdo sem mudanças. Veja os [erros comuns que levam à reprovação](/blog/politicas-anuncios-meta-erros-comuns-reprovacao).
+
+## O que fazer quando uma conta de anúncios é restringida?
+
+Abra os detalhes da restrição, verifique o motivo e as ações disponíveis e confira se há pendências de pagamento ou verificação. Para um passo a passo, veja o guia sobre [como recuperar uma conta de anúncio bloqueada](/blog/recuperar-conta-anuncio-bloqueada-facebook-ads).
+
+## Como solicitar uma revisão na Meta
+
+Se a própria plataforma disponibilizar uma opção de revisão, abra os detalhes da decisão, verifique o motivo informado e envie as informações solicitadas pelos canais oficiais. Nem toda decisão oferece essa opção.
+
+- Entenda o motivo antes de recorrer.
+- Forneça contexto objetivo.
+- Não envie informações falsas.
+- Use apenas os canais oficiais da Meta.
+- Acompanhe o status pelo próprio ecossistema da Meta.
+
+Uma revisão não garante reversão da decisão.
+
+**Exemplo hipotético: "Minha campanha parou. Por onde começo?"**
+
+:::flow title="Fluxo de diagnóstico"
+Campanha parou
+Verificar status do anúncio
+Verificar conta de anúncios
+Verificar ativo/Página
+Verificar pagamento
+Ler o motivo informado
+Corrigir ou solicitar revisão, se disponível
 :::
 
-## Como ler o histórico de violações
+Esse é um fluxo de diagnóstico, não uma garantia de recuperação.
 
-Clique em cada violação para ver:
+## Qualidade da Conta e Trust Score são a mesma coisa?
 
-- **Política violada** (ex.: produtos restritos, conteúdo enganoso).
-- **Anúncio específico** (ID).
-- **Direito de revisão** (botão "Solicitar nova análise").
+Não. Nesta página, "Qualidade da Conta" é a **verificação prática** de alertas, restrições, violações e condições apresentadas nos sistemas da Meta.
 
-Use sempre o appeal — em ~30% dos casos o Meta reverte com um texto bem escrito ([guia de recuperação](/blog/recuperar-conta-anuncio-bloqueada-facebook-ads)).
+"Trust Score" é um termo usado no mercado para descrever, de forma mais ampla, sinais de confiança e reputação percebidos por anunciantes e profissionais. Não deve ser tratado como um indicador numérico oficial da Meta. Para esse conceito, leia [o que o mercado chama de Trust Score no Facebook Ads](/blog/trust-score-facebook-ads-como-meta-avalia-conta).
 
-:::callout type=warning
-3 violações em 30 dias = restrição automática. 5 violações = desativação. Reset acontece apenas após 90 dias limpos.
+## Problemas que podem exigir atenção na sua operação
+
+- **Reprovações de anúncios:** repetidas reprovações pelo mesmo motivo indicam que o conteúdo precisa ser revisto.
+- **Restrições de ativos:** contas, Páginas ou perfis com avisos merecem análise antes de novas campanhas.
+- **Questões de pagamento:** cobranças recusadas ou contestadas podem pausar a veiculação.
+- **Segurança e acessos:** acessos desatualizados ou contas sem [autenticação em dois fatores](/blog/autenticacao-2-fatores-conta-facebook-ads) aumentam o risco operacional.
+- **Verificações solicitadas:** pedidos de documentos ou confirmação de informações devem ser atendidos pelo processo oficial.
+- **Conformidade com políticas:** o produto, a página de destino e o anúncio precisam estar alinhados às políticas.
+
+## Boas práticas para acompanhar a saúde da operação
+
+- Acompanhar alertas e notificações.
+- Revisar os motivos de reprovação.
+- Manter acessos atualizados e remover quem não precisa mais deles.
+- Manter informações empresariais consistentes.
+- Acompanhar cobranças e formas de pagamento.
+- Seguir as Políticas de Publicidade da Meta.
+- Usar os canais oficiais para pedidos de revisão.
+
+Para uma revisão completa, use o [checklist de auditoria da BM](/blog/checklist-auditoria-bm-facebook-18-itens) e o guia de [segurança e bloqueios](/blog/pilar/seguranca-e-bloqueios).
+
+## Checklist rápido de diagnóstico
+
+:::choices title="Checklist rápido"
+☐ Existe alerta ou restrição visível?
+☐ Qual ativo aparece como afetado?
+☐ A Meta informa o motivo?
+☐ Existe política específica indicada?
+☐ Existe pendência de pagamento?
+☐ Existe solicitação de verificação?
+☐ Existe opção de solicitar revisão?
+☐ Os acessos da empresa estão atualizados?
 :::
 
-## Rotina recomendada
-
-| Frequência | Ação |
-|---|---|
-| Diária | Olhar notificações no Business Suite |
-| Semanal | Account Quality em todas as BMs |
-| Mensal | Revisar páginas, domínios e perfis admin |
-| Trimestral | Auditar acessos, remover ex-funcionários |
-
-> Antes do próximo bloqueio, faça o [checklist de auditoria da BM](/blog/checklist-auditoria-bm-facebook-18-itens).
-
-<!-- seo-rodada-1:start -->
-
-## Sua conta está limitada, instável ou com baixa qualidade?
-
-A AD Scale ajuda operações de tráfego a organizarem ativos, BMs, perfis, páginas e estrutura comercial com mais previsibilidade.
-
-[Avaliar minha estrutura no WhatsApp](https://wa.me/553198416336?text=Ol%C3%A1%2C%20vim%20pelo%20Google%20e%20quero%20avaliar%20uma%20estrutura%20de%20conting%C3%AAncia%20para%20Meta%20Ads.)
-
-**Próximos passos na AD Scale:** [contingência Meta Ads](/contingencia-meta-ads) · [BM verificada](/bm-verificada) · [consultoria Meta Ads](/consultoria-meta-ads).
+Problemas de conta também mostram por que operações de maior volume precisam reduzir a dependência de um único ativo. [Conhecer estrutura de contingência](/contingencia)
 
 ## Perguntas frequentes
 
-### O que é qualidade da conta no Meta Ads?
+### O que é Qualidade da Conta no Meta Ads?
 
-A qualidade da conta é um conjunto de sinais usados pela Meta para indicar a saúde, restrições e histórico de uma conta, Business Manager ou ativo de anúncio.
+É a área em que a Meta mostra o status dos seus ativos de publicidade, com alertas, restrições, reprovações e ações disponíveis.
 
-### Como saber se minha conta Meta Ads está com problema?
+### Onde vejo a Qualidade da Conta no Facebook?
 
-Você pode verificar alertas, restrições e status de ativos no painel de qualidade da conta, além de analisar reprovações, limitações e queda de entrega.
+Nas ferramentas de suporte e gerenciamento da sua empresa na Meta. O endereço business.facebook.com/accountquality costuma levar a essa área, mas o caminho pode mudar; a Central de Ajuda da Meta indica a rota atual.
 
-### Uma BM verificada ajuda na operação de anúncios?
+### Como saber se minha conta de anúncios está com problema?
 
-Uma BM verificada pode contribuir para uma estrutura mais profissional, mas não elimina a necessidade de seguir políticas, boas práticas e manter ativos organizados.
+Verifique os alertas e o status da conta de anúncios, os anúncios reprovados e eventuais pendências de pagamento ou verificação.
 
-### Quando devo buscar uma estrutura de contingência Meta Ads?
+### O que é Account Quality?
 
-Quando sua operação depende de volume, estabilidade e continuidade, pode fazer sentido avaliar uma estrutura com BMs, perfis, páginas, domínios e suporte estratégico.
-<!-- seo-rodada-1:end -->
+É o nome em inglês da área de Qualidade da Conta, onde a Meta exibe o status, os alertas e as restrições dos ativos.
+
+### Como saber por que minha conta Meta Ads foi restringida?
+
+Abra os detalhes da restrição: a Meta costuma informar o motivo e a política relacionada, além das ações disponíveis.
+
+### É possível pedir revisão de uma restrição?
+
+Em alguns casos, sim. Quando a plataforma oferece essa opção, a revisão deve ser feita pelos canais oficiais, sem garantia de reversão.
+
+### Qualidade da Conta e Trust Score são a mesma coisa?
+
+Não. Qualidade da Conta é a verificação prática de status e restrições; Trust Score é um termo do mercado, não um indicador oficial da Meta.
+
+### Uma BM verificada evita bloqueios?
+
+Não. Uma BM verificada não elimina o risco de restrições e não substitui o cumprimento das políticas da plataforma.
 `,
   },
   {
