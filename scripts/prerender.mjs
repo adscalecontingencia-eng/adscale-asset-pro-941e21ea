@@ -56,8 +56,39 @@ function mdToHtml(md) {
   const flushPara = () => { if (paraBuf.length) { out.push(`<p>${inlineFmt(paraBuf.join(" "))}</p>`); paraBuf = []; } };
   const closeList = () => { if (inList) { out.push(`</${inList}>`); inList = null; } };
   const closeQuote = () => { if (inQuote) { out.push("</blockquote>"); inQuote = false; } };
-  for (const raw of lines) {
-    const line = raw.trimEnd();
+  const CALLOUT_LABEL = { info: "Importante", warning: "Atenção", success: "Boa prática", tip: "Dica" };
+  for (let li = 0; li < lines.length; li++) {
+    const line = lines[li].trimEnd();
+    // Blocos :::tldr / :::callout / :::quick / :::flow / :::choices — renderizados
+    // como HTML semântico, nunca como sintaxe crua (mesmo contrato do React).
+    const fence = line.match(/^:::(tldr|callout|quick|flow|choices)(?:\s+type=(info|warning|success|tip))?(?:\s+title="([^"]+)")?\s*$/);
+    if (fence) {
+      flushPara(); closeList(); closeQuote();
+      const [, kind, type = "info", t] = fence;
+      const buf = [];
+      li++;
+      while (li < lines.length && !lines[li].startsWith(":::")) { buf.push(lines[li].trim()); li++; }
+      const items = buf.filter(Boolean);
+      if (kind === "tldr") out.push(`<aside><p><strong>TL;DR</strong></p><p>${inlineFmt(items.join(" "))}</p></aside>`);
+      else if (kind === "callout") out.push(`<aside><p><strong>${CALLOUT_LABEL[type]}</strong></p><p>${inlineFmt(items.join(" "))}</p></aside>`);
+      else if (kind === "quick") out.push(`<aside><p><strong>${t ?? "Resposta rápida"}</strong></p>${items.map((p) => `<p>${inlineFmt(p)}</p>`).join("")}</aside>`);
+      else if (kind === "flow") out.push(`<ol>${items.map((s) => `<li>${inlineFmt(s)}</li>`).join("")}</ol>`);
+      else out.push(`${t ? `<p><strong>${t}</strong></p>` : ""}<ul>${items.map((r) => { const [q, a] = r.split("||").map((x) => x.trim()); return `<li><strong>${inlineFmt(q)}</strong>${a ? ` → ${inlineFmt(a)}` : ""}</li>`; }).join("")}</ul>`);
+      continue;
+    }
+    // Tabelas markdown → <table> semântica.
+    if (line.startsWith("|")) {
+      flushPara(); closeList(); closeQuote();
+      const rows = [];
+      while (li < lines.length && lines[li].trim().startsWith("|")) { rows.push(lines[li].trim()); li++; }
+      li--;
+      const cells = (r) => r.split("|").slice(1, -1).map((c) => c.trim());
+      const head = cells(rows[0]);
+      const body = rows.slice(2).map(cells);
+      out.push(`<table><thead><tr>${head.map((h) => `<th>${inlineFmt(h)}</th>`).join("")}</tr></thead><tbody>${body.map((r) => `<tr>${r.map((c) => `<td>${inlineFmt(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>`);
+      continue;
+    }
+    if (line.startsWith("&lt;!--")) continue;
     if (!line.trim()) { flushPara(); closeList(); closeQuote(); continue; }
     let m;
     if ((m = line.match(/^(#{1,6})\s+(.*)$/))) {
