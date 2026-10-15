@@ -31,7 +31,7 @@ export const blogSeoTitles: Record<string, string> = {
   "calcular-roi-investimento-contingencia-meta-ads":
     "ROI de contingência no Meta Ads: como calcular",
   "trust-score-facebook-ads-como-meta-avalia-conta":
-    "Trust Score Facebook Ads: como o Meta avalia (2026)",
+    "Trust Score no Meta Ads Existe? Entenda Como a Meta Avalia Contas",
   "recuperar-conta-anuncio-bloqueada-facebook-ads":
     "Recuperar conta de anúncio bloqueada no Facebook Ads",
   "dominio-verificado-facebook-como-configurar-ios14":
