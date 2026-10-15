@@ -3454,6 +3454,10 @@ Se a nova BM travar logo após migração:
     readingTime: "8 min",
     publishedAt: "2026-05-23",
     updatedAt: "2026-10-15",
+    ctaTitle: "Infraestrutura para operações de Meta Ads",
+    ctaDescription: "A AD Scale fornece estruturas e ativos de contingência para operações de Meta Ads — não gerenciamos suas campanhas.",
+    ctaLabel: "Falar sobre infraestrutura",
+    ctaWhatsappMessage: "Olá! Li o artigo sobre CBO x ABO no blog da AD Scale e quero entender as estruturas de contingência para Meta Ads.",
     ogImage: "/og/og-cbo-abo.jpg",
     content: `
 :::quick title="Resposta rápida"
