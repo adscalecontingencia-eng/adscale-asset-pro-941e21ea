@@ -332,7 +332,7 @@ const extractFaqs = (content: string) => {
     const body = faqSectionMatch[1];
     const items = [...body.matchAll(/###\s+(.+?)\n+([\s\S]+?)(?=\n###\s+|\n##\s+|\n<!--|$)/g)];
     if (items.length) {
-      return items.slice(0, 8).map((m) => ({
+      return items.slice(0, 12).map((m) => ({
         "@type": "Question",
         name: m[1].trim(),
         acceptedAnswer: {
