@@ -1298,8 +1298,15 @@ for (const post of posts) {
     "@context": "https://schema.org",
     "@graph": [articleLd(post, canonical, ogImageUrl), breadcrumbs],
   };
+  // FAQPage sincronizado com a seção visível "## Perguntas frequentes" (mesma regra do React).
+  const faqSec = post.content.match(/##\s+Perguntas frequentes[^\n]*\n([\s\S]+?)(?:\n##\s+|\n<!--\s*seo-rodada-1:end|\s*$)/i);
+  if (faqSec) {
+    const qs = [...faqSec[1].matchAll(/###\s+(.+?)\n+([\s\S]+?)(?=\n###\s+|\n##\s+|\n<!--|$)/g)].slice(0, 8);
+    if (qs.length) jsonLd["@graph"].push({ "@type": "FAQPage", mainEntity: qs.map((m) => ({ "@type": "Question", name: m[1].trim(), acceptedAnswer: { "@type": "Answer", text: m[2].trim().replace(/\s+/g, " ").replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/\*\*/g, "") } })) });
+  }
   const html = injectMeta(TEMPLATE, {
     title: seoTitlesMap[post.slug] ?? post.title,
+    h1: post.title,
     description: post.description,
     canonical,
     ogImage: post.ogImage,
