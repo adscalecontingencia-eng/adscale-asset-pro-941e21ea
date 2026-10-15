@@ -49,7 +49,7 @@ export const blogSeoTitles: Record<string, string> = {
   "qualidade-conta-anuncio-meta-como-medir":
     "Qualidade da Conta Meta Ads: Como Medir e Melhorar",
   "estrutura-campanha-cbo-abo-quando-usar":
-    "CBO ou ABO no Meta Ads: Quando Usar Cada Estrutura",
+    "CBO x ABO no Meta Ads: Diferenças e Quando Usar (2026)",
   "autenticacao-2-fatores-conta-facebook-ads":
     "Autenticação 2 Fatores Facebook Ads: Proteger Conta",
   "como-funciona-leilao-meta-ads":

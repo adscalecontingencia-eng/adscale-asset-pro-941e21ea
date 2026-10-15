@@ -325,7 +325,7 @@ const renderMarkdown = (md: string, campaign = "blog_post") => {
  */
 const extractFaqs = (content: string) => {
   const faqSectionMatch = content.match(
-    /##\s+Perguntas frequentes\s*\n([\s\S]+?)(?:\n##\s+|\n<!--\s*seo-rodada-1:end|\s*$)/i,
+    /##\s+Perguntas frequentes[^\n]*\n([\s\S]+?)(?:\n##\s+|\n<!--\s*seo-rodada-1:end|\s*$)/i,
   );
 
   if (faqSectionMatch) {
