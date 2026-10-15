@@ -134,6 +134,7 @@ for (const block of postBlocks) {
   const description = block.match(/description:\s*"([^"]+)"/)?.[1];
   const ogImage = block.match(/ogImage:\s*"([^"]+)"/)?.[1] || "/og/og-default.jpg";
   const publishedAt = block.match(/publishedAt:\s*"([^"]+)"/)?.[1];
+  const updatedAt = block.match(/updatedAt:\s*"([^"]+)"/)?.[1];
   const keywords = block.match(/keywords:\s*\[([^\]]+)\]/)?.[1]
     ?.match(/"([^"]+)"/g)
     ?.map((k) => k.slice(1, -1)) || [];
