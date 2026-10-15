@@ -55,7 +55,7 @@ export const blogSeoTitles: Record<string, string> = {
   "como-funciona-leilao-meta-ads":
     "Leilão do Meta Ads: Como Funciona e o Que Afeta",
   "cnpj-mei-meta-ads-vale-pena":
-    "CNPJ ou MEI no Meta Ads: Vale a Pena para Anunciar?",
+    "CNPJ ou MEI no Meta Ads: Precisa para Anunciar? (2026)",
   "limite-de-gasto-facebook-ads-como-aumentar":
     "Limite de Gasto Facebook Ads: Como Aumentar (2026)",
   "metricas-essenciais-meta-ads-iniciantes":
